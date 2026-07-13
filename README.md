@@ -33,7 +33,7 @@
 3. Orxis generates a complete, structured Custom Instruction
 4. Copy it and paste it directly into ChatGPT, Claude, Gemini, or any other AI assistant
 
-That's the entire workflow. The app runs in your browser — no account, no subscription, no setup.
+That's the entire workflow. No account, no subscription, nothing to install.
 
 ---
 
@@ -58,7 +58,7 @@ That's the entire workflow. The app runs in your browser — no account, no subs
 | Styling | [Tailwind CSS](https://tailwindcss.com/) + CSS Custom Properties |
 | Animation | [Framer Motion](https://www.framer.com/motion/) 12 |
 | Icons | [Lucide React](https://lucide.dev/) |
-| AI | [Google Gemini](https://ai.google.dev/) via `@google/genai` |
+| AI | [Google Gemini API](https://ai.google.dev/) |
 | Community Data | [Airtable](https://airtable.com/) |
 | Deployment | [Vercel](https://vercel.com/) |
 
@@ -113,14 +113,10 @@ npm run start
 
 ## 🏗 Architecture
 
-```
-Browser → Next.js API Route (/api/generate) → Google Gemini → Structured Instruction
-```
-
-- **Instruction generation** uses a server-side Next.js API route that sends your wizard selections to Google Gemini and returns a complete six-section Custom Instruction. A deterministic local builder runs as a fallback if the API is unreachable.
-- **Output Studio tweaks** use a separate `/api/tweak` route that surgically refines an existing instruction using a dedicated Gemini system prompt, preserving all six section headers.
+- **Instruction generation** is handled by a server-side API that sends your wizard selections to Google Gemini and returns a complete six-section Custom Instruction. A local fallback generates a baseline instruction if the AI service is temporarily unavailable.
+- **Output Studio tweaks** use a dedicated AI call to precisely modify an existing instruction while preserving its overall structure.
 - **Content pages** (documentation, changelog, legal) are statically prerendered at build time and served from the CDN edge — no runtime compute required.
-- **Community Gallery submissions** use a serverless API route connected to Airtable, fully isolated from the generation pipeline.
+- **Community Gallery submissions** use an isolated serverless route, fully separate from the generation pipeline.
 
 ---
 
