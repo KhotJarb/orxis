@@ -1,0 +1,55 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none">
+
+  <!-- Dark background with rounded corners -->
+  <rect width="32" height="32" rx="7" fill="#0F172A"/>
+
+  <defs>
+    <!-- Node gradient: blue-400 → purple-500 -->
+    <linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#A855F7"/>
+    </linearGradient>
+    <!-- Node glow halo -->
+    <radialGradient id="gg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#8B5CF6" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- ── Outer ring (r=12.5, stroke-width=2.5) ─────────────────────────
+       Gap A (top-right, 300°–340°): node sits here
+       Gap B (top-left,  200°–230°): broken-orbit accent
+  -->
+
+  <!-- Outer Arc 1 — large body (340° → 200°, 220° arc, clockwise) -->
+  <path d="M 27.75 11.73 A 12.5 12.5 0 1 1 4.25 11.73"
+        stroke="white" stroke-width="2.5" stroke-linecap="round"
+        stroke-opacity="0.95"/>
+
+  <!-- Outer Arc 2 — small top arc (230° → 300°, 70° arc, clockwise) -->
+  <path d="M 7.97 6.42 A 12.5 12.5 0 0 1 22.25 5.18"
+        stroke="white" stroke-width="2.5" stroke-linecap="round"
+        stroke-opacity="0.85"/>
+
+  <!-- ── Inner ring (r=8.5, stroke-width=2) ────────────────────────────
+       Gaps offset ~30° from outer ring for the layered orbital effect
+  -->
+
+  <!-- Inner Arc 1 — large body (30° → 220°, 190° arc, clockwise) -->
+  <path d="M 23.36 20.25 A 8.5 8.5 0 1 1 9.49 10.54"
+        stroke="white" stroke-width="2" stroke-linecap="round"
+        stroke-opacity="0.7"/>
+
+  <!-- Inner Arc 2 — small upper arc (250° → 340°, 90° arc, clockwise) -->
+  <path d="M 13.09 8.01 A 8.5 8.5 0 0 1 23.99 13.09"
+        stroke="white" stroke-width="2" stroke-linecap="round"
+        stroke-opacity="0.65"/>
+
+  <!-- ── Floating node at 320° on outer ring ──────────────────────── -->
+
+  <!-- Glow halo -->
+  <circle cx="25.57" cy="7.97" r="4"   fill="url(#gg)"/>
+  <!-- Node dot -->
+  <circle cx="25.57" cy="7.97" r="2.3" fill="url(#ng)"/>
+
+</svg>

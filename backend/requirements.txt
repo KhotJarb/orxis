@@ -1,0 +1,18 @@
+# ═══════════════════════════════════════════════════════
+# AI Custom Instruction Generator — Python Dependencies
+# ═══════════════════════════════════════════════════════
+
+# Core Framework
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.0.0
+
+# Environment Variables
+python-dotenv>=1.0.0
+
+# LLM Provider — Google Gemini (current SDK)
+google-genai>=1.0.0
+
+# ─── Optional: OpenAI-compatible provider ─────────────
+# Uncomment if using OpenAI, DeepSeek, or any OpenAI-compatible API
+# openai>=1.40.0

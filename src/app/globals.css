@@ -1,0 +1,346 @@
+@import "tailwindcss";
+
+/* ── Tailwind v4: class-based dark mode ───────────────────────────────────
+   next-themes adds class="dark" on <html> for dark mode and removes it
+   for light mode. This line teaches Tailwind's dark: prefix to match that. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CSS Custom Properties
+   Strategy (standard next-themes pattern):
+     :root   — LIGHT mode defaults  (no class on <html>)
+     .dark   — DARK mode overrides  (class="dark" on <html>)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Surfaces */
+  --background:          #f8fafc;      /* slate-50  */
+  --background-2:        #f1f5f9;      /* slate-100 */
+  --foreground:          #0f172a;      /* slate-900 */
+
+  /* Accents — same on both themes */
+  --neon-cyan:           #06b6d4;
+  --neon-cyan-light:     #22d3ee;
+  --neon-purple:         #8b5cf6;
+  --neon-purple-light:   #a78bfa;
+
+  /* Glass — frosted white panels */
+  --glass-bg:            rgba(255, 255, 255, 0.55);
+  --glass-border:        rgba(0, 0, 0, 0.08);
+  --glass-bg-hover:      rgba(255, 255, 255, 0.75);
+  --glass-strong-bg:     rgba(248, 250, 252, 0.88);
+
+  /* Text hierarchy */
+  --text-heading:        #0f172a;      /* slate-900 */
+  --text-body:           #334155;      /* slate-700 */
+  --text-muted:          #64748b;      /* slate-500 */
+  --text-subtle:         #94a3b8;      /* slate-400 */
+
+  /* Borders */
+  --border-subtle:       rgba(0, 0, 0, 0.06);
+  --border-medium:       rgba(0, 0, 0, 0.10);
+
+  /* Scrollbar */
+  --scrollbar-track:     #f1f5f9;
+  --scrollbar-thumb:     rgba(139, 92, 246, 0.25);
+  --scrollbar-thumb-h:   rgba(139, 92, 246, 0.45);
+}
+
+/* ── Dark Mode ───────────────────────────────────────────────────────── */
+.dark {
+  /* Surfaces */
+  --background:          #030014;
+  --background-2:        #080820;
+  --foreground:          #e2e8f0;
+
+  /* Glass — subtle dark tint */
+  --glass-bg:            rgba(255, 255, 255, 0.03);
+  --glass-border:        rgba(255, 255, 255, 0.08);
+  --glass-bg-hover:      rgba(255, 255, 255, 0.06);
+  --glass-strong-bg:     rgba(3, 0, 20, 0.75);
+
+  /* Text hierarchy */
+  --text-heading:        #f8fafc;      /* slate-50  */
+  --text-body:           #cbd5e1;      /* slate-300 */
+  --text-muted:          #94a3b8;      /* slate-400 */
+  --text-subtle:         #64748b;      /* slate-500 */
+
+  /* Borders */
+  --border-subtle:       rgba(255, 255, 255, 0.06);
+  --border-medium:       rgba(255, 255, 255, 0.10);
+
+  /* Scrollbar */
+  --scrollbar-track:     #030014;
+  --scrollbar-thumb:     rgba(139, 92, 246, 0.30);
+  --scrollbar-thumb-h:   rgba(139, 92, 246, 0.50);
+}
+
+/* ── Tailwind theme tokens ────────────────────────────────────────────── */
+@theme inline {
+  --color-background:        var(--background);
+  --color-foreground:        var(--foreground);
+  --color-neon-cyan:         var(--neon-cyan);
+  --color-neon-cyan-light:   var(--neon-cyan-light);
+  --color-neon-purple:       var(--neon-purple);
+  --color-neon-purple-light: var(--neon-purple-light);
+  --color-glass-bg:          var(--glass-bg);
+  --color-glass-border:      var(--glass-border);
+  --font-sans:               var(--font-inter);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Base Styles
+   ═══════════════════════════════════════════════════════════════════════ */
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter, 'Inter', system-ui, sans-serif);
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* ── Custom Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-h); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Keyframe Animations
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%       { opacity: 0.8; transform: scale(1.05); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-20px); }
+}
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes orb-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.6; }
+  50%       { transform: translate(-50%, -50%) scale(1.15); opacity: 0.9; }
+}
+@keyframes orb-rotate {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14%       { transform: scale(1.2); }
+  28%       { transform: scale(1); }
+  42%       { transform: scale(1.2); }
+  70%       { transform: scale(1); }
+}
+@keyframes support-shimmer {
+  0%        { left: -100%; }
+  50%, 100% { left: 100%; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Utility Classes  (theme-aware via CSS vars)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Text gradient — cyan/purple works on both backgrounds */
+.text-gradient {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-purple) 50%, var(--neon-cyan-light) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 6s ease infinite;
+}
+
+/* Glass panels */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Navbar / strong-blur glass */
+.glass-strong {
+  background: var(--glass-strong-bg);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* Glows */
+.glow-cyan   { box-shadow: 0 0 20px rgba(6, 182, 212, 0.3), 0 0 60px rgba(6, 182, 212, 0.1); }
+.glow-purple { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3), 0 0 60px rgba(139, 92, 246, 0.1); }
+
+/* CTA button */
+.glow-btn { position: relative; overflow: hidden; }
+.glow-btn::before {
+  content: '';
+  position: absolute; inset: -2px; border-radius: inherit;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple), var(--neon-cyan));
+  background-size: 300% 300%;
+  animation: gradient-shift 4s ease infinite;
+  z-index: -1; opacity: 0.6; transition: opacity 0.3s ease;
+}
+.glow-btn:hover::before { opacity: 1; }
+.glow-btn::after {
+  content: '';
+  position: absolute; inset: 1px; border-radius: inherit;
+  background: var(--background);   /* theme-aware fill */
+  z-index: -1;
+}
+
+/* ── CSS Orb ──────────────────────────────────────────────────────── */
+.css-orb-container { position: relative; width: 280px; height: 280px; }
+@media (min-width: 640px) { .css-orb-container { width: 350px; height: 350px; } }
+
+.css-orb-core {
+  position: absolute; top: 50%; left: 50%;
+  width: 60%; height: 60%; border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--neon-cyan-light), var(--neon-cyan), var(--neon-purple), transparent 70%);
+  animation: orb-pulse 4s ease-in-out infinite;
+  filter: blur(1px);
+}
+.css-orb-ring {
+  position: absolute; top: 50%; left: 50%;
+  width: 85%; height: 85%; border-radius: 50%;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  animation: orb-rotate 20s linear infinite;
+}
+.css-orb-ring::before {
+  content: ''; position: absolute; top: -3px; left: 50%;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+}
+.css-orb-ring-2 {
+  position: absolute; top: 50%; left: 50%;
+  width: 100%; height: 100%; border-radius: 50%;
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  animation: orb-rotate 30s linear infinite reverse;
+}
+.css-orb-ring-2::before {
+  content: ''; position: absolute; bottom: -3px; left: 50%;
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--neon-purple);
+  box-shadow: 0 0 8px var(--neon-purple), 0 0 16px var(--neon-purple);
+}
+.css-orb-glow {
+  position: absolute; top: 50%; left: 50%;
+  width: 120%; height: 120%; transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, rgba(139,92,246,0.08) 40%, transparent 70%);
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+/* ── Badge Shimmer ────────────────────────────────────────────────── */
+.badge-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* ── Feature Card: Mouse Glow ─────────────────────────────────────── */
+.feature-card { --glow-x: 50%; --glow-y: 50%; }
+.glow-effect {
+  background: radial-gradient(300px circle at var(--glow-x) var(--glow-y), rgba(6, 182, 212, 0.08), transparent 70%);
+}
+
+/* ── Support Button ───────────────────────────────────────────────── */
+.support-heart { animation: heartbeat 2s ease-in-out infinite; }
+.support-btn   { position: relative; overflow: hidden; }
+.support-btn::after {
+  content: ""; position: absolute; top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(236,72,153,0.06), transparent);
+  animation: support-shimmer 4s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Documentation Prose  (theme-aware via CSS vars)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.docs-prose { color: var(--text-muted); line-height: 1.75; }
+
+.docs-prose h1 {
+  color: var(--text-heading);
+  font-size: 2rem; font-weight: 700; letter-spacing: -0.025em;
+  line-height: 1.2; margin-bottom: 1rem; scroll-margin-top: 6rem;
+}
+.docs-prose h2 {
+  color: var(--text-heading);
+  font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em;
+  line-height: 1.3; margin-top: 2.5rem; margin-bottom: 1rem; scroll-margin-top: 6rem;
+}
+.docs-prose h3 {
+  color: var(--text-body);
+  font-size: 1.125rem; font-weight: 600; line-height: 1.4;
+  margin-top: 1.75rem; margin-bottom: 0.75rem; scroll-margin-top: 6rem;
+}
+.docs-prose p { margin-bottom: 1rem; font-size: 0.9375rem; }
+.docs-prose strong { color: var(--text-body); font-weight: 600; }
+.docs-prose em     { color: var(--text-muted); font-style: italic; }
+
+.docs-prose a {
+  color: var(--neon-cyan);
+  text-decoration: underline;
+  text-decoration-color: rgba(6, 182, 212, 0.3);
+  text-underline-offset: 4px;
+  transition: color 0.15s, text-decoration-color 0.15s;
+}
+.docs-prose a:hover { color: var(--neon-cyan-light); text-decoration-color: var(--neon-cyan-light); }
+
+.docs-prose blockquote {
+  border-left: 2px solid rgba(139, 92, 246, 0.5);
+  margin: 1.5rem 0; padding: 0.25rem 0 0.25rem 1.25rem;
+  font-style: italic; color: var(--text-muted);
+}
+.docs-prose blockquote cite {
+  display: block; margin-top: 0.5rem;
+  font-size: 0.75rem; font-style: normal; color: var(--text-subtle);
+}
+
+.docs-prose ul { list-style: none; padding: 0; margin: 1rem 0 1.25rem; }
+.docs-prose ul li { display: flex; align-items: flex-start; gap: 0.625rem; font-size: 0.9375rem; padding: 0.25rem 0; }
+.docs-prose ul li::before {
+  content: ''; display: block; flex-shrink: 0;
+  width: 6px; height: 6px; margin-top: 0.5rem;
+  border-radius: 50%; background: var(--neon-cyan); opacity: 0.7;
+}
+
+/* Code blocks intentionally stay dark on both themes — code-editor convention */
+.docs-prose pre {
+  border-radius: 0.75rem;
+  background: #0d1117;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  overflow-x: auto; font-size: 0.8125rem; line-height: 1.7;
+  padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+}
+.dark .docs-prose pre {
+  background: #0a0a1a;
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+.docs-prose code:not(pre code) {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.85em; padding: 0.125rem 0.375rem; border-radius: 0.375rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--neon-cyan);
+}
+
+/* Docs sidebar scrollbar */
+.scrollbar-thin::-webkit-scrollbar        { width: 3px; }
+.scrollbar-thin::-webkit-scrollbar-track  { background: transparent; }
+.scrollbar-thin::-webkit-scrollbar-thumb  { background: rgba(139,92,246,0.2); border-radius: 2px; }
