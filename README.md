@@ -39,13 +39,13 @@ That's the entire workflow. No account, no subscription, nothing to install.
 
 ## ✦ Features
 
-- **AI-Powered Instruction Generation** — Your wizard selections are processed by Google Gemini server-side, producing a structured, expert-level six-section Custom Instruction tailored to your inputs. A local template fallback is available if the service is temporarily unavailable.
+- **AI-Powered Instruction Generation** — Your wizard selections are processed by Google Gemini server-side, producing a structured, expert-level six-section Custom Instruction tailored to your inputs.
 - **Six-Section Instruction Architecture** — Role & Identity, Mission, Cognitive Loop, Context & Input, Boundaries & Execution Rules, and Output Formatting. Each section is independently guided by your choices and produces a paste-ready system prompt.
 - **Multi-Model Integration Guides** — Documentation for ChatGPT, Claude, and Gemini covering recommended injection methods and platform-specific behaviours for structured prompting.
 - **Prompt Gallery** — Browse community-contributed instruction templates at `/gallery`. Submit your own to share with other users.
 - **Output Studio** — After generating, refine your instruction with one-click tweaks: condense it, elevate the formality, or expand the formatting rules — all AI-assisted.
 - **Progressive Web App** — Installable directly from the browser on desktop and mobile.
-- **Premium Dark UI** — Glassmorphism surfaces, a neon accent system (Periwinkle-to-Violet), and a CSS custom property-based design token system.
+- **Premium Dark UI** — Glassmorphism surfaces, a cohesive neon accent palette, and smooth micro-animations throughout.
 
 ---
 
@@ -59,7 +59,6 @@ That's the entire workflow. No account, no subscription, nothing to install.
 | Animation | [Framer Motion](https://www.framer.com/motion/) 12 |
 | Icons | [Lucide React](https://lucide.dev/) |
 | AI | [Google Gemini API](https://ai.google.dev/) |
-| Community Data | [Airtable](https://airtable.com/) |
 | Deployment | [Vercel](https://vercel.com/) |
 
 ---
@@ -85,11 +84,6 @@ Create a `.env.local` file in the project root:
 ```env
 # Required — powers the AI instruction generator
 GEMINI_API_KEY=your_gemini_api_key_here
-
-# Optional — only needed for the Community Gallery submit feature
-AIRTABLE_TOKEN=
-AIRTABLE_BASE_ID=
-AIRTABLE_TABLE_ID=
 ```
 
 Then start the development server:
@@ -126,10 +120,10 @@ npm run start
 src/
 ├── app/                    # Next.js App Router — pages and route layouts
 │   ├── api/                # Server-side API routes
-│   │   ├── generate/       # AI instruction generation (Gemini)
-│   │   ├── tweak/          # AI instruction refinement (Gemini)
-│   │   ├── gallery/        # Fetch community prompts (Airtable)
-│   │   └── submit/         # Submit community prompts (Airtable)
+│   │   ├── generate/       # AI instruction generation
+│   │   ├── tweak/          # AI instruction refinement
+│   │   ├── gallery/        # Fetch community prompts
+│   │   └── submit/         # Submit community prompts
 │   ├── (legal)/            # Privacy Policy, Terms of Service, License
 │   ├── changelog/          # Release history
 │   ├── docs/               # Documentation (client-rendered)
