@@ -2,31 +2,50 @@
 
 <h1>Orxis</h1>
 
-<p><strong>Orchestrate AI with Strict Boundaries.</strong></p>
+<p><strong>Orchestrate AI with Precision and Purpose.</strong></p>
 
 <p>
-  Orxis is a premium, client-side instruction generator for developers and creators who need precise, structured control over AI behaviour. Build a complete system prompt in minutes — with role definition, a cognitive loop, output constraints, and more — then paste it into any LLM. No account. No backend. No compromise.
+  Orxis is a structured AI instruction generator for developers, writers, and professionals who need clear, consistent control over how AI models behave. Answer four questions, and Orxis builds a complete six-section system prompt — covering role definition, mission, a cognitive loop, context, boundaries, and output formatting — ready to paste into ChatGPT, Claude, Gemini, or any other LLM. No account required.
 </p>
 
-<p>
-  <a href="https://buymeacoffee.com/khotjarb">☕ Support the Project</a> &nbsp;·&nbsp;
-  <a href="/changelog">Changelog</a> &nbsp;·&nbsp;
-  <a href="/docs">Documentation</a>
-</p>
+<br />
+
+<a href="https://orxis.vercel.app">
+  <img src="https://img.shields.io/badge/▶%20Open%20Orxis-Try%20it%20free-7c5ff8?style=for-the-badge&logoColor=white" alt="Open Orxis" />
+</a>
+&nbsp;&nbsp;
+<a href="https://buymeacoffee.com/khotjarb">
+  <img src="https://img.shields.io/badge/☕%20Support-Buy%20Me%20a%20Coffee-FFDD00?style=for-the-badge&logoColor=black" alt="Support the project" />
+</a>
 
 </div>
 
 ---
 
+## 🌐 Use Orxis Now
+
+**No installation. No sign-up. Just open and build.**
+
+> **[→ orxis.vercel.app](https://orxis.vercel.app)**
+
+1. Click **Get Started** on the landing page
+2. Answer four guided questions about your persona, task, tone, and rules
+3. Orxis generates a complete, structured Custom Instruction
+4. Copy it and paste it directly into ChatGPT, Claude, Gemini, or any other AI assistant
+
+That's the entire workflow. The app runs in your browser — no account, no subscription, no setup.
+
+---
+
 ## ✦ Features
 
-- **100% Client-Side Processing** — Instruction generation runs entirely in the browser. No input is transmitted to a server, stored in a database, or processed by a third party. Your prompts stay on your device.
-- **Six-Section Instruction Architecture** — Role & Identity, Mission, Cognitive Loop, Context & Input, Boundaries & Execution Rules, and Output Formatting. Each section is independently configurable and produces a structured, paste-ready system prompt.
-- **Progressive Web App** — Installable directly from the browser on desktop and mobile via the Web Manifest, custom favicon set, and Apple Touch Icon.
-- **Premium Dark UI** — Glassmorphism surfaces, a neon accent system (Periwinkle-to-Violet), and a CSS custom property-based design token architecture for consistent, zero-drift styling.
-- **Zero-Latency Navigation** — Documentation tabs and settings panels switch instantaneously in React state. No page transitions, no network round-trips.
-- **Multi-Model Integration Guides** — Per-model documentation for ChatGPT, Claude, and Gemini, covering recommended injection methods and platform-specific behaviours relevant to structured prompting.
-- **Prompt Gallery** — Browse and reference community-contributed instruction templates at `/gallery`.
+- **AI-Powered Instruction Generation** — Your wizard selections are processed by Google Gemini server-side, producing a structured, expert-level six-section Custom Instruction tailored to your inputs. A local template fallback is available if the service is temporarily unavailable.
+- **Six-Section Instruction Architecture** — Role & Identity, Mission, Cognitive Loop, Context & Input, Boundaries & Execution Rules, and Output Formatting. Each section is independently guided by your choices and produces a paste-ready system prompt.
+- **Multi-Model Integration Guides** — Documentation for ChatGPT, Claude, and Gemini covering recommended injection methods and platform-specific behaviours for structured prompting.
+- **Prompt Gallery** — Browse community-contributed instruction templates at `/gallery`. Submit your own to share with other users.
+- **Output Studio** — After generating, refine your instruction with one-click tweaks: condense it, elevate the formality, or expand the formatting rules — all AI-assisted.
+- **Progressive Web App** — Installable directly from the browser on desktop and mobile.
+- **Premium Dark UI** — Glassmorphism surfaces, a neon accent system (Periwinkle-to-Violet), and a CSS custom property-based design token system.
 
 ---
 
@@ -39,27 +58,49 @@
 | Styling | [Tailwind CSS](https://tailwindcss.com/) + CSS Custom Properties |
 | Animation | [Framer Motion](https://www.framer.com/motion/) 12 |
 | Icons | [Lucide React](https://lucide.dev/) |
+| AI | [Google Gemini](https://ai.google.dev/) via `@google/genai` |
+| Community Data | [Airtable](https://airtable.com/) |
 | Deployment | [Vercel](https://vercel.com/) |
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Running Locally
 
 ### Prerequisites
 
 - Node.js 18.17 or later
 - npm, yarn, or pnpm
+- A [Google Gemini API key](https://aistudio.google.com/apikey) (free tier available)
 
-### Clone and run locally
+### Setup
 
 ```bash
 git clone https://github.com/khotjarb/orxis.git
 cd orxis
 npm install
+```
+
+Create a `.env.local` file in the project root:
+
+```env
+# Required — powers the AI instruction generator
+GEMINI_API_KEY=your_gemini_api_key_here
+
+# Optional — only needed for the Community Gallery submit feature
+AIRTABLE_TOKEN=
+AIRTABLE_BASE_ID=
+AIRTABLE_TABLE_ID=
+```
+
+Then start the development server:
+
+```bash
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+> **Without a Gemini API key**, the generator will still work using a local template fallback. The output will be more basic than the AI-generated version, but fully functional.
 
 ### Production build
 
@@ -68,19 +109,18 @@ npm run build
 npm run start
 ```
 
-All content pages (`/docs`, `/changelog`, `/gallery`, `/about`, `/pricing`, legal pages) are statically prerendered at build time with no additional configuration required.
-
 ---
 
 ## 🏗 Architecture
 
-Orxis is designed to be lightweight and serverless at its core.
+```
+Browser → Next.js API Route (/api/generate) → Google Gemini → Structured Instruction
+```
 
-- **Instruction generation** is handled entirely in React state in the browser. No API call is made when you build, preview, or copy an instruction.
-- **Content pages** (documentation, changelog, legal) are statically prerendered at build time and served from the CDN edge with no runtime compute.
-- **Community features** (Prompt Gallery submission) use minimal serverless API routes that are isolated from the core generation pipeline.
-
-This architecture ensures maximum speed, zero backend maintenance burden for the core product, and a clear privacy guarantee: the instructions you write never leave your device.
+- **Instruction generation** uses a server-side Next.js API route that sends your wizard selections to Google Gemini and returns a complete six-section Custom Instruction. A deterministic local builder runs as a fallback if the API is unreachable.
+- **Output Studio tweaks** use a separate `/api/tweak` route that surgically refines an existing instruction using a dedicated Gemini system prompt, preserving all six section headers.
+- **Content pages** (documentation, changelog, legal) are statically prerendered at build time and served from the CDN edge — no runtime compute required.
+- **Community Gallery submissions** use a serverless API route connected to Airtable, fully isolated from the generation pipeline.
 
 ---
 
@@ -89,57 +129,21 @@ This architecture ensures maximum speed, zero backend maintenance burden for the
 ```
 src/
 ├── app/                    # Next.js App Router — pages and route layouts
+│   ├── api/                # Server-side API routes
+│   │   ├── generate/       # AI instruction generation (Gemini)
+│   │   ├── tweak/          # AI instruction refinement (Gemini)
+│   │   ├── gallery/        # Fetch community prompts (Airtable)
+│   │   └── submit/         # Submit community prompts (Airtable)
 │   ├── (legal)/            # Privacy Policy, Terms of Service, License
 │   ├── changelog/          # Release history
-│   ├── docs/               # Documentation (client-rendered, layout sets metadata)
+│   ├── docs/               # Documentation (client-rendered)
 │   ├── gallery/            # Prompt Gallery
-│   ├── generate/           # Core instruction generator
-│   ├── settings/           # User preferences
-│   └── layout.tsx          # Root layout — global metadata and dark mode
+│   ├── generate/           # Core instruction generator wizard
+│   └── layout.tsx          # Root layout — global metadata
 ├── components/             # Shared UI components
 │   └── docs/               # Documentation sub-components and per-model guides
 └── globals.css             # Design token system — CSS custom properties
 ```
-
----
-
-## ☁️ Deploying to Vercel
-
-Orxis is optimised for zero-configuration deployment on Vercel. Choose either method below.
-
-### Method A — Vercel CLI
-
-```bash
-# 1. Install the Vercel CLI globally (skip if already installed)
-npm install -g vercel
-
-# 2. From the project root, run the deployment command
-npx vercel
-
-# 3. Follow the interactive prompts:
-#    - Link to an existing project or create a new one
-#    - Accept the auto-detected framework preset (Next.js)
-#    - Confirm the build command: next build
-#    - Confirm the output directory: .next
-
-# 4. For a production deployment (not a preview):
-npx vercel --prod
-```
-
-### Method B — GitHub + Vercel Dashboard
-
-1. Push your repository to GitHub (or any Git provider Vercel supports).
-2. Go to [vercel.com/new](https://vercel.com/new) and sign in.
-3. Click **"Add New Project"** and import your repository.
-4. Vercel will automatically detect the **Next.js** framework and pre-fill the settings.
-5. Confirm the following settings before deploying:
-   - **Framework Preset:** Next.js
-   - **Build Command:** `next build` *(or `npm run build` — both resolve identically)*
-   - **Output Directory:** `.next`
-   - **Install Command:** `npm install`
-6. Click **Deploy**. Vercel will build and publish the project. All subsequent pushes to your default branch will trigger automatic re-deployments.
-
-> **Note:** Verify that your `package.json` `build` script is set to `next build` before deploying. If you have customised the script, ensure it still calls `next build` as its final step, as Vercel requires it to produce the `.next` output directory correctly.
 
 ---
 
@@ -157,6 +161,6 @@ This project is **not open-source for commercial use**. It is released under a c
 
 <div align="center">
 
-Built with care &nbsp;·&nbsp; [orxis.app@gmail.com](mailto:orxis.app@gmail.com)
+Built with care &nbsp;·&nbsp; **Orxis Team**
 
 </div>
