@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import OrxisLogo from "@/components/OrxisLogo";
@@ -25,7 +25,7 @@ const footerLinks = {
     { name: "License", href: "/license" },
   ],
   Social: [
-    { name: "GitHub", href: "#" /* swap after deploy */ },
+    { name: "GitHub", href: "https://github.com/KhotJarb/orxis" },
   ],
 };
 

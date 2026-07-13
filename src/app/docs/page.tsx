@@ -245,7 +245,7 @@ function DocsPageInner() {
           />
 
           {/* CENTRE — Main content */}
-          <main className="flex-1 min-w-0 px-6 py-12 sm:px-10 lg:px-12 xl:px-14">
+          <main className="flex-1 min-w-0 px-6 pt-20 pb-12 sm:px-10 lg:py-12 lg:px-12 xl:px-14">
             <AnimatePresence mode="wait">
               <motion.div
                 key={animationKey}

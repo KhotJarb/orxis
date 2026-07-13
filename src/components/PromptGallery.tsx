@@ -603,6 +603,23 @@ export default function PromptGallery() {
           </div>
         </motion.div>
 
+        {/* Mobile filter row — must be OUTSIDE the flex container to stack vertically */}
+        <div className="lg:hidden mb-6 flex gap-2 overflow-x-auto pb-1 w-full">
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setActiveCategory(cat.id)}
+              className={`shrink-0 rounded-full border px-4 py-1.5 text-sm font-medium transition-all duration-200 cursor-pointer ${
+                activeCategory === cat.id
+                  ? "border-white/[0.15] bg-white/[0.08] text-white"
+                  : "border-white/[0.06] bg-white/[0.02] text-slate-500 hover:text-slate-300"
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
         <div className="flex gap-8 items-start">
 
           {/* Left sidebar */}
@@ -666,23 +683,6 @@ export default function PromptGallery() {
             </div>
           </motion.aside>
 
-          {/* Mobile filter row */}
-          <div className="lg:hidden mb-6 flex gap-2 overflow-x-auto pb-1 w-full">
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`shrink-0 rounded-full border px-4 py-1.5 text-sm font-medium transition-all duration-200 cursor-pointer ${
-                  activeCategory === cat.id
-                    ? "border-white/[0.15] bg-white/[0.08] text-white"
-                    : "border-white/[0.06] bg-white/[0.02] text-slate-500 hover:text-slate-300"
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-
           {/* Main grid */}
           <div className="flex-1 min-w-0">
             <LayoutGroup>
@@ -707,7 +707,7 @@ export default function PromptGallery() {
                       <Search className="mb-4 h-10 w-10 text-slate-700" />
                       <p className="text-slate-500">
                         No prompts match{" "}
-                        <span className="text-slate-300">"{search}"</span>
+                        <span className="text-slate-300">&quot;{search}&quot;</span>
                       </p>
                       <button
                         onClick={() => { setSearch(""); setActiveCategory("all"); }}
