@@ -86,9 +86,7 @@ export default function OutputStudio({
       setError(null);
 
       try {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-        if (!apiUrl) throw new Error("No API URL configured");
-        const res = await fetch(`${apiUrl}/api/tweak`, {
+        const res = await fetch("/api/tweak", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
