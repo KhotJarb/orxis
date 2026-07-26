@@ -418,6 +418,22 @@ export default function OutputStudio({
                 Quick Shortcuts
               </h3>
             </div>
+
+            {/* Usage guide */}
+            <div className="rounded-xl bg-neon-cyan/[0.04] border border-neon-cyan/10 px-4 py-3 mb-4">
+              <p className="text-xs text-slate-300 leading-relaxed">
+                <span className="font-medium text-neon-cyan-light">How to use:</span>{" "}
+                Copy any shortcut below, replace the{" "}
+                <code className="text-neon-purple-light bg-white/[0.05] px-1 py-0.5 rounded text-[11px]">
+                  {"{{variables}}"}
+                </code>{" "}
+                with your own content, and paste it as a message to your AI assistant.
+              </p>
+              <p className="text-[11px] text-slate-500 mt-1.5">
+                ✓ These shortcuts are already included in your instructions — your assistant will understand them automatically.
+              </p>
+            </div>
+
             <div className="space-y-2.5">
               {result.shortcuts.map((shortcut, i) => (
                 <div
@@ -446,6 +462,7 @@ export default function OutputStudio({
               ))}
             </div>
           </div>
+
         </motion.div>
       )}
 

@@ -61,7 +61,12 @@ Shortcuts: {user_input_shortcuts}
 (List step-by-step constraints using the user's rules.)
 
 # 📝 6. Output Formatting
-(Define response structure, typography, and tone.)\
+(Define response structure, typography, and tone.)
+
+# 🚀 7. Quick Shortcuts
+(If shortcuts are provided, list them here as ready-to-use prompt templates. Explain briefly that the user can copy any shortcut, replace the {{variables}} with real values, and paste it as a message. If no shortcuts were provided, generate 2-3 useful ones based on the persona and task. Format each as:
+/shortcut-name: template with {{variable}} placeholders
+Add a one-line intro: "Use these shortcuts by replacing the {{variables}} with your own content:")\
 `;
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -187,6 +192,17 @@ function buildLocalFallback(body: GenerateBody): GenerateResult {
     "- Tables for comparative information when applicable\n" +
     "- A brief **Summary** and **Next Steps** section at the end"
   );
+
+  // Append shortcuts to instructions if any exist
+  if (userShortcuts.length > 0) {
+    lines.push("");
+    lines.push("# 🚀 7. Quick Shortcuts");
+    lines.push("Use these shortcuts by replacing the {{variables}} with your own content:");
+    lines.push("");
+    userShortcuts.forEach((s) => {
+      lines.push(`/${s.name.toLowerCase().replace(/\s+/g, "-")}: ${s.template}`);
+    });
+  }
 
   return {
     name: "AI Assistant",
