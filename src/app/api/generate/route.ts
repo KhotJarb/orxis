@@ -4,32 +4,50 @@ import { GoogleGenAI } from "@google/genai";
 // ── Configuration ─────────────────────────────────────────────────────────────
 const MODEL_NAME = process.env.LLM_MODEL ?? "gemini-2.5-flash";
 const TEMPERATURE = parseFloat(process.env.LLM_TEMPERATURE ?? "0.2");
-const MAX_TOKENS = parseInt(process.env.LLM_MAX_TOKENS ?? "2048", 10);
+const MAX_TOKENS = parseInt(process.env.LLM_MAX_TOKENS ?? "4096", 10);
 const API_KEY = process.env.GEMINI_API_KEY ?? "";
 
 // ── God-Tier Meta-Prompt Template ─────────────────────────────────────────────
 const SYSTEM_PROMPT_TEMPLATE = `\
 # [SYSTEM PROMPT]
-Act as an Elite AI Prompt Architect. Transform user inputs into a "Master Custom Instruction" for LLMs.
-Rule 1: OUTPUT ONLY the generated Custom Instruction. Zero conversational filler.
-Rule 2: The generated instruction MUST strictly follow the exact modular structure below.
+Act as an Elite AI Prompt Architect. Transform user inputs into a complete AI Assistant profile.
+
+Rule 1: OUTPUT ONLY valid JSON matching the exact schema below. No markdown fences, no commentary.
+Rule 2: The "instructions" field MUST follow the exact 6-section structure below.
+Rule 3: Generate a creative, descriptive "name" and a concise "description" based on the user's inputs.
+Rule 4: Generate 3-4 practical "conversationStarters" — example prompts a user would ask this assistant.
+Rule 5: Generate 2-4 "knowledgeSuggestions" — types of files/documents the user could upload to enhance this assistant. Frame as optional suggestions.
+Rule 6: If shortcuts are provided, polish and improve them. If none are provided, generate 2-3 useful ones based on the persona and task.
 
 [RAW INPUT]
+Intent: {user_input_intent}
 Persona: {user_input_persona}
 Task: {user_input_task}
+Context: {user_input_context}
 Tone: {user_input_tone}
 Rules: {user_input_rules}
+Shortcuts: {user_input_shortcuts}
 
-[REQUIRED OUTPUT STRUCTURE OF THE CUSTOM INSTRUCTION]
+[REQUIRED JSON SCHEMA]
+{
+  "name": "<creative assistant name>",
+  "description": "<one-liner summary of what this assistant does>",
+  "instructions": "<complete 6-section instruction following the structure below>",
+  "knowledgeSuggestions": ["<suggestion 1>", "<suggestion 2>", ...],
+  "conversationStarters": ["<starter 1>", "<starter 2>", ...],
+  "shortcuts": [{"name": "<name>", "template": "<template with {{variables}}>"}, ...]
+}
+
+[REQUIRED STRUCTURE FOR THE "instructions" FIELD]
 
 # 🎭 1. Role & Identity
-(Write a powerful persona definition. Elevate the user's {user_input_persona} into a world-renowned expert, e.g., "Assume the role of a World-Class [Profession] holding a PhD in [Subject] with award-winning expertise in...")
+(Write a powerful persona definition. Elevate the user's persona into a world-renowned expert. If context is provided, weave it into the identity.)
 
 # 🎯 2. Mission & Objective
-(Clearly state the ultimate outcome of the {user_input_task}. What defines absolute success?)
+(Clearly state the ultimate outcome of the task. What defines absolute success?)
 
 # 🧠 3. The Cognitive Loop (Internal Reflection)
-(Inject exactly this directive into the output to force the AI to think before acting:
+(Inject this directive:
 "Before answering, you MUST use \`<self_reflection>\` tags to think internally:
 1. Create a 5-point evaluation rubric for a flawless response based on the Mission.
 2. Draft an internal response and score it against your rubric.
@@ -37,13 +55,13 @@ Rules: {user_input_rules}
 4. DO NOT show this \`<self_reflection>\` process to the user. Output only the final, perfected response.")
 
 # 📥 4. Expected Context & Input
-(Briefly define what kind of data or prompts the AI should anticipate receiving from the user to execute this task.)
+(Define what data/prompts the AI should anticipate. If the user provided context about their work/audience/details, incorporate it here.)
 
 # ⚙️ 5. Strict Boundaries & Execution Rules
-(List step-by-step actions and absolute constraints using clear bullet points. Integrate these specific rules: {user_input_rules})
+(List step-by-step constraints using the user's rules.)
 
 # 📝 6. Output Formatting
-(Define the exact response structure, typography, and tone. Tone must be: {user_input_tone})\
+(Define response structure, typography, and tone.)\
 `;
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -53,10 +71,22 @@ interface StepAnswer {
 }
 
 interface GenerateBody {
+  intent?: { custom: string; domain: string | null };
   persona?: StepAnswer;
   task?: StepAnswer;
+  context?: { whatYouDo: string; whoYouServe: string; keyDetails: string };
   tone?: StepAnswer;
   rules?: StepAnswer;
+  shortcuts?: Array<{ name: string; template: string }>;
+}
+
+interface GenerateResult {
+  name: string;
+  description: string;
+  instructions: string;
+  knowledgeSuggestions: string[];
+  conversationStarters: string[];
+  shortcuts: Array<{ name: string; template: string }>;
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -67,11 +97,34 @@ function formatAnswer(answer?: StepAnswer): string {
   return parts.length > 0 ? parts.join(" | ") : "Not specified";
 }
 
-function buildLocalFallback(body: GenerateBody): string {
+function formatIntent(intent?: { custom: string; domain: string | null }): string {
+  if (!intent) return "Not specified";
+  const parts = [];
+  if (intent.domain) parts.push(`Domain: ${intent.domain}`);
+  if (intent.custom?.trim()) parts.push(intent.custom.trim());
+  return parts.length > 0 ? parts.join(" | ") : "Not specified";
+}
+
+function formatContext(context?: { whatYouDo: string; whoYouServe: string; keyDetails: string }): string {
+  if (!context) return "Not specified";
+  const parts = [];
+  if (context.whatYouDo?.trim()) parts.push(`What I do: ${context.whatYouDo.trim()}`);
+  if (context.whoYouServe?.trim()) parts.push(`Who I serve: ${context.whoYouServe.trim()}`);
+  if (context.keyDetails?.trim()) parts.push(`Key details: ${context.keyDetails.trim()}`);
+  return parts.length > 0 ? parts.join(" | ") : "Not specified";
+}
+
+function formatShortcuts(shortcuts?: Array<{ name: string; template: string }>): string {
+  if (!shortcuts || shortcuts.length === 0) return "Not specified";
+  return shortcuts.map((s) => `[${s.name}]: ${s.template}`).join("\n");
+}
+
+function buildLocalFallback(body: GenerateBody): GenerateResult {
   const persona = formatAnswer(body.persona);
   const task = formatAnswer(body.task);
   const tone = formatAnswer(body.tone);
   const rules = body.rules;
+  const userShortcuts = body.shortcuts || [];
 
   const lines: string[] = [];
 
@@ -135,17 +188,27 @@ function buildLocalFallback(body: GenerateBody): string {
     "- A brief **Summary** and **Next Steps** section at the end"
   );
 
-  return lines.join("\n");
+  return {
+    name: "AI Assistant",
+    description: "A highly capable AI assistant ready to help.",
+    instructions: lines.join("\n"),
+    knowledgeSuggestions: [],
+    conversationStarters: [],
+    shortcuts: userShortcuts
+  };
 }
 
 // ── Route Handler ─────────────────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
   const body: GenerateBody = await req.json();
 
-  const persona = formatAnswer(body.persona);
-  const task = formatAnswer(body.task);
-  const tone = formatAnswer(body.tone);
-  const rules = formatAnswer(body.rules);
+  const intentStr = formatIntent(body.intent);
+  const personaStr = formatAnswer(body.persona);
+  const taskStr = formatAnswer(body.task);
+  const contextStr = formatContext(body.context);
+  const toneStr = formatAnswer(body.tone);
+  const rulesStr = formatAnswer(body.rules);
+  const shortcutsStr = formatShortcuts(body.shortcuts);
 
   // ── Attempt Gemini generation ─────────────────────────────────────────
   if (API_KEY) {
@@ -153,14 +216,17 @@ export async function POST(req: NextRequest) {
       const ai = new GoogleGenAI({ apiKey: API_KEY });
 
       const systemPrompt = SYSTEM_PROMPT_TEMPLATE
-        .replaceAll("{user_input_persona}", persona)
-        .replaceAll("{user_input_task}", task)
-        .replaceAll("{user_input_tone}", tone)
-        .replaceAll("{user_input_rules}", rules);
+        .replaceAll("{user_input_intent}", intentStr)
+        .replaceAll("{user_input_persona}", personaStr)
+        .replaceAll("{user_input_task}", taskStr)
+        .replaceAll("{user_input_context}", contextStr)
+        .replaceAll("{user_input_tone}", toneStr)
+        .replaceAll("{user_input_rules}", rulesStr)
+        .replaceAll("{user_input_shortcuts}", shortcutsStr);
 
       const response = await ai.models.generateContent({
         model: MODEL_NAME,
-        contents: "Generate the Custom Instruction based on the system rules. Output the complete 6-section instruction now.",
+        contents: "Generate the complete AI Assistant profile as JSON now.",
         config: {
           systemInstruction: systemPrompt,
           temperature: TEMPERATURE,
@@ -173,7 +239,29 @@ export async function POST(req: NextRequest) {
       const text = response.text;
       if (!text?.trim()) throw new Error("Empty response from Gemini");
 
-      return NextResponse.json({ prompt: text.trim() });
+      // Parse JSON from response
+      let parsedResponse: GenerateResult;
+      try {
+        // Strip markdown code fences if present
+        let cleanedText = text.trim();
+        cleanedText = cleanedText.replace(/^\s*```(?:json)?\n?/, "");
+        cleanedText = cleanedText.replace(/\n?```\s*$/, "");
+        
+        parsedResponse = JSON.parse(cleanedText);
+        return NextResponse.json(parsedResponse);
+      } catch (parseError) {
+        console.warn("[/api/generate] Failed to parse JSON, falling back to treating response as instructions", parseError);
+        
+        const fallbackObj: GenerateResult = {
+          name: "AI Assistant",
+          description: "A highly capable AI assistant ready to help.",
+          instructions: text.trim(),
+          knowledgeSuggestions: [],
+          conversationStarters: [],
+          shortcuts: body.shortcuts || []
+        };
+        return NextResponse.json(fallbackObj);
+      }
     } catch (err) {
       console.error("[/api/generate] Gemini error — falling back:", err);
     }
@@ -181,5 +269,5 @@ export async function POST(req: NextRequest) {
 
   // ── Local fallback ────────────────────────────────────────────────────
   const fallback = buildLocalFallback(body);
-  return NextResponse.json({ prompt: fallback });
+  return NextResponse.json(fallback);
 }

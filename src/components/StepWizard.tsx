@@ -11,7 +11,22 @@ import {
   Target,
   MessageSquare,
   ShieldCheck,
+  Compass,
+  FileText,
+  Zap,
+  Plus,
+  Trash2,
+  Lightbulb,
+  ChevronDown,
 } from "lucide-react";
+import {
+  domains,
+  getDomainPresets,
+  getAllPresets,
+  getContextExample,
+  getShortcutTemplates,
+  type ShortcutTemplate,
+} from "@/data/domains";
 
 // ===== Types =====
 interface StepConfig {
@@ -19,9 +34,10 @@ interface StepConfig {
   question: string;
   subtitle: string;
   icon: React.ReactNode;
-  presets: string[];
-  placeholder: string;
-  multiSelect: boolean;
+  type: "intent" | "presets" | "context" | "shortcuts";
+  presets?: string[];
+  placeholder?: string;
+  multiSelect?: boolean;
 }
 
 interface StepAnswer {
@@ -29,166 +45,264 @@ interface StepAnswer {
   custom: string;
 }
 
+interface IntentData {
+  custom: string;
+  domain: string | null;
+}
+
+interface ContextData {
+  whatYouDo: string;
+  whoYouServe: string;
+  keyDetails: string;
+}
+
+interface ShortcutData {
+  name: string;
+  template: string;
+}
+
+export interface GenerateResult {
+  name: string;
+  description: string;
+  instructions: string;
+  knowledgeSuggestions: string[];
+  conversationStarters: string[];
+  shortcuts: ShortcutData[];
+}
+
 interface StepWizardProps {
-  onGenerate: (
-    prompt: string,
-    payload: Record<string, { selected: string[]; custom: string }>
-  ) => void;
+  onGenerate: (result: GenerateResult) => void;
 }
 
 // ===== Shared Easing =====
 const EASE_SMOOTH: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
-// ===== Step Configuration =====
-const STEPS: StepConfig[] = [
-  {
-    id: "persona",
-    question: "What expert persona do you need?",
-    subtitle: "Define the AI\u2019s identity and area of expertise",
-    icon: <User className="h-5 w-5" />,
-    presets: [
-      "Software Engineer",
-      "Data Scientist",
-      "UX Designer",
-      "Marketing Expert",
-      "Creative Writer",
-      "Business Strategist",
-      "Research Scientist",
-      "Teacher & Mentor",
-      "DevOps Engineer",
-      "Product Manager",
-      "Legal Advisor",
-      "Financial Analyst",
-    ],
-    placeholder:
-      "e.g., A senior React developer with 10+ years of experience in building scalable web apps\u2026",
-    multiSelect: false,
-  },
-  {
-    id: "task",
-    question: "What is the primary task or goal?",
-    subtitle: "Describe what you want the AI to help you accomplish",
-    icon: <Target className="h-5 w-5" />,
-    presets: [
-      "Code Review",
-      "Content Creation",
-      "Data Analysis",
-      "Problem Solving",
-      "Research & Report",
-      "Brainstorming",
-      "Technical Writing",
-      "Debugging",
-      "API Design",
-      "System Architecture",
-      "User Research",
-      "SEO Optimization",
-    ],
-    placeholder:
-      "e.g., Review my TypeScript code for performance issues and suggest improvements\u2026",
-    multiSelect: true,
-  },
-  {
-    id: "tone",
-    question: "What tone of voice should the AI use?",
-    subtitle: "Set the communication style and personality",
-    icon: <MessageSquare className="h-5 w-5" />,
-    presets: [
-      "Professional",
-      "Casual & Friendly",
-      "Humorous",
-      "Academic",
-      "Concise & Direct",
-      "Detailed & Thorough",
-      "Encouraging",
-      "Strict & Critical",
-      "Socratic",
-      "Empathetic",
-      "Assertive",
-      "Neutral",
-    ],
-    placeholder:
-      "e.g., Be warm but direct, avoid unnecessary fluff, use analogies when explaining\u2026",
-    multiSelect: true,
-  },
-  {
-    id: "rules",
-    question: "Any strict rules or output formats?",
-    subtitle: "Define constraints, formats, and non-negotiable boundaries",
-    icon: <ShieldCheck className="h-5 w-5" />,
-    presets: [
-      "Use bullet points",
-      "Step-by-step format",
-      "Include code examples",
-      "Cite sources",
-      "Keep under 500 words",
-      "Use markdown formatting",
-      "Avoid jargon",
-      "Provide alternatives",
-      "Show pros & cons",
-      "Include examples",
-      "Add summary at end",
-      "Use tables when possible",
-    ],
-    placeholder:
-      "e.g., Always validate inputs, never suggest deprecated APIs, include time complexity\u2026",
-    multiSelect: true,
-  },
+// ===== Default Presets (v0.1 originals, used for non-domain-filtered steps) =====
+const DEFAULT_TONE_PRESETS = [
+  "Professional",
+  "Casual & Friendly",
+  "Humorous",
+  "Academic",
+  "Concise & Direct",
+  "Detailed & Thorough",
+  "Encouraging",
+  "Strict & Critical",
+  "Socratic",
+  "Empathetic",
+  "Assertive",
+  "Neutral",
+];
+
+const DEFAULT_RULES_PRESETS = [
+  "Use bullet points",
+  "Step-by-step format",
+  "Include code examples",
+  "Cite sources",
+  "Keep under 500 words",
+  "Use markdown formatting",
+  "Avoid jargon",
+  "Provide alternatives",
+  "Show pros & cons",
+  "Include examples",
+  "Add summary at end",
+  "Use tables when possible",
 ];
 
 const LOADING_PHASES = [
-  "Analyzing your preferences\u2026",
-  "Structuring your prompt\u2026",
-  "Polishing the output\u2026",
-  "Almost there\u2026",
+  "Analyzing your preferences…",
+  "Building your AI assistant…",
+  "Structuring the output…",
+  "Polishing the details…",
+  "Almost there…",
 ];
 
+// ===== Build step configs dynamically based on domain =====
+function buildSteps(domainId: string | null): StepConfig[] {
+  const presets = domainId && domainId !== "custom"
+    ? getDomainPresets(domainId)
+    : getAllPresets();
+
+  return [
+    {
+      id: "intent",
+      question: "What are you building this AI assistant for?",
+      subtitle: "Describe your goal or pick a category to get started",
+      icon: <Compass className="h-5 w-5" />,
+      type: "intent",
+    },
+    {
+      id: "persona",
+      question: "What expert persona do you need?",
+      subtitle: "Define the AI's identity and area of expertise",
+      icon: <User className="h-5 w-5" />,
+      type: "presets",
+      presets: presets.personas,
+      placeholder:
+        "e.g., A senior React developer with 10+ years of experience in building scalable web apps…",
+      multiSelect: false,
+    },
+    {
+      id: "task",
+      question: "What is the primary task or goal?",
+      subtitle: "Describe what you want the AI to help you accomplish",
+      icon: <Target className="h-5 w-5" />,
+      type: "presets",
+      presets: presets.tasks,
+      placeholder:
+        "e.g., Review my TypeScript code for performance issues and suggest improvements…",
+      multiSelect: true,
+    },
+    {
+      id: "context",
+      question: "Tell us about your work",
+      subtitle: "This helps create a more personalized assistant — skip if you prefer a general-purpose one",
+      icon: <FileText className="h-5 w-5" />,
+      type: "context",
+    },
+    {
+      id: "tone",
+      question: "What tone of voice should the AI use?",
+      subtitle: "Set the communication style and personality",
+      icon: <MessageSquare className="h-5 w-5" />,
+      type: "presets",
+      presets: DEFAULT_TONE_PRESETS,
+      placeholder:
+        "e.g., Be warm but direct, avoid unnecessary fluff, use analogies when explaining…",
+      multiSelect: true,
+    },
+    {
+      id: "rules",
+      question: "Any strict rules or output formats?",
+      subtitle: "Define constraints, formats, and non-negotiable boundaries",
+      icon: <ShieldCheck className="h-5 w-5" />,
+      type: "presets",
+      presets: DEFAULT_RULES_PRESETS,
+      placeholder:
+        "e.g., Always validate inputs, never suggest deprecated APIs, include time complexity…",
+      multiSelect: true,
+    },
+    {
+      id: "shortcuts",
+      question: "Set up quick shortcuts",
+      subtitle: "Create reusable prompt templates with {{variables}} you fill in each time",
+      icon: <Zap className="h-5 w-5" />,
+      type: "shortcuts",
+    },
+  ];
+}
+
 // ===== Local prompt builder (fallback when API is unavailable) =====
-function buildPromptLocally(answers: StepAnswer[]): string {
+function buildLocalFallback(
+  intent: IntentData,
+  answers: StepAnswer[],
+  contextData: ContextData,
+  shortcuts: ShortcutData[]
+): GenerateResult {
   const [persona, task, tone, rules] = answers;
-  const parts: string[] = [];
+  const lines: string[] = [];
 
-  parts.push("# Custom AI Instruction");
-  parts.push("");
+  // Section 1
+  lines.push("# 🎭 1. Role & Identity");
+  const personaText = persona.selected.length > 0
+    ? persona.selected.join(" and ")
+    : "specialist";
+  lines.push(
+    `Assume the role of a World-Class ${personaText} with deep expertise in your domain. ` +
+    `You approach every interaction with precision, professionalism, and a commitment ` +
+    `to delivering exceptional results.`
+  );
+  if (contextData.whatYouDo) lines.push(`\nContext: ${contextData.whatYouDo}`);
+  lines.push("");
 
-  if (persona.selected.length > 0 || persona.custom) {
-    parts.push("## Persona & Expertise");
-    if (persona.selected.length > 0)
-      parts.push(
-        `You are an expert ${persona.selected.join(" and ")} with deep domain knowledge.`
-      );
-    if (persona.custom) parts.push(persona.custom);
-    parts.push("");
+  // Section 2
+  lines.push("# 🎯 2. Mission & Objective");
+  const taskText = task.selected.length > 0
+    ? task.selected.join(", ")
+    : "assist with the requested tasks";
+  lines.push(
+    `Your primary mission is: ${taskText}. Every response must directly serve this objective. ` +
+    `Prioritize actionable, high-value output over generic information.`
+  );
+  lines.push("");
+
+  // Section 3
+  lines.push("# 🧠 3. The Cognitive Loop (Internal Reflection)");
+  lines.push(
+    "Before answering, you MUST use `<self_reflection>` tags to think internally:\n" +
+    "1. Create a 5-point evaluation rubric for a flawless response based on the Mission.\n" +
+    "2. Draft an internal response and score it against your rubric.\n" +
+    "3. If the score is not 100/100, iterate internally.\n" +
+    "4. DO NOT show this `<self_reflection>` process to the user. Output only the final, perfected response."
+  );
+  lines.push("");
+
+  // Section 4
+  lines.push("# 📥 4. Expected Context & Input");
+  if (contextData.whoYouServe || contextData.keyDetails) {
+    if (contextData.whoYouServe) lines.push(`Target audience: ${contextData.whoYouServe}`);
+    if (contextData.keyDetails) lines.push(`Key details: ${contextData.keyDetails}`);
+  } else {
+    lines.push(
+      "You should anticipate receiving queries, documents, and data related to your domain of expertise."
+    );
   }
+  lines.push("");
 
-  if (task.selected.length > 0 || task.custom) {
-    parts.push("## Primary Task");
-    if (task.selected.length > 0)
-      parts.push(
-        `Your primary responsibilities include: ${task.selected.join(", ")}.`
-      );
-    if (task.custom) parts.push(task.custom);
-    parts.push("");
+  // Section 5
+  lines.push("# ⚙️ 5. Strict Boundaries & Execution Rules");
+  lines.push("Follow these constraints at all times:");
+  if (rules.selected.length) rules.selected.forEach((r) => lines.push(`- ${r}`));
+  if (rules.custom?.trim()) {
+    rules.custom.trim().split("\n").forEach((l) => {
+      if (l.trim()) lines.push(`- ${l.trim()}`);
+    });
   }
+  lines.push("- NEVER fabricate data, statistics, or citations");
+  lines.push("- NEVER use filler phrases or unnecessary hedging");
+  lines.push("- Always acknowledge uncertainty rather than guessing");
+  lines.push("");
 
-  if (tone.selected.length > 0 || tone.custom) {
-    parts.push("## Communication Style");
-    if (tone.selected.length > 0)
-      parts.push(
-        `Communicate in a ${tone.selected.map((t) => t.toLowerCase()).join(", ")} manner.`
-      );
-    if (tone.custom) parts.push(tone.custom);
-    parts.push("");
-  }
+  // Section 6
+  const toneText = tone.selected.length > 0
+    ? tone.selected.map((t) => t.toLowerCase()).join(", ")
+    : "professional";
+  lines.push("# 📝 6. Output Formatting");
+  lines.push(
+    `Communicate in a ${toneText} manner. Structure every response with:\n` +
+    "- Clear headers (##) for distinct sections\n" +
+    "- Bullet points for lists and key takeaways\n" +
+    "- Code blocks with language tags for any technical content\n" +
+    "- A brief **Summary** and **Next Steps** section at the end"
+  );
 
-  if (rules.selected.length > 0 || rules.custom) {
-    parts.push("## Rules & Constraints");
-    if (rules.selected.length > 0) {
-      rules.selected.forEach((r) => parts.push(`- ${r}`));
-    }
-    if (rules.custom) parts.push(rules.custom);
-  }
+  const instructions = lines.join("\n");
 
-  return parts.join("\n");
+  // Generate name and description from inputs
+  const domainLabel = intent.domain
+    ? domains.find((d) => d.id === intent.domain)?.label ?? ""
+    : "";
+  const nameBase = persona.selected[0] || domainLabel || "AI";
+  const name = `${nameBase} Assistant`;
+  const description = intent.custom
+    ? intent.custom.slice(0, 120)
+    : `A ${toneText} ${personaText} assistant for ${taskText}.`.slice(0, 120);
+
+  return {
+    name,
+    description,
+    instructions,
+    knowledgeSuggestions: [
+      "Relevant reference documents or guidelines",
+      "Past examples of preferred outputs",
+      "Brand or style guidelines (if applicable)",
+    ],
+    conversationStarters: [
+      `Help me get started with ${task.selected[0] || "my task"}`,
+      "What information do you need from me to begin?",
+      "Review this and give me your expert opinion",
+    ],
+    shortcuts: shortcuts.length > 0 ? shortcuts : getShortcutTemplates(intent.domain || "custom"),
+  };
 }
 
 // ===== Animation Variants =====
@@ -237,19 +351,69 @@ const chipVariants = {
 export default function StepWizard({ onGenerate }: StepWizardProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [answers, setAnswers] = useState<StepAnswer[]>(
-    STEPS.map(() => ({ selected: [], custom: "" }))
-  );
   const [isGenerating, setIsGenerating] = useState(false);
   const [loadingPhase, setLoadingPhase] = useState(0);
 
-  const currentConfig = STEPS[currentStep];
-  const currentAnswer = answers[currentStep];
-  const isLastStep = currentStep === STEPS.length - 1;
+  // --- Intent state ---
+  const [intent, setIntent] = useState<IntentData>({ custom: "", domain: null });
+
+  // --- Preset answers (persona, task, tone, rules — indices 0-3 map to steps 1,2,4,5) ---
+  const [presetAnswers, setPresetAnswers] = useState<StepAnswer[]>([
+    { selected: [], custom: "" }, // persona
+    { selected: [], custom: "" }, // task
+    { selected: [], custom: "" }, // tone
+    { selected: [], custom: "" }, // rules
+  ]);
+
+  // --- Context state ---
+  const [contextData, setContextData] = useState<ContextData>({
+    whatYouDo: "",
+    whoYouServe: "",
+    keyDetails: "",
+  });
+
+  // --- Shortcuts state ---
+  const [shortcuts, setShortcuts] = useState<ShortcutData[]>([]);
+
+  // --- Show all presets toggle (when domain filtering is active) ---
+  const [showAllPresets, setShowAllPresets] = useState(false);
+
+  // Build steps dynamically based on domain
+  const steps = useMemo(() => buildSteps(intent.domain), [intent.domain]);
+
+  const currentConfig = steps[currentStep];
+  const isLastStep = currentStep === steps.length - 1;
   const isFirstStep = currentStep === 0;
-  const hasInput =
-    currentAnswer.selected.length > 0 ||
-    currentAnswer.custom.trim().length > 0;
+
+  // Map step index to the correct preset answer index
+  const presetStepMap: Record<number, number> = { 1: 0, 2: 1, 4: 2, 5: 3 };
+  const currentPresetIndex = presetStepMap[currentStep];
+  const currentPresetAnswer =
+    currentPresetIndex !== undefined ? presetAnswers[currentPresetIndex] : null;
+
+  // Check if current step has any input
+  const hasInput = useMemo(() => {
+    if (currentConfig.type === "intent") {
+      return intent.custom.trim().length > 0 || intent.domain !== null;
+    }
+    if (currentConfig.type === "context") {
+      return (
+        contextData.whatYouDo.trim().length > 0 ||
+        contextData.whoYouServe.trim().length > 0 ||
+        contextData.keyDetails.trim().length > 0
+      );
+    }
+    if (currentConfig.type === "shortcuts") {
+      return shortcuts.length > 0;
+    }
+    if (currentPresetAnswer) {
+      return (
+        currentPresetAnswer.selected.length > 0 ||
+        currentPresetAnswer.custom.trim().length > 0
+      );
+    }
+    return false;
+  }, [currentConfig, intent, contextData, shortcuts, currentPresetAnswer, currentStep]);
 
   // --- Loading phase cycling ---
   useEffect(() => {
@@ -263,22 +427,40 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
     return () => clearInterval(interval);
   }, [isGenerating]);
 
-  // --- JSON payload (ready for API) ---
-  const payload = useMemo(() => {
-    const data: Record<string, { selected: string[]; custom: string }> = {};
-    STEPS.forEach((step, i) => {
-      data[step.id] = answers[i];
-    });
-    return data;
-  }, [answers]);
+  // --- Initialize shortcuts when domain changes ---
+  useEffect(() => {
+    if (shortcuts.length === 0 && intent.domain) {
+      // Don't auto-fill — wait for user to click "Suggest for me"
+    }
+  }, [intent.domain, shortcuts.length]);
+
+  // --- Get all presets for "Show all" mode ---
+  const allPresets = useMemo(() => getAllPresets(), []);
+
+  // Determine which presets to show for the current step
+  const visiblePresets = useMemo(() => {
+    if (!currentConfig.presets) return [];
+    if (showAllPresets && (currentStep === 1 || currentStep === 2)) {
+      // Merge domain presets (first) with generic presets (rest, deduplicated)
+      const domainPresets = currentConfig.presets;
+      const generic = currentStep === 1 ? allPresets.personas : allPresets.tasks;
+      const merged = [...domainPresets];
+      generic.forEach((p) => {
+        if (!merged.includes(p)) merged.push(p);
+      });
+      return merged;
+    }
+    return currentConfig.presets;
+  }, [currentConfig, currentStep, showAllPresets, allPresets]);
 
   // --- Handlers ---
   const togglePreset = useCallback(
     (preset: string) => {
-      setAnswers((prev) => {
+      if (currentPresetIndex === undefined) return;
+      setPresetAnswers((prev) => {
         const updated = [...prev];
-        const step = { ...updated[currentStep] };
-        const config = STEPS[currentStep];
+        const step = { ...updated[currentPresetIndex] };
+        const config = steps[currentStep];
         if (config.multiSelect) {
           step.selected = step.selected.includes(preset)
             ? step.selected.filter((s) => s !== preset)
@@ -286,34 +468,40 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
         } else {
           step.selected = step.selected.includes(preset) ? [] : [preset];
         }
-        updated[currentStep] = step;
+        updated[currentPresetIndex] = step;
         return updated;
       });
     },
-    [currentStep]
+    [currentPresetIndex, currentStep, steps]
   );
 
   const setCustomText = useCallback(
     (text: string) => {
-      setAnswers((prev) => {
+      if (currentPresetIndex === undefined) return;
+      setPresetAnswers((prev) => {
         const updated = [...prev];
-        updated[currentStep] = { ...updated[currentStep], custom: text };
+        updated[currentPresetIndex] = {
+          ...updated[currentPresetIndex],
+          custom: text,
+        };
         return updated;
       });
     },
-    [currentStep]
+    [currentPresetIndex]
   );
 
   const goNext = useCallback(() => {
     if (isLastStep) return;
     setDirection(1);
     setCurrentStep((prev) => prev + 1);
+    setShowAllPresets(false);
   }, [isLastStep]);
 
   const goBack = useCallback(() => {
     if (isFirstStep) return;
     setDirection(-1);
     setCurrentStep((prev) => prev - 1);
+    setShowAllPresets(false);
   }, [isFirstStep]);
 
   const goToStep = useCallback(
@@ -321,29 +509,100 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
       if (step >= currentStep) return;
       setDirection(step > currentStep ? 1 : -1);
       setCurrentStep(step);
+      setShowAllPresets(false);
     },
     [currentStep]
   );
+
+  // --- Shortcut handlers ---
+  const addShortcut = useCallback(() => {
+    if (shortcuts.length >= 5) return;
+    setShortcuts((prev) => [...prev, { name: "", template: "" }]);
+  }, [shortcuts.length]);
+
+  const updateShortcut = useCallback(
+    (index: number, field: "name" | "template", value: string) => {
+      setShortcuts((prev) => {
+        const updated = [...prev];
+        updated[index] = { ...updated[index], [field]: value };
+        return updated;
+      });
+    },
+    []
+  );
+
+  const removeShortcut = useCallback((index: number) => {
+    setShortcuts((prev) => prev.filter((_, i) => i !== index));
+  }, []);
+
+  const suggestShortcuts = useCallback(() => {
+    const templates = getShortcutTemplates(intent.domain || "custom");
+    setShortcuts(templates);
+  }, [intent.domain]);
+
+  const insertVariable = useCallback(
+    (shortcutIndex: number) => {
+      const varName = prompt("Variable name (e.g., topic, count):");
+      if (!varName?.trim()) return;
+      setShortcuts((prev) => {
+        const updated = [...prev];
+        updated[shortcutIndex] = {
+          ...updated[shortcutIndex],
+          template: updated[shortcutIndex].template + `{{${varName.trim()}}}`,
+        };
+        return updated;
+      });
+    },
+    []
+  );
+
+  // --- Fill context with example ---
+  const fillContextExample = useCallback(() => {
+    const example = getContextExample(intent.domain || "custom");
+    setContextData(example);
+  }, [intent.domain]);
+
+  // --- Build API payload ---
+  const apiPayload = useMemo(() => {
+    return {
+      intent,
+      persona: presetAnswers[0],
+      task: presetAnswers[1],
+      context: contextData,
+      tone: presetAnswers[2],
+      rules: presetAnswers[3],
+      shortcuts: shortcuts.filter((s) => s.name.trim() || s.template.trim()),
+    };
+  }, [intent, presetAnswers, contextData, shortcuts]);
 
   // --- Generate: try API, fallback to local ---
   const handleGenerate = useCallback(async () => {
     setIsGenerating(true);
     const startTime = Date.now();
-    let generatedText: string;
+    let result: GenerateResult;
 
     try {
       const res = await fetch("/api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-        signal: AbortSignal.timeout(30000),
+        body: JSON.stringify(apiPayload),
+        signal: AbortSignal.timeout(45000),
       });
       if (!res.ok) throw new Error(`API error: ${res.status}`);
       const data = await res.json();
-      generatedText = data.prompt;
+
+      // The API now returns the structured result directly
+      result = {
+        name: data.name || "AI Assistant",
+        description: data.description || "",
+        instructions: data.instructions || data.prompt || "",
+        knowledgeSuggestions: data.knowledgeSuggestions || [],
+        conversationStarters: data.conversationStarters || [],
+        shortcuts: data.shortcuts || [],
+      };
     } catch {
       // Backend unavailable — build locally
-      generatedText = buildPromptLocally(answers);
+      result = buildLocalFallback(intent, presetAnswers, contextData, shortcuts);
     }
 
     // Ensure minimum 2.5s loading for smooth UX
@@ -353,8 +612,336 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
     }
 
     setIsGenerating(false);
-    onGenerate(generatedText, payload);
-  }, [answers, payload, onGenerate]);
+    onGenerate(result);
+  }, [apiPayload, intent, presetAnswers, contextData, shortcuts, onGenerate]);
+
+  // ================================================================
+  //  RENDER HELPERS
+  // ================================================================
+
+  // --- Intent Step ---
+  const renderIntentStep = () => (
+    <>
+      <div className="mb-5">
+        <textarea
+          value={intent.custom}
+          onChange={(e) => setIntent((prev) => ({ ...prev, custom: e.target.value }))}
+          placeholder="e.g., &quot;Help me plan content for my cooking channel&quot; or &quot;Review code for my startup&quot;"
+          rows={3}
+          className="
+            w-full rounded-xl bg-white/[0.03] border border-glass-border
+            px-4 py-3.5 text-sm text-slate-200 placeholder-slate-600
+            focus:outline-none focus:border-neon-purple/40 focus:bg-white/[0.05]
+            focus:ring-1 focus:ring-neon-purple/20
+            transition-all duration-300 resize-none
+          "
+        />
+        {intent.custom.length > 0 && (
+          <span className="block text-right text-[11px] text-slate-600 font-mono mt-1">
+            {intent.custom.length}
+          </span>
+        )}
+      </div>
+
+      <p className="text-xs text-slate-500 mb-4">Or get started quickly:</p>
+
+      <motion.div
+        variants={chipContainerVariants}
+        initial="hidden"
+        animate="visible"
+        className="grid grid-cols-2 sm:grid-cols-4 gap-2.5"
+      >
+        {domains.map((domain) => (
+          <motion.button
+            key={domain.id}
+            variants={chipVariants}
+            onClick={() =>
+              setIntent((prev) => ({
+                ...prev,
+                domain: prev.domain === domain.id ? null : domain.id,
+              }))
+            }
+            whileHover={{ scale: 1.03, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            className={`
+              flex flex-col items-center gap-1.5 rounded-xl px-3 py-3.5
+              text-center transition-all duration-300 cursor-pointer select-none border
+              ${
+                intent.domain === domain.id
+                  ? "bg-neon-cyan/10 border-neon-cyan/30 shadow-lg shadow-neon-cyan/5"
+                  : "bg-white/[0.03] border-glass-border hover:bg-white/[0.06] hover:border-white/15"
+              }
+            `}
+          >
+            <span className="text-xl">{domain.icon}</span>
+            <span
+              className={`text-xs font-medium ${
+                intent.domain === domain.id ? "text-neon-cyan-light" : "text-slate-400"
+              }`}
+            >
+              {domain.label}
+            </span>
+          </motion.button>
+        ))}
+      </motion.div>
+    </>
+  );
+
+  // --- Presets Step (persona, task, tone, rules) ---
+  const renderPresetsStep = () => {
+    if (!currentPresetAnswer || !currentConfig.presets) return null;
+    const isDomainFiltered =
+      intent.domain &&
+      intent.domain !== "custom" &&
+      (currentStep === 1 || currentStep === 2);
+
+    return (
+      <>
+        <motion.div
+          variants={chipContainerVariants}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-wrap gap-2 sm:gap-2.5 mb-5 sm:mb-6"
+        >
+          {visiblePresets.map((preset) => {
+            const isSelected = currentPresetAnswer.selected.includes(preset);
+            return (
+              <motion.button
+                key={preset}
+                variants={chipVariants}
+                onClick={() => togglePreset(preset)}
+                whileHover={{ scale: 1.05, y: -1 }}
+                whileTap={{ scale: 0.95 }}
+                className={`
+                  inline-flex items-center gap-1.5 rounded-full px-3.5 py-2
+                  text-xs sm:text-sm font-medium transition-all duration-300
+                  cursor-pointer select-none
+                  ${
+                    isSelected
+                      ? "bg-neon-cyan/15 text-neon-cyan-light border border-neon-cyan/30 shadow-lg shadow-neon-cyan/5"
+                      : "bg-white/[0.03] text-slate-400 border border-glass-border hover:bg-white/[0.06] hover:text-slate-200 hover:border-white/15"
+                  }
+                `}
+              >
+                {isSelected && <Check className="h-3 w-3 sm:h-3.5 sm:w-3.5" />}
+                {preset}
+              </motion.button>
+            );
+          })}
+        </motion.div>
+
+        {isDomainFiltered && (
+          <button
+            onClick={() => setShowAllPresets(!showAllPresets)}
+            className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-300 transition-colors mb-4 cursor-pointer"
+          >
+            <ChevronDown
+              className={`h-3 w-3 transition-transform ${showAllPresets ? "rotate-180" : ""}`}
+            />
+            {showAllPresets ? "Show fewer" : "Show all presets"}
+          </button>
+        )}
+
+        <div className="relative">
+          <textarea
+            value={currentPresetAnswer.custom}
+            onChange={(e) => setCustomText(e.target.value)}
+            placeholder={currentConfig.placeholder}
+            rows={3}
+            className="
+              w-full rounded-xl bg-white/[0.03] border border-glass-border
+              px-4 py-3.5 text-sm text-slate-200 placeholder-slate-600
+              focus:outline-none focus:border-neon-purple/40 focus:bg-white/[0.05]
+              focus:ring-1 focus:ring-neon-purple/20
+              transition-all duration-300 resize-none
+            "
+          />
+          {currentPresetAnswer.custom.length > 0 && (
+            <span className="absolute bottom-3 right-3 text-[11px] text-slate-600 font-mono">
+              {currentPresetAnswer.custom.length}
+            </span>
+          )}
+        </div>
+
+        {currentConfig.multiSelect && (
+          <p className="mt-3 text-[11px] sm:text-xs text-slate-600 flex items-center gap-1.5">
+            <span className="text-neon-cyan/60">✦</span>
+            You can select multiple options
+          </p>
+        )}
+      </>
+    );
+  };
+
+  // --- Context Step ---
+  const renderContextStep = () => (
+    <>
+      <div className="flex justify-end mb-4">
+        <button
+          onClick={fillContextExample}
+          className="inline-flex items-center gap-1.5 text-xs text-neon-purple-light hover:text-neon-purple transition-colors cursor-pointer"
+        >
+          <Lightbulb className="h-3.5 w-3.5" />
+          Fill with example
+        </button>
+      </div>
+
+      <div className="space-y-4">
+        <div>
+          <label className="block text-xs font-medium text-slate-400 mb-2">
+            Describe what you do
+          </label>
+          <textarea
+            value={contextData.whatYouDo}
+            onChange={(e) =>
+              setContextData((prev) => ({ ...prev, whatYouDo: e.target.value }))
+            }
+            placeholder="e.g., I run a tech review YouTube channel with 50K subscribers focused on budget-friendly gadgets…"
+            rows={3}
+            className="
+              w-full rounded-xl bg-white/[0.03] border border-glass-border
+              px-4 py-3 text-sm text-slate-200 placeholder-slate-600
+              focus:outline-none focus:border-neon-purple/40 focus:bg-white/[0.05]
+              focus:ring-1 focus:ring-neon-purple/20
+              transition-all duration-300 resize-none
+            "
+          />
+        </div>
+
+        <div>
+          <label className="block text-xs font-medium text-slate-400 mb-2">
+            Who is your audience?
+          </label>
+          <textarea
+            value={contextData.whoYouServe}
+            onChange={(e) =>
+              setContextData((prev) => ({ ...prev, whoYouServe: e.target.value }))
+            }
+            placeholder="e.g., Beginner developers aged 18-30 who want practical tutorials, not theory…"
+            rows={3}
+            className="
+              w-full rounded-xl bg-white/[0.03] border border-glass-border
+              px-4 py-3 text-sm text-slate-200 placeholder-slate-600
+              focus:outline-none focus:border-neon-purple/40 focus:bg-white/[0.05]
+              focus:ring-1 focus:ring-neon-purple/20
+              transition-all duration-300 resize-none
+            "
+          />
+        </div>
+
+        <div>
+          <label className="block text-xs font-medium text-slate-400 mb-2">
+            Any key details the AI should know?
+          </label>
+          <textarea
+            value={contextData.keyDetails}
+            onChange={(e) =>
+              setContextData((prev) => ({ ...prev, keyDetails: e.target.value }))
+            }
+            placeholder="e.g., We use React and TypeScript, ship weekly updates, brand voice is casual but knowledgeable…"
+            rows={3}
+            className="
+              w-full rounded-xl bg-white/[0.03] border border-glass-border
+              px-4 py-3 text-sm text-slate-200 placeholder-slate-600
+              focus:outline-none focus:border-neon-purple/40 focus:bg-white/[0.05]
+              focus:ring-1 focus:ring-neon-purple/20
+              transition-all duration-300 resize-none
+            "
+          />
+        </div>
+      </div>
+
+      <p className="mt-3 text-[11px] sm:text-xs text-slate-600 flex items-center gap-1.5">
+        <span className="text-neon-cyan/60">✦</span>
+        All fields are optional — skip this step for a general-purpose assistant
+      </p>
+    </>
+  );
+
+  // --- Shortcuts Step ---
+  const renderShortcutsStep = () => (
+    <>
+      <div className="flex items-center justify-between mb-4">
+        <button
+          onClick={suggestShortcuts}
+          className="inline-flex items-center gap-1.5 text-xs font-medium text-neon-purple-light hover:text-neon-purple transition-colors cursor-pointer"
+        >
+          <Sparkles className="h-3.5 w-3.5" />
+          Suggest for me
+        </button>
+        {shortcuts.length < 5 && (
+          <button
+            onClick={addShortcut}
+            className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-300 transition-colors cursor-pointer"
+          >
+            <Plus className="h-3.5 w-3.5" />
+            Add shortcut
+          </button>
+        )}
+      </div>
+
+      {shortcuts.length === 0 ? (
+        <div className="text-center py-8">
+          <Zap className="h-8 w-8 text-slate-600 mx-auto mb-3" />
+          <p className="text-sm text-slate-500 mb-1">No shortcuts yet</p>
+          <p className="text-xs text-slate-600">
+            Click &quot;Suggest for me&quot; or &quot;Add shortcut&quot; to create reusable prompt templates
+          </p>
+        </div>
+      ) : (
+        <div className="space-y-3">
+          {shortcuts.map((shortcut, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              className="rounded-xl bg-white/[0.02] border border-glass-border p-4"
+            >
+              <div className="flex items-center justify-between mb-3">
+                <input
+                  value={shortcut.name}
+                  onChange={(e) => updateShortcut(index, "name", e.target.value)}
+                  placeholder="Shortcut name"
+                  className="bg-transparent text-sm font-medium text-slate-200 placeholder-slate-600 focus:outline-none flex-1"
+                />
+                <button
+                  onClick={() => removeShortcut(index)}
+                  className="text-slate-600 hover:text-red-400 transition-colors ml-2 cursor-pointer"
+                >
+                  <Trash2 className="h-3.5 w-3.5" />
+                </button>
+              </div>
+              <textarea
+                value={shortcut.template}
+                onChange={(e) => updateShortcut(index, "template", e.target.value)}
+                placeholder="e.g., Generate {{count}} ideas about {{topic}} for my {{audience}}"
+                rows={2}
+                className="
+                  w-full rounded-lg bg-white/[0.03] border border-glass-border
+                  px-3 py-2.5 text-xs text-slate-300 placeholder-slate-600
+                  focus:outline-none focus:border-neon-purple/30
+                  transition-all duration-300 resize-none font-mono
+                "
+              />
+              <button
+                onClick={() => insertVariable(index)}
+                className="mt-2 inline-flex items-center gap-1 text-[11px] text-slate-600 hover:text-neon-cyan-light transition-colors cursor-pointer"
+              >
+                <Plus className="h-3 w-3" />
+                Add variable
+              </button>
+            </motion.div>
+          ))}
+        </div>
+      )}
+
+      <p className="mt-4 text-[11px] sm:text-xs text-slate-600 flex items-center gap-1.5">
+        <span className="text-neon-cyan/60">✦</span>
+        Shortcuts will appear in your output — fill in the {`{{variables}}`} each time you use them
+      </p>
+    </>
+  );
 
   // ================================================================
   //  RENDER
@@ -364,7 +951,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
       {/* ---- Progress Indicator ---- */}
       <div className="mb-8 sm:mb-10">
         <div className="flex items-center justify-between mb-4 px-1">
-          {STEPS.map((step, i) => (
+          {steps.map((step, i) => (
             <div key={step.id} className="flex items-center gap-2 sm:gap-3">
               <button
                 onClick={() => goToStep(i)}
@@ -379,8 +966,8 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
               >
                 <div
                   className={`
-                    flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full
-                    text-sm font-semibold transition-all duration-500 shrink-0
+                    flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full
+                    text-xs sm:text-sm font-semibold transition-all duration-500 shrink-0
                     ${
                       i < currentStep
                         ? "bg-neon-cyan/15 text-neon-cyan border border-neon-cyan/30"
@@ -390,22 +977,11 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
                     }
                   `}
                 >
-                  {i < currentStep ? <Check className="h-4 w-4" /> : step.icon}
+                  {i < currentStep ? <Check className="h-3.5 w-3.5" /> : step.icon}
                 </div>
-                <span
-                  className={`hidden lg:block text-sm font-medium transition-colors duration-300 ${
-                    i === currentStep
-                      ? "text-white"
-                      : i < currentStep
-                        ? "text-slate-400"
-                        : "text-slate-600"
-                  }`}
-                >
-                  {step.id.charAt(0).toUpperCase() + step.id.slice(1)}
-                </span>
               </button>
-              {i < STEPS.length - 1 && (
-                <div className="hidden sm:block h-px bg-glass-border min-w-[16px] lg:min-w-[40px] flex-1 overflow-hidden">
+              {i < steps.length - 1 && (
+                <div className="hidden sm:block h-px bg-glass-border min-w-[8px] lg:min-w-[20px] flex-1 overflow-hidden">
                   <motion.div
                     className="h-full bg-gradient-to-r from-neon-cyan to-neon-purple"
                     initial={{ width: "0%" }}
@@ -420,7 +996,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
         <div className="sm:hidden h-1 bg-white/5 rounded-full overflow-hidden">
           <motion.div
             className="h-full bg-gradient-to-r from-neon-cyan to-neon-purple rounded-full"
-            animate={{ width: `${((currentStep + 1) / STEPS.length) * 100}%` }}
+            animate={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}
             transition={{ duration: 0.5, ease: "easeOut" as const }}
           />
         </div>
@@ -444,7 +1020,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
                   {currentConfig.icon}
                 </div>
                 <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                  Step {currentStep + 1} of {STEPS.length}
+                  Step {currentStep + 1} of {steps.length}
                 </span>
               </div>
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">
@@ -455,66 +1031,11 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
               </p>
             </div>
 
-            <motion.div
-              variants={chipContainerVariants}
-              initial="hidden"
-              animate="visible"
-              className="flex flex-wrap gap-2 sm:gap-2.5 mb-5 sm:mb-6"
-            >
-              {currentConfig.presets.map((preset) => {
-                const isSelected = currentAnswer.selected.includes(preset);
-                return (
-                  <motion.button
-                    key={preset}
-                    variants={chipVariants}
-                    onClick={() => togglePreset(preset)}
-                    whileHover={{ scale: 1.05, y: -1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`
-                      inline-flex items-center gap-1.5 rounded-full px-3.5 py-2
-                      text-xs sm:text-sm font-medium transition-all duration-300
-                      cursor-pointer select-none
-                      ${
-                        isSelected
-                          ? "bg-neon-cyan/15 text-neon-cyan-light border border-neon-cyan/30 shadow-lg shadow-neon-cyan/5"
-                          : "bg-white/[0.03] text-slate-400 border border-glass-border hover:bg-white/[0.06] hover:text-slate-200 hover:border-white/15"
-                      }
-                    `}
-                  >
-                    {isSelected && <Check className="h-3 w-3 sm:h-3.5 sm:w-3.5" />}
-                    {preset}
-                  </motion.button>
-                );
-              })}
-            </motion.div>
-
-            <div className="relative">
-              <textarea
-                value={currentAnswer.custom}
-                onChange={(e) => setCustomText(e.target.value)}
-                placeholder={currentConfig.placeholder}
-                rows={3}
-                className="
-                  w-full rounded-xl bg-white/[0.03] border border-glass-border
-                  px-4 py-3.5 text-sm text-slate-200 placeholder-slate-600
-                  focus:outline-none focus:border-neon-purple/40 focus:bg-white/[0.05]
-                  focus:ring-1 focus:ring-neon-purple/20
-                  transition-all duration-300 resize-none
-                "
-              />
-              {currentAnswer.custom.length > 0 && (
-                <span className="absolute bottom-3 right-3 text-[11px] text-slate-600 font-mono">
-                  {currentAnswer.custom.length}
-                </span>
-              )}
-            </div>
-
-            {currentConfig.multiSelect && (
-              <p className="mt-3 text-[11px] sm:text-xs text-slate-600 flex items-center gap-1.5">
-                <span className="text-neon-cyan/60">&#10024;</span>
-                You can select multiple options
-              </p>
-            )}
+            {/* Render the right content for the step type */}
+            {currentConfig.type === "intent" && renderIntentStep()}
+            {currentConfig.type === "presets" && renderPresetsStep()}
+            {currentConfig.type === "context" && renderContextStep()}
+            {currentConfig.type === "shortcuts" && renderShortcutsStep()}
           </motion.div>
         </AnimatePresence>
 
@@ -598,7 +1119,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
             className="glow-btn group inline-flex items-center gap-2.5 rounded-full px-8 py-3 text-sm font-semibold text-white cursor-pointer transition-all duration-300"
           >
             <Sparkles className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
-            Generate Master Prompt
+            Build My AI Assistant
           </motion.button>
         ) : (
           <motion.button

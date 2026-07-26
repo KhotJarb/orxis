@@ -6,124 +6,301 @@ import {
   Copy,
   CheckCheck,
   RotateCcw,
-  Scissors,
-  Briefcase,
-  ListOrdered,
   Sparkles,
   AlertCircle,
   FileText,
   Hash,
+  Bot,
+  MessageCircle,
+  Upload,
+  Zap,
 } from "lucide-react";
+import PlatformGuide from "./PlatformGuide";
+import type { GenerateResult } from "./StepWizard";
 
 // ===== Types =====
 interface OutputStudioProps {
-  prompt: string;
-  payload: Record<string, { selected: string[]; custom: string }>;
+  result: GenerateResult;
   onReset: () => void;
-  onPromptUpdate: (newPrompt: string) => void;
 }
 
-interface QuickTweak {
-  id: string;
-  label: string;
-  description: string;
-  icon: React.ReactNode;
-}
+type PlatformTab = "gems" | "gpts" | "projects" | "raw";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
-const QUICK_TWEAKS: QuickTweak[] = [
-  {
-    id: "shorter",
-    label: "Make it Shorter",
-    description: "Condense to essential instructions",
-    icon: <Scissors className="h-4 w-4" />,
-  },
-  {
-    id: "professional",
-    label: "More Professional",
-    description: "Elevate the tone and formality",
-    icon: <Briefcase className="h-4 w-4" />,
-  },
-  {
-    id: "format_rules",
-    label: "Add Output Format",
-    description: "Include structured output rules",
-    icon: <ListOrdered className="h-4 w-4" />,
-  },
+const PLATFORM_TABS: { id: PlatformTab; label: string; emoji: string }[] = [
+  { id: "gems", label: "Gems", emoji: "💎" },
+  { id: "gpts", label: "GPTs", emoji: "🤖" },
+  { id: "projects", label: "Projects", emoji: "📂" },
+  { id: "raw", label: "Raw", emoji: "📄" },
 ];
 
 // ===== Component =====
 export default function OutputStudio({
-  prompt,
-  payload,
+  result,
   onReset,
-  onPromptUpdate,
 }: OutputStudioProps) {
-  const [isCopied, setIsCopied] = useState(false);
-  const [tweakingId, setTweakingId] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<PlatformTab>("gems");
+  const [copiedField, setCopiedField] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   // Computed metadata
-  const wordCount = prompt.split(/\s+/).filter(Boolean).length;
-  const lineCount = prompt.split("\n").length;
-  const sectionCount = (prompt.match(/^## /gm) || []).length;
+  const wordCount = result.instructions.split(/\s+/).filter(Boolean).length;
+  const lineCount = result.instructions.split("\n").length;
+  const sectionCount = (result.instructions.match(/^#+ /gm) || []).length;
 
-  const handleCopy = useCallback(async () => {
-    try {
-      await navigator.clipboard.writeText(prompt);
-      setIsCopied(true);
-      setTimeout(() => setIsCopied(false), 2000);
-    } catch {
-      setError("Failed to copy to clipboard");
-      setTimeout(() => setError(null), 3000);
-    }
-  }, [prompt]);
-
-  const handleTweak = useCallback(
-    async (tweakId: string) => {
-      setTweakingId(tweakId);
-      setError(null);
-
+  const handleCopy = useCallback(
+    async (text: string, fieldId: string) => {
       try {
-        const res = await fetch("/api/tweak", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            current_prompt: prompt,
-            tweak_type: tweakId,
-          }),
-          signal: AbortSignal.timeout(30000),
-        });
-
-        if (!res.ok) throw new Error(`API error: ${res.status}`);
-        const data = await res.json();
-        onPromptUpdate(data.prompt);
+        await navigator.clipboard.writeText(text);
+        setCopiedField(fieldId);
+        setTimeout(() => setCopiedField(null), 2000);
       } catch {
-        // Fallback: apply local tweaks when backend is unavailable
-        let tweaked = prompt;
-
-        if (tweakId === "shorter") {
-          tweaked +=
-            "\n\n> \u26A1 Additional Rule: Keep all responses concise and under 200 words. Eliminate filler phrases.";
-        } else if (tweakId === "professional") {
-          tweaked +=
-            "\n\n> \uD83C\uDFA9 Additional Rule: Maintain a formal, executive-level tone. Use industry-standard terminology.";
-        } else if (tweakId === "format_rules") {
-          tweaked +=
-            "\n\n## Output Format\n- Begin with a one-line summary\n- Use headers for each section\n- Include bullet points for key items\n- End with actionable next steps";
-        }
-
-        onPromptUpdate(tweaked);
-      } finally {
-        setTweakingId(null);
+        setError("Failed to copy to clipboard");
+        setTimeout(() => setError(null), 3000);
       }
     },
-    [prompt, onPromptUpdate]
+    []
   );
 
+  const handleCopyAll = useCallback(async () => {
+    const fullText = [
+      `Name: ${result.name}`,
+      `Description: ${result.description}`,
+      "",
+      "--- Instructions ---",
+      result.instructions,
+      "",
+      result.knowledgeSuggestions.length > 0
+        ? `--- Knowledge Suggestions ---\n${result.knowledgeSuggestions.map((s) => `• ${s}`).join("\n")}`
+        : "",
+      result.conversationStarters.length > 0
+        ? `--- Conversation Starters ---\n${result.conversationStarters.map((s) => `• ${s}`).join("\n")}`
+        : "",
+      result.shortcuts.length > 0
+        ? `--- Shortcuts ---\n${result.shortcuts.map((s) => `/${s.name}: ${s.template}`).join("\n")}`
+        : "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    handleCopy(fullText, "all");
+  }, [result, handleCopy]);
+
+  // ---- Copy button helper ----
+  const CopyButton = ({
+    text,
+    fieldId,
+    size = "sm",
+  }: {
+    text: string;
+    fieldId: string;
+    size?: "sm" | "xs";
+  }) => (
+    <button
+      onClick={() => handleCopy(text, fieldId)}
+      className={`inline-flex items-center gap-1 rounded-lg border border-glass-border
+        text-slate-500 hover:text-white hover:bg-white/5 transition-all cursor-pointer
+        ${size === "sm" ? "px-2.5 py-1.5 text-xs" : "px-2 py-1 text-[11px]"}
+      `}
+    >
+      {copiedField === fieldId ? (
+        <>
+          <CheckCheck className="h-3 w-3 text-green-400" />
+          <span className="text-green-400">Copied</span>
+        </>
+      ) : (
+        <>
+          <Copy className="h-3 w-3" />
+          Copy
+        </>
+      )}
+    </button>
+  );
+
+  // ---- Field block helper ----
+  const FieldBlock = ({
+    label,
+    value,
+    fieldId,
+    mono = false,
+  }: {
+    label: string;
+    value: string;
+    fieldId: string;
+    mono?: boolean;
+  }) => (
+    <div className="rounded-xl bg-white/[0.02] border border-glass-border p-4">
+      <div className="flex items-center justify-between mb-2">
+        <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+          {label}
+        </span>
+        <CopyButton text={value} fieldId={fieldId} size="xs" />
+      </div>
+      <div
+        className={`text-sm text-slate-300 leading-relaxed whitespace-pre-wrap ${
+          mono ? "font-mono text-[13px]" : ""
+        }`}
+      >
+        {value}
+      </div>
+    </div>
+  );
+
+  // ---- Platform-specific rendering ----
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case "gems":
+        return (
+          <div className="space-y-4">
+            <FieldBlock label="Name" value={result.name} fieldId="gems-name" />
+            <FieldBlock
+              label="Description"
+              value={result.description}
+              fieldId="gems-desc"
+            />
+            <FieldBlock
+              label="Instructions"
+              value={result.instructions}
+              fieldId="gems-inst"
+              mono
+            />
+            {result.knowledgeSuggestions.length > 0 && (
+              <div className="rounded-xl bg-white/[0.02] border border-glass-border p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <Upload className="h-3.5 w-3.5 text-slate-500" />
+                  <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                    Knowledge — you might also want to upload
+                  </span>
+                </div>
+                <ul className="space-y-1.5">
+                  {result.knowledgeSuggestions.map((suggestion, i) => (
+                    <li
+                      key={i}
+                      className="text-sm text-slate-400 flex items-start gap-2"
+                    >
+                      <span className="text-neon-cyan/50 mt-0.5">•</span>
+                      {suggestion}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            <PlatformGuide platform="gems" />
+          </div>
+        );
+
+      case "gpts":
+        return (
+          <div className="space-y-4">
+            <FieldBlock label="Name" value={result.name} fieldId="gpts-name" />
+            <FieldBlock
+              label="Description"
+              value={result.description}
+              fieldId="gpts-desc"
+            />
+            <FieldBlock
+              label="Instructions"
+              value={result.instructions}
+              fieldId="gpts-inst"
+              mono
+            />
+            {result.conversationStarters.length > 0 && (
+              <div className="rounded-xl bg-white/[0.02] border border-glass-border p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <MessageCircle className="h-3.5 w-3.5 text-slate-500" />
+                  <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                    Conversation Starters
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  {result.conversationStarters.map((starter, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center justify-between rounded-lg bg-white/[0.03] border border-glass-border px-3 py-2"
+                    >
+                      <span className="text-sm text-slate-300">{starter}</span>
+                      <CopyButton
+                        text={starter}
+                        fieldId={`starter-${i}`}
+                        size="xs"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            <PlatformGuide platform="gpts" />
+          </div>
+        );
+
+      case "projects":
+        return (
+          <div className="space-y-4">
+            <FieldBlock
+              label="Project Name"
+              value={result.name}
+              fieldId="proj-name"
+            />
+            <FieldBlock
+              label="Description"
+              value={result.description}
+              fieldId="proj-desc"
+            />
+            <FieldBlock
+              label="Project Instructions"
+              value={result.instructions}
+              fieldId="proj-inst"
+              mono
+            />
+            <PlatformGuide platform="projects" />
+          </div>
+        );
+
+      case "raw":
+        return (
+          <div className="glass rounded-2xl border border-glass-border overflow-hidden">
+            {/* Window chrome */}
+            <div className="flex items-center justify-between px-5 py-3 border-b border-glass-border bg-white/[0.02]">
+              <div className="flex items-center gap-1.5">
+                <div className="h-3 w-3 rounded-full bg-[#ff5f57]" />
+                <div className="h-3 w-3 rounded-full bg-[#febc2e]" />
+                <div className="h-3 w-3 rounded-full bg-[#28c840]" />
+              </div>
+              <span className="text-xs text-slate-500 font-mono">
+                ai-assistant.md
+              </span>
+              <CopyButton
+                text={result.instructions}
+                fieldId="raw"
+                size="sm"
+              />
+            </div>
+            {/* Content */}
+            <div className="p-5 sm:p-6 overflow-y-auto max-h-[500px]">
+              <pre className="text-sm sm:text-[15px] text-slate-300 whitespace-pre-wrap font-mono leading-relaxed">
+                {result.instructions}
+              </pre>
+            </div>
+            {/* Metadata bar */}
+            <div className="flex items-center gap-4 sm:gap-6 px-5 py-3 border-t border-glass-border bg-white/[0.01] text-[11px] sm:text-xs text-slate-600">
+              <span className="flex items-center gap-1.5">
+                <FileText className="h-3 w-3" />
+                {wordCount} words
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Hash className="h-3 w-3" />
+                {sectionCount} sections
+              </span>
+              <span>{lineCount} lines</span>
+            </div>
+          </div>
+        );
+    }
+  };
+
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-4xl mx-auto">
       {/* ---- Header ---- */}
       <div className="text-center mb-8 sm:mb-10">
         <motion.div
@@ -135,10 +312,10 @@ export default function OutputStudio({
           <Sparkles className="h-7 w-7 text-neon-cyan" />
         </motion.div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
-          Your Master Prompt is Ready
+          Your AI Assistant is Ready
         </h1>
         <p className="text-slate-400 text-sm sm:text-base">
-          Review and copy your custom instruction below.
+          Copy the fields below into your preferred platform.
         </p>
       </div>
 
@@ -157,131 +334,157 @@ export default function OutputStudio({
         )}
       </AnimatePresence>
 
-      {/* ---- Split Layout ---- */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left column: Generated Prompt (2/3) */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.1, ease: EASE_SMOOTH }}
-          className="lg:col-span-2"
-        >
-          <div className="glass rounded-2xl border border-glass-border overflow-hidden h-full flex flex-col">
-            {/* Window chrome */}
-            <div className="flex items-center justify-between px-5 py-3 border-b border-glass-border bg-white/[0.02]">
-              <div className="flex items-center gap-1.5">
-                <div className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-                <div className="h-3 w-3 rounded-full bg-[#febc2e]" />
-                <div className="h-3 w-3 rounded-full bg-[#28c840]" />
-              </div>
-              <span className="text-xs text-slate-500 font-mono">
-                master-prompt.md
-              </span>
-              <motion.button
-                onClick={handleCopy}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-all cursor-pointer"
-              >
-                {isCopied ? (
-                  <>
-                    <CheckCheck className="h-3.5 w-3.5 text-green-400" />
-                    <span className="text-green-400">Copied!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="h-3.5 w-3.5" />
-                    Copy
-                  </>
-                )}
-              </motion.button>
-            </div>
-
-            {/* Prompt content */}
-            <div className="flex-1 p-5 sm:p-6 overflow-y-auto max-h-[500px]">
-              <AnimatePresence mode="wait">
-                <motion.pre
-                  key={prompt.length}
-                  initial={{ opacity: 0.5 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-sm sm:text-[15px] text-slate-300 whitespace-pre-wrap font-mono leading-relaxed"
-                >
-                  {prompt}
-                </motion.pre>
-              </AnimatePresence>
-            </div>
-
-            {/* Metadata bar */}
-            <div className="flex items-center gap-4 sm:gap-6 px-5 py-3 border-t border-glass-border bg-white/[0.01] text-[11px] sm:text-xs text-slate-600">
-              <span className="flex items-center gap-1.5">
-                <FileText className="h-3 w-3" />
-                {wordCount} words
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Hash className="h-3 w-3" />
-                {sectionCount} sections
-              </span>
-              <span>{lineCount} lines</span>
-            </div>
+      {/* ---- Profile Card ---- */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1, ease: EASE_SMOOTH }}
+        className="glass rounded-2xl border border-glass-border p-5 sm:p-6 mb-6"
+        data-tour-step="profile"
+      >
+        <div className="flex items-start gap-4">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-neon-cyan/15 to-neon-purple/15 border border-glass-border shrink-0">
+            <Bot className="h-6 w-6 text-neon-purple-light" />
           </div>
-        </motion.div>
+          <div className="flex-1 min-w-0">
+            <h2 className="text-lg sm:text-xl font-bold text-white truncate">
+              {result.name}
+            </h2>
+            <p className="text-sm text-slate-400 mt-1 line-clamp-2">
+              {result.description}
+            </p>
+          </div>
+          <CopyButton
+            text={`${result.name}\n${result.description}`}
+            fieldId="profile"
+          />
+        </div>
+      </motion.div>
 
-        {/* Right column: Tweaks & Actions (1/3) */}
+      {/* ---- Platform Tabs ---- */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2, ease: EASE_SMOOTH }}
+        data-tour-step="tabs"
+      >
+        <div className="flex gap-1 mb-6 p-1 rounded-xl bg-white/[0.03] border border-glass-border">
+          {PLATFORM_TABS.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`
+                flex-1 flex items-center justify-center gap-2 rounded-lg px-3 py-2.5
+                text-xs sm:text-sm font-medium transition-all duration-300 cursor-pointer
+                ${
+                  activeTab === tab.id
+                    ? "bg-neon-purple/15 text-neon-purple-light border border-neon-purple/30"
+                    : "text-slate-500 hover:text-slate-300 hover:bg-white/[0.03]"
+                }
+              `}
+            >
+              <span>{tab.emoji}</span>
+              <span className="hidden sm:inline">{tab.label}</span>
+            </button>
+          ))}
+        </div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3, ease: EASE_SMOOTH }}
+          >
+            {renderTabContent()}
+          </motion.div>
+        </AnimatePresence>
+      </motion.div>
+
+      {/* ---- Shortcuts Section ---- */}
+      {result.shortcuts.length > 0 && (
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.25, ease: EASE_SMOOTH }}
-          className="lg:col-span-1 flex flex-col gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: EASE_SMOOTH }}
+          className="mt-6"
+          data-tour-step="shortcuts"
         >
-
-          {/* Action Buttons Card */}
           <div className="glass rounded-2xl border border-glass-border p-5 sm:p-6">
-            <div className="flex flex-col gap-3">
-              <motion.button
-                onClick={handleCopy}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="glow-btn inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white cursor-pointer w-full"
-              >
-                {isCopied ? (
-                  <>
-                    <CheckCheck className="h-4 w-4 text-green-400" />
-                    Copied to Clipboard!
-                  </>
-                ) : (
-                  <>
-                    <Copy className="h-4 w-4" />
-                    Copy to Clipboard
-                  </>
-                )}
-              </motion.button>
-
-              <motion.button
-                onClick={onReset}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-glass-border bg-glass-bg px-5 py-3 text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-all cursor-pointer w-full"
-              >
-                <RotateCcw className="h-4 w-4" />
-                Start Over
-              </motion.button>
+            <div className="flex items-center gap-2 mb-4">
+              <Zap className="h-4 w-4 text-neon-purple-light" />
+              <h3 className="text-sm font-semibold text-white">
+                Quick Shortcuts
+              </h3>
+            </div>
+            <div className="space-y-2.5">
+              {result.shortcuts.map((shortcut, i) => (
+                <div
+                  key={i}
+                  className="flex items-center justify-between rounded-xl bg-white/[0.02] border border-glass-border px-4 py-3"
+                >
+                  <div className="flex-1 min-w-0 mr-3">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-xs font-medium text-neon-cyan-light">
+                        /{shortcut.name.toLowerCase().replace(/\s+/g, "-")}
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-400 font-mono truncate">
+                      {shortcut.template.replace(
+                        /\{\{([^}]+)\}\}/g,
+                        (_, v) => `{{${v}}}`
+                      )}
+                    </p>
+                  </div>
+                  <CopyButton
+                    text={shortcut.template}
+                    fieldId={`shortcut-${i}`}
+                    size="xs"
+                  />
+                </div>
+              ))}
             </div>
           </div>
-
-          {/* API Payload (developer toggle) */}
-          <details className="glass rounded-2xl border border-glass-border overflow-hidden">
-            <summary className="px-5 py-3.5 text-sm text-slate-500 cursor-pointer hover:text-slate-300 transition-colors select-none">
-              <span className="ml-1">API Payload (JSON)</span>
-            </summary>
-            <div className="px-5 pb-5 border-t border-glass-border pt-4">
-              <pre className="text-[11px] text-slate-500 font-mono overflow-x-auto leading-relaxed">
-                {JSON.stringify(payload, null, 2)}
-              </pre>
-            </div>
-          </details>
         </motion.div>
-      </div>
+      )}
+
+      {/* ---- Action Bar ---- */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4, ease: EASE_SMOOTH }}
+        className="mt-6 flex flex-col sm:flex-row gap-3"
+      >
+        <motion.button
+          onClick={handleCopyAll}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="glow-btn inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white cursor-pointer flex-1"
+        >
+          {copiedField === "all" ? (
+            <>
+              <CheckCheck className="h-4 w-4 text-green-400" />
+              Everything Copied!
+            </>
+          ) : (
+            <>
+              <Copy className="h-4 w-4" />
+              Copy Everything
+            </>
+          )}
+        </motion.button>
+
+        <motion.button
+          onClick={onReset}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="inline-flex items-center justify-center gap-2 rounded-xl border border-glass-border bg-glass-bg px-5 py-3 text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-all cursor-pointer"
+        >
+          <RotateCcw className="h-4 w-4" />
+          Start Over
+        </motion.button>
+      </motion.div>
     </div>
   );
 }

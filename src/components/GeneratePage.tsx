@@ -1,43 +1,42 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Wand2 } from "lucide-react";
+import { Wand2, HelpCircle } from "lucide-react";
 import Navbar from "./Navbar";
 import StepWizard from "./StepWizard";
 import OutputStudio from "./OutputStudio";
-
-// ===== Types =====
-interface GenerateResult {
-  prompt: string;
-  payload: Record<string, { selected: string[]; custom: string }>;
-}
+import OnboardingTour from "./OnboardingTour";
+import type { GenerateResult } from "./StepWizard";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
 // ===== Component =====
 export default function GeneratePage() {
   const [result, setResult] = useState<GenerateResult | null>(null);
+  const [showTour, setShowTour] = useState(false);
+  const [tourPulse, setTourPulse] = useState(false);
 
-  const handleGenerate = useCallback(
-    (
-      prompt: string,
-      payload: Record<string, { selected: string[]; custom: string }>
-    ) => {
-      setResult({ prompt, payload });
-      // Scroll to top when result is shown
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    },
-    []
-  );
+  // Check if this is the user's first visit
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const completed = localStorage.getItem("orxis_tour_completed");
+    if (!completed) {
+      // Pulse the tour button once on first visit
+      setTourPulse(true);
+      const timer = setTimeout(() => setTourPulse(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const handleGenerate = useCallback((generateResult: GenerateResult) => {
+    setResult(generateResult);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const handleReset = useCallback(() => {
     setResult(null);
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
-
-  const handlePromptUpdate = useCallback((newPrompt: string) => {
-    setResult((prev) => (prev ? { ...prev, prompt: newPrompt } : null));
   }, []);
 
   return (
@@ -71,10 +70,8 @@ export default function GeneratePage() {
               transition={{ duration: 0.5, ease: EASE_SMOOTH }}
             >
               <OutputStudio
-                prompt={result.prompt}
-                payload={result.payload}
+                result={result}
                 onReset={handleReset}
-                onPromptUpdate={handlePromptUpdate}
               />
             </motion.div>
           ) : (
@@ -89,16 +86,36 @@ export default function GeneratePage() {
               <div className="text-center mb-10 sm:mb-14">
                 <div className="inline-flex items-center gap-2 rounded-full border border-glass-border bg-glass-bg px-4 py-2 text-xs sm:text-sm font-medium text-neon-purple-light mb-6">
                   <Wand2 className="h-3.5 w-3.5" />
-                  Interactive Builder
+                  AI Assistant Builder
                 </div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-                  Craft Your{" "}
-                  <span className="text-gradient">Custom Instruction</span>
+                  Build Your{" "}
+                  <span className="text-gradient">AI Assistant</span>
                 </h1>
                 <p className="max-w-2xl mx-auto text-slate-400 text-base sm:text-lg leading-relaxed">
-                  Answer four simple questions and we&apos;ll generate a
-                  precision-crafted system prompt tailored to your exact needs.
+                  Answer a few questions and we&apos;ll generate a complete AI
+                  assistant profile — ready for Gemini Gems, ChatGPT GPTs, or
+                  Claude Projects.
                 </p>
+              </div>
+
+              {/* Tour Button */}
+              <div className="flex justify-center mb-6">
+                <motion.button
+                  onClick={() => setShowTour(true)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  animate={tourPulse ? { scale: [1, 1.1, 1] } : undefined}
+                  transition={
+                    tourPulse
+                      ? { duration: 1, repeat: 2, ease: "easeInOut" }
+                      : undefined
+                  }
+                  className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium text-slate-500 hover:text-slate-300 border border-glass-border hover:border-white/15 bg-white/[0.02] hover:bg-white/[0.05] transition-all cursor-pointer"
+                >
+                  <HelpCircle className="h-3.5 w-3.5" />
+                  Take the tour
+                </motion.button>
               </div>
 
               <StepWizard onGenerate={handleGenerate} />
@@ -106,6 +123,9 @@ export default function GeneratePage() {
           )}
         </AnimatePresence>
       </div>
+
+      {/* Onboarding Tour */}
+      <OnboardingTour isOpen={showTour} onClose={() => setShowTour(false)} />
     </main>
   );
 }
