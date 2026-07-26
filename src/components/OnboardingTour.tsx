@@ -1,30 +1,95 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from 'react';
-import { createPortal } from 'react-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Compass,
+  User,
+  FileText,
+  Sparkles,
+  Layers,
+  Zap,
+  ArrowRight,
+  X,
+} from "lucide-react";
 
 interface OnboardingTourProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const TOUR_STEPS = [
-  { target: '[data-tour-step="intent"]', title: 'Start here', description: 'Describe what you need your AI assistant for, or pick a category below to get started quickly.' },
-  { target: '[data-tour-step="persona"]', title: 'Pick an expert', description: 'Choose your AI\'s expert role — or type a custom one in the text area.' },
-  { target: '[data-tour-step="context"]', title: 'Add your context', description: 'Tell the AI about your channel, company, or project for a more tailored result.' },
-  { target: '[data-tour-step="generate"]', title: 'Generate', description: 'When you\'re ready, hit Generate to build your AI assistant.' },
-  { target: '[data-tour-step="tabs"]', title: 'Platform tabs', description: 'View your assistant formatted for Gemini Gems, ChatGPT GPTs, or Claude Projects.' },
-  { target: '[data-tour-step="shortcuts"]', title: 'Shortcuts', description: 'Copy these reusable prompt templates — just fill in the variables each time.' },
+const EASE_SMOOTH: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
+
+interface TourStep {
+  icon: React.ReactNode;
+  emoji: string;
+  title: string;
+  description: string;
+  tip: string;
+}
+
+const TOUR_STEPS: TourStep[] = [
+  {
+    icon: <Compass className="h-6 w-6" />,
+    emoji: "👋",
+    title: "Welcome to Orxis",
+    description:
+      "Orxis helps you build a complete AI assistant profile in minutes — no account needed, totally free. Just answer a few questions and copy the result into Gemini, ChatGPT, or Claude.",
+    tip: "You can skip any step you want — every field is optional.",
+  },
+  {
+    icon: <Compass className="h-6 w-6" />,
+    emoji: "🧭",
+    title: "Step 1 — Pick Your Direction",
+    description:
+      "Start by describing what you need your AI assistant for — or tap a category like \"Content Creation\" or \"Business\" to get domain-specific suggestions throughout the wizard.",
+    tip: "Choosing a category pre-fills relevant presets, but you can always type your own.",
+  },
+  {
+    icon: <User className="h-6 w-6" />,
+    emoji: "🎭",
+    title: "Step 2 & 3 — Persona & Task",
+    description:
+      "Choose the AI's expert role (like \"Scriptwriter\" or \"Business Analyst\") and what you want it to do (like \"Script Writing\" or \"Market Analysis\"). The presets adapt to your chosen domain.",
+    tip: "Click \"Show all presets\" to see options from every domain.",
+  },
+  {
+    icon: <FileText className="h-6 w-6" />,
+    emoji: "📋",
+    title: "Step 4 — Your Context",
+    description:
+      "Tell the AI about your channel, company, or project. This makes the generated assistant way more tailored — but it's totally optional if you want a general-purpose one.",
+    tip: "Try \"Fill with example\" to see what kind of details work best.",
+  },
+  {
+    icon: <Sparkles className="h-6 w-6" />,
+    emoji: "⚡",
+    title: "Step 7 — Shortcuts",
+    description:
+      "Create reusable prompt templates with {{variables}} you fill in each time. For example: \"Generate {{count}} video ideas about {{topic}}\". These are included in your final output.",
+    tip: "Click \"✨ Suggest for me\" to get domain-specific templates instantly.",
+  },
+  {
+    icon: <Layers className="h-6 w-6" />,
+    emoji: "📦",
+    title: "Your Output — Ready to Paste",
+    description:
+      "After generating, you'll get a complete AI assistant profile with a name, description, full instructions, conversation starters, and shortcuts. Use the platform tabs (Gems · GPTs · Projects) to see it formatted for each platform.",
+    tip: "Each field has its own copy button, or use \"Copy Everything\" at the bottom.",
+  },
 ];
 
-export default function OnboardingTour({ isOpen, onClose }: OnboardingTourProps) {
+export default function OnboardingTour({
+  isOpen,
+  onClose,
+}: OnboardingTourProps) {
   const [isMounted, setIsMounted] = useState(false);
-  const [currentStepIndex, setCurrentStepIndex] = useState(0);
-  const [targetRect, setTargetRect] = useState<DOMRect | null>(null);
+  const [currentStep, setCurrentStep] = useState(0);
 
   const handleClose = useCallback(() => {
-    localStorage.setItem('orxis_tour_completed', 'true');
+    localStorage.setItem("orxis_tour_completed", "true");
+    setCurrentStep(0);
     onClose();
   }, [onClose]);
 
@@ -33,127 +98,44 @@ export default function OnboardingTour({ isOpen, onClose }: OnboardingTourProps)
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === 'Escape') handleClose();
-      };
-      window.addEventListener('keydown', handleKeyDown);
-      return () => {
-        document.body.style.overflow = '';
-        window.removeEventListener('keydown', handleKeyDown);
-      };
-    }
-  }, [isOpen, handleClose]);
-
-  useEffect(() => {
     if (!isOpen) {
-        setCurrentStepIndex(0);
-        return;
+      setCurrentStep(0);
+      return;
     }
-
-    const updateRect = () => {
-      const currentStep = TOUR_STEPS[currentStepIndex];
-      if (currentStep) {
-        const element = document.querySelector(currentStep.target);
-        if (element) {
-            // Scroll element into view smoothly if not fully visible
-            const rect = element.getBoundingClientRect();
-            const isInViewport =
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth);
-
-            if (!isInViewport) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-            
-            // Allow time for smooth scroll to finish, then update rect
-            setTimeout(() => {
-                const newRect = element.getBoundingClientRect();
-                setTargetRect(newRect);
-            }, 300);
-            
-            // Also set it immediately in case we didn't need to scroll much
-            setTargetRect(rect);
-        } else {
-          setTargetRect(null);
-          
-          // Auto skip to next visible step if current target isn't found
-          // (but don't loop endlessly if none are found)
-          if (currentStepIndex < TOUR_STEPS.length - 1) {
-             // setTimeout(() => setCurrentStepIndex(prev => prev + 1), 100);
-          }
-        }
-      }
+    document.body.style.overflow = "hidden";
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleClose();
+      if (e.key === "ArrowRight" || e.key === "Enter") handleNext();
+      if (e.key === "ArrowLeft") handleBack();
     };
-
-    updateRect();
-    window.addEventListener('resize', updateRect);
-    return () => window.removeEventListener('resize', updateRect);
-  }, [isOpen, currentStepIndex]);
-
-  if (!isMounted) return null;
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen, handleClose, currentStep]);
 
   const handleNext = () => {
-    if (currentStepIndex < TOUR_STEPS.length - 1) {
-      setCurrentStepIndex((prev) => prev + 1);
+    if (currentStep < TOUR_STEPS.length - 1) {
+      setCurrentStep((prev) => prev + 1);
     } else {
       handleClose();
     }
   };
 
-  const handleBackdropClick = (e: React.MouseEvent) => {
-      if (e.target === e.currentTarget) {
-          handleClose();
-      }
+  const handleBack = () => {
+    if (currentStep > 0) {
+      setCurrentStep((prev) => prev - 1);
+    }
   };
 
-  const currentStep = TOUR_STEPS[currentStepIndex];
-  
-  // Calculate tooltip position
-  let tooltipStyle: React.CSSProperties = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    zIndex: 10000,
-  };
+  if (!isMounted || typeof window === "undefined") return null;
 
-  if (targetRect) {
-      const spaceBelow = window.innerHeight - targetRect.bottom;
-      const spaceAbove = targetRect.top;
-      
-      const tooltipHeight = 200; // approximate height for positioning logic
-      
-      if (spaceBelow > tooltipHeight + 20) {
-          // Place below the target
-          tooltipStyle = {
-              position: 'absolute',
-              top: targetRect.bottom + 16,
-              left: Math.max(16, Math.min(targetRect.left + (targetRect.width / 2) - 160, window.innerWidth - 336)),
-              zIndex: 10000,
-          };
-      } else if (spaceAbove > tooltipHeight + 20) {
-          // Place above the target
-          tooltipStyle = {
-              position: 'absolute',
-              top: targetRect.top - tooltipHeight - 16,
-              left: Math.max(16, Math.min(targetRect.left + (targetRect.width / 2) - 160, window.innerWidth - 336)),
-              zIndex: 10000,
-          };
-      } else {
-          // Center on screen if no space
-          tooltipStyle = {
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            zIndex: 10000,
-          };
-      }
-  }
+  const step = TOUR_STEPS[currentStep];
+  const isLastStep = currentStep === TOUR_STEPS.length - 1;
+  const isFirstStep = currentStep === 0;
+  const progress = ((currentStep + 1) / TOUR_STEPS.length) * 100;
 
   const overlayContent = (
     <AnimatePresence>
@@ -163,66 +145,134 @@ export default function OnboardingTour({ isOpen, onClose }: OnboardingTourProps)
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[9999]"
-          onClick={handleBackdropClick}
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) handleClose();
+          }}
         >
-          {/* Spotlight Effect or full overlay */}
-          {targetRect ? (
-              <motion.div
-                layout
-                transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="absolute rounded-xl border-2 border-neon-cyan/50 pointer-events-none"
-                style={{
-                  top: targetRect.top - 8,
-                  left: targetRect.left - 8,
-                  width: targetRect.width + 16,
-                  height: targetRect.height + 16,
-                  boxShadow: '0 0 0 9999px rgba(0,0,0,0.6)',
-                }}
-              />
-          ) : (
-              <div className="absolute inset-0 bg-black/60 backdrop-blur-sm pointer-events-none" />
-          )}
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-md" />
 
-          {/* Tooltip Card */}
+          {/* Modal */}
           <motion.div
-            layoutId="tour-tooltip"
-            initial={{ opacity: 0, scale: 0.9, y: 10 }}
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 10 }}
-            transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            style={tooltipStyle}
-            className="w-full max-w-[320px] p-6 rounded-2xl glass-bg glass-border shadow-2xl backdrop-blur-xl flex flex-col gap-4 mx-4 sm:mx-0"
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            transition={{ duration: 0.4, ease: EASE_SMOOTH }}
+            className="relative w-full max-w-md rounded-2xl border border-glass-border overflow-hidden"
+            style={{
+              background:
+                "linear-gradient(145deg, rgba(15,10,40,0.95) 0%, rgba(3,0,20,0.98) 100%)",
+            }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div>
-                <h3 className="text-lg font-bold text-white mb-2">{currentStep?.title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{currentStep?.description}</p>
+            {/* Close button */}
+            <button
+              onClick={handleClose}
+              className="absolute top-4 right-4 z-10 text-slate-500 hover:text-white transition-colors cursor-pointer"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            {/* Progress bar */}
+            <div className="h-1 bg-white/5">
+              <motion.div
+                className="h-full bg-gradient-to-r from-neon-cyan to-neon-purple"
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 0.4, ease: EASE_SMOOTH }}
+              />
             </div>
 
-            <div className="flex items-center justify-between mt-2">
-                <button
-                    onClick={handleClose}
-                    className="text-sm text-slate-400 hover:text-white transition-colors focus:outline-none"
+            {/* Content area */}
+            <div className="p-6 sm:p-8">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentStep}
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -30 }}
+                  transition={{ duration: 0.3, ease: EASE_SMOOTH }}
                 >
-                    Skip tour
-                </button>
-                
-                <div className="flex items-center gap-1.5">
-                    {TOUR_STEPS.map((_, i) => (
-                        <div
-                            key={i}
-                            className={`w-2 h-2 rounded-full transition-colors duration-300 ${i === currentStepIndex ? 'bg-neon-cyan' : 'bg-slate-700/50'}`}
-                        />
-                    ))}
-                </div>
+                  {/* Emoji + Icon header */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-neon-cyan/15 to-neon-purple/15 border border-glass-border shrink-0">
+                      <span className="text-2xl">{step.emoji}</span>
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-1">
+                        {currentStep + 1} of {TOUR_STEPS.length}
+                      </p>
+                      <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">
+                        {step.title}
+                      </h3>
+                    </div>
+                  </div>
 
+                  {/* Description */}
+                  <p className="text-sm sm:text-[15px] text-slate-300 leading-relaxed mb-5">
+                    {step.description}
+                  </p>
+
+                  {/* Tip box */}
+                  <div className="rounded-xl bg-neon-purple/[0.06] border border-neon-purple/15 px-4 py-3 flex items-start gap-3">
+                    <Zap className="h-4 w-4 text-neon-purple-light shrink-0 mt-0.5" />
+                    <p className="text-xs sm:text-[13px] text-neon-purple-light/80 leading-relaxed">
+                      {step.tip}
+                    </p>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Footer */}
+            <div className="px-6 sm:px-8 pb-6 sm:pb-8 flex items-center justify-between">
+              <button
+                onClick={handleClose}
+                className="text-xs text-slate-500 hover:text-slate-300 transition-colors cursor-pointer"
+              >
+                Skip tour
+              </button>
+
+              {/* Step dots */}
+              <div className="flex items-center gap-1.5">
+                {TOUR_STEPS.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentStep(i)}
+                    className={`rounded-full transition-all duration-300 cursor-pointer ${
+                      i === currentStep
+                        ? "w-6 h-2 bg-neon-cyan"
+                        : i < currentStep
+                          ? "w-2 h-2 bg-neon-cyan/40"
+                          : "w-2 h-2 bg-slate-700"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <div className="flex items-center gap-2">
+                {!isFirstStep && (
+                  <button
+                    onClick={handleBack}
+                    className="px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-white hover:bg-white/5 border border-glass-border transition-all cursor-pointer"
+                  >
+                    Back
+                  </button>
+                )}
                 <button
-                    onClick={handleNext}
-                    className="glow-btn px-4 py-2 rounded-lg text-sm font-medium text-white transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-neon-cyan/50"
+                  onClick={handleNext}
+                  className="glow-btn inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs sm:text-sm font-medium text-white transition-all hover:scale-105 active:scale-95 cursor-pointer"
                 >
-                    {currentStepIndex === TOUR_STEPS.length - 1 ? 'Finish' : 'Next'}
+                  {isLastStep ? (
+                    "Let's go!"
+                  ) : (
+                    <>
+                      Next
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </>
+                  )}
                 </button>
+              </div>
             </div>
           </motion.div>
         </motion.div>
