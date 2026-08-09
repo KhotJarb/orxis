@@ -1,1 +1,119 @@
-{}
+{
+  "gallery": {
+    "header": {
+      "badge": "Galeri Prompt",
+      "title": "Brankas ",
+      "titleHighlight": "Instruksi.",
+      "description": "Templat instruksi terstruktur, siap ditempel. Klik kartu apa saja untuk melihat dan menyalin kerangka kerja enam bagian selengkapnya.",
+      "submitButton": "Kirim Prompt"
+    },
+    "sidebar": {
+      "searchPlaceholder": "Cari prompt...",
+      "categoryLabel": "Kategori",
+      "hint": "Klik kartu apa saja untuk melihat instruksi utama selengkapnya dan menyalinnya ke papan klip."
+    },
+    "emptyState": {
+      "message": "Tidak ada prompt yang cocok",
+      "clearFilters": "Hapus filter"
+    },
+    "card": {
+      "communityBadge": "Komunitas",
+      "viewPrompt": "Lihat Prompt"
+    },
+    "drawer": {
+      "masterInstruction": "Instruksi Utama — Sumber Lengkap",
+      "copied": "Disalin ke papan klip!",
+      "copy": "Salin Instruksi Lengkap",
+      "pasteHint": "Tempel langsung ke ChatGPT, Claude, atau Gemini"
+    },
+    "categories": {
+      "all": "Semua",
+      "software-dev": "Pengembangan Perangkat Lunak",
+      "content-strategy": "Strategi Konten",
+      "creative-design": "Desain Kreatif",
+      "data-analytics": "Data & Analitik",
+      "marketing": "Pemasaran",
+      "education": "Pendidikan",
+      "business": "Bisnis",
+      "research": "Penelitian",
+      "writing": "Penulisan & Penyuntingan",
+      "other": "Lainnya",
+      "community": "Komunitas"
+    },
+    "prompts": {
+      "clean-code-master": {
+        "title": "Ahli Kode Bersih & Refactoring",
+        "snippet": "Asumsikan peran sebagai Insinyur Perangkat Lunak Utama yang terobsesi dengan prinsip SOLID dan efisiensi algoritmik, mengubah kode lawas menjadi arsitektur yang bersih dan dapat diuji.",
+        "tags": {
+          "refactoring": "Refactoring",
+          "solid": "SOLID",
+          "cleanCode": "Kode Bersih",
+          "testing": "Pengujian"
+        }
+      },
+      "viral-strategist": {
+        "title": "Ahli Strategi Viral Bentuk Pendek",
+        "snippet": "Asumsikan peran sebagai analis retensi TikTok/YouTube Shorts elit yang merekayasa kaitan psikologis, kepatuhan platform, dan kecepatan yang digerakkan oleh dopamin.",
+        "tags": {
+          "tiktok": "TikTok",
+          "youtube": "YouTube",
+          "hooks": "Kaitan",
+          "copywriting": "Copywriting"
+        }
+      },
+      "pixar-avatar-director": {
+        "title": "Sutradara Avatar 3D Gaya Pixar",
+        "snippet": "Asumsikan peran sebagai Rigger Karakter 3D Utama dan Ahli Midjourney dengan mempertahankan konsistensi visual yang ketat di seluruh estetika karakter berlapis-lapis.",
+        "tags": {
+          "midjourney": "Midjourney",
+          "3d": "3D",
+          "characterDesign": "Desain Karakter",
+          "promptEngineering": "Rekayasa Prompt"
+        }
+      }
+    }
+  },
+  "submit": {
+    "success": {
+      "title": "Promptmu ada di tempat tempa.",
+      "description": "Tim kami akan meninjaunya untuk kualitas sebelum ditayangkan. Kami akan menghubungi.",
+      "closing": "Menutup secara otomatis…"
+    },
+    "modal": {
+      "headerTitle": "Bagikan Kerangkamu",
+      "headerSubtitle": "Kontribusi ke brankas komunitas",
+      "fields": {
+        "title": {
+          "label": "Judul",
+          "placeholder": "Beri nama Instruksi Utamamu"
+        },
+        "description": {
+          "label": "Deskripsi",
+          "placeholder": "Ringkasan satu baris yang ditampilkan di kartu galeri…",
+          "hint": "Ini muncul sebagai deskripsi kartu yang terlihat di galeri."
+        },
+        "category": {
+          "label": "Kategori"
+        },
+        "author": {
+          "label": "Penulis / Nama pengguna",
+          "optional": "(opsional)",
+          "placeholder": "Nama atau @nama_pengguna Anda"
+        },
+        "tags": {
+          "label": "Tag",
+          "optional": "(opsional)",
+          "placeholder": "mis. SOLID, Testing, Python",
+          "hint": "Pisahkan tag dengan koma."
+        },
+        "prompt": {
+          "label": "Instruksi Utama Lengkap",
+          "placeholder": "# 1. Peran & Identitas\nTempelkan Instruksi Utama 6 bagian lengkapmu di sini…"
+        }
+      },
+      "disclaimer": "Semua kiriman ditinjau oleh tim kami sebelum diterbitkan untuk memastikan kualitas yang hebat. Kami mungkin sedikit mengedit untuk pemformatan.",
+      "submitButton": "Kirim untuk Ditinjau",
+      "submittingButton": "Mengirimkan…"
+    }
+  }
+}

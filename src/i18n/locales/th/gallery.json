@@ -1,1 +1,119 @@
-{}
+{
+  "gallery": {
+    "header": {
+      "badge": "คลัง Prompt",
+      "title": "คลังคำสั่ง",
+      "titleHighlight": "",
+      "description": "เทมเพลตคำสั่งที่มีโครงสร้าง พร้อมใช้งานทันที คลิกที่การ์ดใดก็ได้เพื่อดูและคัดลอกโครงสร้างทั้งหกส่วนฉบับเต็ม",
+      "submitButton": "ส่ง Prompt"
+    },
+    "sidebar": {
+      "searchPlaceholder": "ค้นหา Prompt...",
+      "categoryLabel": "หมวดหมู่",
+      "hint": "คลิกที่การ์ดใดก็ได้เพื่อดูคำสั่งฉบับเต็มและคัดลอกไปยังคลิปบอร์ดของคุณ"
+    },
+    "emptyState": {
+      "message": "ไม่พบ Prompt ที่ตรงกัน",
+      "clearFilters": "ล้างตัวกรอง"
+    },
+    "card": {
+      "communityBadge": "ชุมชน",
+      "viewPrompt": "ดู Prompt"
+    },
+    "drawer": {
+      "masterInstruction": "คำสั่งหลัก — ต้นฉบับเต็ม",
+      "copied": "คัดลอกลงคลิปบอร์ดแล้ว!",
+      "copy": "คัดลอกคำสั่งฉบับเต็ม",
+      "pasteHint": "วางลงใน ChatGPT, Claude หรือ Gemini ได้โดยตรง"
+    },
+    "categories": {
+      "all": "ทั้งหมด",
+      "software-dev": "พัฒนาซอฟต์แวร์",
+      "content-strategy": "กลยุทธ์คอนเทนต์",
+      "creative-design": "การออกแบบสร้างสรรค์",
+      "data-analytics": "ข้อมูล & การวิเคราะห์",
+      "marketing": "การตลาด",
+      "education": "การศึกษา",
+      "business": "ธุรกิจ",
+      "research": "การวิจัย",
+      "writing": "การเขียน & การแก้ไข",
+      "other": "อื่นๆ",
+      "community": "ชุมชน"
+    },
+    "prompts": {
+      "clean-code-master": {
+        "title": "ปรมาจารย์ด้าน Clean Code & การ Refactor",
+        "snippet": "สวมบทบาทเป็น Principal Software Engineer ที่หลงใหลในหลักการ SOLID และประสิทธิภาพของอัลกอริทึม เพื่อเปลี่ยนโค้ดเก่าให้เป็นสถาปัตยกรรมที่สะอาดและทดสอบได้",
+        "tags": {
+          "refactoring": "Refactoring",
+          "solid": "SOLID",
+          "cleanCode": "Clean Code",
+          "testing": "Testing"
+        }
+      },
+      "viral-strategist": {
+        "title": "นักวางกลยุทธ์คอนเทนต์สั้นสร้างไวรัล",
+        "snippet": "สวมบทบาทเป็นนักวิเคราะห์การรักษาผู้ชม TikTok/YouTube Shorts ระดับแนวหน้า ผู้ออกแบบกลเม็ดดึงดูดใจตามหลักจิตวิทยา การปฏิบัติตามกฎแพลตฟอร์ม และการเดินเรื่องที่กระตุ้นโดพามีน",
+        "tags": {
+          "tiktok": "TikTok",
+          "youtube": "YouTube",
+          "hooks": "Hooks",
+          "copywriting": "Copywriting"
+        }
+      },
+      "pixar-avatar-director": {
+        "title": "ผู้กำกับอวตาร 3D สไตล์พิกซาร์",
+        "snippet": "สวมบทบาทเป็น Lead 3D Character Rigger และผู้เชี่ยวชาญ Midjourney ที่รักษาความสม่ำเสมอของภาพอย่างเข้มงวดตลอดความสวยงามของตัวละครหลายเลเยอร์",
+        "tags": {
+          "midjourney": "Midjourney",
+          "3d": "3D",
+          "characterDesign": "Character Design",
+          "promptEngineering": "Prompt Engineering"
+        }
+      }
+    }
+  },
+  "submit": {
+    "success": {
+      "title": "Prompt ของคุณกำลังถูกประมวลผล",
+      "description": "ทีมงานของเราจะตรวจสอบคุณภาพก่อนที่จะเผยแพร่ เราจะติดต่อกลับไป",
+      "closing": "กำลังปิดโดยอัตโนมัติ…"
+    },
+    "modal": {
+      "headerTitle": "แชร์กรอบการทำงานของคุณ",
+      "headerSubtitle": "มีส่วนร่วมกับคลังชุมชน",
+      "fields": {
+        "title": {
+          "label": "ชื่อเรื่อง",
+          "placeholder": "ตั้งชื่อคำสั่งหลักของคุณ"
+        },
+        "description": {
+          "label": "คำอธิบาย",
+          "placeholder": "สรุปหนึ่งบรรทัดที่จะแสดงบนการ์ดแกลเลอรี…",
+          "hint": "ส่วนนี้จะแสดงเป็นคำอธิบายที่มองเห็นได้ของการ์ดในคลัง"
+        },
+        "category": {
+          "label": "หมวดหมู่"
+        },
+        "author": {
+          "label": "ผู้เขียน / ชื่อผู้ใช้",
+          "optional": "(ไม่บังคับ)",
+          "placeholder": "ชื่อของคุณหรือ @x_handle"
+        },
+        "tags": {
+          "label": "แท็ก",
+          "optional": "(ไม่บังคับ)",
+          "placeholder": "เช่น SOLID, Testing, Python",
+          "hint": "คั่นแท็กด้วยเครื่องหมายจุลภาค"
+        },
+        "prompt": {
+          "label": "คำสั่งหลักฉบับเต็ม",
+          "placeholder": "# 1. บทบาท & ตัวตน\nวางคำสั่งหลัก 6 ส่วนฉบับเต็มของคุณที่นี่…"
+        }
+      },
+      "disclaimer": "การส่งทั้งหมดจะได้รับการตรวจสอบโดยทีมงานของเราก่อนเผยแพร่เพื่อให้แน่ใจว่ามีคุณภาพดีเยี่ยม เราอาจแก้ไขรูปแบบเล็กน้อย",
+      "submitButton": "ส่งเพื่อรับการตรวจสอบ",
+      "submittingButton": "กำลังส่ง…"
+    }
+  }
+}

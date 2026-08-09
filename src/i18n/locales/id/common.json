@@ -1,1 +1,122 @@
-{}
+{
+  "nav": {
+    "dropdowns": {
+      "products": "Produk",
+      "resources": "Sumber Daya"
+    },
+    "items": {
+      "generator": "Generator",
+      "features": "Fitur",
+      "howItWorks": "Cara Kerja",
+      "useCases": "Kasus Penggunaan",
+      "pricing": "Harga",
+      "documentation": "Dokumentasi",
+      "promptGallery": "Galeri Prompt",
+      "changelog": "Catatan Perubahan",
+      "aboutUs": "Tentang Kami",
+      "supportFaq": "Dukungan & FAQ"
+    },
+    "getStarted": "Mulai",
+    "toggleMenu": "Alihkan menu"
+  },
+  "footer": {
+    "description": "Generator instruksi terstruktur untuk developer, kreator, dan engineer AI. Gratis digunakan dan didukung komunitas.",
+    "columns": {
+      "product": "Produk",
+      "resources": "Sumber Daya",
+      "legal": "Legal",
+      "social": "Sosial"
+    },
+    "links": {
+      "generator": "Generator",
+      "features": "Fitur",
+      "howItWorks": "Cara Kerja",
+      "useCases": "Kasus Penggunaan",
+      "pricing": "Harga",
+      "documentation": "Dokumentasi",
+      "promptGallery": "Galeri Prompt",
+      "changelog": "Catatan Perubahan",
+      "aboutUs": "Tentang Kami",
+      "supportFaq": "Dukungan & FAQ",
+      "privacy": "Privasi",
+      "terms": "Ketentuan",
+      "license": "Lisensi",
+      "github": "GitHub"
+    },
+    "social": {
+      "supportFaq": "Dukungan & FAQ",
+      "email": "Email"
+    },
+    "copyright": "© {{year}} Orxis. Hak cipta dilindungi undang-undang.",
+    "supportProject": "Dukung Proyek"
+  },
+  "generatePage": {
+    "header": {
+      "badge": "Pembangun Asisten AI",
+      "title": "Bangun",
+      "titleHighlight": "Asisten AI-mu",
+      "quickModeSubtitle": "Jelaskan apa yang kamu inginkan dengan kata-katamu sendiri — kami akan membangunnya untukmu.",
+      "stepsModeSubtitle": "Jawab beberapa pertanyaan dan kami akan menghasilkan profil asisten AI yang lengkap."
+    },
+    "modes": {
+      "quickMode": "Mode Cepat",
+      "stepByStep": "Langkah demi Langkah",
+      "takeTour": "Ikuti tur"
+    }
+  },
+  "onboarding": {
+    "welcome": {
+      "title": "Selamat datang di Orxis",
+      "description": "Orxis membantumu membangun profil asisten AI lengkap dalam hitungan menit — tanpa perlu akun, sepenuhnya gratis. Cukup jawab beberapa pertanyaan dan salin hasilnya ke Gemini, ChatGPT, atau Claude.",
+      "tip": "Kamu dapat melewati langkah mana pun — setiap kolom bersifat opsional."
+    },
+    "step1": {
+      "title": "Langkah 1 — Pilih Arahmu",
+      "description": "Mulai dengan menjelaskan untuk apa kamu membutuhkan asisten AI-mu — atau ketuk kategori seperti \"Pembuatan Konten\" atau \"Bisnis\" untuk mendapatkan saran spesifik domain.",
+      "tip": "Memilih kategori akan mengisi preset yang relevan, tetapi kamu selalu bisa mengetik milikmu sendiri."
+    },
+    "step23": {
+      "title": "Langkah 2 & 3 — Persona & Tugas",
+      "description": "Pilih peran ahli AI (seperti \"Penulis Skenario\" atau \"Analis Bisnis\") dan apa yang kamu inginkan untuk dilakukannya (seperti \"Menulis Skenario\" atau \"Analisis Pasar\"). Preset beradaptasi dengan domain pilihanmu.",
+      "tip": "Klik \"Tampilkan semua preset\" untuk melihat opsi dari setiap domain."
+    },
+    "step4": {
+      "title": "Langkah 4 — Konteksmu",
+      "description": "Beri tahu AI tentang saluran, perusahaan, atau proyekmu. Ini membuat asisten yang dihasilkan jauh lebih disesuaikan — tetapi sepenuhnya opsional jika kamu menginginkan asisten serbaguna.",
+      "tip": "Coba \"Isi dengan contoh\" untuk melihat detail seperti apa yang paling berhasil."
+    },
+    "step7": {
+      "title": "Langkah 7 — Pintasan",
+      "description": "Buat templat prompt yang dapat digunakan kembali dengan {{variables}} yang kamu isi setiap saat. Misalnya: \"Buat {{count}} ide video tentang {{topic}}\". Ini disertakan dalam hasil akhirmu.",
+      "tip": "Klik \"✨ Sarankan untukku\" untuk mendapatkan templat spesifik domain secara instan."
+    },
+    "output": {
+      "title": "Hasilmu — Siap Disalin",
+      "description": "Setelah membuat, kamu akan mendapatkan profil asisten AI lengkap dengan nama, deskripsi, instruksi penuh, pembuka percakapan, dan pintasan. Gunakan tab platform (Gems · GPTs · Projects) untuk melihat formatnya.",
+      "tip": "Setiap bidang memiliki tombol salinnya sendiri, atau gunakan \"Salin Semuanya\" di bagian bawah."
+    },
+    "ui": {
+      "progress": "{{current}} dari {{total}}",
+      "skip": "Lewati tur",
+      "back": "Kembali",
+      "next": "Lanjut",
+      "finish": "Ayo mulai!"
+    }
+  },
+  "theme": {
+    "system": "Sistem",
+    "light": "Terang",
+    "dark": "Gelap",
+    "aria": {
+      "group": "Preferensi tema",
+      "switchTo": "Beralih ke tema {{theme}}"
+    }
+  },
+  "language": {
+    "change": "Ganti bahasa"
+  },
+  "meta": {
+    "title": "Orxis | Orkestrasi AI dengan Batas Ketat",
+    "description": "Orxis adalah generator instruksi kustom AI yang terstruktur. Tentukan peran yang tepat, putaran kognitif, dan batas keluaran untuk ChatGPT, Claude, Gemini, dan LLM lainnya."
+  }
+}

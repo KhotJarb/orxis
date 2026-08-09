@@ -1,1 +1,119 @@
-{}
+{
+  "gallery": {
+    "header": {
+      "badge": "Prompt 库",
+      "title": "指令",
+      "titleHighlight": "金库。",
+      "description": "结构化的指令模板，即拷即用。点击任何卡片以查看和复制完整的六部分框架。",
+      "submitButton": "提交 Prompt"
+    },
+    "sidebar": {
+      "searchPlaceholder": "搜索 Prompt...",
+      "categoryLabel": "类别",
+      "hint": "点击任何卡片以查看完整的 Master Instruction 并将其复制到剪贴板。"
+    },
+    "emptyState": {
+      "message": "没有匹配的 Prompt",
+      "clearFilters": "清除筛选条件"
+    },
+    "card": {
+      "communityBadge": "社区",
+      "viewPrompt": "查看 Prompt"
+    },
+    "drawer": {
+      "masterInstruction": "Master Instruction — 完整源码",
+      "copied": "已复制到剪贴板！",
+      "copy": "复制完整指令",
+      "pasteHint": "直接粘贴到 ChatGPT、Claude 或 Gemini 中"
+    },
+    "categories": {
+      "all": "全部",
+      "software-dev": "软件开发",
+      "content-strategy": "内容策略",
+      "creative-design": "创意设计",
+      "data-analytics": "数据与分析",
+      "marketing": "营销",
+      "education": "教育",
+      "business": "商业",
+      "research": "研究",
+      "writing": "写作与编辑",
+      "other": "其他",
+      "community": "社区"
+    },
+    "prompts": {
+      "clean-code-master": {
+        "title": "整洁代码与重构大师",
+        "snippet": "扮演一名痴迷于 SOLID 原则和算法效率的首席软件工程师，将旧代码重构为干净、可测试的架构。",
+        "tags": {
+          "refactoring": "重构",
+          "solid": "SOLID",
+          "cleanCode": "整洁代码",
+          "testing": "测试"
+        }
+      },
+      "viral-strategist": {
+        "title": "病毒式短视频策略师",
+        "snippet": "扮演一名顶尖的 TikTok/YouTube Shorts 留存率分析师，精心设计心理吸引点、平台合规性和多巴胺驱动的节奏。",
+        "tags": {
+          "tiktok": "TikTok",
+          "youtube": "YouTube",
+          "hooks": "Hooks",
+          "copywriting": "文案撰写"
+        }
+      },
+      "pixar-avatar-director": {
+        "title": "皮克斯风格 3D 角色导演",
+        "snippet": "扮演一名首席 3D 角色绑定师和 Midjourney 专家，在多层次角色美学中保持严格的视觉一致性。",
+        "tags": {
+          "midjourney": "Midjourney",
+          "3d": "3D",
+          "characterDesign": "角色设计",
+          "promptEngineering": "Prompt 工程"
+        }
+      }
+    }
+  },
+  "submit": {
+    "success": {
+      "title": "您的 Prompt 正在处理中。",
+      "description": "我们的团队将在上线前对其进行质量审核。我们会与您联系。",
+      "closing": "即将自动关闭…"
+    },
+    "modal": {
+      "headerTitle": "分享您的框架",
+      "headerSubtitle": "为社区金库做出贡献",
+      "fields": {
+        "title": {
+          "label": "标题",
+          "placeholder": "为您的 Master Instruction 命名"
+        },
+        "description": {
+          "label": "描述",
+          "placeholder": "显示在库卡片上的一句话摘要…",
+          "hint": "这会作为库中卡片的可见描述显示。"
+        },
+        "category": {
+          "label": "类别"
+        },
+        "author": {
+          "label": "作者 / 社交账号",
+          "optional": "（可选）",
+          "placeholder": "您的姓名或 @账号"
+        },
+        "tags": {
+          "label": "标签",
+          "optional": "（可选）",
+          "placeholder": "例如：SOLID, Testing, Python",
+          "hint": "用逗号分隔标签。"
+        },
+        "prompt": {
+          "label": "完整 Master Instruction",
+          "placeholder": "# 1. Role & Identity\n在此处粘贴您完整的 6 部分 Master Instruction…"
+        }
+      },
+      "disclaimer": "所有提交内容在发布前都会由我们的团队进行审核，以确保其卓越质量。我们可能会为了格式化而对其进行轻微编辑。",
+      "submitButton": "提交审核",
+      "submittingButton": "提交中…"
+    }
+  }
+}

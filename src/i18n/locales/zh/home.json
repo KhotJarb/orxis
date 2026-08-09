@@ -1,1 +1,178 @@
-{}
+{
+  "hero": {
+    "badge": "AI-Powered Instruction Engine",
+    "titleLine1": "塑造",
+    "titleLine2": "完美的 AI 大脑",
+    "description": "为任何 AI 模型制作精确、强大的自定义指令。我们的智能生成器帮助您构建完美的系统 Prompt，以释放 AI 的全部潜力。",
+    "ctaPrimary": "开始生成",
+    "ctaSecondary": "查看工作原理"
+  },
+  "bento": {
+    "badge": "了解核心",
+    "title": "什么是",
+    "titleHighlight": "自定义指令",
+    "titleQuestionMark": "?",
+    "description": "当今 AI 中最强大但最未被充分利用的功能。这里汇集了您需要了解的一切信息。",
+    "card1": {
+      "title": "AI 的 DNA",
+      "subtitle": "核心定义",
+      "p1": "自定义指令是您赋予 AI 助手的<1>一组持久指令</1>，它在<2>每一次对话</2>中塑造其行为、个性和输出格式。可以将其视为对 AI 的身份层进行编程。",
+      "p2": "它准确地告诉模型该成为谁、如何思考以及要遵循哪些规则 — 甚至在您提出第一个问题之前。与适用于单条消息的常规 Prompt 不同，自定义指令在所有交互中持续存在，创造出一种始终如一的定制体验，感觉就像是在与专家合作，而不是与通才合作。",
+      "p3": "如果制作得当，自定义指令可以将普通的聊天机器人转变为编写生产级代码的高级工程师、模仿您确切声音和风格的写作教练，或在您定义的框架内一致推理的战略顾问。",
+      "footer": "也称为：System Prompts、Meta Prompts、AI Personas、Behavioral Directives"
+    },
+    "card2": {
+      "title": "秘诀所在",
+      "subtitle": "约束与规则",
+      "p1": "真正的力量在于约束。通过定义 AI <1>不应</1>做什么，您反而让它变得更好：",
+      "list": [
+        "消除废话和填充词",
+        "强制执行特定的输出格式",
+        "设置特定领域的边界",
+        "控制响应长度和细节",
+        "阻止产生幻觉的引用",
+        "锁定一致的术语"
+      ]
+    },
+    "card3": {
+      "title": "通用兼容性",
+      "subtitle": "随处可用",
+      "p1": "我们生成的指令与模型无关。将它们粘贴到任何 AI 助手的 System Prompt 或 Custom Instructions 字段中，即可获得立竿见影的效果。"
+    },
+    "card4": {
+      "title": "解剖结构",
+      "subtitle": "四大支柱",
+      "p1": "每一个大师级的自定义指令都建立在四大基本支柱之上。我们的生成器通过交互式向导为您打造每一个支柱 — 无需 Prompt 工程专业知识。",
+      "pillars": {
+        "persona": { "label": "角色", "desc": "AI 是谁" },
+        "task": { "label": "任务", "desc": "它做什么" },
+        "tone": { "label": "语气", "desc": "它如何说话" },
+        "rules": { "label": "规则", "desc": "它遵循什么" }
+      },
+      "footer": "每个支柱都是独立的但相互关联。没有明确规则的强大角色仍然会产生不一致的输出。我们的引擎确保这四者和谐运作。"
+    }
+  },
+  "features": {
+    "title": "为",
+    "titleHighlight": "完美",
+    "description": "而构建",
+    "items": {
+      "cognitiveLoop": {
+        "title": "认知循环",
+        "subtitle": "AI 自我反思",
+        "description": "该引擎不仅生成 — 它还评估、批判并改进自己的输出，以产生更有结构、更周全的结果。"
+      },
+      "personaElevation": {
+        "title": "角色提升",
+        "subtitle": "专家级身份",
+        "description": "通过为您的助手打造完美的身份、专业范围和行为框架，将普通的 AI 响应转化为专家级的输出。"
+      },
+      "zeroCost": {
+        "title": "零成本优化",
+        "subtitle": "永久免费",
+        "description": "没有 API 密钥，没有订阅，没有隐藏费用。通过我们智能的客户端引擎完全免费获得专业级的自定义指令。"
+      },
+      "instantFormat": {
+        "title": "瞬间完美的格式",
+        "subtitle": "输出架构",
+        "description": "一键式格式规则确保每一个 AI 响应都遵循您的确切结构 — 项目符号、标题、代码块、表格 — 应有尽有。"
+      }
+    }
+  },
+  "howItWorks": {
+    "badge": "工作流程",
+    "title": "工作",
+    "titleHighlight": "原理",
+    "description": "只需三步。毫无复杂性。打造杰作。",
+    "steps": {
+      "step1": {
+        "title": "输入您的愿景",
+        "subtitle": "需求提取",
+        "description": "回答关于您理想的 AI 角色、任务、语气和规则的四个直观问题。无需 Prompt 工程知识 — 只需您的意图。"
+      },
+      "step2": {
+        "title": "AI 架构师进行处理",
+        "subtitle": "铸造过程",
+        "description": "我们的 Meta-prompting 引擎会分析您的偏好，应用认知循环，并构建全面的系统 Prompt，无需任何手动操作。"
+      },
+      "step3": {
+        "title": "获得您的杰作",
+        "subtitle": "最终输出",
+        "description": "接收一个精心制作的自定义指令，可随时粘贴到任何 AI 助手中。在我们的输出工作室中一键进一步微调它。"
+      }
+    }
+  },
+  "beforeAfter": {
+    "badge": "查看差异",
+    "title": "影响",
+    "titleHighlight": "是巨大的",
+    "titleEnd": "",
+    "description": "相同的问题，相同的 AI 模型，截然不同的结果。",
+    "toggle": {
+      "without": "没有 CI",
+      "with": "有 Master Prompt"
+    },
+    "promptLabel": "Prompt: ",
+    "promptText": "\"向我解释 React hooks\"",
+    "before": {
+      "fileName": "generic-response.txt",
+      "footer": "通用 • 无结构 • 无可行性建议 • 长篇大论"
+    },
+    "after": {
+      "fileName": "master-response.md",
+      "footer": "结构化 • 专家级 • 可操作 • 包含表格和警告"
+    },
+    "stats": {
+      "structured": {
+        "stat": "10×",
+        "label": "更具结构性"
+      },
+      "filler": {
+        "stat": "95%",
+        "label": "更少废话"
+      },
+      "actionable": {
+        "stat": "100%",
+        "label": "可操作性强"
+      },
+      "reusable": {
+        "stat": "∞",
+        "label": "可重复使用"
+      }
+    }
+  },
+  "useCaseTeaser": {
+    "title": "无尽的",
+    "titleHighlight": "可能性。",
+    "description": "一个足以应对任何复杂工作流的强大框架。",
+    "cards": {
+      "devs": {
+        "title": "软件与游戏开发者",
+        "snippet": "保持复杂的状态架构、严格的语法规则和深层的逻辑层次结构 — 始终如一。"
+      },
+      "creators": {
+        "title": "内容创作者",
+        "snippet": "以专家水平设计心理吸引点、特定平台的节奏和病毒式内容策略。"
+      },
+      "promptEngineers": {
+        "title": "Prompt 工程师",
+        "snippet": "锁定审美一致性、多层次的视觉风格和精确的角色规范。"
+      }
+    },
+    "learnMore": "了解更多",
+    "exploreAll": "探索所有用例"
+  },
+  "ctaSection": {
+    "badge": "免费使用 • 无需注册 • 立竿见影",
+    "titleLine1": "停止盲目提示。",
+    "titleLine2": "开始编排。",
+    "description": "在几分钟内构建精确、结构化的指令。将其粘贴到任何 AI 模型中，立即开始获得更一致、更具结构化的响应。",
+    "btnPrimary": "构建我的指令",
+    "btnSecondary": "阅读文档",
+    "perks": {
+      "noAccount": "无需帐户",
+      "clientSide": "完全客户端",
+      "worksWith": "适用于 ChatGPT、Claude 和 Gemini"
+    }
+  }
+}

@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUp, Sparkles, MessageSquare, Lightbulb } from "lucide-react";
+import { Sparkles, MessageSquare, Lightbulb, ArrowUp } from "lucide-react";
 import { GenerateResult } from "./StepWizard";
+import { useT } from "@/i18n";
 
 interface QuickModeProps {
   onGenerate: (result: GenerateResult) => void;
@@ -11,21 +12,7 @@ interface QuickModeProps {
 
 type QuickModeState = "idle" | "loading" | "questions";
 
-const EXAMPLES = [
-  "A patient math tutor who explains fractions and algebra to middle school students",
-  "Help me write engaging YouTube scripts for my tech review channel",
-  "A code review partner for React and TypeScript projects",
-  "Social media strategist who plans content calendars for Instagram and TikTok",
-  "Business advisor who helps early-stage startups build pitch decks",
-  "Creative writing coach for science fiction and fantasy stories",
-];
 
-const LOADING_PHASES = [
-  "Understanding your request…",
-  "Building your AI assistant…",
-  "Crafting the perfect profile…",
-  "Almost there…",
-];
 
 const customEasing: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
@@ -68,6 +55,10 @@ const chipVariants = {
 };
 
 export default function QuickMode({ onGenerate }: QuickModeProps) {
+  const t = useT("generate");
+  const EXAMPLES = t.array("quickMode.examples");
+  const LOADING_PHASES = t.array("quickMode.loading");
+  
   const [state, setState] = useState<QuickModeState>("idle");
   const [message, setMessage] = useState("");
   const [questions, setQuestions] = useState<string[]>([]);
@@ -206,10 +197,10 @@ export default function QuickMode({ onGenerate }: QuickModeProps) {
           >
             <motion.div variants={itemVariants} className="text-center mb-4">
               <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-2 tracking-tight">
-                What kind of <span className="text-gradient from-[#00F0FF] to-[#8A2BE2]">AI assistant</span> do you need?
+                {t("quickMode.title").split(/<1>|<\/1>/)[0]}<span className="text-gradient from-[#00F0FF] to-[#8A2BE2]">{t("quickMode.title").split(/<1>|<\/1>/)[1]}</span>{t("quickMode.title").split(/<1>|<\/1>/)[2]}
               </h2>
               <p className="text-white/60">
-                Just describe what you want, and we'll handle the rest.
+                {t("quickMode.subtitle")}
               </p>
             </motion.div>
 
@@ -234,14 +225,14 @@ export default function QuickMode({ onGenerate }: QuickModeProps) {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Describe the AI assistant you want…"
+                  placeholder={t("quickMode.placeholder")}
                   className="w-full bg-transparent text-white placeholder:text-white/35 p-5 min-h-[140px] resize-none outline-none text-lg leading-relaxed focus:ring-0 rounded-2xl"
                   rows={4}
                 />
 
                 <div className="absolute bottom-4 right-4 flex items-center gap-3">
                   <span className="text-xs text-white/40">
-                    {message.length} chars
+                    {t("quickMode.chars", { count: message.length })}
                   </span>
                   <button
                     onClick={() => handleInitialSubmit()}
@@ -258,7 +249,7 @@ export default function QuickMode({ onGenerate }: QuickModeProps) {
             <motion.div variants={itemVariants} className="mt-4">
               <div className="flex items-center gap-2 text-sm text-white/50 mb-3 ml-1">
                 <Lightbulb size={16} className="text-neon-cyan" />
-                <span>Try these:</span>
+                <span>{t("quickMode.tryThese")}</span>
               </div>
               <motion.div
                 variants={chipContainerVariants}
@@ -358,7 +349,7 @@ export default function QuickMode({ onGenerate }: QuickModeProps) {
                 <MessageSquare size={20} className="text-[#8A2BE2]" />
               </div>
               <p className="text-white/90 text-[15px] leading-relaxed">
-                {hint || "Great! A few quick questions to make your assistant even better:"}
+                {hint || t("quickMode.questionsHint")}
               </p>
             </motion.div>
 
@@ -382,7 +373,7 @@ export default function QuickMode({ onGenerate }: QuickModeProps) {
                     newAnswers[idx] = e.target.value;
                     setAnswers(newAnswers);
                   }}
-                  placeholder="Type your answer or leave blank to skip"
+                  placeholder={t("quickMode.questionsPlaceholder")}
                   className="bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 text-[15px] focus:outline-none focus:border-[#00F0FF]/40 focus:ring-1 focus:ring-[#00F0FF]/40 transition-all ml-9 w-[calc(100%-36px)]"
                 />
               </motion.div>
@@ -398,7 +389,7 @@ export default function QuickMode({ onGenerate }: QuickModeProps) {
                 whileTap={{ scale: 0.97 }}
                 className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-slate-400 hover:text-white border border-glass-border hover:bg-white/5 transition-all duration-300 cursor-pointer"
               >
-                Generate anyway
+                {t("quickMode.generateAnyway")}
               </motion.button>
               
               <motion.button
@@ -408,7 +399,7 @@ export default function QuickMode({ onGenerate }: QuickModeProps) {
                 className="glow-btn group inline-flex items-center gap-2.5 rounded-full px-8 py-3 text-sm font-semibold text-white cursor-pointer transition-all duration-300"
               >
                 <Sparkles size={18} className="transition-transform duration-300 group-hover:rotate-12" />
-                Generate
+                {t("quickMode.generate")}
               </motion.button>
             </motion.div>
 

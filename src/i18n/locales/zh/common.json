@@ -1,1 +1,122 @@
-{}
+{
+  "nav": {
+    "dropdowns": {
+      "products": "产品",
+      "resources": "资源"
+    },
+    "items": {
+      "generator": "生成器",
+      "features": "功能",
+      "howItWorks": "工作原理",
+      "useCases": "用例",
+      "pricing": "定价",
+      "documentation": "文档",
+      "promptGallery": "Prompt 库",
+      "changelog": "更新日志",
+      "aboutUs": "关于我们",
+      "supportFaq": "支持与常见问题"
+    },
+    "getStarted": "开始使用",
+    "toggleMenu": "切换菜单"
+  },
+  "footer": {
+    "description": "为开发者、创作者和 AI 工程师打造的结构化指令生成器。免费使用，由社区支持。",
+    "columns": {
+      "product": "产品",
+      "resources": "资源",
+      "legal": "法律",
+      "social": "社交"
+    },
+    "links": {
+      "generator": "生成器",
+      "features": "功能",
+      "howItWorks": "工作原理",
+      "useCases": "用例",
+      "pricing": "定价",
+      "documentation": "文档",
+      "promptGallery": "Prompt 库",
+      "changelog": "更新日志",
+      "aboutUs": "关于我们",
+      "supportFaq": "支持与常见问题",
+      "privacy": "隐私",
+      "terms": "条款",
+      "license": "许可",
+      "github": "GitHub"
+    },
+    "social": {
+      "supportFaq": "支持与常见问题",
+      "email": "电子邮件"
+    },
+    "copyright": "© {{year}} Orxis. 保留所有权利。",
+    "supportProject": "支持项目"
+  },
+  "generatePage": {
+    "header": {
+      "badge": "AI 助手构建器",
+      "title": "构建您的",
+      "titleHighlight": "AI 助手",
+      "quickModeSubtitle": "用您自己的话描述您想要的 — 我们将为您构建它。",
+      "stepsModeSubtitle": "回答几个问题，我们将生成一个完整的 AI 助手配置文件。"
+    },
+    "modes": {
+      "quickMode": "快速模式",
+      "stepByStep": "循序渐进",
+      "takeTour": "进行导览"
+    }
+  },
+  "onboarding": {
+    "welcome": {
+      "title": "欢迎来到 Orxis",
+      "description": "Orxis 帮助您在几分钟内构建一个完整的 AI 助手配置文件 — 无需帐户，完全免费。只需回答几个问题，然后将结果复制到 Gemini、ChatGPT 或 Claude 中即可。",
+      "tip": "您可以跳过任何您想要的步骤 — 每个字段都是可选的。"
+    },
+    "step1": {
+      "title": "第 1 步 — 选择您的方向",
+      "description": "首先描述您需要 AI 助手做什么 — 或者点击诸如“Content Creation”或“Business”之类的类别，在整个向导中获取特定领域的建议。",
+      "tip": "选择类别会预先填充相关的预设，但您始终可以输入自己的内容。"
+    },
+    "step23": {
+      "title": "第 2 & 3 步 — 角色与任务",
+      "description": "选择 AI 的专家角色（例如“Scriptwriter”或“Business Analyst”）以及您希望它执行的操作（例如“Script Writing”或“Market Analysis”）。预设会适应您选择的领域。",
+      "tip": "点击“Show all presets”以查看每个领域的选项。"
+    },
+    "step4": {
+      "title": "第 4 步 — 您的背景",
+      "description": "告诉 AI 您的频道、公司或项目。这使得生成的助手更具针对性 — 但如果您想要一个通用助手，则完全可以跳过。",
+      "tip": "尝试使用“Fill with example”来看看哪种细节最有效。"
+    },
+    "step7": {
+      "title": "第 7 步 — 快捷方式",
+      "description": "创建带有 {{variables}} 的可重复使用的 Prompt 模板，您每次都可以填写。例如：“生成 {{count}} 个关于 {{topic}} 的视频想法”。这些将包含在您的最终输出中。",
+      "tip": "点击“✨ Suggest for me”立即获取特定领域的模板。"
+    },
+    "output": {
+      "title": "您的输出 — 准备好粘贴",
+      "description": "生成后，您将获得一个完整的 AI 助手配置文件，其中包含名称、描述、完整指令、对话开场白和快捷方式。使用平台选项卡（Gems · GPTs · Projects）查看针对每个平台的格式化输出。",
+      "tip": "每个字段都有自己的复制按钮，或使用底部的“Copy Everything”。"
+    },
+    "ui": {
+      "progress": "第 {{current}} 步，共 {{total}} 步",
+      "skip": "跳过导览",
+      "back": "返回",
+      "next": "下一步",
+      "finish": "开始吧！"
+    }
+  },
+  "theme": {
+    "system": "系统",
+    "light": "浅色",
+    "dark": "深色",
+    "aria": {
+      "group": "主题偏好",
+      "switchTo": "切换到 {{theme}} 主题"
+    }
+  },
+  "language": {
+    "change": "更改语言"
+  },
+  "meta": {
+    "title": "Orxis | 以严格的边界编排 AI",
+    "description": "Orxis 是一个结构化的 AI 自定义指令生成器。为 ChatGPT、Claude、Gemini 和其他 LLM 定义精确的角色、认知循环和输出边界。"
+  }
+}

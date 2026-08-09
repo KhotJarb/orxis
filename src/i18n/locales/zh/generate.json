@@ -1,1 +1,176 @@
-{}
+{
+  "quickMode": {
+    "title": "您需要什么样的 <1>AI 助手</1>？",
+    "subtitle": "只需描述您想要的，剩下的交给我们。",
+    "placeholder": "描述您想要的 AI 助手…",
+    "chars": "{{count}} 个字符",
+    "tryThese": "试试这些：",
+    "examples": [
+      "一位耐心的数学导师，向初中生解释分数和代数",
+      "帮我为我的科技评测频道编写引人入胜的 YouTube 脚本",
+      "React 和 TypeScript 项目的代码审查伙伴",
+      "为 Instagram 和 TikTok 规划内容日历的社交媒体策略师",
+      "帮助早期初创公司制作商业计划书的商业顾问",
+      "科幻和奇幻故事的创意写作教练"
+    ],
+    "loading": [
+      "正在理解您的请求…",
+      "正在构建您的 AI 助手…",
+      "正在打造完美的配置文件…",
+      "快完成了…"
+    ],
+    "questionsHint": "太棒了！为了让您的助手变得更好，再问几个简单的问题：",
+    "questionsPlaceholder": "输入您的答案或留空以跳过",
+    "generateAnyway": "无论如何生成",
+    "generate": "生成"
+  },
+  "wizard": {
+    "loading": [
+      "正在分析您的偏好…",
+      "正在构建您的 AI 助手…",
+      "正在构建输出结构…",
+      "正在完善细节…",
+      "快完成了…"
+    ],
+    "steps": {
+      "intent": {
+        "question": "您构建此 AI 助手的目的是什么？",
+        "subtitle": "描述您的目标或选择一个类别即可开始"
+      },
+      "persona": {
+        "question": "您需要什么专家角色？",
+        "subtitle": "定义 AI 的身份和专业领域",
+        "placeholder": "例如：一位拥有 10 年以上构建可扩展 Web 应用经验的高级 React 开发者…"
+      },
+      "task": {
+        "question": "主要任务或目标是什么？",
+        "subtitle": "描述您希望 AI 帮助您完成的工作",
+        "placeholder": "例如：检查我的 TypeScript 代码以查找性能问题并提出改进建议…"
+      },
+      "context": {
+        "question": "告诉我们您的工作",
+        "subtitle": "这有助于创建一个更加个性化的助手 — 如果您更喜欢通用助手，可以跳过"
+      },
+      "tone": {
+        "question": "AI 应该使用什么语气？",
+        "subtitle": "设定沟通风格和个性",
+        "placeholder": "例如：热情但直接，避免不必要的废话，解释时多用比喻…"
+      },
+      "rules": {
+        "question": "有什么严格的规则或输出格式吗？",
+        "subtitle": "定义约束、格式和不可协商的边界",
+        "placeholder": "例如：始终验证输入，从不建议已弃用的 API，包括时间复杂度…"
+      },
+      "shortcuts": {
+        "question": "设置快速快捷方式",
+        "subtitle": "创建带有 {{variables}} 的可重复使用的 Prompt 模板，您每次都可以填写"
+      }
+    },
+    "ui": {
+      "multiSelect": "您可以选择多个选项",
+      "showAll": "显示所有预设",
+      "showFewer": "显示较少",
+      "fillExample": "填充示例",
+      "context": {
+        "whatYouDo": {
+          "label": "描述您是做什么的",
+          "placeholder": "例如：我经营一个科技评测 YouTube 频道，拥有 5 万名订阅者，专注于高性价比数码产品…"
+        },
+        "whoYouServe": {
+          "label": "您的受众或目标是谁？",
+          "placeholder": "例如：希望物有所值的 18-35 岁科技爱好者…"
+        },
+        "keyDetails": {
+          "label": "还有其他关键细节吗？",
+          "placeholder": "例如：我每周发两次视频，我的竞争对手是 X 和 Y，我的品牌颜色是霓虹蓝和紫色…"
+        }
+      },
+      "shortcuts": {
+        "suggest": "✨ 为我建议",
+        "add": "添加快捷方式",
+        "namePlaceholder": "名称（例如：大纲）",
+        "templatePlaceholder": "模板（例如：为 {{topic}} 创建一个大纲）",
+        "insertVariable": "插入 {{variable}}",
+        "variablePrompt": "变量名称（例如：topic, count）："
+      }
+    }
+  },
+  "output": {
+    "title": "您的 AI 助手已准备就绪",
+    "subtitle": "将以下字段复制到您首选的平台中。",
+    "tabs": {
+      "gems": "Gems",
+      "gpts": "GPTs",
+      "projects": "Projects",
+      "raw": "原始内容"
+    },
+    "copy": {
+      "default": "复制",
+      "copied": "已复制",
+      "all": "复制所有内容",
+      "allCopied": "所有内容已复制！",
+      "error": "复制到剪贴板失败"
+    },
+    "fields": {
+      "name": "名称",
+      "description": "描述",
+      "instructions": "指令",
+      "projectName": "项目名称",
+      "projectInstructions": "项目指令"
+    },
+    "sections": {
+      "knowledge": "知识库 — 您可能还需要上传",
+      "conversationStarters": "对话开场白",
+      "shortcuts": "快速快捷方式"
+    },
+    "metadata": {
+      "words": "{{count}} 个字",
+      "sections": "{{count}} 个部分",
+      "lines": "{{count}} 行"
+    },
+    "shortcuts": {
+      "guide": {
+        "title": "如何使用：",
+        "desc": "复制下面的任何快捷方式，将 <1>{{variables}}</1> 替换为您自己的内容，并将其作为消息粘贴到您的 AI 助手中。",
+        "note": "✓ 这些快捷方式已包含在您的指令中 — 您的助手将自动理解它们。"
+      }
+    },
+    "startOver": "重新开始"
+  },
+  "platformGuide": {
+    "title": "如何进行设置",
+    "open": "打开 {{platform}}",
+    "gems": {
+      "title": "Google Gemini Gems",
+      "steps": [
+        "转到 gemini.google.com → 点击宝石图标 → 探索 Gems",
+        "点击 + 新建 Gem",
+        "将名称和描述粘贴到其字段中",
+        "将指令粘贴到“指令”字段中",
+        "（可选）上传建议的知识库文件",
+        "点击保存 — 您的 Gem 即可使用"
+      ]
+    },
+    "gpts": {
+      "title": "ChatGPT GPTs",
+      "steps": [
+        "转到 chatgpt.com → 探索 GPTs → 创建",
+        "切换到“配置”选项卡",
+        "将名称、描述和指令粘贴到其字段中",
+        "将对话开场白添加到开场白提示中",
+        "切换推荐的功能（网络搜索、代码解释器）",
+        "点击保存并设置可见性"
+      ]
+    },
+    "projects": {
+      "title": "Claude Projects",
+      "steps": [
+        "转到 claude.ai → Projects → + New Project",
+        "输入名称和描述",
+        "点击 Set project instructions → 粘贴指令",
+        "上传任何相关的知识库文件",
+        "在项目内开始新的对话"
+      ]
+    }
+  }
+}

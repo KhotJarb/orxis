@@ -1,1 +1,122 @@
-{}
+{
+  "nav": {
+    "dropdowns": {
+      "products": "Productos",
+      "resources": "Recursos"
+    },
+    "items": {
+      "generator": "Generador",
+      "features": "Características",
+      "howItWorks": "Cómo funciona",
+      "useCases": "Casos de uso",
+      "pricing": "Precios",
+      "documentation": "Documentación",
+      "promptGallery": "Galería de prompts",
+      "changelog": "Registro de cambios",
+      "aboutUs": "Sobre nosotros",
+      "supportFaq": "Soporte y FAQ"
+    },
+    "getStarted": "Empezar",
+    "toggleMenu": "Alternar menú"
+  },
+  "footer": {
+    "description": "Un generador estructurado de instrucciones para desarrolladores, creadores e ingenieros de IA. Gratuito y apoyado por la comunidad.",
+    "columns": {
+      "product": "Producto",
+      "resources": "Recursos",
+      "legal": "Legal",
+      "social": "Social"
+    },
+    "links": {
+      "generator": "Generador",
+      "features": "Características",
+      "howItWorks": "Cómo funciona",
+      "useCases": "Casos de uso",
+      "pricing": "Precios",
+      "documentation": "Documentación",
+      "promptGallery": "Galería de prompts",
+      "changelog": "Registro de cambios",
+      "aboutUs": "Sobre nosotros",
+      "supportFaq": "Soporte y FAQ",
+      "privacy": "Privacidad",
+      "terms": "Términos",
+      "license": "Licencia",
+      "github": "GitHub"
+    },
+    "social": {
+      "supportFaq": "Soporte y FAQ",
+      "email": "Email"
+    },
+    "copyright": "© {{year}} Orxis. Todos los derechos reservados.",
+    "supportProject": "Apoya el proyecto"
+  },
+  "generatePage": {
+    "header": {
+      "badge": "Creador de Asistente de IA",
+      "title": "Crea tu",
+      "titleHighlight": "Asistente de IA",
+      "quickModeSubtitle": "Describe lo que quieres con tus propias palabras y lo construiremos para ti.",
+      "stepsModeSubtitle": "Responde unas pocas preguntas y generaremos un perfil completo de asistente de IA."
+    },
+    "modes": {
+      "quickMode": "Modo Rápido",
+      "stepByStep": "Paso a paso",
+      "takeTour": "Hacer el tour"
+    }
+  },
+  "onboarding": {
+    "welcome": {
+      "title": "Bienvenido a Orxis",
+      "description": "Orxis te ayuda a construir un perfil completo de asistente de IA en minutos, sin cuenta y totalmente gratis. Solo responde unas preguntas y copia el resultado en Gemini, ChatGPT o Claude.",
+      "tip": "Puedes saltarte cualquier paso, cada campo es opcional."
+    },
+    "step1": {
+      "title": "Paso 1 — Elige tu dirección",
+      "description": "Empieza describiendo para qué necesitas a tu asistente de IA, o toca una categoría como \"Creación de contenido\" o \"Negocios\" para obtener sugerencias específicas.",
+      "tip": "Elegir una categoría autocompleta ajustes preestablecidos relevantes, pero siempre puedes escribir el tuyo propio."
+    },
+    "step23": {
+      "title": "Paso 2 y 3 — Persona y Tarea",
+      "description": "Elige el rol experto de la IA (como \"Guionista\" o \"Analista de negocios\") y lo que quieres que haga (como \"Escribir guiones\" o \"Análisis de mercado\"). Los ajustes se adaptan a tu dominio.",
+      "tip": "Haz clic en \"Mostrar todos los presets\" para ver opciones de cada dominio."
+    },
+    "step4": {
+      "title": "Paso 4 — Tu Contexto",
+      "description": "Cuéntale a la IA sobre tu canal, empresa o proyecto. Esto hace que el asistente generado sea mucho más personalizado, pero es totalmente opcional si quieres uno general.",
+      "tip": "Prueba \"Llenar con ejemplo\" para ver qué tipo de detalles funcionan mejor."
+    },
+    "step7": {
+      "title": "Paso 7 — Atajos",
+      "description": "Crea plantillas de prompts reutilizables con {{variables}} que llenas cada vez. Por ejemplo: \"Genera {{count}} ideas de videos sobre {{topic}}\". Estos se incluyen en tu resultado final.",
+      "tip": "Haz clic en \"✨ Sugerir para mí\" para obtener plantillas específicas del dominio al instante."
+    },
+    "output": {
+      "title": "Tu Resultado — Listo para pegar",
+      "description": "Después de generar, obtendrás un perfil completo del asistente de IA con nombre, descripción, instrucciones completas, iniciadores de conversación y atajos. Usa las pestañas de plataforma (Gems · GPTs · Projects) para verlo formateado.",
+      "tip": "Cada campo tiene su propio botón de copiar, o usa \"Copiar Todo\" en la parte inferior."
+    },
+    "ui": {
+      "progress": "{{current}} de {{total}}",
+      "skip": "Saltar tour",
+      "back": "Atrás",
+      "next": "Siguiente",
+      "finish": "¡Vamos!"
+    }
+  },
+  "theme": {
+    "system": "Sistema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "aria": {
+      "group": "Preferencia de tema",
+      "switchTo": "Cambiar al tema {{theme}}"
+    }
+  },
+  "language": {
+    "change": "Cambiar idioma"
+  },
+  "meta": {
+    "title": "Orxis | Orquesta la IA con límites estrictos",
+    "description": "Orxis es un generador estructurado de instrucciones personalizadas de IA. Define roles precisos, bucles cognitivos y límites de salida para ChatGPT, Claude, Gemini y otros LLMs."
+  }
+}

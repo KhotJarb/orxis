@@ -1,1 +1,139 @@
-{}
+{
+  "domains": {
+    "content": {
+      "label": "内容创作",
+      "description": "YouTube，博客，播客，社交媒体"
+    },
+    "business": {
+      "label": "商业与战略",
+      "description": "规划，分析，咨询"
+    },
+    "technical": {
+      "label": "软件与技术",
+      "description": "代码，架构，DevOps"
+    },
+    "writing": {
+      "label": "写作与创意",
+      "description": "文案，故事讲述，编辑"
+    },
+    "marketing": {
+      "label": "营销与增长",
+      "description": "SEO，活动，分析"
+    },
+    "education": {
+      "label": "教育与研究",
+      "description": "辅导，课程，研究"
+    },
+    "design": {
+      "label": "设计与视觉",
+      "description": "UI/UX，品牌，视觉策略"
+    },
+    "custom": {
+      "label": "其他",
+      "description": "完全自由，所有预设均可用"
+    }
+  },
+  "personas": {
+    "content": ["YouTuber", "内容策略师", "剧本作家", "播客主持人", "社交媒体经理", "视频剪辑师", "封面设计师", "内容分析师", "社区经理", "Newsletter 作者", "直播教练", "短视频创作者"],
+    "business": ["商业分析师", "初创公司顾问", "管理顾问", "财务规划师", "运营经理", "市场研究员", "高管教练", "资助申请专员", "销售策略师", "风险分析师", "人力资源顾问", "供应链专家"],
+    "technical": ["后端开发工程师", "前端开发工程师", "全栈工程师", "DevOps 工程师", "系统架构师", "数据库管理员", "安全工程师", "QA 工程师", "机器学习工程师", "云架构师", "移动端开发工程师", "技术主管 (Tech Lead)"],
+    "writing": ["文案撰稿人", "小说家", "技术作家", "编辑", "记者", "编剧", "诗人", "代笔作家", "博主", "资助申请专员", "漫画编剧", "演讲稿撰稿人"],
+    "marketing": ["SEO 专家", "增长黑客", "数字营销人员", "品牌经理", "电子邮件营销人员", "付费广告专家", "社交媒体经理", "公关专员", "电子商务经理", "数据分析专家", "联盟营销人员", "内容营销人员"],
+    "education": ["教师", "教授", "教学设计师", "导师", "研究员", "校长", "学术顾问", "特教老师", "课程开发人员", "学生", "博士候选人", "图书管理员"],
+    "design": ["UI 设计师", "UX 设计师", "平面设计师", "艺术总监", "插画师", "动画师", "产品设计师", "品牌设计师", "网页设计师", "动效设计师", "3D 艺术家", "包装设计师"],
+    "custom": ["软件工程师", "数据科学家", "UX 设计师", "营销专家", "创意作家", "商业策略师", "研究科学家", "教师与导师", "DevOps 工程师", "产品经理", "法律顾问", "财务分析师"]
+  },
+  "tasks": {
+    "content": ["视频创意", "剧本撰写", "内容日历", "封面概念", "受众增长", "视频 SEO", "品牌合作", "社区互动", "数据审查", "跨平台策略", "趋势分析", "内容再利用"],
+    "business": ["商业计划书", "市场分析", "商业企划书 (Pitch Deck)", "SWOT 分析", "财务预测", "竞品分析", "流程优化", "战略规划", "KPI 仪表板", "利益相关者报告", "预算规划", "风险评估"],
+    "technical": ["代码审查", "Debug", "API 设计", "系统架构", "数据库设计", "CI/CD 管道", "性能优化", "安全审计", "测试策略", "技术文档", "迁移规划", "技术栈评估"],
+    "writing": ["博客文章", "章节草稿", "文章编辑", "广告文案", "创意写作", "演讲稿起草", "校对", "角色发展", "情节大纲", "Newsletter 草稿", "新闻稿", "审查和反馈"],
+    "marketing": ["SEO 优化", "广告活动", "电子邮件序列", "社交媒体计划", "营销策略", "品牌语调指南", "转化率优化", "A/B 测试", "关键词研究", "竞品分析", "数据报告", "公关提案"],
+    "education": ["教案", "课程大纲", "生成测验", "评分标准", "学习指南", "研究提案", "文献综述", "作业反馈", "互动活动", "考试问题", "教学大纲草案", "学术论文"],
+    "design": ["线框图", "用户流程图", "品牌标识", "UI 视觉稿", "设计系统", "可用性测试", "视觉策略", "Logo 概念", "调色板", "排版搭配", "原型制作", "可访问性审查"],
+    "custom": ["代码审查", "内容创作", "数据分析", "问题解决", "研究报告", "头脑风暴", "技术写作", "Debug", "API 设计", "系统架构", "用户研究", "SEO 优化"]
+  },
+  "contextExamples": {
+    "content": {
+      "whatYouDo": "我经营一个关于低预算烹饪的 YouTube 频道。我每周发布 2 个视频 —— 一个是食谱教程，另一个是“一周备餐”形式的内容。",
+      "whoYouServe": "18-28 岁想吃得好又不想花太多钱的大学生和年轻职场人士。大多数人的厨房设备有限。",
+      "keyDetails": "视频长度为 8-12 分钟。我用单台摄像机俯拍。语气是欢快和鼓励人的。我避免使用复杂的烹饪技巧。"
+    },
+    "business": {
+      "whatYouDo": "我经营一家 SaaS 初创公司，为远程团队提供项目管理工具。我们处于 Pre-A 轮阶段，有 500 名活跃用户。",
+      "whoYouServe": "管理 5-20 名远程员工，需要简单、实惠的协作工具的小企业主和团队主管。",
+      "keyDetails": "我们使用免费增值 (Freemium) 模式。主要竞争对手是 Asana 和 Monday.com。我们的差异化优势是 AI 驱动的任务优先级排序。"
+    },
+    "technical": {
+      "whatYouDo": "我是一家金融科技初创公司的后端开发负责人。我们处理支付交易并处理监管合规事宜。",
+      "whoYouServe": "我们内部的 8 名工程师团队，大部分是中级工程师。我们还支持 QA 和产品团队。",
+      "keyDetails": "技术栈：Node.js、PostgreSQL、AWS。我们每周通过 CI/CD 进行部署。强制要求符合 PCI-DSS 合规标准。"
+    },
+    "writing": {
+      "whatYouDo": "我是一名自由文案撰稿人，专门从事健康和养生领域的内容创作。",
+      "whoYouServe": "直接面向消费者 (DTC) 的保健品品牌和整体健康从业者。",
+      "keyDetails": "专注于有科学依据的主张，语气平易近人、引人入胜。必须严格遵守 FDA 指南。"
+    },
+    "marketing": {
+      "whatYouDo": "我为一家销售可持续发展服装的中型电子商务商店管理数字营销。",
+      "whoYouServe": "注重环保的千禧一代和 Z 世代消费者，他们寻找价格实惠且符合道德标准制造的服装。",
+      "keyDetails": "主要渠道是 Instagram 和 TikTok。我们强调透明度、环保材料和身体自爱 (Body Positivity)。"
+    },
+    "education": {
+      "whatYouDo": "我是一名高中科学老师，教授生物和化学。",
+      "whoYouServe": "10 年级和 11 年级的学生，涵盖从普通教育到大学预修课程 (AP) 水平。",
+      "keyDetails": "我专注于探究式学习和动手实验。我需要引人入胜且符合下一代科学标准 (NGSS) 的教材。"
+    },
+    "design": {
+      "whatYouDo": "我是一家代理机构的 UX/UI 设计师，致力于为医疗保健客户开发移动应用。",
+      "whoYouServe": "管理慢性病的患者，通常是老年人（55 岁以上）。",
+      "keyDetails": "可访问性至关重要（高对比度，大的点击目标）。美学应该干净、平静且值得信赖。"
+    },
+    "custom": {
+      "whatYouDo": "我是一名在不同领域参与各种项目的专业人士。",
+      "whoYouServe": "根据具体项目的不同，服务于各种不同的客户和利益相关者。",
+      "keyDetails": "我需要灵活性，以便根据当前的任务要求调整我的方法和输出。"
+    }
+  },
+  "shortcuts": {
+    "content": [
+      { "name": "快速头脑风暴", "template": "为我的 {{audience}} 生成 {{count}} 个关于 {{topic}} 的视频创意" },
+      { "name": "剧本大纲", "template": "为一个关于 {{topic}} 的 {{duration}} 分钟视频编写剧本大纲" },
+      { "name": "标题创意", "template": "为一个关于 {{topic}} 的视频创建 {{count}} 个吸引人的标题" }
+    ],
+    "business": [
+      { "name": "执行摘要", "template": "起草一份关于 {{subject}} 的 {{length}} 执行摘要，重点突出 {{focus_areas}}" },
+      { "name": "策略列表", "template": "考虑到 {{constraints}}，列出 {{count}} 个实现 {{objective}} 的策略" },
+      { "name": "SWOT 分析", "template": "为 {{industry}} 市场的 {{company_or_product}} 创建一份 SWOT 分析" }
+    ],
+    "technical": [
+      { "name": "代码审查", "template": "审查以下代码以查找 {{focus_areas}}：{{code}}" },
+      { "name": "架构规划", "template": "概述使用 {{tech_stack}} 的 {{app_type}} 的系统架构" },
+      { "name": "Debug 错误", "template": "帮我调试这个 {{language}} 错误：{{error_message}}" }
+    ],
+    "writing": [
+      { "name": "文章草稿", "template": "为 {{audience}} 起草一篇关于 {{topic}} 的 {{length}} 文章" },
+      { "name": "编辑文本", "template": "编辑以下文本，使其语气更加 {{tone}} 且清晰：{{text}}" },
+      { "name": "创意 Prompt", "template": "给我一个涉及 {{theme}} 主题和 {{character}} 角色的创意写作 Prompt" }
+    ],
+    "marketing": [
+      { "name": "邮件活动", "template": "为针对 {{segment}} 的 {{product}} 编写一个 {{sequence_length}} 部分的电子邮件序列" },
+      { "name": "广告文案", "template": "为 {{offer}} 创建 {{count}} 个 Facebook 广告文案变体" },
+      { "name": "SEO 关键词", "template": "为 {{topic}} 建议 {{count}} 个长尾 SEO 关键词" }
+    ],
+    "education": [
+      { "name": "教案", "template": "为 {{grade_level}} 年级创建一个关于 {{topic}} 的 {{duration}} 教案" },
+      { "name": "测验问题", "template": "生成 {{count}} 道关于 {{subject}} 的 {{difficulty}} 难度的选择题" },
+      { "name": "解释概念", "template": "使用适合 {{audience}} 的比喻来解释 {{concept}} 概念" }
+    ],
+    "design": [
+      { "name": "设计系统", "template": "列出 {{project_type}} 设计系统所需的基本组件" },
+      { "name": "调色板", "template": "为 {{industry}} 行业中具有 {{vibe}} 氛围的品牌建议一个调色板" },
+      { "name": "UX 审核", "template": "在审核 {{interface_type}} 时要检查的关键 UX 原则是什么？" }
+    ],
+    "custom": [
+      { "name": "快速帮助", "template": "在 {{subject}} 方面帮助我完成 {{task}}" },
+      { "name": "生成想法", "template": "为 {{topic}} 生成 {{count}} 个想法" }
+    ]
+  }
+}

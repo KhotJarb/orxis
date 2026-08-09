@@ -1,1 +1,119 @@
-{}
+{
+  "gallery": {
+    "header": {
+      "badge": "Galería de Prompts",
+      "title": "La Bóveda de ",
+      "titleHighlight": "Instrucciones.",
+      "description": "Plantillas de instrucciones estructuradas, listas para pegar. Haz clic en cualquier tarjeta para ver y copiar el marco completo de seis secciones.",
+      "submitButton": "Enviar Prompt"
+    },
+    "sidebar": {
+      "searchPlaceholder": "Buscar prompts...",
+      "categoryLabel": "Categoría",
+      "hint": "Haz clic en cualquier tarjeta para ver la instrucción maestra completa y copiarla al portapapeles."
+    },
+    "emptyState": {
+      "message": "Ningún prompt coincide",
+      "clearFilters": "Borrar filtros"
+    },
+    "card": {
+      "communityBadge": "Comunidad",
+      "viewPrompt": "Ver Prompt"
+    },
+    "drawer": {
+      "masterInstruction": "Instrucción Maestra — Fuente Completa",
+      "copied": "¡Copiado al portapapeles!",
+      "copy": "Copiar Instrucción Completa",
+      "pasteHint": "Pega directamente en ChatGPT, Claude o Gemini"
+    },
+    "categories": {
+      "all": "Todos",
+      "software-dev": "Desarrollo de Software",
+      "content-strategy": "Estrategia de Contenido",
+      "creative-design": "Diseño Creativo",
+      "data-analytics": "Datos y Analítica",
+      "marketing": "Marketing",
+      "education": "Educación",
+      "business": "Negocios",
+      "research": "Investigación",
+      "writing": "Escritura y Edición",
+      "other": "Otros",
+      "community": "Comunidad"
+    },
+    "prompts": {
+      "clean-code-master": {
+        "title": "Maestro de Código Limpio y Refactorización",
+        "snippet": "Asume el rol de un Ingeniero de Software Principal obsesionado con los principios SOLID y la eficiencia algorítmica, transformando el código legado en una arquitectura limpia y testeable.",
+        "tags": {
+          "refactoring": "Refactorización",
+          "solid": "SOLID",
+          "cleanCode": "Código Limpio",
+          "testing": "Testing"
+        }
+      },
+      "viral-strategist": {
+        "title": "Estratega Viral de Formato Corto",
+        "snippet": "Asume el rol de un analista de retención de élite de TikTok/YouTube Shorts que diseña ganchos psicológicos, cumplimiento de plataforma y un ritmo impulsado por la dopamina.",
+        "tags": {
+          "tiktok": "TikTok",
+          "youtube": "YouTube",
+          "hooks": "Ganchos",
+          "copywriting": "Redacción"
+        }
+      },
+      "pixar-avatar-director": {
+        "title": "Director de Avatar 3D Estilo Pixar",
+        "snippet": "Asume el rol de un Rigger de Personajes 3D Principal y Experto en Midjourney manteniendo una estricta consistencia visual en estéticas de personajes de múltiples capas.",
+        "tags": {
+          "midjourney": "Midjourney",
+          "3d": "3D",
+          "characterDesign": "Diseño de Personaje",
+          "promptEngineering": "Ingeniería de Prompts"
+        }
+      }
+    }
+  },
+  "submit": {
+    "success": {
+      "title": "Tu prompt está en la forja.",
+      "description": "Nuestro equipo lo revisará en busca de calidad antes de que se publique. Estaremos en contacto.",
+      "closing": "Cerrando automáticamente…"
+    },
+    "modal": {
+      "headerTitle": "Comparte Tu Marco",
+      "headerSubtitle": "Contribuye a la bóveda de la comunidad",
+      "fields": {
+        "title": {
+          "label": "Título",
+          "placeholder": "Nombra tu Instrucción Maestra"
+        },
+        "description": {
+          "label": "Descripción",
+          "placeholder": "Un resumen de una línea que se muestra en la tarjeta de la galería…",
+          "hint": "Esto aparece como la descripción visible de la tarjeta en la galería."
+        },
+        "category": {
+          "label": "Categoría"
+        },
+        "author": {
+          "label": "Autor / Usuario",
+          "optional": "(opcional)",
+          "placeholder": "Tu nombre o @usuario"
+        },
+        "tags": {
+          "label": "Etiquetas",
+          "optional": "(opcional)",
+          "placeholder": "ej. SOLID, Testing, Python",
+          "hint": "Separa las etiquetas con comas."
+        },
+        "prompt": {
+          "label": "Instrucción Maestra Completa",
+          "placeholder": "# 1. Rol e Identidad\nPega tu Instrucción Maestra completa de 6 secciones aquí…"
+        }
+      },
+      "disclaimer": "Todos los envíos son revisados por nuestro equipo antes de publicarlos para garantizar una gran calidad. Es posible que los editemos ligeramente por formato.",
+      "submitButton": "Enviar para Revisión",
+      "submittingButton": "Enviando…"
+    }
+  }
+}

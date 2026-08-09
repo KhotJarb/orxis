@@ -1,1 +1,178 @@
-{}
+{
+  "hero": {
+    "badge": "Motor de Instrucciones Impulsado por IA",
+    "titleLine1": "Dale forma a la",
+    "titleLine2": "Mente de IA Perfecta",
+    "description": "Crea instrucciones personalizadas precisas y poderosas para cualquier modelo de IA. Nuestro generador inteligente te ayuda a construir el prompt del sistema perfecto para desbloquear todo el potencial de la IA.",
+    "ctaPrimary": "Empezar a Generar",
+    "ctaSecondary": "Mira Cómo Funciona"
+  },
+  "bento": {
+    "badge": "Entendiendo el Núcleo",
+    "title": "¿Qué es una",
+    "titleHighlight": "Instrucción Personalizada",
+    "titleQuestionMark": "?",
+    "description": "La característica más poderosa y subutilizada de la IA hoy en día. Aquí tienes todo lo que necesitas saber, en un solo lugar.",
+    "card1": {
+      "title": "El ADN de tu IA",
+      "subtitle": "Definición Central",
+      "p1": "Una Instrucción Personalizada es un <1>conjunto persistente de directivas</1> que le das a un asistente de IA que da forma a su comportamiento, personalidad y formato de salida para <2>cada conversación individual</2>. Piensa en ello como programar la capa de identidad de la IA.",
+      "p2": "Le dice al modelo exactamente quién ser, cómo pensar y qué reglas seguir, incluso antes de que hagas tu primera pregunta. A diferencia de los prompts regulares que se aplican a un solo mensaje, las Instrucciones Personalizadas persisten en todas las interacciones, creando una experiencia consistentemente adaptada que se siente como trabajar con un especialista, no un generalista.",
+      "p3": "Cuando se crea adecuadamente, una Instrucción Personalizada puede transformar un chatbot genérico en un ingeniero senior que escribe código listo para producción, un entrenador de escritura que refleja tu voz y estilo exactos, o un asesor estratégico que razona de manera consistente dentro de tu marco definido.",
+      "footer": "También conocidas como: Prompts de Sistema, Meta Prompts, Personas de IA, Directivas de Comportamiento"
+    },
+    "card2": {
+      "title": "El Ingrediente Secreto",
+      "subtitle": "Restricciones y Reglas",
+      "p1": "El verdadero poder radica en las restricciones. Al definir lo que la IA <1>NO</1> debe hacer, paradójicamente la haces mejor:",
+      "list": [
+        "Eliminar relleno y frases vacías",
+        "Imponer formatos de salida específicos",
+        "Establecer límites específicos del dominio",
+        "Controlar la longitud y el detalle de la respuesta",
+        "Desalentar citas alucinadas",
+        "Bloquear terminología consistente"
+      ]
+    },
+    "card3": {
+      "title": "Compatibilidad Universal",
+      "subtitle": "Funciona en Todas Partes",
+      "p1": "Nuestras instrucciones generadas son agnósticas al modelo. Pégalas en el prompt del sistema o campo de instrucciones personalizadas de cualquier asistente de IA y obtén resultados inmediatos."
+    },
+    "card4": {
+      "title": "La Anatomía",
+      "subtitle": "Los Cuatro Pilares",
+      "p1": "Cada instrucción personalizada maestra está construida sobre cuatro pilares fundamentales. Nuestro generador elabora cada uno para ti a través de un asistente interactivo — no se requiere experiencia en ingeniería de prompts.",
+      "pillars": {
+        "persona": { "label": "Persona", "desc": "Quién es la IA" },
+        "task": { "label": "Tarea", "desc": "Qué hace" },
+        "tone": { "label": "Tono", "desc": "Cómo habla" },
+        "rules": { "label": "Reglas", "desc": "Qué sigue" }
+      },
+      "footer": "Cada pilar es independiente pero interconectado. Una Persona fuerte sin Reglas claras aún produce resultados inconsistentes. Nuestro motor asegura que los cuatro trabajen en armonía."
+    }
+  },
+  "features": {
+    "title": "Construido para la",
+    "titleHighlight": "Perfección",
+    "description": "Cada función está diseñada para producir instrucciones personalizadas estructuradas y consistentes — no se requiere experiencia en ingeniería de prompts.",
+    "items": {
+      "cognitiveLoop": {
+        "title": "El Bucle Cognitivo",
+        "subtitle": "IA de Autorreflexión",
+        "description": "El motor no solo genera — evalúa, critica y refina su propia salida para producir un resultado más estructurado y bien considerado."
+      },
+      "personaElevation": {
+        "title": "Elevación de Persona",
+        "subtitle": "Identidad Nivel Experto",
+        "description": "Transforma respuestas genéricas de IA en salidas de calibre experto creando la identidad perfecta, el alcance de experiencia y el marco de comportamiento para tu asistente."
+      },
+      "zeroCost": {
+        "title": "Optimización sin Costo",
+        "subtitle": "Gratis para Siempre",
+        "description": "Sin claves de API, sin suscripciones, sin tarifas ocultas. Obtén instrucciones personalizadas de nivel profesional completamente gratis con nuestro motor inteligente del lado del cliente."
+      },
+      "instantFormat": {
+        "title": "Perfección de Formato Instantánea",
+        "subtitle": "Arquitectura de Salida",
+        "description": "Reglas de formato de un solo clic aseguran que cada respuesta de IA siga tu estructura exacta — viñetas, encabezados, bloques de código, tablas — tú decides."
+      }
+    }
+  },
+  "howItWorks": {
+    "badge": "El Proceso",
+    "title": "Cómo",
+    "titleHighlight": "Funciona",
+    "description": "Tres pasos. Cero complejidad. Una obra maestra.",
+    "steps": {
+      "step1": {
+        "title": "Ingresa tu Visión",
+        "subtitle": "La Extracción",
+        "description": "Responde cuatro preguntas intuitivas sobre tu persona de IA ideal, tarea, tono y reglas. No se requiere conocimiento de ingeniería de prompts — solo tu intención."
+      },
+      "step2": {
+        "title": "El Arquitecto de IA lo Procesa",
+        "subtitle": "La Forja",
+        "description": "Nuestro motor de meta-prompting analiza tus preferencias, aplica bucles cognitivos y diseña un prompt de sistema completo con cero esfuerzo manual."
+      },
+      "step3": {
+        "title": "Obtén tu Obra Maestra",
+        "subtitle": "La Salida",
+        "description": "Recibe una instrucción personalizada creada con precisión lista para pegar en cualquier asistente de IA. Ajústala más con refinamientos de un clic en nuestro Output Studio."
+      }
+    }
+  },
+  "beforeAfter": {
+    "badge": "Mira la Diferencia",
+    "title": "El",
+    "titleHighlight": "Impacto",
+    "titleEnd": "es Masivo",
+    "description": "Misma pregunta, mismo modelo de IA, resultados drásticamente diferentes.",
+    "toggle": {
+      "without": "Sin CI",
+      "with": "Con Prompt Maestro"
+    },
+    "promptLabel": "Prompt: ",
+    "promptText": "\"Explícame los hooks de React\"",
+    "before": {
+      "fileName": "respuesta-generica.txt",
+      "footer": "Genérico • No estructurado • Sin puntos accionables • Muro de texto"
+    },
+    "after": {
+      "fileName": "respuesta-maestra.md",
+      "footer": "Estructurado • Nivel Experto • Accionable • Tablas y Advertencias Incluidas"
+    },
+    "stats": {
+      "structured": {
+        "stat": "10×",
+        "label": "Más Estructurado"
+      },
+      "filler": {
+        "stat": "95%",
+        "label": "Menos Relleno"
+      },
+      "actionable": {
+        "stat": "100%",
+        "label": "Accionable"
+      },
+      "reusable": {
+        "stat": "∞",
+        "label": "Reutilizable"
+      }
+    }
+  },
+  "useCaseTeaser": {
+    "title": "Infinitas",
+    "titleHighlight": "Posibilidades.",
+    "description": "Un marco lo suficientemente poderoso para cualquier flujo de trabajo complejo.",
+    "cards": {
+      "devs": {
+        "title": "Desarrolladores de Software y Juegos",
+        "snippet": "Mantén arquitecturas de estado complejas, reglas de sintaxis estrictas y jerarquías lógicas profundas — consistentemente."
+      },
+      "creators": {
+        "title": "Creadores de Contenido",
+        "snippet": "Diseña ganchos psicológicos, ritmo específico de la plataforma y estrategia de contenido viral a nivel experto."
+      },
+      "promptEngineers": {
+        "title": "Ingenieros de Prompts",
+        "snippet": "Bloquea consistencia estética, estilos visuales multicapa y especificaciones precisas de personajes."
+      }
+    },
+    "learnMore": "Aprender más",
+    "exploreAll": "Explorar Todos los Casos de Uso"
+  },
+  "ctaSection": {
+    "badge": "Gratis de usar • Sin registro • Resultados instantáneos",
+    "titleLine1": "Deja de hacer prompts.",
+    "titleLine2": "Empieza a Orquestar.",
+    "description": "Construye una instrucción precisa y estructurada en minutos. Pégala en cualquier modelo de IA y comienza a obtener respuestas más consistentes y estructuradas de inmediato.",
+    "btnPrimary": "Construir Mi Instrucción",
+    "btnSecondary": "Leer la documentación",
+    "perks": {
+      "noAccount": "No se requiere cuenta",
+      "clientSide": "Totalmente del lado del cliente",
+      "worksWith": "Funciona con ChatGPT, Claude y Gemini"
+    }
+  }
+}

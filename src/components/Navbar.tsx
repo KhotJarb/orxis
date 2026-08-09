@@ -19,6 +19,7 @@ import {
   Tag,
 } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { useT } from "@/i18n";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -35,28 +36,6 @@ interface NavDropdownConfig {
 
 // ── Data ───────────────────────────────────────────────────────────────────
 
-const navDropdowns: NavDropdownConfig[] = [
-  {
-    name: "Products",
-    items: [
-      { name: "Generator",    href: "/generate",    icon: <Zap       className="h-4 w-4" /> },
-      { name: "Features",     href: "/#features",   icon: <Layers    className="h-4 w-4" /> },
-      { name: "How It Works", href: "/#how-it-works",icon: <Settings  className="h-4 w-4" /> },
-      { name: "Use Cases",    href: "/use-cases",   icon: <Briefcase className="h-4 w-4" /> },
-      { name: "Pricing",      href: "/pricing",    icon: <Tag       className="h-4 w-4" /> },
-    ],
-  },
-  {
-    name: "Resources",
-    items: [
-      { name: "Documentation", href: "/docs", icon: <BookOpen    className="h-4 w-4" /> },
-      { name: "Prompt Gallery", href: "/gallery", icon: <LayoutGrid  className="h-4 w-4" /> },
-      { name: "Changelog",      href: "/changelog", icon: <History     className="h-4 w-4" /> },
-      { name: "About Us",       href: "/about", icon: <Users       className="h-4 w-4" /> },
-      { name: "Support & FAQ",  href: "/support", icon: <HelpCircle  className="h-4 w-4" /> },
-    ],
-  },
-];
 
 // ── Rich dropdown (shared by both menus) ──────────────────────────────────
 
@@ -140,6 +119,31 @@ function RichDropdown({ dropdown }: { dropdown: NavDropdownConfig }) {
 // ── Main Navbar ────────────────────────────────────────────────────────────
 
 export default function Navbar() {
+  const t = useT("common");
+  
+  const navDropdowns: NavDropdownConfig[] = [
+    {
+      name: t("nav.dropdowns.products"),
+      items: [
+        { name: t("nav.items.generator"),    href: "/generate",    icon: <Zap       className="h-4 w-4" /> },
+        { name: t("nav.items.features"),     href: "/#features",   icon: <Layers    className="h-4 w-4" /> },
+        { name: t("nav.items.howItWorks"), href: "/#how-it-works",icon: <Settings  className="h-4 w-4" /> },
+        { name: t("nav.items.useCases"),    href: "/use-cases",   icon: <Briefcase className="h-4 w-4" /> },
+        { name: t("nav.items.pricing"),      href: "/pricing",    icon: <Tag       className="h-4 w-4" /> },
+      ],
+    },
+    {
+      name: t("nav.dropdowns.resources"),
+      items: [
+        { name: t("nav.items.documentation"), href: "/docs", icon: <BookOpen    className="h-4 w-4" /> },
+        { name: t("nav.items.promptGallery"), href: "/gallery", icon: <LayoutGrid  className="h-4 w-4" /> },
+        { name: t("nav.items.changelog"),      href: "/changelog", icon: <History     className="h-4 w-4" /> },
+        { name: t("nav.items.aboutUs"),       href: "/about", icon: <Users       className="h-4 w-4" /> },
+        { name: t("nav.items.supportFaq"),  href: "/support", icon: <HelpCircle  className="h-4 w-4" /> },
+      ],
+    },
+  ];
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
@@ -186,7 +190,7 @@ export default function Navbar() {
                 href="/generate"
                 className="glow-btn inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold text-[var(--text-heading)] transition-all duration-300 hover:scale-105"
               >
-                Get Started
+                {t("nav.getStarted")}
               </a>
             </div>
 
@@ -194,7 +198,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden ml-auto flex h-10 w-10 items-center justify-center rounded-lg text-[var(--text-muted)] hover:text-[var(--text-heading)] hover:bg-[var(--glass-bg)] transition-colors"
-              aria-label="Toggle menu"
+              aria-label={t("nav.toggleMenu")}
             >
               {isMobileMenuOpen ? (
                 <X className="h-5 w-5" />
@@ -289,7 +293,7 @@ export default function Navbar() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="glow-btn mt-3 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white"
               >
-                Get Started
+                {t("nav.getStarted")}
               </motion.a>
             </div>
 

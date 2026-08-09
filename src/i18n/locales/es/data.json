@@ -1,1 +1,139 @@
-{}
+{
+  "domains": {
+    "content": {
+      "label": "Creación de Contenido",
+      "description": "YouTube, blogs, podcasts, redes sociales"
+    },
+    "business": {
+      "label": "Negocios y Estrategia",
+      "description": "Planificación, análisis, consultoría"
+    },
+    "technical": {
+      "label": "Software y Técnico",
+      "description": "Código, arquitectura, DevOps"
+    },
+    "writing": {
+      "label": "Escritura y Creativo",
+      "description": "Redacción publicitaria, narración de historias, edición"
+    },
+    "marketing": {
+      "label": "Marketing y Crecimiento",
+      "description": "SEO, campañas, analítica"
+    },
+    "education": {
+      "label": "Educación e Investigación",
+      "description": "Tutoría, plan de estudios, investigación"
+    },
+    "design": {
+      "label": "Diseño y Visual",
+      "description": "UI/UX, branding, estrategia visual"
+    },
+    "custom": {
+      "label": "Algo más",
+      "description": "Libertad total, todos los ajustes preestablecidos disponibles"
+    }
+  },
+  "personas": {
+    "content": ["YouTuber", "Estratega de Contenido", "Guionista", "Presentador de Podcast", "Gestor de Redes Sociales", "Editor de Video", "Diseñador de Miniaturas", "Analista de Contenido", "Gestor de Comunidad", "Escritor de Boletines", "Entrenador de Streaming", "Creador de Formato Corto"],
+    "business": ["Analista de Negocios", "Asesor de Startups", "Consultor de Gestión", "Planificador Financiero", "Gerente de Operaciones", "Investigador de Mercado", "Coach Ejecutivo", "Redactor de Subvenciones", "Estratega de Ventas", "Analista de Riesgos", "Consultor de RRHH", "Experto en Cadena de Suministro"],
+    "technical": ["Desarrollador Backend", "Desarrollador Frontend", "Ingeniero Full-Stack", "Ingeniero DevOps", "Arquitecto de Sistemas", "Administrador de Base de Datos", "Ingeniero de Seguridad", "Ingeniero de QA", "Ingeniero de ML", "Arquitecto en la Nube", "Desarrollador Móvil", "Líder Técnico"],
+    "writing": ["Redactor", "Novelista", "Escritor Técnico", "Editor", "Periodista", "Guionista de Cine", "Poeta", "Escritor Fantasma", "Bloguero", "Redactor de Subvenciones", "Escritor de Cómics", "Escritor de Discursos"],
+    "marketing": ["Experto en SEO", "Growth Hacker", "Especialista en Marketing Digital", "Gerente de Marca", "Especialista en Email Marketing", "Especialista en Anuncios Pagados", "Gestor de Redes Sociales", "Especialista en Relaciones Públicas", "Gerente de E-commerce", "Experto en Analítica", "Comercializador Afiliado", "Comercializador de Contenidos"],
+    "education": ["Profesor", "Catedrático", "Diseñador Instruccional", "Tutor", "Investigador", "Director", "Asesor Académico", "Profesor de Educación Especial", "Desarrollador de Currículo", "Estudiante", "Candidato a Doctorado", "Bibliotecario"],
+    "design": ["Diseñador UI", "Diseñador UX", "Diseñador Gráfico", "Director de Arte", "Ilustrador", "Animador", "Diseñador de Producto", "Diseñador de Marca", "Diseñador Web", "Diseñador de Movimiento", "Artista 3D", "Diseñador de Empaques"],
+    "custom": ["Ingeniero de Software", "Científico de Datos", "Diseñador UX", "Experto en Marketing", "Escritor Creativo", "Estratega de Negocios", "Investigador Científico", "Profesor y Mentor", "Ingeniero DevOps", "Gerente de Producto", "Asesor Legal", "Analista Financiero"]
+  },
+  "tasks": {
+    "content": ["Ideas de Video", "Escritura de Guiones", "Calendario de Contenido", "Conceptos de Miniatura", "Crecimiento de Audiencia", "SEO para Videos", "Asociaciones de Marca", "Participación de la Comunidad", "Revisión de Analíticas", "Estrategia Multiplataforma", "Análisis de Tendencias", "Reutilización de Contenido"],
+    "business": ["Plan de Negocios", "Análisis de Mercado", "Pitch Deck", "Análisis FODA", "Pronóstico Financiero", "Análisis Competitivo", "Optimización de Procesos", "Planificación Estratégica", "Panel de KPIs", "Informe a Partes Interesadas", "Planificación de Presupuesto", "Evaluación de Riesgos"],
+    "technical": ["Revisión de Código", "Depuración", "Diseño de API", "Arquitectura de Sistemas", "Diseño de Base de Datos", "Pipeline CI/CD", "Optimización de Rendimiento", "Auditoría de Seguridad", "Estrategia de Pruebas", "Documentación", "Planificación de Migración", "Evaluación de Stack Tecnológico"],
+    "writing": ["Publicación de Blog", "Borrador de Capítulo", "Edición de Artículo", "Texto de Anuncio", "Escritura Creativa", "Borrador de Discurso", "Corrección de Textos", "Desarrollo de Personajes", "Esquema de Trama", "Borrador de Boletín", "Comunicado de Prensa", "Revisión y Comentarios"],
+    "marketing": ["Optimización SEO", "Campaña Publicitaria", "Secuencia de Correo", "Plan de Redes Sociales", "Estrategia de Marketing", "Guía de Voz de Marca", "Optimización de Tasa de Conversión", "Pruebas A/B", "Investigación de Palabras Clave", "Análisis de Competidores", "Informe de Analíticas", "Pitch de Relaciones Públicas"],
+    "education": ["Plan de Lección", "Currículo del Curso", "Generación de Cuestionarios", "Rúbrica de Calificación", "Guía de Estudio", "Propuesta de Investigación", "Revisión de Literatura", "Comentarios sobre Tareas", "Actividad Interactiva", "Preguntas de Examen", "Borrador de Plan de Estudios", "Trabajo Académico"],
+    "design": ["Wireframing", "Flujo de Usuario", "Identidad de Marca", "Mockup UI", "Sistema de Diseño", "Pruebas de Usabilidad", "Estrategia Visual", "Concepto de Logotipo", "Paleta de Colores", "Combinación de Tipografías", "Prototipado", "Revisión de Accesibilidad"],
+    "custom": ["Revisión de Código", "Creación de Contenido", "Análisis de Datos", "Resolución de Problemas", "Investigación e Informe", "Lluvia de Ideas", "Escritura Técnica", "Depuración", "Diseño de API", "Arquitectura de Sistema", "Investigación de Usuarios", "Optimización SEO"]
+  },
+  "contextExamples": {
+    "content": {
+      "whatYouDo": "Dirijo un canal de YouTube sobre cocinar con un presupuesto. Publico 2 videos por semana — un tutorial de receta y un formato de 'preparación de comidas para la semana'.",
+      "whoYouServe": "Estudiantes universitarios y jóvenes profesionales de 18 a 28 años que desean comer bien sin gastar mucho. La mayoría tiene equipo de cocina limitado.",
+      "keyDetails": "Los videos duran de 8 a 12 minutos. Filmo con una sola cámara, ángulo desde arriba. El tono es optimista y alentador. Evito técnicas complejas."
+    },
+    "business": {
+      "whatYouDo": "Dirijo una startup SaaS que ofrece herramientas de gestión de proyectos para equipos remotos. Estamos en fase pre-Serie A con 500 usuarios activos.",
+      "whoYouServe": "Propietarios de pequeñas empresas y líderes de equipo que gestionan de 5 a 20 empleados remotos que necesitan herramientas de colaboración simples y asequibles.",
+      "keyDetails": "Usamos un modelo freemium. Los principales competidores son Asana y Monday.com. Nuestro diferenciador es la priorización de tareas impulsada por IA."
+    },
+    "technical": {
+      "whatYouDo": "Dirijo el desarrollo backend en una startup fintech. Procesamos transacciones de pago y manejamos el cumplimiento regulatorio.",
+      "whoYouServe": "Nuestro equipo interno de desarrollo de 8 ingenieros, en su mayoría de nivel intermedio. También apoyamos a los equipos de control de calidad (QA) y producto.",
+      "keyDetails": "Stack: Node.js, PostgreSQL, AWS. Implementamos semanalmente a través de CI/CD. El cumplimiento de PCI-DSS es obligatorio."
+    },
+    "writing": {
+      "whatYouDo": "Soy un redactor freelance especializado en salud y bienestar.",
+      "whoYouServe": "Marcas de suplementos directo al consumidor (DTC) y profesionales de la salud holística.",
+      "keyDetails": "Enfoque en afirmaciones respaldadas por la ciencia con un tono accesible y atractivo. El cumplimiento de las pautas de la FDA es estrictamente obligatorio."
+    },
+    "marketing": {
+      "whatYouDo": "Gestiono el marketing digital para una tienda de e-commerce mediana que vende ropa sostenible.",
+      "whoYouServe": "Millennials y consumidores de la Generación Z con conciencia ecológica que buscan ropa asequible y hecha éticamente.",
+      "keyDetails": "Los canales principales son Instagram y TikTok. Hacemos hincapié en la transparencia, los materiales ecológicos y la positividad corporal."
+    },
+    "education": {
+      "whatYouDo": "Soy profesor de ciencias en la escuela secundaria impartiendo Biología y Química.",
+      "whoYouServe": "Estudiantes de décimo y undécimo grado, que van desde educación general hasta niveles de Colocación Avanzada (AP).",
+      "keyDetails": "Me centro en el aprendizaje basado en la indagación y experimentos prácticos. Necesito materiales que sean atractivos y se alineen con los Estándares de Ciencias de la Próxima Generación (NGSS)."
+    },
+    "design": {
+      "whatYouDo": "Soy un diseñador UX/UI en una agencia, trabajando en aplicaciones móviles para clientes de atención médica.",
+      "whoYouServe": "Pacientes que manejan condiciones crónicas, típicamente adultos mayores (55+).",
+      "keyDetails": "La accesibilidad es fundamental (alto contraste, áreas táctiles grandes). La estética debe ser limpia, relajante y confiable."
+    },
+    "custom": {
+      "whatYouDo": "Soy un profesional que trabaja en varios proyectos en diferentes dominios.",
+      "whoYouServe": "Una amplia gama de clientes y partes interesadas según los requisitos específicos del proyecto.",
+      "keyDetails": "Necesito flexibilidad para adaptar mi enfoque y salidas en función de los requisitos de la tarea actual."
+    }
+  },
+  "shortcuts": {
+    "content": [
+      { "name": "Lluvia de Ideas Rápida", "template": "Genera {{count}} ideas de videos sobre {{topic}} para mi {{audience}}" },
+      { "name": "Esquema de Guion", "template": "Escribe un esquema de guion para un video de {{duration}} minutos sobre {{topic}}" },
+      { "name": "Ideas de Título", "template": "Crea {{count}} títulos atractivos para un video sobre {{topic}}" }
+    ],
+    "business": [
+      { "name": "Resumen Ejecutivo", "template": "Redacta un resumen ejecutivo de {{length}} sobre {{subject}} destacando {{focus_areas}}" },
+      { "name": "Lista de Estrategias", "template": "Enumera {{count}} estrategias para {{objective}} considerando {{constraints}}" },
+      { "name": "Análisis FODA", "template": "Crea un análisis FODA para {{company_or_product}} en el mercado de {{industry}}" }
+    ],
+    "technical": [
+      { "name": "Revisión de Código", "template": "Revisa el siguiente código en busca de {{focus_areas}}: {{code}}" },
+      { "name": "Plan de Arquitectura", "template": "Esboza una arquitectura de sistema para una {{app_type}} usando {{tech_stack}}" },
+      { "name": "Error de Depuración", "template": "Ayúdame a depurar este error en {{language}}: {{error_message}}" }
+    ],
+    "writing": [
+      { "name": "Borrador de Artículo", "template": "Redacta un artículo de {{length}} sobre {{topic}} para {{audience}}" },
+      { "name": "Editar Texto", "template": "Edita el siguiente texto para obtener un tono {{tone}} y mayor claridad: {{text}}" },
+      { "name": "Prompt Creativo", "template": "Dame un prompt de escritura creativa que involucre {{theme}} y {{character}}" }
+    ],
+    "marketing": [
+      { "name": "Campaña de Correo", "template": "Escribe una secuencia de correo de {{sequence_length}} partes para {{product}} dirigida al segmento {{segment}}" },
+      { "name": "Texto de Anuncio", "template": "Crea {{count}} variaciones de texto de anuncio de Facebook para {{offer}}" },
+      { "name": "Palabras Clave SEO", "template": "Sugiere {{count}} palabras clave SEO de cola larga para {{topic}}" }
+    ],
+    "education": [
+      { "name": "Plan de Lección", "template": "Crea un plan de lección de {{duration}} sobre {{topic}} para el nivel {{grade_level}}" },
+      { "name": "Preguntas de Cuestionario", "template": "Genera {{count}} preguntas de opción múltiple sobre {{subject}} a un nivel de dificultad {{difficulty}}" },
+      { "name": "Explicar Concepto", "template": "Explica el concepto {{concept}} usando una analogía adecuada para {{audience}}" }
+    ],
+    "design": [
+      { "name": "Sistema de Diseño", "template": "Enumera los componentes esenciales necesarios para un sistema de diseño de {{project_type}}" },
+      { "name": "Paleta de Colores", "template": "Sugiere una paleta de colores para una marca con estilo {{vibe}} en la industria de {{industry}}" },
+      { "name": "Auditoría UX", "template": "¿Cuáles son los principios clave de UX a verificar al auditar una {{interface_type}}?" }
+    ],
+    "custom": [
+      { "name": "Ayuda Rápida", "template": "Ayúdame con {{task}} en relación a {{subject}}" },
+      { "name": "Generar Ideas", "template": "Genera {{count}} ideas para {{topic}}" }
+    ]
+  }
+}

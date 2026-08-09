@@ -1,1 +1,119 @@
-{}
+{
+  "gallery": {
+    "header": {
+      "badge": "プロンプトギャラリー",
+      "title": "インストラクション",
+      "titleHighlight": "保管庫",
+      "description": "すぐに貼り付けられる構造化されたインストラクションテンプレート。カードをクリックすると、6つのセクションからなる完全なフレームワークを表示およびコピーできます。",
+      "submitButton": "プロンプトを送信する"
+    },
+    "sidebar": {
+      "searchPlaceholder": "プロンプトを検索...",
+      "categoryLabel": "カテゴリー",
+      "hint": "カードをクリックすると、完全なマスターインストラクションを表示し、クリップボードにコピーできます。"
+    },
+    "emptyState": {
+      "message": "一致するプロンプトがありません",
+      "clearFilters": "フィルターをクリア"
+    },
+    "card": {
+      "communityBadge": "コミュニティ",
+      "viewPrompt": "プロンプトを表示"
+    },
+    "drawer": {
+      "masterInstruction": "マスターインストラクション — 完全なソース",
+      "copied": "クリップボードにコピーしました！",
+      "copy": "完全なインストラクションをコピー",
+      "pasteHint": "ChatGPT、Claude、またはGeminiに直接貼り付けてください"
+    },
+    "categories": {
+      "all": "すべて",
+      "software-dev": "ソフトウェア開発",
+      "content-strategy": "コンテンツ戦略",
+      "creative-design": "クリエイティブデザイン",
+      "data-analytics": "データと分析",
+      "marketing": "マーケティング",
+      "education": "教育",
+      "business": "ビジネス",
+      "research": "リサーチ",
+      "writing": "執筆と編集",
+      "other": "その他",
+      "community": "コミュニティ"
+    },
+    "prompts": {
+      "clean-code-master": {
+        "title": "クリーンコードとリファクタリングマスター",
+        "snippet": "SOLID原則とアルゴリズムの効率性に固執し、レガシーコードをクリーンでテスト可能なアーキテクチャに変換するプリンシパルソフトウェアエンジニアの役割を担います。",
+        "tags": {
+          "refactoring": "リファクタリング",
+          "solid": "SOLID",
+          "cleanCode": "クリーンコード",
+          "testing": "テスト"
+        }
+      },
+      "viral-strategist": {
+        "title": "バイラルショートフォームストラテジスト",
+        "snippet": "心理的なフック、プラットフォームのコンプライアンス、ドーパミン主導のペース配分を設計するエリートTikTok/YouTube Shortsリテンションアナリストの役割を担います。",
+        "tags": {
+          "tiktok": "TikTok",
+          "youtube": "YouTube",
+          "hooks": "フック",
+          "copywriting": "コピーライティング"
+        }
+      },
+      "pixar-avatar-director": {
+        "title": "ピクサースタイル3Dアバターディレクター",
+        "snippet": "多層的なキャラクターの美学全体にわたって厳密な視覚的一貫性を維持するリード3Dキャラクターリガー兼Midjourneyエキスパートの役割を担います。",
+        "tags": {
+          "midjourney": "Midjourney",
+          "3d": "3D",
+          "characterDesign": "キャラクターデザイン",
+          "promptEngineering": "プロンプトエンジニアリング"
+        }
+      }
+    }
+  },
+  "submit": {
+    "success": {
+      "title": "あなたのプロンプトは現在処理中です。",
+      "description": "公開する前に、チームが品質を確認します。後ほどご連絡いたします。",
+      "closing": "自動的に閉じます…"
+    },
+    "modal": {
+      "headerTitle": "フレームワークを共有する",
+      "headerSubtitle": "コミュニティの保管庫に貢献する",
+      "fields": {
+        "title": {
+          "label": "タイトル",
+          "placeholder": "マスターインストラクションに名前を付ける"
+        },
+        "description": {
+          "label": "説明",
+          "placeholder": "ギャラリーカードに表示される1行の要約…",
+          "hint": "これはギャラリーでカードの表示用説明として表示されます。"
+        },
+        "category": {
+          "label": "カテゴリー"
+        },
+        "author": {
+          "label": "作成者 / ハンドルネーム",
+          "optional": "（オプション）",
+          "placeholder": "あなたの名前または@x_handle"
+        },
+        "tags": {
+          "label": "タグ",
+          "optional": "（オプション）",
+          "placeholder": "例：SOLID, テスト, Python",
+          "hint": "タグはカンマで区切ってください。"
+        },
+        "prompt": {
+          "label": "完全なマスターインストラクション",
+          "placeholder": "# 1. 役割とアイデンティティ\nここに全6セクションのマスターインストラクションを貼り付けてください…"
+        }
+      },
+      "disclaimer": "素晴らしい品質を確保するため、すべての提出物は公開前に私たちのチームによって審査されます。フォーマットのために軽く編集する場合があります。",
+      "submitButton": "審査に送信する",
+      "submittingButton": "送信中…"
+    }
+  }
+}

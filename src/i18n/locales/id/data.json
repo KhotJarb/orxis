@@ -1,1 +1,139 @@
-{}
+{
+  "domains": {
+    "content": {
+      "label": "Pembuatan Konten",
+      "description": "YouTube, blog, podcast, media sosial"
+    },
+    "business": {
+      "label": "Bisnis & Strategi",
+      "description": "Perencanaan, analisis, konsultasi"
+    },
+    "technical": {
+      "label": "Perangkat Lunak & Teknis",
+      "description": "Kode, arsitektur, DevOps"
+    },
+    "writing": {
+      "label": "Penulisan & Kreatif",
+      "description": "Copywriting, bercerita, penyuntingan"
+    },
+    "marketing": {
+      "label": "Pemasaran & Pertumbuhan",
+      "description": "SEO, kampanye, analitik"
+    },
+    "education": {
+      "label": "Pendidikan & Penelitian",
+      "description": "Bimbingan belajar, kurikulum, penelitian"
+    },
+    "design": {
+      "label": "Desain & Visual",
+      "description": "UI/UX, branding, strategi visual"
+    },
+    "custom": {
+      "label": "Lainnya",
+      "description": "Kebebasan penuh, semua preset tersedia"
+    }
+  },
+  "personas": {
+    "content": ["YouTuber", "Ahli Strategi Konten", "Penulis Skenario", "Host Podcast", "Manajer Media Sosial", "Editor Video", "Desainer Thumbnail", "Analis Konten", "Manajer Komunitas", "Penulis Buletin", "Pelatih Streaming", "Kreator Bentuk Pendek"],
+    "business": ["Analis Bisnis", "Penasihat Startup", "Konsultan Manajemen", "Perencana Keuangan", "Manajer Operasional", "Peneliti Pasar", "Pelatih Eksekutif", "Penulis Hibah", "Ahli Strategi Penjualan", "Analis Risiko", "Konsultan SDM", "Pakar Rantai Pasokan"],
+    "technical": ["Pengembang Backend", "Pengembang Frontend", "Insinyur Full-Stack", "Insinyur DevOps", "Arsitek Sistem", "Admin Basis Data", "Insinyur Keamanan", "Insinyur QA", "Insinyur ML", "Arsitek Cloud", "Pengembang Seluler", "Pemimpin Teknis"],
+    "writing": ["Copywriter", "Novelis", "Penulis Teknis", "Editor", "Jurnalis", "Penulis Skenario", "Penyair", "Penulis Bayangan", "Blogger", "Penulis Hibah", "Penulis Komik", "Penulis Pidato"],
+    "marketing": ["Pakar SEO", "Growth Hacker", "Pemasar Digital", "Manajer Merek", "Pemasar Email", "Spesialis Iklan Berbayar", "Manajer Media Sosial", "Spesialis PR", "Manajer E-commerce", "Pakar Analitik", "Pemasar Afiliasi", "Pemasar Konten"],
+    "education": ["Guru", "Profesor", "Desainer Instruksional", "Tutor", "Peneliti", "Kepala Sekolah", "Penasihat Akademik", "Guru Pendidikan Khusus", "Pengembang Kurikulum", "Siswa", "Kandidat PhD", "Pustakawan"],
+    "design": ["Desainer UI", "Desainer UX", "Desainer Grafis", "Direktur Seni", "Ilustrator", "Animator", "Desainer Produk", "Desainer Merek", "Desainer Web", "Desainer Gerak", "Artis 3D", "Desainer Kemasan"],
+    "custom": ["Insinyur Perangkat Lunak", "Ilmuwan Data", "Desainer UX", "Pakar Pemasaran", "Penulis Kreatif", "Ahli Strategi Bisnis", "Ilmuwan Peneliti", "Guru & Mentor", "Insinyur DevOps", "Manajer Produk", "Penasihat Hukum", "Analis Keuangan"]
+  },
+  "tasks": {
+    "content": ["Ide Video", "Penulisan Naskah", "Kalender Konten", "Konsep Thumbnail", "Pertumbuhan Audiens", "SEO untuk Video", "Kemitraan Merek", "Keterlibatan Komunitas", "Tinjauan Analitik", "Strategi Lintas Platform", "Analisis Tren", "Mendaur Ulang Konten"],
+    "business": ["Rencana Bisnis", "Analisis Pasar", "Pitch Deck", "Analisis SWOT", "Prakiraan Keuangan", "Analisis Kompetitif", "Optimasi Proses", "Perencanaan Strategis", "Dasbor KPI", "Laporan Pemangku Kepentingan", "Perencanaan Anggaran", "Penilaian Risiko"],
+    "technical": ["Tinjauan Kode", "Debugging", "Desain API", "Arsitektur Sistem", "Desain Basis Data", "Pipeline CI/CD", "Optimasi Kinerja", "Audit Keamanan", "Strategi Pengujian", "Dokumentasi", "Perencanaan Migrasi", "Evaluasi Tumpukan Teknologi"],
+    "writing": ["Pos Blog", "Draf Bab", "Penyuntingan Artikel", "Teks Iklan", "Penulisan Kreatif", "Penyusunan Pidato", "Pengoreksian", "Pengembangan Karakter", "Garis Besar Alur", "Draf Buletin", "Siaran Pers", "Tinjauan & Umpan Balik"],
+    "marketing": ["Optimasi SEO", "Kampanye Iklan", "Urutan Email", "Rencana Media Sosial", "Strategi Pemasaran", "Panduan Suara Merek", "Optimasi Tingkat Konversi", "Pengujian A/B", "Riset Kata Kunci", "Analisis Pesaing", "Laporan Analitik", "Promosi PR"],
+    "education": ["Rencana Pelajaran", "Kurikulum Kursus", "Pembuatan Kuis", "Rubrik Penilaian", "Panduan Belajar", "Proposal Penelitian", "Tinjauan Pustaka", "Umpan Balik Tugas", "Aktivitas Interaktif", "Pertanyaan Ujian", "Draf Silabus", "Makalah Akademik"],
+    "design": ["Wireframing", "Alur Pengguna", "Identitas Merek", "Mockup UI", "Sistem Desain", "Pengujian Kegunaan", "Strategi Visual", "Konsep Logo", "Palet Warna", "Pemasangan Tipografi", "Pembuatan Prototipe", "Tinjauan Aksesibilitas"],
+    "custom": ["Tinjauan Kode", "Pembuatan Konten", "Analisis Data", "Pemecahan Masalah", "Penelitian & Laporan", "Curah Pendapat", "Penulisan Teknis", "Debugging", "Desain API", "Arsitektur Sistem", "Riset Pengguna", "Optimasi SEO"]
+  },
+  "contextExamples": {
+    "content": {
+      "whatYouDo": "Saya menjalankan saluran YouTube tentang memasak dengan anggaran terbatas. Saya memposting 2 video per minggu — satu panduan resep dan satu format 'persiapan makan untuk seminggu'.",
+      "whoYouServe": "Mahasiswa dan profesional muda berusia 18-28 tahun yang ingin makan enak tanpa banyak menghabiskan uang. Sebagian besar memiliki peralatan dapur terbatas.",
+      "keyDetails": "Video berdurasi 8-12 menit. Saya merekam dengan satu kamera, sudut dari atas. Nada optimis dan membesarkan hati. Saya menghindari teknik kompleks."
+    },
+    "business": {
+      "whatYouDo": "Saya menjalankan startup SaaS yang menawarkan alat manajemen proyek untuk tim jarak jauh. Kami dalam tahap pra-Seri A dengan 500 pengguna aktif.",
+      "whoYouServe": "Pemilik usaha kecil dan pimpinan tim yang mengelola 5-20 karyawan jarak jauh yang membutuhkan alat kolaborasi sederhana dan terjangkau.",
+      "keyDetails": "Kami menggunakan model freemium. Pesaing utama adalah Asana dan Monday.com. Pembeda kami adalah prioritas tugas yang didukung AI."
+    },
+    "technical": {
+      "whatYouDo": "Saya memimpin pengembangan backend di startup fintech. Kami memproses transaksi pembayaran dan menangani kepatuhan regulasi.",
+      "whoYouServe": "Tim pengembangan internal kami yang terdiri dari 8 insinyur, sebagian besar tingkat menengah. Kami juga mendukung tim QA dan produk.",
+      "keyDetails": "Stack: Node.js, PostgreSQL, AWS. Kami melakukan deployment setiap minggu melalui CI/CD. Kepatuhan PCI-DSS adalah wajib."
+    },
+    "writing": {
+      "whatYouDo": "Saya seorang copywriter lepas yang berspesialisasi dalam kesehatan dan kebugaran.",
+      "whoYouServe": "Merek suplemen direct-to-consumer (DTC) dan praktisi kesehatan holistik.",
+      "keyDetails": "Fokus pada klaim yang didukung sains dengan nada yang mudah didekati dan menarik. Kepatuhan terhadap pedoman FDA diwajibkan secara ketat."
+    },
+    "marketing": {
+      "whatYouDo": "Saya mengelola pemasaran digital untuk toko e-commerce menengah yang menjual pakaian berkelanjutan.",
+      "whoYouServe": "Milenial dan konsumen Gen Z yang sadar lingkungan yang mencari pakaian terjangkau dan dibuat secara etis.",
+      "keyDetails": "Saluran utama adalah Instagram dan TikTok. Kami menekankan transparansi, bahan ramah lingkungan, dan kepositifan tubuh."
+    },
+    "education": {
+      "whatYouDo": "Saya seorang guru sains sekolah menengah yang mengajar Biologi dan Kimia.",
+      "whoYouServe": "Siswa kelas 10 dan 11, mulai dari pendidikan umum hingga tingkat Advanced Placement (AP).",
+      "keyDetails": "Saya fokus pada pembelajaran berbasis penyelidikan dan eksperimen langsung. Saya membutuhkan materi yang menarik dan selaras dengan Next Generation Science Standards (NGSS)."
+    },
+    "design": {
+      "whatYouDo": "Saya seorang desainer UX/UI di sebuah agensi, mengerjakan aplikasi seluler untuk klien perawatan kesehatan.",
+      "whoYouServe": "Pasien yang menangani kondisi kronis, biasanya orang dewasa yang lebih tua (55+).",
+      "keyDetails": "Aksesibilitas sangat penting (kontras tinggi, target sentuh besar). Estetika harus bersih, menenangkan, dan dapat dipercaya."
+    },
+    "custom": {
+      "whatYouDo": "Saya seorang profesional yang bekerja di berbagai proyek di berbagai domain.",
+      "whoYouServe": "Berbagai macam klien dan pemangku kepentingan tergantung pada persyaratan proyek tertentu.",
+      "keyDetails": "Saya membutuhkan fleksibilitas untuk menyesuaikan pendekatan dan hasil saya berdasarkan persyaratan tugas saat ini."
+    }
+  },
+  "shortcuts": {
+    "content": [
+      { "name": "Curah Pendapat Cepat", "template": "Hasilkan {{count}} ide video tentang {{topic}} untuk audiens {{audience}}" },
+      { "name": "Garis Besar Naskah", "template": "Tulis garis besar naskah untuk video berdurasi {{duration}} menit tentang {{topic}}" },
+      { "name": "Ide Judul", "template": "Buat {{count}} judul menarik untuk video tentang {{topic}}" }
+    ],
+    "business": [
+      { "name": "Ringkasan Eksekutif", "template": "Susun ringkasan eksekutif sepanjang {{length}} tentang {{subject}} yang menyoroti area fokus {{focus_areas}}" },
+      { "name": "Daftar Strategi", "template": "Buat daftar {{count}} strategi untuk mencapai tujuan {{objective}} dengan mempertimbangkan batasan {{constraints}}" },
+      { "name": "Analisis SWOT", "template": "Buat analisis SWOT untuk {{company_or_product}} di pasar {{industry}}" }
+    ],
+    "technical": [
+      { "name": "Tinjauan Kode", "template": "Tinjau kode berikut dengan fokus pada {{focus_areas}}: {{code}}" },
+      { "name": "Rencana Arsitektur", "template": "Buat garis besar arsitektur sistem untuk jenis aplikasi {{app_type}} menggunakan tumpukan teknologi {{tech_stack}}" },
+      { "name": "Debug Kesalahan", "template": "Bantu saya men-debug kesalahan ini dalam bahasa {{language}}: {{error_message}}" }
+    ],
+    "writing": [
+      { "name": "Draf Artikel", "template": "Buat draf artikel sepanjang {{length}} tentang topik {{topic}} untuk audiens {{audience}}" },
+      { "name": "Edit Teks", "template": "Edit teks berikut untuk mendapatkan nada {{tone}} dan kejelasan: {{text}}" },
+      { "name": "Prompt Kreatif", "template": "Beri saya prompt penulisan kreatif yang melibatkan tema {{theme}} dan karakter {{character}}" }
+    ],
+    "marketing": [
+      { "name": "Kampanye Email", "template": "Tulis urutan email {{sequence_length}} bagian untuk produk {{product}} yang menargetkan segmen {{segment}}" },
+      { "name": "Teks Iklan", "template": "Buat {{count}} variasi teks iklan Facebook untuk penawaran {{offer}}" },
+      { "name": "Kata Kunci SEO", "template": "Sarankan {{count}} kata kunci SEO ekor panjang untuk topik {{topic}}" }
+    ],
+    "education": [
+      { "name": "Rencana Pelajaran", "template": "Buat rencana pelajaran berdurasi {{duration}} tentang topik {{topic}} untuk tingkat kelas {{grade_level}}" },
+      { "name": "Pertanyaan Kuis", "template": "Hasilkan {{count}} pertanyaan pilihan ganda tentang subjek {{subject}} pada tingkat kesulitan {{difficulty}}" },
+      { "name": "Jelaskan Konsep", "template": "Jelaskan konsep {{concept}} menggunakan analogi yang cocok untuk audiens {{audience}}" }
+    ],
+    "design": [
+      { "name": "Sistem Desain", "template": "Buat daftar komponen penting yang dibutuhkan untuk sistem desain {{project_type}}" },
+      { "name": "Palet Warna", "template": "Sarankan palet warna untuk merek bernuansa {{vibe}} di industri {{industry}}" },
+      { "name": "Audit UX", "template": "Apa prinsip UX utama yang harus diperiksa saat mengaudit {{interface_type}}?" }
+    ],
+    "custom": [
+      { "name": "Bantuan Cepat", "template": "Bantu saya dengan tugas {{task}} mengenai subjek {{subject}}" },
+      { "name": "Hasilkan Ide", "template": "Hasilkan {{count}} ide untuk topik {{topic}}" }
+    ]
+  }
+}

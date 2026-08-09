@@ -3,38 +3,42 @@
 import { motion } from "framer-motion";
 import OrxisLogo from "@/components/OrxisLogo";
 import { Heart, MessageCircle, Mail } from "lucide-react";
+import { useT } from "@/i18n";
 
-const footerLinks = {
-  Product: [
-    { name: "Generator",   href: "/generate"     },
-    { name: "Features",    href: "/#features"    },
-    { name: "How It Works",href: "/#how-it-works" },
-    { name: "Use Cases",   href: "/use-cases"    },
-    { name: "Pricing",     href: "/pricing"      },
-  ],
-  Resources: [
-    { name: "Documentation", href: "/docs"     },
-    { name: "Prompt Gallery",href: "/gallery"  },
-    { name: "Changelog",     href: "/changelog" },
-    { name: "About Us",      href: "/about"    },
-    { name: "Support & FAQ", href: "/support"  },
-  ],
-  Legal: [
-    { name: "Privacy", href: "/privacy" },
-    { name: "Terms",   href: "/terms"   },
-    { name: "License", href: "/license" },
-  ],
-  Social: [
-    { name: "GitHub", href: "https://github.com/KhotJarb/orxis" },
-  ],
-};
-
-const socialLinks = [
-  { icon: <MessageCircle className="h-4 w-4" />, href: "/support",               label: "Support & FAQ" },
-  { icon: <Mail          className="h-4 w-4" />, href: "mailto:orxis.app@gmail.com", label: "Email", target: "_blank", rel: "noopener noreferrer" },
-];
 
 export default function Footer() {
+  const t = useT("common");
+
+  const footerLinks = {
+    [t("footer.columns.product")]: [
+      { name: t("footer.links.generator"),   href: "/generate"     },
+      { name: t("footer.links.features"),    href: "/#features"    },
+      { name: t("footer.links.howItWorks"),href: "/#how-it-works" },
+      { name: t("footer.links.useCases"),   href: "/use-cases"    },
+      { name: t("footer.links.pricing"),     href: "/pricing"      },
+    ],
+    [t("footer.columns.resources")]: [
+      { name: t("footer.links.documentation"), href: "/docs"     },
+      { name: t("footer.links.promptGallery"),href: "/gallery"  },
+      { name: t("footer.links.changelog"),     href: "/changelog" },
+      { name: t("footer.links.aboutUs"),      href: "/about"    },
+      { name: t("footer.links.supportFaq"), href: "/support"  },
+    ],
+    [t("footer.columns.legal")]: [
+      { name: t("footer.links.privacy"), href: "/privacy" },
+      { name: t("footer.links.terms"),   href: "/terms"   },
+      { name: t("footer.links.license"), href: "/license" },
+    ],
+    [t("footer.columns.social")]: [
+      { name: t("footer.links.github"), href: "https://github.com/KhotJarb/orxis" },
+    ],
+  };
+
+  const socialLinks = [
+    { icon: <MessageCircle className="h-4 w-4" />, href: "/support",               label: t("footer.social.supportFaq") },
+    { icon: <Mail          className="h-4 w-4" />, href: "mailto:orxis.app@gmail.com", label: t("footer.social.email"), target: "_blank", rel: "noopener noreferrer" },
+  ];
+
   return (
     <footer className="relative border-t border-glass-border">
       {/* Background */}
@@ -52,8 +56,7 @@ export default function Footer() {
               </span>
             </a>
             <p className="text-sm text-slate-500 leading-relaxed mb-5 max-w-xs">
-              A structured instruction generator for developers, creators, and
-              AI engineers. Free to use and community-supported.
+              {t("footer.description")}
             </p>
 
             {/* Social links */}
@@ -98,7 +101,7 @@ export default function Footer() {
         {/* ---- Bottom Bar ---- */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[var(--border-subtle)] py-6">
           <p className="text-xs text-[var(--text-subtle)] order-2 sm:order-1">
-            &copy; {new Date().getFullYear()} Orxis. All rights reserved.
+            {t("footer.copyright", { year: new Date().getFullYear() })}
           </p>
 
           {/* Support the Project button */}
@@ -111,7 +114,7 @@ export default function Footer() {
             className="support-btn order-1 sm:order-2 group inline-flex items-center gap-2 rounded-full border border-[var(--border-subtle)] bg-[var(--glass-bg)] px-5 py-2.5 text-sm font-medium text-[var(--text-muted)] hover:text-[var(--text-heading)] hover:border-pink-500/30 hover:bg-pink-500/5 transition-all duration-300 cursor-pointer"
           >
             <Heart className="h-4 w-4 text-pink-400 group-hover:text-pink-300 support-heart transition-colors" />
-            Support the Project
+            {t("footer.supportProject")}
           </motion.a>
         </div>
       </div>

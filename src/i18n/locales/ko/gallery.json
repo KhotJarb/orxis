@@ -1,1 +1,119 @@
-{}
+{
+  "gallery": {
+    "header": {
+      "badge": "프롬프트 갤러리",
+      "title": "인스트럭션 ",
+      "titleHighlight": "보관소.",
+      "description": "붙여넣을 준비가 된 구조화된 인스트럭션 템플릿입니다. 카드를 클릭하여 6개 섹션으로 구성된 전체 프레임워크를 확인하고 복사하세요.",
+      "submitButton": "프롬프트 제출하기"
+    },
+    "sidebar": {
+      "searchPlaceholder": "프롬프트 검색...",
+      "categoryLabel": "카테고리",
+      "hint": "카드를 클릭하여 전체 마스터 인스트럭션을 확인하고 클립보드에 복사하세요."
+    },
+    "emptyState": {
+      "message": "일치하는 프롬프트가 없습니다",
+      "clearFilters": "필터 지우기"
+    },
+    "card": {
+      "communityBadge": "커뮤니티",
+      "viewPrompt": "프롬프트 보기"
+    },
+    "drawer": {
+      "masterInstruction": "마스터 인스트럭션 — 전체 소스",
+      "copied": "클립보드에 복사되었습니다!",
+      "copy": "전체 인스트럭션 복사",
+      "pasteHint": "ChatGPT, Claude 또는 Gemini에 직접 붙여넣으세요"
+    },
+    "categories": {
+      "all": "전체",
+      "software-dev": "소프트웨어 개발",
+      "content-strategy": "콘텐츠 전략",
+      "creative-design": "크리에이티브 디자인",
+      "data-analytics": "데이터 및 분석",
+      "marketing": "마케팅",
+      "education": "교육",
+      "business": "비즈니스",
+      "research": "연구",
+      "writing": "글쓰기 및 편집",
+      "other": "기타",
+      "community": "커뮤니티"
+    },
+    "prompts": {
+      "clean-code-master": {
+        "title": "클린 코드 및 리팩토링 마스터",
+        "snippet": "SOLID 원칙과 알고리즘 효율성에 집착하여 레거시 코드를 깨끗하고 테스트 가능한 아키텍처로 변환하는 수석 소프트웨어 엔지니어의 역할을 가정합니다.",
+        "tags": {
+          "refactoring": "리팩토링",
+          "solid": "SOLID",
+          "cleanCode": "클린 코드",
+          "testing": "테스트"
+        }
+      },
+      "viral-strategist": {
+        "title": "바이럴 숏폼 전략가",
+        "snippet": "심리적 후크, 플랫폼 규정 준수 및 도파민 중심의 페이스 조절을 설계하는 엘리트 TikTok/YouTube Shorts 리텐션 분석가의 역할을 가정합니다.",
+        "tags": {
+          "tiktok": "TikTok",
+          "youtube": "YouTube",
+          "hooks": "후크",
+          "copywriting": "카피라이팅"
+        }
+      },
+      "pixar-avatar-director": {
+        "title": "픽사 스타일 3D 아바타 디렉터",
+        "snippet": "다층적인 캐릭터 미학 전반에 걸쳐 엄격한 시각적 일관성을 유지하는 수석 3D 캐릭터 리거 및 Midjourney 전문가의 역할을 가정합니다.",
+        "tags": {
+          "midjourney": "Midjourney",
+          "3d": "3D",
+          "characterDesign": "캐릭터 디자인",
+          "promptEngineering": "프롬프트 엔지니어링"
+        }
+      }
+    }
+  },
+  "submit": {
+    "success": {
+      "title": "프롬프트가 처리 중입니다.",
+      "description": "게시되기 전에 품질 확인을 위해 팀에서 검토할 것입니다. 곧 연락 드리겠습니다.",
+      "closing": "자동으로 닫힙니다…"
+    },
+    "modal": {
+      "headerTitle": "프레임워크 공유하기",
+      "headerSubtitle": "커뮤니티 보관소에 기여하기",
+      "fields": {
+        "title": {
+          "label": "제목",
+          "placeholder": "마스터 인스트럭션 이름 지정"
+        },
+        "description": {
+          "label": "설명",
+          "placeholder": "갤러리 카드에 표시될 한 줄 요약…",
+          "hint": "이 내용은 갤러리에서 카드의 표시 설명으로 나타납니다."
+        },
+        "category": {
+          "label": "카테고리"
+        },
+        "author": {
+          "label": "작성자 / 핸들",
+          "optional": "(선택 사항)",
+          "placeholder": "이름 또는 @x_handle"
+        },
+        "tags": {
+          "label": "태그",
+          "optional": "(선택 사항)",
+          "placeholder": "예: SOLID, Testing, Python",
+          "hint": "태그는 쉼표로 구분하세요."
+        },
+        "prompt": {
+          "label": "전체 마스터 인스트럭션",
+          "placeholder": "# 1. 역할 및 아이덴티티\n전체 6개 섹션 마스터 인스트럭션을 여기에 붙여넣으세요…"
+        }
+      },
+      "disclaimer": "모든 제출물은 훌륭한 품질을 보장하기 위해 게시 전에 팀에서 검토합니다. 서식을 위해 약간 편집될 수 있습니다.",
+      "submitButton": "검토를 위해 제출",
+      "submittingButton": "제출 중…"
+    }
+  }
+}

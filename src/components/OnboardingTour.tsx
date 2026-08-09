@@ -13,6 +13,7 @@ import {
   ArrowRight,
   X,
 } from "lucide-react";
+import { useT } from "@/i18n";
 
 interface OnboardingTourProps {
   isOpen: boolean;
@@ -29,63 +30,59 @@ interface TourStep {
   tip: string;
 }
 
-const TOUR_STEPS: TourStep[] = [
-  {
-    icon: <Compass className="h-6 w-6" />,
-    emoji: "👋",
-    title: "Welcome to Orxis",
-    description:
-      "Orxis helps you build a complete AI assistant profile in minutes — no account needed, totally free. Just answer a few questions and copy the result into Gemini, ChatGPT, or Claude.",
-    tip: "You can skip any step you want — every field is optional.",
-  },
-  {
-    icon: <Compass className="h-6 w-6" />,
-    emoji: "🧭",
-    title: "Step 1 — Pick Your Direction",
-    description:
-      "Start by describing what you need your AI assistant for — or tap a category like \"Content Creation\" or \"Business\" to get domain-specific suggestions throughout the wizard.",
-    tip: "Choosing a category pre-fills relevant presets, but you can always type your own.",
-  },
-  {
-    icon: <User className="h-6 w-6" />,
-    emoji: "🎭",
-    title: "Step 2 & 3 — Persona & Task",
-    description:
-      "Choose the AI's expert role (like \"Scriptwriter\" or \"Business Analyst\") and what you want it to do (like \"Script Writing\" or \"Market Analysis\"). The presets adapt to your chosen domain.",
-    tip: "Click \"Show all presets\" to see options from every domain.",
-  },
-  {
-    icon: <FileText className="h-6 w-6" />,
-    emoji: "📋",
-    title: "Step 4 — Your Context",
-    description:
-      "Tell the AI about your channel, company, or project. This makes the generated assistant way more tailored — but it's totally optional if you want a general-purpose one.",
-    tip: "Try \"Fill with example\" to see what kind of details work best.",
-  },
-  {
-    icon: <Sparkles className="h-6 w-6" />,
-    emoji: "⚡",
-    title: "Step 7 — Shortcuts",
-    description:
-      "Create reusable prompt templates with {{variables}} you fill in each time. For example: \"Generate {{count}} video ideas about {{topic}}\". These are included in your final output.",
-    tip: "Click \"✨ Suggest for me\" to get domain-specific templates instantly.",
-  },
-  {
-    icon: <Layers className="h-6 w-6" />,
-    emoji: "📦",
-    title: "Your Output — Ready to Paste",
-    description:
-      "After generating, you'll get a complete AI assistant profile with a name, description, full instructions, conversation starters, and shortcuts. Use the platform tabs (Gems · GPTs · Projects) to see it formatted for each platform.",
-    tip: "Each field has its own copy button, or use \"Copy Everything\" at the bottom.",
-  },
-];
 
 export default function OnboardingTour({
   isOpen,
   onClose,
 }: OnboardingTourProps) {
+  const t = useT("common");
   const [isMounted, setIsMounted] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+
+  const TOUR_STEPS: TourStep[] = [
+    {
+      icon: <Compass className="h-6 w-6" />,
+      emoji: "👋",
+      title: t("onboarding.welcome.title"),
+      description: t("onboarding.welcome.description"),
+      tip: t("onboarding.welcome.tip"),
+    },
+    {
+      icon: <Compass className="h-6 w-6" />,
+      emoji: "🧭",
+      title: t("onboarding.step1.title"),
+      description: t("onboarding.step1.description"),
+      tip: t("onboarding.step1.tip"),
+    },
+    {
+      icon: <User className="h-6 w-6" />,
+      emoji: "🎭",
+      title: t("onboarding.step23.title"),
+      description: t("onboarding.step23.description"),
+      tip: t("onboarding.step23.tip"),
+    },
+    {
+      icon: <FileText className="h-6 w-6" />,
+      emoji: "📋",
+      title: t("onboarding.step4.title"),
+      description: t("onboarding.step4.description"),
+      tip: t("onboarding.step4.tip"),
+    },
+    {
+      icon: <Sparkles className="h-6 w-6" />,
+      emoji: "⚡",
+      title: t("onboarding.step7.title"),
+      description: t("onboarding.step7.description"),
+      tip: t("onboarding.step7.tip"),
+    },
+    {
+      icon: <Layers className="h-6 w-6" />,
+      emoji: "📦",
+      title: t("onboarding.output.title"),
+      description: t("onboarding.output.description"),
+      tip: t("onboarding.output.tip"),
+    },
+  ];
 
   const handleClose = useCallback(() => {
     localStorage.setItem("orxis_tour_completed", "true");
@@ -200,7 +197,7 @@ export default function OnboardingTour({
                     </div>
                     <div>
                       <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-1">
-                        {currentStep + 1} of {TOUR_STEPS.length}
+                        {t("onboarding.ui.progress", { current: currentStep + 1, total: TOUR_STEPS.length })}
                       </p>
                       <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">
                         {step.title}
@@ -230,7 +227,7 @@ export default function OnboardingTour({
                 onClick={handleClose}
                 className="text-xs text-slate-500 hover:text-slate-300 transition-colors cursor-pointer"
               >
-                Skip tour
+                {t("onboarding.ui.skip")}
               </button>
 
               {/* Step dots */}
@@ -256,7 +253,7 @@ export default function OnboardingTour({
                     onClick={handleBack}
                     className="px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-white hover:bg-white/5 border border-glass-border transition-all cursor-pointer"
                   >
-                    Back
+                    {t("onboarding.ui.back")}
                   </button>
                 )}
                 <button
@@ -264,10 +261,10 @@ export default function OnboardingTour({
                   className="glow-btn inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs sm:text-sm font-medium text-white transition-all hover:scale-105 active:scale-95 cursor-pointer"
                 >
                   {isLastStep ? (
-                    "Let's go!"
+                    t("onboarding.ui.finish")
                   ) : (
                     <>
-                      Next
+                      {t("onboarding.ui.next")}
                       <ArrowRight className="h-3.5 w-3.5" />
                     </>
                   )}

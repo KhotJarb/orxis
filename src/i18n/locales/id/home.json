@@ -1,1 +1,178 @@
-{}
+{
+  "hero": {
+    "badge": "Mesin Instruksi Bertenaga AI",
+    "titleLine1": "Bentuk",
+    "titleLine2": "Pikiran AI Sempurna",
+    "description": "Buat instruksi kustom yang tepat dan kuat untuk model AI mana pun. Generator cerdas kami membantumu membangun prompt sistem yang sempurna untuk membuka potensi penuh AI.",
+    "ctaPrimary": "Mulai Membuat",
+    "ctaSecondary": "Lihat Cara Kerjanya"
+  },
+  "bento": {
+    "badge": "Memahami Intinya",
+    "title": "Apa itu",
+    "titleHighlight": "Instruksi Kustom",
+    "titleQuestionMark": "?",
+    "description": "Fitur paling kuat dan kurang dimanfaatkan dalam AI saat ini. Inilah semua yang perlu kamu ketahui, di satu tempat.",
+    "card1": {
+      "title": "DNA AI-mu",
+      "subtitle": "Definisi Inti",
+      "p1": "Instruksi Kustom adalah <1>kumpulan arahan yang persisten</1> yang kamu berikan ke asisten AI yang membentuk perilakunya, kepribadian, dan format keluaran untuk <2>setiap percakapan</2>. Anggap saja sebagai pemrograman lapisan identitas AI.",
+      "p2": "Ini memberi tahu model dengan tepat harus menjadi siapa, bagaimana cara berpikir, dan aturan apa yang harus diikuti — bahkan sebelum kamu mengajukan pertanyaan pertama. Tidak seperti prompt biasa yang berlaku untuk satu pesan, Instruksi Kustom bertahan di semua interaksi, menciptakan pengalaman yang disesuaikan secara konsisten yang terasa seperti bekerja dengan seorang spesialis, bukan generalis.",
+      "p3": "Jika dibuat dengan benar, Instruksi Kustom dapat mengubah chatbot generik menjadi insinyur senior yang menulis kode siap produksi, pelatih penulisan yang mencerminkan suara dan gaya persis kamu, atau penasihat strategis yang menalar secara konsisten dalam kerangka kerja yang kamu tentukan.",
+      "footer": "Juga dikenal sebagai: Prompt Sistem, Meta Prompt, Persona AI, Arahan Perilaku"
+    },
+    "card2": {
+      "title": "Bumbu Rahasia",
+      "subtitle": "Batasan & Aturan",
+      "p1": "Kekuatan sebenarnya terletak pada batasan. Dengan mendefinisikan apa yang <1>TIDAK</1> boleh dilakukan AI, kamu secara paradoks membuatnya lebih baik:",
+      "list": [
+        "Hilangkan frasa basa-basi dan pengisi",
+        "Terapkan format keluaran spesifik",
+        "Tetapkan batas spesifik domain",
+        "Kontrol panjang & detail respons",
+        "Cegah kutipan halusinasi",
+        "Kunci terminologi yang konsisten"
+      ]
+    },
+    "card3": {
+      "title": "Kompatibilitas Universal",
+      "subtitle": "Bekerja di Mana Saja",
+      "p1": "Instruksi yang kami hasilkan agnostik terhadap model. Tempelkan ke prompt sistem asisten AI mana pun atau bidang instruksi kustom dan dapatkan hasil langsung."
+    },
+    "card4": {
+      "title": "Anatomi",
+      "subtitle": "Empat Pilar",
+      "p1": "Setiap instruksi kustom utama dibangun di atas empat pilar dasar. Generator kami membuat masing-masing untukmu melalui panduan interaktif — tidak diperlukan keahlian prompt engineering.",
+      "pillars": {
+        "persona": { "label": "Persona", "desc": "Siapa AI itu" },
+        "task": { "label": "Tugas", "desc": "Apa yang dilakukannya" },
+        "tone": { "label": "Nada", "desc": "Bagaimana ia berbicara" },
+        "rules": { "label": "Aturan", "desc": "Apa yang diikutinya" }
+      },
+      "footer": "Setiap pilar independen tetapi saling terhubung. Persona yang kuat tanpa Aturan yang jelas masih menghasilkan keluaran yang tidak konsisten. Mesin kami memastikan keempatnya bekerja selaras."
+    }
+  },
+  "features": {
+    "title": "Dibangun untuk",
+    "titleHighlight": "Kesempurnaan",
+    "description": "Setiap fitur direkayasa untuk menghasilkan instruksi kustom yang terstruktur dan konsisten — tidak diperlukan keahlian prompt engineering.",
+    "items": {
+      "cognitiveLoop": {
+        "title": "Putaran Kognitif",
+        "subtitle": "AI Refleksi Diri",
+        "description": "Mesin ini tidak hanya menghasilkan — ia mengevaluasi, mengkritik, dan menyempurnakan keluarannya sendiri untuk menghasilkan hasil yang lebih terstruktur dan dipertimbangkan dengan baik."
+      },
+      "personaElevation": {
+        "title": "Peningkatan Persona",
+        "subtitle": "Identitas Tingkat Ahli",
+        "description": "Ubah respons AI generik menjadi keluaran kaliber ahli dengan menyusun identitas, cakupan keahlian, dan kerangka kerja perilaku yang sempurna untuk asistenmu."
+      },
+      "zeroCost": {
+        "title": "Optimasi Tanpa Biaya",
+        "subtitle": "Gratis Selamanya",
+        "description": "Tanpa kunci API, tanpa langganan, tanpa biaya tersembunyi. Dapatkan instruksi kustom tingkat profesional sepenuhnya gratis dengan mesin client-side cerdas kami."
+      },
+      "instantFormat": {
+        "title": "Kesempurnaan Format Instan",
+        "subtitle": "Arsitektur Keluaran",
+        "description": "Aturan format satu klik memastikan setiap respons AI mengikuti struktur persismu — poin-poin, tajuk, blok kode, tabel — sebut saja."
+      }
+    }
+  },
+  "howItWorks": {
+    "badge": "Jalur Pipa",
+    "title": "Cara",
+    "titleHighlight": "Kerja",
+    "description": "Tiga langkah. Nol kompleksitas. Satu mahakarya.",
+    "steps": {
+      "step1": {
+        "title": "Masukkan Visimu",
+        "subtitle": "Ekstraksi",
+        "description": "Jawab empat pertanyaan intuitif tentang persona AI ideal, tugas, nada, dan aturanmu. Tidak diperlukan pengetahuan prompt engineering — hanya niatmu."
+      },
+      "step2": {
+        "title": "Arsitek AI Memprosesnya",
+        "subtitle": "Peleburan",
+        "description": "Mesin meta-prompting kami menganalisis preferensimu, menerapkan putaran kognitif, dan merancang prompt sistem yang komprehensif tanpa upaya manual sama sekali."
+      },
+      "step3": {
+        "title": "Dapatkan Mahakaryamu",
+        "subtitle": "Keluaran",
+        "description": "Terima instruksi kustom yang dibuat dengan presisi yang siap ditempel ke asisten AI mana pun. Sesuaikan lebih lanjut dengan penyempurnaan satu klik di Studio Keluaran kami."
+      }
+    }
+  },
+  "beforeAfter": {
+    "badge": "Lihat Perbedaannya",
+    "title": "Dampaknya",
+    "titleHighlight": "Masif",
+    "titleEnd": "",
+    "description": "Pertanyaan yang sama, model AI yang sama, hasil yang sangat berbeda.",
+    "toggle": {
+      "without": "Tanpa CI",
+      "with": "Dengan Prompt Utama"
+    },
+    "promptLabel": "Prompt: ",
+    "promptText": "\"Jelaskan React hooks kepadaku\"",
+    "before": {
+      "fileName": "respons-generik.txt",
+      "footer": "Generik • Tidak terstruktur • Tidak ada poin yang bisa ditindaklanjuti • Tembok teks"
+    },
+    "after": {
+      "fileName": "respons-utama.md",
+      "footer": "Terstruktur • Tingkat Ahli • Dapat Ditindaklanjuti • Termasuk Tabel & Peringatan"
+    },
+    "stats": {
+      "structured": {
+        "stat": "10×",
+        "label": "Lebih Terstruktur"
+      },
+      "filler": {
+        "stat": "95%",
+        "label": "Lebih Sedikit Pengisi"
+      },
+      "actionable": {
+        "stat": "100%",
+        "label": "Dapat Ditindaklanjuti"
+      },
+      "reusable": {
+        "stat": "∞",
+        "label": "Dapat Digunakan Kembali"
+      }
+    }
+  },
+  "useCaseTeaser": {
+    "title": "Kemungkinan",
+    "titleHighlight": "Tak Terbatas.",
+    "description": "Kerangka kerja yang cukup kuat untuk alur kerja kompleks apa pun.",
+    "cards": {
+      "devs": {
+        "title": "Pengembang Perangkat Lunak & Game",
+        "snippet": "Pertahankan arsitektur state yang kompleks, aturan sintaks yang ketat, dan hierarki logika yang dalam — secara konsisten."
+      },
+      "creators": {
+        "title": "Kreator Konten",
+        "snippet": "Rekayasa kaitan psikologis, tempo spesifik platform, dan strategi konten viral pada tingkat ahli."
+      },
+      "promptEngineers": {
+        "title": "Insinyur Prompt",
+        "snippet": "Kunci konsistensi estetika, gaya visual berlapis-lapis, dan spesifikasi karakter yang tepat."
+      }
+    },
+    "learnMore": "Pelajari lebih lanjut",
+    "exploreAll": "Jelajahi Semua Kasus Penggunaan"
+  },
+  "ctaSection": {
+    "badge": "Gratis digunakan • Tanpa daftar • Hasil instan",
+    "titleLine1": "Berhenti Prompting.",
+    "titleLine2": "Mulai Orkestrasi.",
+    "description": "Buat instruksi yang terstruktur dan tepat dalam hitungan menit. Tempelkan ke model AI mana pun dan mulailah mendapatkan respons yang lebih konsisten dan terstruktur dengan segera.",
+    "btnPrimary": "Bangun Instruksiku",
+    "btnSecondary": "Baca dokumentasi",
+    "perks": {
+      "noAccount": "Tidak perlu akun",
+      "clientSide": "Sepenuhnya client-side",
+      "worksWith": "Bekerja dengan ChatGPT, Claude & Gemini"
+    }
+  }
+}

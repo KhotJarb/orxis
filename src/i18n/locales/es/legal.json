@@ -1,1 +1,250 @@
-{}
+{
+  "terms": {
+    "title": "Términos de Servicio",
+    "lastUpdated": "12 de julio de 2026",
+    "intro": "Al acceder o usar Orxis, aceptas estos términos. Si no estás de acuerdo, por favor no uses el servicio. Estos términos están escritos para ser claros y prácticos.",
+    "sections": [
+      {
+        "heading": "1. El Servicio",
+        "paragraphs": [
+          "Orxis proporciona un generador de instrucciones personalizadas estructuradas para IA. Proporcionas información sobre tu persona, tarea, tono y restricciones de IA deseados; el servicio devuelve un prompt de instrucción estructurado diseñado para mejorar la consistencia y el cumplimiento de la IA.",
+          "El modelo de IA subyacente es proporcionado por una API de terceros (actualmente Google Gemini). La calidad, la precisión y el comportamiento de ese modelo están fuera de nuestro control. No somos responsables de los resultados producidos por el modelo subyacente."
+        ]
+      },
+      {
+        "heading": "2. Tus Responsabilidades",
+        "paragraphs": [
+          "Eres responsable de cómo usas los resultados generados por Orxis. Los prompts producidos por este servicio son herramientas — su idoneidad para una tarea determinada, y las consecuencias de implementarlos, son tu determinación a tomar.",
+          "Aceptas no usar Orxis para generar instrucciones para:"
+        ],
+        "list": [
+          "Comportamiento de IA dañino, engañoso o ilegal",
+          "Suplantación de individuos o entidades reales",
+          "Generación de contenido que viole las leyes aplicables en tu jurisdicción",
+          "Eludir las medidas de seguridad en los sistemas de IA"
+        ]
+      },
+      {
+        "heading": "3. Uso Aceptable",
+        "paragraphs": [
+          "Orxis es un servicio gratuito apoyado por la comunidad. Para garantizar un acceso justo para todos, aceptas no:"
+        ],
+        "list": [
+          "Automatizar o crear scripts de solicitudes masivas al endpoint de generación",
+          "Intentar eludir, aplicar ingeniería inversa o explotar la infraestructura de la API",
+          "Usar el servicio de cualquier manera que degrade el rendimiento para otros usuarios",
+          "Enviar contenido a la Galería de la Comunidad que infrinja los derechos de terceros o viole la ley aplicable"
+        ],
+        "afterList": "Nos reservamos el derecho de bloquear el acceso a usuarios o direcciones IP que violen estos términos, sin previo aviso."
+      },
+      {
+        "heading": "4. Disponibilidad del Servicio",
+        "paragraphs": [
+          "Orxis está alojado en Vercel y depende de infraestructura de terceros, incluidos servicios de bases de datos y API de IA. Nuestro objetivo es lograr una alta disponibilidad y hacemos esfuerzos razonables para mantener el tiempo de actividad. Sin embargo, no podemos garantizar un servicio ininterrumpido. El tiempo de inactividad puede ocurrir debido a:"
+        ],
+        "list": [
+          "Mantenimiento programado",
+          "Interrupciones de la infraestructura de terceros",
+          "Circunstancias fuera de nuestro control razonable"
+        ],
+        "afterList": "No somos responsables de ninguna pérdida o daño causado por la interrupción del servicio."
+      },
+      {
+        "heading": "5. Propiedad Intelectual",
+        "paragraphs": [
+          "La aplicación Orxis, incluido su diseño de UI, código fuente, marco de generación de prompts y toda la propiedad intelectual asociada, es patentada. El texto del prompt generado que produces te pertenece. Consulta nuestra <1>página de Licencia</1> para obtener un desglose completo."
+        ]
+      },
+      {
+        "heading": "6. Descargo de Garantías",
+        "paragraphs": [
+          "Orxis se proporciona \"tal cual\" y \"según disponibilidad\" sin garantías de ningún tipo, expresas o implícitas, incluidas, entre otras, las garantías de comerciabilidad, idoneidad para un propósito particular o no infracción. No garantizamos que el servicio estará libre de errores, será ininterrumpido, o que los resultados cumplirán con tus expectativas."
+        ]
+      },
+      {
+        "heading": "7. Limitación de Responsabilidad",
+        "paragraphs": [
+          "En la medida máxima permitida por la ley aplicable, Orxis y sus operadores no son responsables de ningún daño indirecto, incidental, especial, consecuente o punitivo que surja de tu uso de, o incapacidad de usar, el servicio, incluso si se nos ha advertido de la posibilidad de tales daños."
+        ]
+      },
+      {
+        "heading": "8. Ley Aplicable",
+        "paragraphs": [
+          "Estos términos se rigen e interpretan de acuerdo con las leyes de Tailandia, sin dar efecto a ninguna disposición sobre conflicto de leyes. Cualquier disputa que surja de estos términos estará sujeta a la jurisdicción exclusiva de los tribunales de Tailandia."
+        ]
+      },
+      {
+        "heading": "9. Cambios a Estos Términos",
+        "paragraphs": [
+          "Podemos actualizar estos términos de vez en cuando. Los cambios se reflejarán en la fecha de \"Última Actualización\" en la parte superior de esta página. El uso continuado de Orxis después de que se publiquen los cambios constituye tu aceptación de los términos revisados. Para cambios significativos, haremos un esfuerzo razonable para notificar a los usuarios a través de la aplicación."
+        ]
+      },
+      {
+        "heading": "10. Contacto",
+        "paragraphs": [
+          "Para consultas legales, contáctanos en <1>orxis.app@gmail.com</1>."
+        ]
+      }
+    ],
+    "footerNote": "Regido por las leyes de Tailandia. Estos términos no constituyen asesoramiento legal. Consulta a un profesional legal calificado para obtener asesoramiento específico a tu situación."
+  },
+  "privacy": {
+    "title": "Política de Privacidad",
+    "lastUpdated": "12 de julio de 2026",
+    "intro": "Orxis es un generador de instrucciones de IA basado en navegador. Esta política explica qué información manejamos, cómo la manejamos y por qué. Está escrita para ser legible, no para abrumarte. Si tienes preguntas, contáctanos en <1>orxis.app@gmail.com</1>.",
+    "sections": [
+      {
+        "heading": "1. Lo Que Recopilamos",
+        "paragraphs": [
+          "Por defecto, Orxis opera en el lado del cliente. Cuando usas el generador, tus entradas — persona, tarea, tono y reglas — se procesan en tu navegador o se envían directamente a la API del modelo de lenguaje subyacente. No registramos, almacenamos ni transmitimos tus entradas sin procesar a nuestros propios servidores.",
+          "La única excepción: si eliges enviar un prompt generado a la Galería de la Comunidad, el contenido del envío (título, categoría, etiquetas, descripción y texto del prompt) se almacena en nuestra base de datos. Esta es una acción deliberada y voluntaria de tu parte."
+        ]
+      },
+      {
+        "heading": "2. Lo Que No Recopilamos",
+        "list": [
+          "El texto de tus instrucciones generadas, a menos que las envíes explícitamente a la Galería",
+          "Información de cuenta o perfil — no requerimos registro para usar el generador",
+          "Datos de pago o financieros de ningún tipo",
+          "Huellas dactilares del dispositivo o identificadores de seguimiento persistentes"
+        ]
+      },
+      {
+        "heading": "3. Analítica",
+        "paragraphs": [
+          "Podemos usar herramientas de análisis estándar y anonimizadas para comprender cómo se usa la aplicación a nivel funcional, por ejemplo, qué páginas se visitan y patrones generales de uso. Estos datos se agregan y no incluyen el contenido de tu prompt ni información de identificación personal.",
+          "[Marcador de posición: Actualiza esta sección con tu herramienta de análisis específica, ej., Plausible, Vercel Analytics, o elimínala si no aplica.]"
+        ]
+      },
+      {
+        "heading": "4. No Venta de Datos a Terceros",
+        "paragraphs": [
+          "No vendemos, intercambiamos ni alquilamos ningún dato de usuario a terceros. Esto se aplica independientemente de si los datos se recopilaron a través del generador o de la Galería de la Comunidad."
+        ]
+      },
+      {
+        "heading": "5. Envíos a la Galería de la Comunidad",
+        "paragraphs": [
+          "Si envías un prompt a la Galería de la Comunidad, ese prompt se vuelve públicamente visible para otros usuarios de la aplicación. No debes incluir información de identificación personal, contenido confidencial o datos de propiedad en ningún envío de la Galería. Podemos revisar los envíos por motivos de moderación."
+        ]
+      },
+      {
+        "heading": "6. Servicios de Terceros",
+        "paragraphs": [
+          "Orxis está implementado en Vercel y usa Airtable para almacenar los envíos de la Galería de la Comunidad. Cada servicio opera bajo su propia política de privacidad y prácticas de manejo de datos. Recomendamos revisarlos de forma independiente:"
+        ],
+        "list": [
+          "Política de Privacidad de Vercel — vercel.com/legal/privacy-policy",
+          "Política de Privacidad de Airtable — airtable.com/privacy"
+        ]
+      },
+      {
+        "heading": "7. Seguridad de Datos",
+        "paragraphs": [
+          "Seguimos prácticas estándar para asegurar los datos que manejamos. Dicho esto, ningún sistema conectado a Internet puede garantizarse como totalmente seguro. Recomendamos no enviar nada sensible o confidencial a la Galería de la Comunidad."
+        ]
+      },
+      {
+        "heading": "8. Cambios a Esta Política",
+        "paragraphs": [
+          "Podemos actualizar esta política a medida que la aplicación evoluciona. Los cambios significativos se reflejarán en la fecha de \"Última Actualización\" en la parte superior de esta página. El uso continuado de Orxis después de que se publiquen los cambios constituye la aceptación de la política revisada."
+        ]
+      },
+      {
+        "heading": "9. Contacto",
+        "paragraphs": [
+          "Para preguntas o inquietudes sobre esta política, contáctanos en <1>orxis.app@gmail.com</1>."
+        ]
+      }
+    ],
+    "footerNote": "Orxis se opera bajo las leyes de Tailandia. Esta política no constituye asesoramiento legal."
+  },
+  "license": {
+    "title": "Licencia y Derechos de Autor",
+    "lastUpdated": "13 de julio de 2026",
+    "intro": [
+      "Esta página aclara qué es nuestro, qué es tuyo y qué está cubierto por las licencias de código abierto de las bibliotecas sobre las que construimos. La versión corta: la aplicación pertenece a Orxis; los prompts que generas te pertenecen por completo.",
+      "Orxis se lanza bajo una <1>Licencia Propietaria No Comercial</1> personalizada. Eres bienvenido a clonarla y ejecutarla localmente con fines personales o educativos, pero el uso comercial, la redistribución y el etiquetado blanco están estrictamente prohibidos sin permiso previo por escrito."
+    ],
+    "sections": [
+      {
+        "heading": "1. Licencia de la Aplicación (Propietaria)",
+        "paragraphs": [
+          "La aplicación Orxis, incluido su código fuente, componentes de interfaz de usuario, sistema de diseño, marco de generación de prompts de seis secciones, activos de marca y toda la propiedad intelectual asociada, es patentada y propiedad de Orxis.",
+          "Ninguna parte de la aplicación puede ser copiada, reproducida, distribuida, modificada, implementada comercialmente o utilizada como base para un servicio derivado o competidor sin el permiso previo por escrito de Orxis. Los términos completos se establecen en el archivo <1>LICENSE</1> en el repositorio."
+        ]
+      },
+      {
+        "heading": "2. Lo Que Puedes Hacer",
+        "paragraphs": [
+          "Los siguientes usos están explícitamente permitidos bajo esta licencia, de forma gratuita y sin requerir permiso previo:"
+        ],
+        "list": [
+          "Clonar o descargar el repositorio para uso personal y local",
+          "Leer y estudiar el código fuente con fines educativos o de revisión de portafolio",
+          "Ejecutar la aplicación localmente en tu propio hardware para experimentación personal",
+          "Usar, vender o publicar cualquier prompt e instrucción que generes con Orxis, libremente, sin necesidad de atribución"
+        ]
+      },
+      {
+        "heading": "3. Lo Que No Puedes Hacer",
+        "paragraphs": [
+          "Los siguientes usos están estrictamente prohibidos sin el permiso previo por escrito de Orxis:"
+        ],
+        "list": [
+          "Implementar, alojar u operar la aplicación, o cualquier versión de la misma, como un servicio público o comercial (SaaS, freemium o de otro tipo)",
+          "Etiquetar en blanco, cambiar la marca o revender la aplicación o cualquier parte sustancial de su diseño y funcionalidad como tu propio producto",
+          "Reproducir o replicar sustancialmente el diseño UI/UX de la aplicación, la arquitectura de componentes o el sistema de diseño visual en un producto competidor o comercial",
+          "Distribuir, sublicenciar o vender el código fuente de la aplicación o cualquier derivado de la misma a un tercero",
+          "Modificar o crear trabajos derivados para despliegue público o beneficio comercial",
+          "Descompilar, aplicar ingeniería inversa o desensamblar cualquier parte de la aplicación más allá de lo que la ley aplicable permita expresamente",
+          "Eliminar o alterar cualquier aviso de propiedad, marcas de derechos de autor o marcas",
+          "Usar el nombre, el logotipo o la identidad de marca de Orxis en tus propios productos o marketing sin permiso por escrito",
+          "Representar tus prompts generados como certificados, respaldados o garantizados oficialmente por Orxis"
+        ]
+      },
+      {
+        "heading": "4. Tus Prompts Generados",
+        "paragraphs": [
+          "Los prompts de instrucciones que creas usando Orxis son tuyos, completa y sin restricciones. No hacemos ninguna afirmación de propiedad sobre el contenido que produces. Eres libre de usar tus prompts generados en cualquier contexto (personal, profesional o comercial) sin que se requiera atribución a Orxis.",
+          "Esta libertad se aplica independientemente de si usas los prompts en un producto pago, entregable para el cliente o contenido monetizado. La única restricción externa es la política de uso del proveedor del modelo de IA subyacente con el que los implementes (ej., política de OpenAI para GPT-4, política de Google para Gemini).",
+          "Orxis proporciona el marco de generación y las herramientas; el resultado resultante es tu producto de trabajo."
+        ]
+      },
+      {
+        "heading": "5. Envíos a la Galería de la Comunidad",
+        "paragraphs": [
+          "Al enviar voluntariamente un prompt a la Galería de la Comunidad, otorgas a Orxis una licencia no exclusiva, libre de regalías y mundial para mostrar y distribuir ese contenido dentro de la aplicación y materiales promocionales relacionados. Conservas la autoría completa y la propiedad del contenido enviado.",
+          "Puedes solicitar la eliminación de tu envío comunicándote con nosotros a <1>orxis.app@gmail.com</1>. Procesaremos las solicitudes de eliminación en un plazo razonable."
+        ]
+      },
+      {
+        "heading": "6. Dependencias de Código Abierto",
+        "paragraphs": [
+          "Orxis está construida utilizando software de código abierto. Cada biblioteca se utiliza de acuerdo con su respectiva licencia. Nuestras principales dependencias incluyen:"
+        ],
+        "list": [
+          "Next.js — Licencia MIT (Vercel, Inc.)",
+          "Tailwind CSS — Licencia MIT (Tailwind Labs, Inc.)",
+          "Framer Motion — Licencia MIT (Framer B.V.)",
+          "Lucide Icons — Licencia ISC (Lucide Contributors)",
+          "React — Licencia MIT (Meta Platforms, Inc.)"
+        ],
+        "afterList": "El uso de estas bibliotecas dentro de Orxis no extiende ningún derecho de licencia de código abierto a la propia aplicación Orxis. Las licencias MIT u otras se aplican únicamente a las bibliotecas respectivas, no al código de nuestra aplicación."
+      },
+      {
+        "heading": "7. Aviso de Derechos de Autor",
+        "paragraphs": [
+          "© 2026 Orxis. Todos los derechos reservados. La reproducción o distribución no autorizada de esta aplicación o cualquier porción de ella puede resultar en sanciones civiles y penales, y será perseguida con el máximo rigor de la ley."
+        ]
+      },
+      {
+        "heading": "8. Contacto",
+        "paragraphs": [
+          "Para consultas sobre licencias, solicitudes de asociaciones o para reportar una presunta infracción, contáctanos en <1>orxis.app@gmail.com</1>."
+        ]
+      }
+    ],
+    "footerNote": "Regido por las leyes de Tailandia. Esta página no constituye asesoramiento legal. Consulta a un profesional legal calificado para obtener asesoramiento específico a tu situación."
+  }
+}

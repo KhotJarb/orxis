@@ -1,1 +1,122 @@
-{}
+{
+  "nav": {
+    "dropdowns": {
+      "products": "제품",
+      "resources": "리소스"
+    },
+    "items": {
+      "generator": "생성기",
+      "features": "기능",
+      "howItWorks": "작동 방식",
+      "useCases": "사용 사례",
+      "pricing": "요금",
+      "documentation": "문서",
+      "promptGallery": "프롬프트 갤러리",
+      "changelog": "변경 내역",
+      "aboutUs": "소개",
+      "supportFaq": "지원 및 FAQ"
+    },
+    "getStarted": "시작하기",
+    "toggleMenu": "메뉴 전환"
+  },
+  "footer": {
+    "description": "개발자, 크리에이터 및 AI 엔지니어를 위한 구조화된 인스트럭션 생성기입니다. 무료로 사용할 수 있으며 커뮤니티의 지원을 받습니다.",
+    "columns": {
+      "product": "제품",
+      "resources": "리소스",
+      "legal": "법적 정보",
+      "social": "소셜"
+    },
+    "links": {
+      "generator": "생성기",
+      "features": "기능",
+      "howItWorks": "작동 방식",
+      "useCases": "사용 사례",
+      "pricing": "요금",
+      "documentation": "문서",
+      "promptGallery": "프롬프트 갤러리",
+      "changelog": "변경 내역",
+      "aboutUs": "소개",
+      "supportFaq": "지원 및 FAQ",
+      "privacy": "개인정보 처리방침",
+      "terms": "이용약관",
+      "license": "라이선스",
+      "github": "GitHub"
+    },
+    "social": {
+      "supportFaq": "지원 및 FAQ",
+      "email": "이메일"
+    },
+    "copyright": "© {{year}} Orxis. 모든 권리 보유.",
+    "supportProject": "프로젝트 후원하기"
+  },
+  "generatePage": {
+    "header": {
+      "badge": "AI 어시스턴트 빌더",
+      "title": "나만의",
+      "titleHighlight": "AI 어시스턴트 구축하기",
+      "quickModeSubtitle": "원하는 것을 자신의 언어로 설명해 주시면 저희가 구축해 드립니다.",
+      "stepsModeSubtitle": "몇 가지 질문에 답하면 완전한 AI 어시스턴트 프로필을 생성합니다."
+    },
+    "modes": {
+      "quickMode": "빠른 모드",
+      "stepByStep": "단계별",
+      "takeTour": "투어 보기"
+    }
+  },
+  "onboarding": {
+    "welcome": {
+      "title": "Orxis에 오신 것을 환영합니다",
+      "description": "Orxis를 사용하면 계정 없이 완전 무료로 몇 분 안에 완전한 AI 어시스턴트 프로필을 구축할 수 있습니다. 몇 가지 질문에 답하고 결과를 Gemini, ChatGPT 또는 Claude에 복사하기만 하면 됩니다.",
+      "tip": "원하는 단계는 건너뛸 수 있습니다. 모든 필드는 선택 사항입니다."
+    },
+    "step1": {
+      "title": "1단계 — 방향 설정하기",
+      "description": "AI 어시스턴트가 필요한 용도를 설명하는 것으로 시작하세요. 또는 '콘텐츠 제작'이나 '비즈니스'와 같은 카테고리를 탭하여 마법사 전체에서 도메인별 제안을 받으세요.",
+      "tip": "카테고리를 선택하면 관련 사전 설정이 자동으로 채워지지만, 언제든지 직접 입력할 수 있습니다."
+    },
+    "step23": {
+      "title": "2단계 & 3단계 — 페르소나 & 작업",
+      "description": "AI의 전문적인 역할(예: '스크립트 작성자' 또는 '비즈니스 분석가')과 수행할 작업(예: '스크립트 작성' 또는 '시장 분석')을 선택합니다. 사전 설정은 선택한 도메인에 맞게 조정됩니다.",
+      "tip": "모든 도메인의 옵션을 보려면 '모든 사전 설정 보기'를 클릭하세요."
+    },
+    "step4": {
+      "title": "4단계 — 컨텍스트",
+      "description": "채널, 회사 또는 프로젝트에 대해 AI에게 알려주세요. 이렇게 하면 생성되는 어시스턴트가 훨씬 더 맞춤화되지만, 범용 어시스턴트를 원한다면 완전히 선택 사항입니다.",
+      "tip": "어떤 종류의 세부 정보가 가장 적합한지 확인하려면 '예시로 채우기'를 시도해 보세요."
+    },
+    "step7": {
+      "title": "7단계 — 바로가기",
+      "description": "매번 입력하는 {{variables}}를 포함하는 재사용 가능한 프롬프트 템플릿을 만듭니다. 예: '{{topic}}에 대한 비디오 아이디어 {{count}}개 생성'. 이는 최종 출력에 포함됩니다.",
+      "tip": "'✨ 추천받기'를 클릭하여 도메인별 템플릿을 즉시 받아보세요."
+    },
+    "output": {
+      "title": "출력 결과 — 붙여넣기 준비 완료",
+      "description": "생성이 완료되면 이름, 설명, 전체 인스트럭션, 대화 시작 및 바로가기가 포함된 완전한 AI 어시스턴트 프로필을 받게 됩니다. 플랫폼 탭(Gems · GPTs · Projects)을 사용하여 각 플랫폼에 맞게 형식이 지정된 것을 확인하세요.",
+      "tip": "각 필드에는 자체 복사 버튼이 있거나 하단의 '모두 복사'를 사용할 수 있습니다."
+    },
+    "ui": {
+      "progress": "{{total}} 중 {{current}}",
+      "skip": "투어 건너뛰기",
+      "back": "뒤로",
+      "next": "다음",
+      "finish": "시작합시다!"
+    }
+  },
+  "theme": {
+    "system": "시스템",
+    "light": "라이트",
+    "dark": "다크",
+    "aria": {
+      "group": "테마 설정",
+      "switchTo": "{{theme}} 테마로 전환"
+    }
+  },
+  "language": {
+    "change": "언어 변경"
+  },
+  "meta": {
+    "title": "Orxis | 엄격한 경계로 AI 오케스트레이션",
+    "description": "Orxis는 구조화된 AI 사용자 지정 인스트럭션 생성기입니다. ChatGPT, Claude, Gemini 및 기타 LLM을 위한 정확한 역할, 인지 루프 및 출력 경계를 정의하세요."
+  }
+}

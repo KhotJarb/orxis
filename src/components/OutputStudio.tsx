@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import PlatformGuide from "./PlatformGuide";
 import type { GenerateResult } from "./StepWizard";
+import { useT } from "@/i18n";
 
 // ===== Types =====
 interface OutputStudioProps {
@@ -28,18 +29,21 @@ type PlatformTab = "gems" | "gpts" | "projects" | "raw";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
-const PLATFORM_TABS: { id: PlatformTab; label: string; emoji: string }[] = [
-  { id: "gems", label: "Gems", emoji: "💎" },
-  { id: "gpts", label: "GPTs", emoji: "🤖" },
-  { id: "projects", label: "Projects", emoji: "📂" },
-  { id: "raw", label: "Raw", emoji: "📄" },
-];
 
 // ===== Component =====
 export default function OutputStudio({
   result,
   onReset,
 }: OutputStudioProps) {
+  const t = useT("generate");
+
+  const PLATFORM_TABS: { id: PlatformTab; label: string; emoji: string }[] = [
+    { id: "gems", label: t("output.tabs.gems"), emoji: "💎" },
+    { id: "gpts", label: t("output.tabs.gpts"), emoji: "🤖" },
+    { id: "projects", label: t("output.tabs.projects"), emoji: "📂" },
+    { id: "raw", label: t("output.tabs.raw"), emoji: "📄" },
+  ];
+
   const [activeTab, setActiveTab] = useState<PlatformTab>("gems");
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -56,7 +60,7 @@ export default function OutputStudio({
         setCopiedField(fieldId);
         setTimeout(() => setCopiedField(null), 2000);
       } catch {
-        setError("Failed to copy to clipboard");
+        setError(t("output.copy.error"));
         setTimeout(() => setError(null), 3000);
       }
     },
@@ -107,12 +111,12 @@ export default function OutputStudio({
       {copiedField === fieldId ? (
         <>
           <CheckCheck className="h-3 w-3 text-green-400" />
-          <span className="text-green-400">Copied</span>
+          <span className="text-green-400">{t("output.copy.copied")}</span>
         </>
       ) : (
         <>
           <Copy className="h-3 w-3" />
-          Copy
+          {t("output.copy.default")}
         </>
       )}
     </button>
@@ -153,14 +157,14 @@ export default function OutputStudio({
       case "gems":
         return (
           <div className="space-y-4">
-            <FieldBlock label="Name" value={result.name} fieldId="gems-name" />
+            <FieldBlock label={t("output.fields.name")} value={result.name} fieldId="gems-name" />
             <FieldBlock
-              label="Description"
+              label={t("output.fields.description")}
               value={result.description}
               fieldId="gems-desc"
             />
             <FieldBlock
-              label="Instructions"
+              label={t("output.fields.instructions")}
               value={result.instructions}
               fieldId="gems-inst"
               mono
@@ -170,7 +174,7 @@ export default function OutputStudio({
                 <div className="flex items-center gap-2 mb-3">
                   <Upload className="h-3.5 w-3.5 text-slate-500" />
                   <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">
-                    Knowledge — you might also want to upload
+                    {t("output.sections.knowledge")}
                   </span>
                 </div>
                 <ul className="space-y-1.5">
@@ -191,7 +195,7 @@ export default function OutputStudio({
                 <div className="flex items-center gap-2 mb-3">
                   <MessageCircle className="h-3.5 w-3.5 text-slate-500" />
                   <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">
-                    Conversation Starters
+                    {t("output.sections.conversationStarters")}
                   </span>
                 </div>
                 <div className="space-y-2">
@@ -218,14 +222,14 @@ export default function OutputStudio({
       case "gpts":
         return (
           <div className="space-y-4">
-            <FieldBlock label="Name" value={result.name} fieldId="gpts-name" />
+            <FieldBlock label={t("output.fields.name")} value={result.name} fieldId="gpts-name" />
             <FieldBlock
-              label="Description"
+              label={t("output.fields.description")}
               value={result.description}
               fieldId="gpts-desc"
             />
             <FieldBlock
-              label="Instructions"
+              label={t("output.fields.instructions")}
               value={result.instructions}
               fieldId="gpts-inst"
               mono
@@ -235,7 +239,7 @@ export default function OutputStudio({
                 <div className="flex items-center gap-2 mb-3">
                   <MessageCircle className="h-3.5 w-3.5 text-slate-500" />
                   <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">
-                    Conversation Starters
+                    {t("output.sections.conversationStarters")}
                   </span>
                 </div>
                 <div className="space-y-2">
@@ -263,17 +267,17 @@ export default function OutputStudio({
         return (
           <div className="space-y-4">
             <FieldBlock
-              label="Project Name"
+              label={t("output.fields.projectName")}
               value={result.name}
               fieldId="proj-name"
             />
             <FieldBlock
-              label="Description"
+              label={t("output.fields.description")}
               value={result.description}
               fieldId="proj-desc"
             />
             <FieldBlock
-              label="Project Instructions"
+              label={t("output.fields.projectInstructions")}
               value={result.instructions}
               fieldId="proj-inst"
               mono
@@ -283,7 +287,7 @@ export default function OutputStudio({
                 <div className="flex items-center gap-2 mb-3">
                   <MessageCircle className="h-3.5 w-3.5 text-slate-500" />
                   <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">
-                    Conversation Starters
+                    {t("output.sections.conversationStarters")}
                   </span>
                 </div>
                 <div className="space-y-2">
@@ -336,13 +340,13 @@ export default function OutputStudio({
             <div className="flex items-center gap-4 sm:gap-6 px-5 py-3 border-t border-glass-border bg-white/[0.01] text-[11px] sm:text-xs text-slate-600">
               <span className="flex items-center gap-1.5">
                 <FileText className="h-3 w-3" />
-                {wordCount} words
+                {t("output.metadata.words", { count: wordCount })}
               </span>
               <span className="flex items-center gap-1.5">
                 <Hash className="h-3 w-3" />
-                {sectionCount} sections
+                {t("output.metadata.sections", { count: sectionCount })}
               </span>
-              <span>{lineCount} lines</span>
+              <span>{t("output.metadata.lines", { count: lineCount })}</span>
             </div>
           </div>
         );
@@ -362,10 +366,10 @@ export default function OutputStudio({
           <Sparkles className="h-7 w-7 text-neon-cyan" />
         </motion.div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
-          Your AI Assistant is Ready
+          {t("output.title")}
         </h1>
         <p className="text-slate-400 text-sm sm:text-base">
-          Copy the fields below into your preferred platform.
+          {t("output.subtitle")}
         </p>
       </div>
 
@@ -465,22 +469,22 @@ export default function OutputStudio({
             <div className="flex items-center gap-2 mb-4">
               <Zap className="h-4 w-4 text-neon-purple-light" />
               <h3 className="text-sm font-semibold text-white">
-                Quick Shortcuts
+                {t("output.sections.shortcuts")}
               </h3>
             </div>
 
             {/* Usage guide */}
             <div className="rounded-xl bg-neon-cyan/[0.04] border border-neon-cyan/10 px-4 py-3 mb-4">
               <p className="text-xs text-slate-300 leading-relaxed">
-                <span className="font-medium text-neon-cyan-light">How to use:</span>{" "}
-                Copy any shortcut below, replace the{" "}
+                <span className="font-medium text-neon-cyan-light">{t("output.shortcuts.guide.title")}</span>{" "}
+                {t("output.shortcuts.guide.desc").split(/<1>|<\/1>/)[0]}
                 <code className="text-neon-purple-light bg-white/[0.05] px-1 py-0.5 rounded text-[11px]">
                   {"{{variables}}"}
                 </code>{" "}
-                with your own content, and paste it as a message to your AI assistant.
+                {t("output.shortcuts.guide.desc").split(/<1>|<\/1>/)[2]}
               </p>
               <p className="text-[11px] text-slate-500 mt-1.5">
-                ✓ These shortcuts are already included in your instructions — your assistant will understand them automatically.
+                {t("output.shortcuts.guide.note")}
               </p>
             </div>
 
@@ -532,12 +536,12 @@ export default function OutputStudio({
           {copiedField === "all" ? (
             <>
               <CheckCheck className="h-4 w-4 text-green-400" />
-              Everything Copied!
+              {t("output.copy.allCopied")}
             </>
           ) : (
             <>
               <Copy className="h-4 w-4" />
-              Copy Everything
+              {t("output.copy.all")}
             </>
           )}
         </motion.button>
@@ -549,7 +553,7 @@ export default function OutputStudio({
           className="inline-flex items-center justify-center gap-2 rounded-xl border border-glass-border bg-glass-bg px-5 py-3 text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-all cursor-pointer"
         >
           <RotateCcw className="h-4 w-4" />
-          Start Over
+          {t("output.startOver")}
         </motion.button>
       </motion.div>
     </div>

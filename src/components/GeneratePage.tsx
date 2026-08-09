@@ -9,6 +9,7 @@ import StepWizard from "./StepWizard";
 import OutputStudio from "./OutputStudio";
 import OnboardingTour from "./OnboardingTour";
 import type { GenerateResult } from "./StepWizard";
+import { useT } from "@/i18n";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
@@ -16,6 +17,7 @@ type BuilderMode = "quick" | "steps";
 
 // ===== Component =====
 export default function GeneratePage() {
+  const t = useT("common");
   const [result, setResult] = useState<GenerateResult | null>(null);
   const [mode, setMode] = useState<BuilderMode>("quick");
   const [showTour, setShowTour] = useState(false);
@@ -86,16 +88,16 @@ export default function GeneratePage() {
               <div className="text-center mb-8 sm:mb-10">
                 <div className="inline-flex items-center gap-2 rounded-full border border-glass-border bg-glass-bg px-4 py-2 text-xs sm:text-sm font-medium text-neon-purple-light mb-6">
                   <Wand2 className="h-3.5 w-3.5" />
-                  AI Assistant Builder
+                  {t("generatePage.header.badge")}
                 </div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-                  Build Your{" "}
-                  <span className="text-gradient">AI Assistant</span>
+                  {t("generatePage.header.title")}{" "}
+                  <span className="text-gradient">{t("generatePage.header.titleHighlight")}</span>
                 </h1>
                 <p className="max-w-2xl mx-auto text-slate-400 text-base sm:text-lg leading-relaxed">
                   {mode === "quick"
-                    ? "Describe what you want in your own words — we'll build it for you."
-                    : "Answer a few questions and we'll generate a complete AI assistant profile."}
+                    ? t("generatePage.header.quickModeSubtitle")
+                    : t("generatePage.header.stepsModeSubtitle")}
                 </p>
               </div>
 
@@ -115,7 +117,7 @@ export default function GeneratePage() {
                     `}
                   >
                     <Zap className="h-4 w-4" />
-                    Quick Mode
+                    {t("generatePage.modes.quickMode")}
                   </button>
                   <button
                     onClick={() => setMode("steps")}
@@ -129,7 +131,7 @@ export default function GeneratePage() {
                     `}
                   >
                     <List className="h-4 w-4" />
-                    Step-by-Step
+                    {t("generatePage.modes.stepByStep")}
                   </button>
                 </div>
 
@@ -147,7 +149,7 @@ export default function GeneratePage() {
                   className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium text-slate-500 hover:text-slate-300 border border-glass-border hover:border-white/15 bg-white/[0.02] hover:bg-white/[0.05] transition-all cursor-pointer"
                 >
                   <HelpCircle className="h-3.5 w-3.5" />
-                  Take the tour
+                  {t("generatePage.modes.takeTour")}
                 </motion.button>
               </div>
 

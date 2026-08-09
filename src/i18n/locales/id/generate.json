@@ -1,1 +1,176 @@
-{}
+{
+  "quickMode": {
+    "title": "Jenis <1>asisten AI</1> apa yang kamu butuhkan?",
+    "subtitle": "Cukup jelaskan apa yang kamu inginkan, dan kami akan menangani sisanya.",
+    "placeholder": "Jelaskan asisten AI yang kamu inginkan…",
+    "chars": "{{count}} karakter",
+    "tryThese": "Coba ini:",
+    "examples": [
+      "Tutor matematika sabar yang menjelaskan pecahan dan aljabar kepada siswa sekolah menengah",
+      "Bantu saya menulis naskah YouTube yang menarik untuk saluran ulasan teknologi saya",
+      "Rekan peninjau kode untuk proyek React dan TypeScript",
+      "Pakar strategi media sosial yang merencanakan kalender konten untuk Instagram dan TikTok",
+      "Penasihat bisnis yang membantu startup tahap awal membangun pitch deck",
+      "Pelatih penulisan kreatif untuk cerita fiksi ilmiah dan fantasi"
+    ],
+    "loading": [
+      "Memahami permintaanmu…",
+      "Membangun asisten AI-mu…",
+      "Membuat profil yang sempurna…",
+      "Hampir selesai…"
+    ],
+    "questionsHint": "Bagus! Beberapa pertanyaan cepat untuk membuat asistenmu lebih baik lagi:",
+    "questionsPlaceholder": "Ketik jawabanmu atau biarkan kosong untuk melewati",
+    "generateAnyway": "Tetap hasilkan",
+    "generate": "Hasilkan"
+  },
+  "wizard": {
+    "loading": [
+      "Menganalisis preferensimu…",
+      "Membangun asisten AI-mu…",
+      "Menyusun keluaran…",
+      "Menyempurnakan detail…",
+      "Hampir selesai…"
+    ],
+    "steps": {
+      "intent": {
+        "question": "Untuk apa kamu membangun asisten AI ini?",
+        "subtitle": "Jelaskan tujuanmu atau pilih kategori untuk memulai"
+      },
+      "persona": {
+        "question": "Persona ahli apa yang kamu butuhkan?",
+        "subtitle": "Tentukan identitas dan bidang keahlian AI",
+        "placeholder": "mis., Pengembang React senior dengan pengalaman 10+ tahun dalam membangun aplikasi web yang dapat diskalakan…"
+      },
+      "task": {
+        "question": "Apa tugas atau tujuan utamanya?",
+        "subtitle": "Jelaskan apa yang kamu ingin AI bantu capai",
+        "placeholder": "mis., Tinjau kode TypeScript saya untuk masalah kinerja dan sarankan peningkatan…"
+      },
+      "context": {
+        "question": "Ceritakan tentang pekerjaanmu",
+        "subtitle": "Ini membantu menciptakan asisten yang lebih disesuaikan — lewati jika kamu lebih suka asisten serbaguna"
+      },
+      "tone": {
+        "question": "Nada suara apa yang harus digunakan AI?",
+        "subtitle": "Tetapkan gaya komunikasi dan kepribadian",
+        "placeholder": "mis., Bersikap hangat tapi langsung, hindari kata-kata basi, gunakan analogi saat menjelaskan…"
+      },
+      "rules": {
+        "question": "Ada aturan ketat atau format keluaran?",
+        "subtitle": "Tentukan batasan, format, dan batas yang tidak dapat dinegosiasikan",
+        "placeholder": "mis., Selalu validasi masukan, jangan pernah menyarankan API yang sudah usang, sertakan kompleksitas waktu…"
+      },
+      "shortcuts": {
+        "question": "Siapkan pintasan cepat",
+        "subtitle": "Buat templat prompt yang dapat digunakan kembali dengan {{variables}} yang kamu isi setiap saat"
+      }
+    },
+    "ui": {
+      "multiSelect": "Kamu dapat memilih beberapa opsi",
+      "showAll": "Tampilkan semua preset",
+      "showFewer": "Tampilkan lebih sedikit",
+      "fillExample": "Isi dengan contoh",
+      "context": {
+        "whatYouDo": {
+          "label": "Jelaskan apa yang kamu lakukan",
+          "placeholder": "mis., Saya menjalankan saluran YouTube ulasan teknologi dengan 50K pelanggan yang berfokus pada gadget ramah anggaran…"
+        },
+        "whoYouServe": {
+          "label": "Siapa audiens atau targetmu?",
+          "placeholder": "mis., Penggemar teknologi berusia 18-35 tahun yang menginginkan nilai uang terbaik…"
+        },
+        "keyDetails": {
+          "label": "Ada detail penting lainnya?",
+          "placeholder": "mis., Saya memposting dua kali seminggu, pesaing saya adalah X dan Y, warna merek saya biru neon dan ungu…"
+        }
+      },
+      "shortcuts": {
+        "suggest": "✨ Sarankan untukku",
+        "add": "Tambah Pintasan",
+        "namePlaceholder": "Nama (mis. kerangka)",
+        "templatePlaceholder": "Templat (mis. Buat kerangka untuk {{topic}})",
+        "insertVariable": "Masukkan {{variable}}",
+        "variablePrompt": "Nama variabel (mis., topic, count):"
+      }
+    }
+  },
+  "output": {
+    "title": "Asisten AI-mu Sudah Siap",
+    "subtitle": "Salin kolom di bawah ini ke platform pilihanmu.",
+    "tabs": {
+      "gems": "Gems",
+      "gpts": "GPTs",
+      "projects": "Projects",
+      "raw": "Mentah"
+    },
+    "copy": {
+      "default": "Salin",
+      "copied": "Tersalin",
+      "all": "Salin Semuanya",
+      "allCopied": "Semuanya Tersalin!",
+      "error": "Gagal menyalin ke papan klip"
+    },
+    "fields": {
+      "name": "Nama",
+      "description": "Deskripsi",
+      "instructions": "Instruksi",
+      "projectName": "Nama Proyek",
+      "projectInstructions": "Instruksi Proyek"
+    },
+    "sections": {
+      "knowledge": "Pengetahuan — kamu mungkin juga ingin mengunggah",
+      "conversationStarters": "Pembuka Percakapan",
+      "shortcuts": "Pintasan Cepat"
+    },
+    "metadata": {
+      "words": "{{count}} kata",
+      "sections": "{{count}} bagian",
+      "lines": "{{count}} baris"
+    },
+    "shortcuts": {
+      "guide": {
+        "title": "Cara menggunakan:",
+        "desc": "Salin pintasan mana pun di bawah ini, ganti <1>{{variables}}</1> dengan kontenmu sendiri, dan tempelkan sebagai pesan ke asisten AI-mu.",
+        "note": "✓ Pintasan ini sudah disertakan dalam instruksimu — asistenmu akan memahaminya secara otomatis."
+      }
+    },
+    "startOver": "Mulai Ulang"
+  },
+  "platformGuide": {
+    "title": "Cara mengatur ini",
+    "open": "Buka {{platform}}",
+    "gems": {
+      "title": "Google Gemini Gems",
+      "steps": [
+        "Buka gemini.google.com → klik ikon permata → Jelajahi Gems",
+        "Klik + Gem Baru",
+        "Tempelkan Nama dan Deskripsi ke bidangnya",
+        "Tempelkan Instruksi ke bidang Instruksi",
+        "Opsional unggah file Pengetahuan yang disarankan",
+        "Klik Simpan — Gem-mu siap digunakan"
+      ]
+    },
+    "gpts": {
+      "title": "ChatGPT GPTs",
+      "steps": [
+        "Buka chatgpt.com → Jelajahi GPTs → Buat",
+        "Beralih ke tab Konfigurasi",
+        "Tempelkan Nama, Deskripsi, dan Instruksi ke bidangnya",
+        "Tambahkan Pembuka Percakapan ke prompt awal",
+        "Aktifkan Kemampuan yang disarankan (Pencarian Web, Penerjemah Kode)",
+        "Klik Simpan dan atur visibilitas"
+      ]
+    },
+    "projects": {
+      "title": "Claude Projects",
+      "steps": [
+        "Buka claude.ai → Projects → + Proyek Baru",
+        "Masukkan Nama dan Deskripsi",
+        "Klik Atur instruksi proyek → tempelkan Instruksi",
+        "Unggah file Pengetahuan yang relevan",
+        "Mulai percakapan baru di dalam proyek"
+      ]
+    }
+  }
+}

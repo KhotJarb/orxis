@@ -1,1 +1,176 @@
-{}
+{
+  "quickMode": {
+    "title": "¿Qué tipo de <1>asistente de IA</1> necesitas?",
+    "subtitle": "Solo describe lo que quieres y nosotros nos encargaremos del resto.",
+    "placeholder": "Describe el asistente de IA que deseas…",
+    "chars": "{{count}} caracteres",
+    "tryThese": "Prueba estos:",
+    "examples": [
+      "Un paciente tutor de matemáticas que explica fracciones y álgebra a estudiantes de secundaria",
+      "Ayúdame a escribir guiones cautivadores de YouTube para mi canal de reseñas de tecnología",
+      "Un compañero de revisión de código para proyectos en React y TypeScript",
+      "Estratega de redes sociales que planifica calendarios de contenido para Instagram y TikTok",
+      "Asesor comercial que ayuda a startups en etapa inicial a crear pitch decks",
+      "Entrenador de escritura creativa para historias de ciencia ficción y fantasía"
+    ],
+    "loading": [
+      "Entendiendo tu solicitud…",
+      "Construyendo tu asistente de IA…",
+      "Creando el perfil perfecto…",
+      "Casi allí…"
+    ],
+    "questionsHint": "¡Genial! Unas preguntas rápidas para mejorar aún más tu asistente:",
+    "questionsPlaceholder": "Escribe tu respuesta o deja en blanco para omitir",
+    "generateAnyway": "Generar de todos modos",
+    "generate": "Generar"
+  },
+  "wizard": {
+    "loading": [
+      "Analizando tus preferencias…",
+      "Construyendo tu asistente de IA…",
+      "Estructurando la salida…",
+      "Pulien los detalles…",
+      "Casi allí…"
+    ],
+    "steps": {
+      "intent": {
+        "question": "¿Para qué estás construyendo este asistente de IA?",
+        "subtitle": "Describe tu objetivo o elige una categoría para empezar"
+      },
+      "persona": {
+        "question": "¿Qué persona experta necesitas?",
+        "subtitle": "Define la identidad y el área de especialización de la IA",
+        "placeholder": "ej., Un desarrollador React senior con más de 10 años de experiencia construyendo apps web escalables…"
+      },
+      "task": {
+        "question": "¿Cuál es la tarea u objetivo principal?",
+        "subtitle": "Describe lo que quieres que la IA te ayude a lograr",
+        "placeholder": "ej., Revisa mi código TypeScript por problemas de rendimiento y sugiere mejoras…"
+      },
+      "context": {
+        "question": "Cuéntanos sobre tu trabajo",
+        "subtitle": "Esto ayuda a crear un asistente más personalizado — omítelo si prefieres uno de propósito general"
+      },
+      "tone": {
+        "question": "¿Qué tono de voz debe usar la IA?",
+        "subtitle": "Establece el estilo de comunicación y la personalidad",
+        "placeholder": "ej., Sé cálido pero directo, evita el relleno innecesario, usa analogías al explicar…"
+      },
+      "rules": {
+        "question": "¿Alguna regla estricta o formato de salida?",
+        "subtitle": "Define restricciones, formatos y límites no negociables",
+        "placeholder": "ej., Siempre valida las entradas, nunca sugieras APIs deprecadas, incluye la complejidad temporal…"
+      },
+      "shortcuts": {
+        "question": "Configura atajos rápidos",
+        "subtitle": "Crea plantillas de prompts reutilizables con {{variables}} que llenas cada vez"
+      }
+    },
+    "ui": {
+      "multiSelect": "Puedes seleccionar múltiples opciones",
+      "showAll": "Mostrar todos los presets",
+      "showFewer": "Mostrar menos",
+      "fillExample": "Llenar con ejemplo",
+      "context": {
+        "whatYouDo": {
+          "label": "Describe lo que haces",
+          "placeholder": "ej., Dirijo un canal de YouTube de reseñas técnicas con 50K suscriptores enfocado en gadgets económicos…"
+        },
+        "whoYouServe": {
+          "label": "¿Quién es tu audiencia u objetivo?",
+          "placeholder": "ej., Entusiastas de la tecnología de 18 a 35 años que quieren la mejor relación calidad-precio…"
+        },
+        "keyDetails": {
+          "label": "¿Algún otro detalle clave?",
+          "placeholder": "ej., Publico dos veces por semana, mis competidores son X y Y, los colores de mi marca son azul neón y morado…"
+        }
+      },
+      "shortcuts": {
+        "suggest": "✨ Sugerir para mí",
+        "add": "Agregar Atajo",
+        "namePlaceholder": "Nombre (ej. esquema)",
+        "templatePlaceholder": "Plantilla (ej. Crea un esquema para {{topic}})",
+        "insertVariable": "Insertar {{variable}}",
+        "variablePrompt": "Nombre de la variable (ej., topic, count):"
+      }
+    }
+  },
+  "output": {
+    "title": "Tu Asistente de IA está Listo",
+    "subtitle": "Copia los campos a continuación en tu plataforma preferida.",
+    "tabs": {
+      "gems": "Gems",
+      "gpts": "GPTs",
+      "projects": "Projects",
+      "raw": "Crudo"
+    },
+    "copy": {
+      "default": "Copiar",
+      "copied": "Copiado",
+      "all": "Copiar Todo",
+      "allCopied": "¡Todo Copiado!",
+      "error": "Error al copiar al portapapeles"
+    },
+    "fields": {
+      "name": "Nombre",
+      "description": "Descripción",
+      "instructions": "Instrucciones",
+      "projectName": "Nombre del Proyecto",
+      "projectInstructions": "Instrucciones del Proyecto"
+    },
+    "sections": {
+      "knowledge": "Conocimiento — es posible que también desees subir",
+      "conversationStarters": "Iniciadores de Conversación",
+      "shortcuts": "Atajos Rápidos"
+    },
+    "metadata": {
+      "words": "{{count}} palabras",
+      "sections": "{{count}} secciones",
+      "lines": "{{count}} líneas"
+    },
+    "shortcuts": {
+      "guide": {
+        "title": "Cómo usar:",
+        "desc": "Copia cualquier atajo a continuación, reemplaza las <1>{{variables}}</1> con tu propio contenido, y pégalo como un mensaje a tu asistente de IA.",
+        "note": "✓ Estos atajos ya están incluidos en tus instrucciones — tu asistente los entenderá automáticamente."
+      }
+    },
+    "startOver": "Empezar de Nuevo"
+  },
+  "platformGuide": {
+    "title": "Cómo configurar esto",
+    "open": "Abrir {{platform}}",
+    "gems": {
+      "title": "Google Gemini Gems",
+      "steps": [
+        "Ve a gemini.google.com → haz clic en el icono de la joya → Explorar Gems",
+        "Haz clic en + Nuevo Gem",
+        "Pega el Nombre y la Descripción en sus campos",
+        "Pega las Instrucciones en el campo de Instrucciones",
+        "Opcionalmente sube los archivos de Conocimiento sugeridos",
+        "Haz clic en Guardar — tu Gem está listo para usar"
+      ]
+    },
+    "gpts": {
+      "title": "ChatGPT GPTs",
+      "steps": [
+        "Ve a chatgpt.com → Explorar GPTs → Crear",
+        "Cambia a la pestaña Configurar",
+        "Pega el Nombre, Descripción e Instrucciones en sus campos",
+        "Agrega los Iniciadores de Conversación a los prompts iniciales",
+        "Activa las Capacidades recomendadas (Web Search, Code Interpreter)",
+        "Haz clic en Guardar y establece la visibilidad"
+      ]
+    },
+    "projects": {
+      "title": "Claude Projects",
+      "steps": [
+        "Ve a claude.ai → Projects → + Nuevo Proyecto",
+        "Ingresa el Nombre y la Descripción",
+        "Haz clic en Establecer instrucciones del proyecto → pega las Instrucciones",
+        "Sube cualquier archivo de Conocimiento relevante",
+        "Inicia una nueva conversación dentro del proyecto"
+      ]
+    }
+  }
+}

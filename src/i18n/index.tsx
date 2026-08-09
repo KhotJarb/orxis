@@ -39,6 +39,7 @@ interface LanguageContextType {
   locale: Locale;
   setLocale: (locale: Locale) => void;
   t: (namespace: Namespace, key: string, vars?: Record<string, string | number>) => string;
+  tArray: (namespace: Namespace, key: string) => string[];
   isLoaded: boolean;
 }
 
@@ -58,6 +59,21 @@ function resolve(obj: TranslationMap, path: string): string | undefined {
   }
 
   return typeof current === "string" ? current : undefined;
+}
+
+// Resolve to any value (string, array, nested object)
+function resolveRaw(obj: TranslationMap, path: string): TranslationValue | undefined {
+  const keys = path.split(".");
+  let current: TranslationValue = obj;
+
+  for (const key of keys) {
+    if (current === undefined || current === null || typeof current === "string") {
+      return undefined;
+    }
+    current = (current as TranslationMap)[key];
+  }
+
+  return current;
 }
 
 // ── Interpolation: replace {{var}} with values ───────────────────────────────
@@ -172,8 +188,29 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     [locale]
   );
 
+  // Translation function for arrays
+  const tArray = useCallback(
+    (namespace: Namespace, key: string): string[] => {
+      const nsData = translationCache[locale]?.[namespace];
+      if (nsData) {
+        const value = resolveRaw(nsData, key);
+        if (Array.isArray(value)) return value as string[];
+      }
+      // Fallback to English
+      if (locale !== "en") {
+        const enData = translationCache["en"]?.[namespace];
+        if (enData) {
+          const value = resolveRaw(enData, key);
+          if (Array.isArray(value)) return value as string[];
+        }
+      }
+      return [];
+    },
+    [locale]
+  );
+
   return (
-    <LanguageContext.Provider value={{ locale, setLocale, t, isLoaded }}>
+    <LanguageContext.Provider value={{ locale, setLocale, t, tArray, isLoaded }}>
       {children}
     </LanguageContext.Provider>
   );
@@ -188,11 +225,16 @@ export function useLanguage() {
   return ctx;
 }
 
-/** Shorthand: get a `t(key, vars?)` function scoped to a namespace */
+/** Shorthand: get `t(key)` and `tArray(key)` scoped to a namespace */
 export function useT(namespace: Namespace) {
-  const { t } = useLanguage();
-  return useCallback(
+  const { t, tArray } = useLanguage();
+  const tScoped = useCallback(
     (key: string, vars?: Record<string, string | number>) => t(namespace, key, vars),
     [t, namespace]
   );
+  const tArrayScoped = useCallback(
+    (key: string) => tArray(namespace, key),
+    [tArray, namespace]
+  );
+  return Object.assign(tScoped, { array: tArrayScoped });
 }

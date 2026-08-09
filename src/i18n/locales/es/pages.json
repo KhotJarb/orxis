@@ -1,1 +1,261 @@
-{}
+{
+  "about": {
+    "badge": "Nuestra Filosofía",
+    "title": "No Solo Hacemos Prompts.",
+    "titleHighlight": "Nosotros Orquestamos.",
+    "subtitle": "Construido para cerrar la brecha entre el potencial bruto de la IA y la ejecución profesional de flujos de trabajo multicanal.",
+    "origin": {
+      "label": "El Origen",
+      "quote": "“Comenzó con una necesidad de control.”",
+      "p1": "Ya sea gestionando múltiples canales de contenido en formato corto, definiendo estrictos límites lógicos para el desarrollo de software o creando prompts visuales precisos, las salidas genéricas de la IA eran demasiado variables, se desviaban fácilmente y eran demasiado superficiales para el uso profesional.",
+      "p2": "Construimos este marco para convertir un modelo de propósito general en un motor enfocado y regido por reglas. Uno que separa el <1>rol</1> de la <2>misión</2>, el <3>contexto</3> de la <4>salida</4>, y la <5>opinión</5> del <6>hecho</6> — en la capa del prompt, antes de que comience cualquier conversación.",
+      "p3": "El resultado es una arquitectura de instrucciones que no solo guía a la IA, sino que la restringe con un propósito."
+    },
+    "graphCaption": "Gráfico de Orquestación de Instrucciones",
+    "principles": {
+      "label": "Principios Fundamentales",
+      "title": "Lo que guía cada decisión.",
+      "items": {
+        "boundaries": {
+          "title": "Límites Estrictos",
+          "body": "La IA es tan confiable como las restricciones dentro de las cuales opera. Cada conjunto de instrucciones define límites rígidos: hechos verificados primero, sin combinar métricas con opiniones, comportamiento estructurado de respaldo cuando las entradas son ambiguas."
+        },
+        "adaptability": {
+          "title": "Adaptabilidad Multicanal",
+          "body": "El mismo marco central pivota limpiamente desde la planificación de la arquitectura backend hasta la estrategia de contenido corto. El aislamiento del rol y el alcance del contexto mantienen cada despliegue enfocado sin filtraciones."
+        },
+        "functionality": {
+          "title": "Funcionalidad Pura",
+          "body": "Sin marcos decorativos. Solo un bucle cognitivo estructurado que requiere que el modelo razone a través del contexto antes de generar la salida, reduciendo el margen para desviaciones y evasivas genéricas."
+        }
+      }
+    }
+  },
+  "pricing": {
+    "badge": "Precios",
+    "title": "Marco Avanzado.",
+    "titleHighlight": "Acceso Gratuito.",
+    "subtitle": "Experimenta inteligencia de IA de élite. Genera tus instrucciones maestras sin costo — ahora mismo, hoy.",
+    "freeCard": {
+      "badge": "Oferta Actual",
+      "price": "$0",
+      "period": "/ siempre",
+      "description": "Sin tarjeta de crédito. Sin cuenta. Sin caducidad.",
+      "features": [
+        "Genera Instrucciones Maestras al instante",
+        "Marco maestro completo de seis secciones",
+        "Guías de plataforma para ChatGPT, Claude y Gemini",
+        "No requiere cuenta ni inicio de sesión",
+        "Salida lista para copiar, siempre"
+      ],
+      "cta": "Empezar a Generar"
+    },
+    "supporterCard": {
+      "badge": "Apoya al Desarrollador",
+      "label": "Elige tu cantidad",
+      "description": "¿Te encanta la herramienta? Ayuda a mantener los servidores funcionando e impulsa la próxima ola de funciones: una Galería de Prompts, espacios de trabajo para equipos y modelos de generación más inteligentes.",
+      "perks": [
+        "Acceso prioritario a las próximas funciones",
+        "Mantener la herramienta principal gratis para todos",
+        "Influencia directa en la hoja de ruta del producto"
+      ],
+      "cta": "Apoyar con {{amount}}",
+      "toastCopied": "{{amount}} copiado — pégalo en el campo de cantidad ✓",
+      "toastDefault": "Procesado de forma segura a través de Buy Me a Coffee"
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "subtitle": "Todo lo que necesitas saber antes de empezar.",
+      "items": {
+        "free": {
+          "q": "¿El generador es de uso gratuito?",
+          "a": "Sí — el motor de generación central es completamente gratuito para que todos lo accedan y usen, ahora mismo. Sin tarjeta de crédito, sin registro, sin compromisos."
+        },
+        "account": {
+          "q": "¿Necesito crear una cuenta?",
+          "a": "No. Solo abre el generador, completa el asistente de cuatro pasos y copia tu instrucción maestra directamente en ChatGPT, Claude, Gemini o cualquier IA de tu elección. Cero fricción."
+        },
+        "donation": {
+          "q": "¿A dónde va el dinero de las donaciones?",
+          "a": "El 100% va directamente a cubrir los costos del servidor, el uso de la API del LLM y la financiación de la próxima ola de características avanzadas: modelos de generación más inteligentes, una galería completa de prompts y herramientas de colaboración en equipo."
+        }
+      }
+    }
+  },
+  "support": {
+    "badge": "Soporte",
+    "title": "Preguntas y Comentarios.",
+    "subtitle": "Encuentra respuestas a preguntas comunes sobre el generador, o comparte tus sugerencias para ayudarnos a mejorar la herramienta.",
+    "faq": {
+      "label": "Preguntas Frecuentes",
+      "items": {
+        "q1": {
+          "q": "¿La IA seguirá estas instrucciones perfectamente cada vez?",
+          "a": "No incondicionalmente. Este marco mejora significativamente el cumplimiento y la consistencia de la IA, pero los Modelos de Lenguaje Grande tienen una variación inherente en sus salidas. Es posible que aún necesites revisar las respuestas ocasionalmente y guiar al modelo de nuevo, especialmente en sesiones largas o entradas de casos límite."
+        },
+        "q2": {
+          "q": "¿Se guardan o usan mis datos de entrada para entrenamiento?",
+          "a": "No. El proceso de generación principal se ejecuta localmente en tu navegador o mediante una llamada API sin estado. No almacenamos tus entradas en bruto ni las instrucciones generadas. La única excepción es si eliges explícitamente enviar un prompt a la Galería de la Comunidad — esa acción requiere tu consentimiento deliberado."
+        },
+        "q3": {
+          "q": "¿Puedo usar las instrucciones generadas para prompts que no sean en inglés?",
+          "a": "Sí. La lógica estructural del marco se aplica a través de los idiomas. Para obtener mejores resultados, especifica tu idioma objetivo en la sección de Rol e Identidad (Sección 1), y el modelo generalmente mantendrá ese idioma durante toda la sesión."
+        },
+        "q4": {
+          "q": "¿Necesito pagar para usar la herramienta?",
+          "a": "Las funciones principales de generación son actualmente gratuitas. El proyecto funciona con el apoyo de la comunidad y donaciones voluntarias para cubrir los costos operativos. No hay muro de pago para el generador en este momento."
+        }
+      }
+    },
+    "feedback": {
+      "title": "¿Tienes una Sugerencia?",
+      "description": "Refinamos constantemente el generador basándonos en casos de uso del mundo real. Si bien no tenemos la capacidad de responder a cada mensaje individualmente, leemos todos los comentarios detenidamente para informar futuras actualizaciones.",
+      "cta": "Compartir Comentarios"
+    }
+  },
+  "useCases": {
+    "badge": "Casos de Uso",
+    "title": "Construido para Cada",
+    "titleHighlight": "Profesional.",
+    "subtitle": "Mira cómo el marco de instrucciones se adapta a tu flujo de trabajo específico, y por qué los prompts genéricos de IA te están frenando.",
+    "professions": {
+      "developers": {
+        "label": "Desarrolladores de Software y Juegos",
+        "shortLabel": "Desarrolladores",
+        "tagline": "De salidas dispersas de LLM a precisión arquitectónica.",
+        "problem": {
+          "heading": "El Problema",
+          "body": "Los LLMs pierden el rastro de la lógica de estado de juegos complejos, arquitecturas de API y reglas de tipado estrictas a lo largo de largas sesiones. Cada nuevo chat restablece el contexto por completo; terminas volviendo a explicar tu stack, tus convenciones y tus restricciones en lugar de construir realmente. El resultado es código inconsistente, interfaces olvidadas y una IA que contradice con confianza la arquitectura que definiste hace dos mensajes.",
+          "tags": ["Deriva del Contexto", "Sin Seguridad de Tipos", "Lógica de Estado Perdida", "Amnesia de Convenciones"]
+        },
+        "solution": {
+          "heading": "La Solución",
+          "body": "Tu instrucción generada encierra a la IA en tu stack, patrones de diseño y estándares de calidad. Se le indica mapear todos los árboles lógicos, transiciones de estado y jerarquías de tipos antes de escribir una sola línea. El resultado no es solo código — es código que se ajusta a tu arquitectura como si lo hubiera escrito un ingeniero senior que ha estado en tu equipo durante meses.",
+          "tags": ["Precisión FastAPI", "Persistencia de Estado del Juego", "TypeScript Estricto", "Conciencia Arquitectónica"]
+        },
+        "benefits": [
+          "Desviación arquitectónica significativamente reducida entre sesiones",
+          "No más volver a explicar tu stack desde cero",
+          "Salida consistentemente estructurada y de mayor calidad desde el principio"
+        ],
+        "cta": "Prueba el Generador para Desarrolladores"
+      },
+      "creators": {
+        "label": "Creadores de Contenido Digital",
+        "shortLabel": "Creadores",
+        "tagline": "De guiones genéricos de IA a contenido optimizado para la plataforma.",
+        "problem": {
+          "heading": "El Problema",
+          "body": "La IA genera guiones robóticos y monótonos que no logran captar la atención en los primeros 3 segundos — la ventana crítica para el video en formato corto. Ignora el ritmo específico de la plataforma, las estructuras de ganchos psicológicos y las reglas algorítmicas no escritas que separan el contenido viral del contenido que queda enterrado. El resultado suena como si lo hubiera escrito una IA, porque así fue.",
+          "tags": ["Tono Robótico", "Sin Estructura de Gancho", "Ignorancia de Plataforma", "Ceguera Algorítmica"]
+        },
+        "solution": {
+          "heading": "La Solución",
+          "body": "El marco transforma a la IA en un estratega de contenido con gran conciencia de la plataforma. Se le indica diseñar el gancho psicológico, estructurar el arco de tensión-recompensa y evaluar cada salida contra los principios de ritmo de la plataforma y las mejores prácticas de retención antes de producir una sola palabra. Tus guiones se sentirán elaborados a mano, porque la IA se somete a los mismos estándares a los que estaría sujeto un escritor fantasma de primer nivel.",
+          "tags": ["Arquitectura de Gancho", "Cumplimiento de Plataforma", "Psicología del Espectador", "Ingeniería de Retención"]
+        },
+        "benefits": [
+          "Ganchos diseñados para atrapar en los primeros 3 segundos",
+          "Mejores prácticas específicas de la plataforma integradas en cada instrucción",
+          "Tono y ritmo que coinciden con la voz de tu canal"
+        ],
+        "cta": "Prueba el Generador para Creadores"
+      },
+      "prompters": {
+        "label": "Ingenieros de Prompts Digitales",
+        "shortLabel": "Ingenieros de Prompts",
+        "tagline": "De generaciones inconsistentes a una identidad visual bloqueada.",
+        "problem": {
+          "heading": "El Problema",
+          "body": "Midjourney y la IA de imágenes producen resultados visualmente inconsistentes a lo largo de un proyecto. El diseño de personajes se desvía entre generaciones, la iluminación es arbitraria y tu estética cuidadosamente establecida se reinicia con cada nuevo prompt. Terminas pasando más tiempo arreglando inconsistencias que creando realmente — y en el momento en que pasas los prompts a un cliente o miembro del equipo, la identidad visual colapsa por completo.",
+          "tags": ["Deriva del Personaje", "Estilo Inconsistente", "Sin Sistema Visual", "Colapso Estético"]
+        },
+        "solution": {
+          "heading": "La Solución",
+          "body": "La instrucción estructura una arquitectura de prompt visual multicapa que funciona como una guía de estilo para tu IA. Promueve el cumplimiento constante de la estética elegida (proporciones de iluminación cinematográfica, sombreado estilo Pixar, historia específica de personajes o reglas compositivas de bellas artes) en todas las generaciones. Tu identidad visual se convierte en un sistema estructurado y transferible, no en un accidente afortunado.",
+          "tags": ["Bloqueo de Estilo", "Consistencia de Personaje", "Formato Cinematográfico", "Sistema Transferible"]
+        },
+        "benefits": [
+          "Identidad visual bloqueada en todas las generaciones",
+          "Deja de reconstruir tu referencia de estilo desde cero",
+          "Sistema de prompts compartible que todo tu equipo puede usar"
+        ],
+        "cta": "Prueba el Generador para Ingenieros de Prompts"
+      }
+    },
+    "keyBenefits": "Beneficios Clave",
+    "previewLabel": "Vista Previa de Instrucción Generada",
+    "previewCaption": "Salida real de nuestro motor generador de IA",
+    "filename": "instruccion_maestra.md"
+  },
+  "settings": {
+    "title": "Configuraciones",
+    "subtitle": "Gestiona tus preferencias para la aplicación Orxis.",
+    "sidebar": {
+      "appearance": "Apariencia"
+    },
+    "theme": {
+      "title": "Tema",
+      "description": "Elige cómo se ve Orxis. El sistema sigue las preferencias de tu sistema operativo.",
+      "system": "Sistema",
+      "light": "Claro",
+      "dark": "Oscuro",
+      "current": "Preferencia actual: <1>{{theme}}</1>. Los cambios se aplican de inmediato y se guardan en tu navegador."
+    },
+    "accent": {
+      "title": "Color de Acento",
+      "description": "Colores de acento personalizados — próximamente en una futura actualización.",
+      "soon": "Pronto"
+    }
+  },
+  "changelog": {
+    "meta": {
+      "title": "Registro de Cambios | Orxis",
+      "description": "Nuevas actualizaciones y mejoras a la plataforma Orxis. Un registro completo de lanzamientos, correcciones y cambios arquitectónicos."
+    },
+    "badge": "Plataforma Orxis",
+    "title": "Registro de Cambios",
+    "subtitle": "Nuevas actualizaciones y mejoras al ecosistema Orxis.",
+    "footer": "Orxis sigue el <1>Versionado Semántico</1>. Las entradas se enumeran en orden cronológico inverso.",
+    "categories": {
+      "features": "Características",
+      "design": "Diseño",
+      "platform": "Plataforma",
+      "legal": "Legal y Transparencia",
+      "documentation": "Documentación"
+    },
+    "releases": {
+      "v0.1.0": {
+        "overview": "Esta versión establece la arquitectura fundamental de la plataforma, el sistema de diseño y todas las funciones principales orientadas al usuario. Orxis opera completamente en el navegador: sin cuentas, sin claves API y ningún dato sale del dispositivo.",
+        "items": {
+          "features": [
+            "Lanzamiento del generador principal de instrucciones Orxis. Toda la canalización de generación se ejecuta en el lado del cliente; ningún servidor procesa su entrada y no se requieren credenciales para usar la herramienta.",
+            "Se introdujo una arquitectura de instrucciones de seis secciones — Rol e Identidad, Misión, Bucle Cognitivo, Contexto y Entrada, Límites y Reglas de Ejecución, y Formato de Salida — que produce prompts de sistema estructurados listos para pegar.",
+            "Construcción del Output Studio: una interfaz dedicada para revisar, copiar e inspeccionar la instrucción generada por sección. Incluye un recuento de caracteres en vivo.",
+            "Se agregó una comparación de Antes/Después en la página de inicio, demostrando la diferencia práctica entre una respuesta de IA no estructurada y una estructurada al mismo prompt.",
+            "Se agregó una Galería de Prompts en /gallery para buscar y referenciar plantillas de instrucciones aportadas por la comunidad.",
+            "Se publicó una sección de Casos de Uso que cubre flujos de trabajo prácticos para desarrolladores de software, creadores de contenido e ingenieros de prompts."
+          ],
+          "design": [
+            "Se introdujo la identidad visual de Orxis: una marca de logotipo personalizada, un sistema de acento degradado de Pervinca a Violeta y una interfaz principalmente oscura diseñada para sesiones de uso prolongado.",
+            "Se aplicó un sistema de temas consistente en cada página, asegurando un color, espaciado y tipografía coherentes en todo el producto.",
+            "Los elementos de tarjeta y superficie utilizan un tratamiento de glassmorfismo — capas de profundidad esmeriladas, bordes sutiles y reflejos de acento de neón en los estados de interacción — para mantener una jerarquía visual clara."
+          ],
+          "platform": [
+            "La aplicación se puede instalar directamente desde su navegador como una Aplicación Web Progresiva en dispositivos de escritorio y móviles compatibles, sin necesidad de una tienda de aplicaciones.",
+            "Se agregó una página de Configuración con un diseño estructurado, lista para expandirse a medida que se introducen nuevas opciones de configuración en futuras actualizaciones."
+          ],
+          "legal": [
+            "Se publicaron las páginas de Política de Privacidad, Términos de Servicio y Licencia, cada una accesible desde el pie de página del sitio.",
+            "La Política de Privacidad documenta nuestro modelo de datos basado en lo local: sus entradas se procesan completamente dentro de la sesión del navegador y nunca se transmiten ni almacenan en servidores externos.",
+            "Los Términos de Servicio definen el uso aceptable en un lenguaje sencillo y específico. La página de Licencia aclara los derechos de uso para la plataforma y para los prompts que genera."
+          ],
+          "documentation": [
+            "Se lanzó el centro de documentación de Orxis en /docs, que cubre una guía de inicio rápido y una referencia detallada para cada una de las seis secciones de instrucciones.",
+            "Se publicaron guías de integración por modelo para ChatGPT, Claude y Gemini, que cubren los métodos de configuración recomendados y los comportamientos específicos de la plataforma relevantes para el uso de instrucciones estructuradas."
+          ]
+        }
+      }
+    }
+  }
+}

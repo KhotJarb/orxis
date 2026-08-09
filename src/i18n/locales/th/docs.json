@@ -1,1 +1,55 @@
-{}
+{
+  "apiReference": {
+    "badge": "ข้อมูลอ้างอิงสำหรับนักพัฒนา",
+    "title": "API Reference",
+    "description1": "Orxis เปิดเผย FastAPI REST แบ็กเอนด์ที่สะอาดตาซึ่งขับเคลื่อนทุกการทำงานของการสร้างและการปรับแต่ง หน้านี้จัดทำเอกสารกำกับทุกจุดปลายทาง (Endpoint), โครงสร้างคำขอ (Request Schema), รูปแบบการตอบสนองที่คาดหวัง และรหัสข้อผิดพลาดที่เกี่ยวข้อง — ทุกสิ่งที่คุณต้องการเพื่อเรียก API โดยตรง, รวมเข้ากับเครื่องมือของคุณเอง, หรือขยายด้วยเส้นทางใหม่ๆ",
+    "description2": "Endpoints ทั้งหมดยอมรับและส่งคืนข้อมูลในรูปแบบ application/json ไม่จำเป็นต้องใช้ SDK พิเศษใดๆ — สามารถใช้ curl แบบธรรมดา, ไลบรารี requests ใน Python, หรือ fetch ในเบราว์เซอร์ได้ทันที",
+    "baseUrl": {
+      "title": "Base URL",
+      "description1": "แบ็กเอนด์ทำงานบนพอร์ต 8000 เมื่อเริ่มต้นระบบเฉพาะที่ (Local) ด้วย uvicorn สำหรับการนำไปใช้งาน (Deployment) บน Vercel ในการผลิตจริง 프รอนต์เอนด์ (Frontend) จะทำหน้าที่เป็นพร็อกซีสำหรับการเรียก API ผ่าน Next.js rewrites ดังนั้น Base URL ที่ใช้งานจริงคือโดเมนที่คุณปรับใช้",
+      "description2": "ตัวอย่างทั้งหมดในเอกสารอ้างอิงนี้ใช้ Base URL ในเครื่อง (Local) http://localhost:8000 ให้แทนที่ด้วยโดเมนใช้งานจริงของคุณในสภาพแวดล้อมที่ปรับใช้จริง"
+    },
+    "authentication": {
+      "title": "การยืนยันตัวตน"
+    }
+  },
+  "bestPractices": {
+    "badge": "คู่มือกลยุทธ์",
+    "title": "แนวทางปฏิบัติที่ดีที่สุดสำหรับข้อมูลอินพุตดิบ",
+    "goldenRules": {
+      "title": "3 กฎทอง"
+    }
+  },
+  "content": {
+    "badge": "เริ่มต้นใช้งาน",
+    "title": "บทนำ",
+    "whatAreCIs": "Custom Instructions คืออะไร?",
+    "whyItMatters": "ทำไมถึงสำคัญ"
+  },
+  "sidebar": {
+    "searchPlaceholder": "ค้นหาเอกสาร...",
+    "noResults": "ไม่พบผลลัพธ์สำหรับ",
+    "categories": {
+      "gettingStarted": "เริ่มต้นใช้งาน",
+      "platformGuides": "คู่มือแพลตฟอร์ม",
+      "advanced": "ขั้นสูง"
+    },
+    "items": {
+      "introduction": "บทนำ",
+      "quickStart": "เริ่มต้นอย่างรวดเร็ว",
+      "coreConcepts": "แนวคิดหลัก",
+      "chatgpt": "ChatGPT",
+      "claude": "Claude",
+      "gemini": "Gemini",
+      "otherLlms": "LLMs อื่นๆ",
+      "promptChaining": "การต่อ Prompt (Prompt Chaining)",
+      "contextInjection": "การแทรกบริบท",
+      "bestPractices": "แนวทางปฏิบัติที่ดีที่สุด"
+    }
+  },
+  "tableOfContents": {
+    "title": "ในหน้านี้",
+    "helpful": "ข้อมูลนี้มีประโยชน์หรือไม่?",
+    "improve": "ช่วยเราปรับปรุงเอกสาร"
+  }
+}

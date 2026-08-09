@@ -1,1 +1,55 @@
-{}
+{
+  "apiReference": {
+    "badge": "开发者参考",
+    "title": "API Reference",
+    "description1": "Orxis 公开了一个整洁的 FastAPI REST 后端，它为每个生成和微调操作提供动力。本页记录了每个端点 (Endpoint)、其请求模式 (Request Schema)、预期的响应格式以及相关的错误代码 —— 直接调用 API、将其集成到您自己的工具中或通过新路由对其进行扩展所需的一切信息。",
+    "description2": "所有端点均接受并返回 application/json。不需要特殊的 SDK —— 纯粹的 curl、Python 的 requests 库或浏览器中的 fetch 都可以开箱即用。",
+    "baseUrl": {
+      "title": "Base URL",
+      "description1": "在本地使用 uvicorn 启动时，后端运行在 8000 端口。对于生产环境的 Vercel 部署，前端通过 Next.js 重写代理 API 调用，因此实际的基准 URL 就是您的部署域名。",
+      "description2": "此参考中的所有示例都使用本地基准 URL http://localhost:8000。在已部署的环境中，请将其替换为您的生产域名。"
+    },
+    "authentication": {
+      "title": "身份验证"
+    }
+  },
+  "bestPractices": {
+    "badge": "策略指南",
+    "title": "原始输入最佳实践",
+    "goldenRules": {
+      "title": "三大黄金法则"
+    }
+  },
+  "content": {
+    "badge": "快速入门",
+    "title": "简介",
+    "whatAreCIs": "什么是自定义指令 (Custom Instructions)？",
+    "whyItMatters": "为什么它很重要"
+  },
+  "sidebar": {
+    "searchPlaceholder": "搜索文档...",
+    "noResults": "未找到相关结果：",
+    "categories": {
+      "gettingStarted": "快速入门",
+      "platformGuides": "平台指南",
+      "advanced": "进阶指南"
+    },
+    "items": {
+      "introduction": "简介",
+      "quickStart": "快速开始",
+      "coreConcepts": "核心概念",
+      "chatgpt": "ChatGPT",
+      "claude": "Claude",
+      "gemini": "Gemini",
+      "otherLlms": "其他 LLM",
+      "promptChaining": "Prompt 链 (Prompt Chaining)",
+      "contextInjection": "上下文注入 (Context Injection)",
+      "bestPractices": "最佳实践"
+    }
+  },
+  "tableOfContents": {
+    "title": "本页内容",
+    "helpful": "这对您有帮助吗？",
+    "improve": "帮助我们改进文档。"
+  }
+}

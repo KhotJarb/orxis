@@ -1,1 +1,261 @@
-{}
+{
+  "about": {
+    "badge": "Filosofi Kami",
+    "title": "Kami Tidak Hanya Membuat Prompt.",
+    "titleHighlight": "Kami Mengorkestrasi.",
+    "subtitle": "Dibangun untuk menjembatani kesenjangan antara potensi mentah AI dan eksekusi alur kerja profesional di berbagai saluran.",
+    "origin": {
+      "label": "Asal Mula",
+      "quote": "“Ini dimulai dengan kebutuhan akan kendali.”",
+      "p1": "Baik mengelola beberapa saluran konten bentuk pendek, menentukan batas logika yang ketat untuk pengembangan perangkat lunak, atau menyusun prompt visual yang presisi — output AI generik terlalu bervariasi, terlalu mudah menyimpang, dan terlalu dangkal untuk penggunaan profesional.",
+      "p2": "Kami membangun kerangka kerja ini untuk mengubah model serbaguna menjadi mesin yang terfokus dan terikat aturan. Sebuah mesin yang memisahkan <1>peran</1> dari <2>misi</2>, <3>konteks</3> dari <4>keluaran</4>, dan <5>opini</5> dari <6>fakta</6> — pada lapisan prompt, sebelum percakapan apa pun dimulai.",
+      "p3": "Hasilnya adalah arsitektur instruksi yang tidak hanya memandu AI — tetapi membatasinya dengan tujuan."
+    },
+    "graphCaption": "Grafik Orkestrasi Instruksi",
+    "principles": {
+      "label": "Prinsip Inti",
+      "title": "Apa yang memandu setiap keputusan.",
+      "items": {
+        "boundaries": {
+          "title": "Batas yang Ketat",
+          "body": "AI hanya dapat diandalkan seperti halnya batasan tempat ia beroperasi. Setiap set instruksi mendefinisikan batas keras: fakta yang diverifikasi terlebih dahulu, tidak ada penggabungan metrik dan opini, perilaku mundur terstruktur saat masukan ambigu."
+        },
+        "adaptability": {
+          "title": "Adaptabilitas Multi-Saluran",
+          "body": "Kerangka kerja inti yang sama berputar dengan rapi dari perencanaan arsitektur backend ke strategi konten bentuk pendek. Isolasi peran dan cakupan konteks membuat setiap penyebaran tetap fokus tanpa ada yang tumpang tindih."
+        },
+        "functionality": {
+          "title": "Fungsionalitas Murni",
+          "body": "Tanpa bingkai dekoratif. Hanya putaran kognitif terstruktur yang mengharuskan model bernalar melalui konteks sebelum menghasilkan keluaran — mengurangi area permukaan untuk penyimpangan dan keraguan generik."
+        }
+      }
+    }
+  },
+  "pricing": {
+    "badge": "Harga",
+    "title": "Kerangka Kerja Lanjutan.",
+    "titleHighlight": "Akses Gratis.",
+    "subtitle": "Rasakan kecerdasan AI elit. Hasilkan instruksi utama tanpa biaya — sekarang juga, hari ini.",
+    "freeCard": {
+      "badge": "Penawaran Saat Ini",
+      "price": "$0",
+      "period": "/ selamanya",
+      "description": "Tanpa kartu kredit. Tanpa akun. Tanpa kedaluwarsa.",
+      "features": [
+        "Hasilkan Instruksi Utama secara instan",
+        "Semua kerangka kerja utama enam bagian",
+        "Panduan platform untuk ChatGPT, Claude & Gemini",
+        "Tidak perlu akun atau login",
+        "Keluaran siap salin, selalu"
+      ],
+      "cta": "Mulai Membuat"
+    },
+    "supporterCard": {
+      "badge": "Dukung Pengembang",
+      "label": "Pilih jumlahmu",
+      "description": "Suka alat ini? Bantu server tetap berjalan dan dorong gelombang fitur berikutnya — Galeri Prompt, ruang kerja tim, dan model generasi yang lebih cerdas.",
+      "perks": [
+        "Akses prioritas ke fitur mendatang",
+        "Pertahankan alat inti gratis untuk semua orang",
+        "Pengaruh langsung pada peta jalan produk"
+      ],
+      "cta": "Dukung dengan {{amount}}",
+      "toastCopied": "{{amount}} disalin — tempel ke bidang jumlah ✓",
+      "toastDefault": "Diproses dengan aman via Buy Me a Coffee"
+    },
+    "faq": {
+      "title": "Pertanyaan Umum",
+      "subtitle": "Segala hal yang perlu kamu ketahui sebelum memulai.",
+      "items": {
+        "free": {
+          "q": "Apakah generator ini gratis digunakan?",
+          "a": "Ya — mesin pembuat inti sepenuhnya gratis untuk diakses dan digunakan semua orang, sekarang juga. Tanpa kartu kredit, tanpa daftar, tanpa syarat."
+        },
+        "account": {
+          "q": "Apakah saya perlu membuat akun?",
+          "a": "Tidak. Cukup buka generator, selesaikan panduan empat langkah, dan salin instruksi utamamu langsung ke ChatGPT, Claude, Gemini, atau AI pilihanmu. Nol hambatan."
+        },
+        "donation": {
+          "q": "Ke mana perginya uang donasi?",
+          "a": "100% langsung digunakan untuk menutupi biaya server, penggunaan API LLM, dan mendanai gelombang fitur lanjutan berikutnya — model generasi yang lebih cerdas, galeri prompt lengkap, dan alat kolaborasi tim."
+        }
+      }
+    }
+  },
+  "support": {
+    "badge": "Dukungan",
+    "title": "Pertanyaan & Umpan Balik.",
+    "subtitle": "Temukan jawaban untuk pertanyaan umum tentang generator, atau bagikan saranmu untuk membantu kami meningkatkan alat ini.",
+    "faq": {
+      "label": "Pertanyaan yang Sering Diajukan",
+      "items": {
+        "q1": {
+          "q": "Apakah AI akan mengikuti instruksi ini dengan sempurna setiap saat?",
+          "a": "Tidak tanpa syarat. Kerangka kerja ini secara signifikan meningkatkan kepatuhan dan konsistensi AI, tetapi Model Bahasa Besar pada dasarnya memiliki variasi dalam keluarannya. Kamu mungkin masih perlu meninjau respons sesekali dan memandu model kembali ke jalurnya, terutama pada sesi yang lebih panjang atau input kasus tepi."
+        },
+        "q2": {
+          "q": "Apakah data masukan saya disimpan atau digunakan untuk pelatihan?",
+          "a": "Tidak. Proses pembuatan inti berjalan secara lokal di browsermu atau melalui panggilan API tanpa kewarganegaraan. Kami tidak menyimpan input mentahmu atau instruksi yang dihasilkan. Satu-satunya pengecualian adalah jika kamu secara eksplisit memilih untuk mengirimkan prompt ke Galeri Komunitas — tindakan itu memerlukan persetujuan yang disengaja."
+        },
+        "q3": {
+          "q": "Bisakah saya menggunakan instruksi yang dihasilkan untuk prompt non-Inggris?",
+          "a": "Ya. Logika struktural kerangka kerja berlaku di berbagai bahasa. Untuk hasil terbaik, tentukan bahasa targetmu di bagian Peran & Identitas (Bagian 1), dan model umumnya akan mempertahankan bahasa tersebut sepanjang sesi."
+        },
+        "q4": {
+          "q": "Apakah saya perlu membayar untuk menggunakan alat ini?",
+          "a": "Fitur pembuatan inti saat ini gratis untuk digunakan. Proyek ini berjalan berdasarkan dukungan komunitas dan donasi sukarela untuk menutupi biaya operasional. Tidak ada dinding berbayar untuk generator saat ini."
+        }
+      }
+    },
+    "feedback": {
+      "title": "Punya Saran?",
+      "description": "Kami terus menyempurnakan generator berdasarkan kasus penggunaan dunia nyata. Meskipun kami tidak memiliki kapasitas untuk menanggapi setiap pesan satu per satu, kami membaca semua umpan balik dengan saksama untuk menginformasikan pembaruan di masa mendatang.",
+      "cta": "Bagikan Umpan Balik"
+    }
+  },
+  "useCases": {
+    "badge": "Kasus Penggunaan",
+    "title": "Dibuat untuk Setiap",
+    "titleHighlight": "Profesional.",
+    "subtitle": "Lihat bagaimana kerangka instruksi beradaptasi dengan alur kerja spesifikmu — dan mengapa prompt AI generik menghambatmu.",
+    "professions": {
+      "developers": {
+        "label": "Pengembang Perangkat Lunak & Game",
+        "shortLabel": "Pengembang",
+        "tagline": "Dari output LLM yang tersebar hingga presisi arsitektural.",
+        "problem": {
+          "heading": "Masalahnya",
+          "body": "LLM kehilangan jejak logika state game yang kompleks, arsitektur API, dan aturan pengetikan yang ketat di sepanjang sesi panjang. Setiap obrolan baru mengatur ulang konteks sepenuhnya — kamu akhirnya menjelaskan kembali stack-mu, konvensimu, dan batasanmu alih-alih benar-benar membangun. Hasilnya adalah kode yang tidak konsisten, antarmuka yang terlupakan, dan AI yang dengan percaya diri bertentangan dengan arsitektur yang kamu definisikan dua pesan yang lalu.",
+          "tags": ["Penyimpangan Konteks", "Tanpa Keamanan Tipe", "Logika State Hilang", "Amnesia Konvensi"]
+        },
+        "solution": {
+          "heading": "Solusinya",
+          "body": "Instruksi yang dihasilkan mengunci AI ke dalam stack-mu, pola desain, dan standar kualitasmu. Ini diarahkan untuk memetakan semua pohon logika, transisi state, dan hierarki tipe sebelum menulis satu baris kode. Hasilnya bukan hanya kode — melainkan kode yang sesuai dengan arsitekturmu seolah-olah ditulis oleh insinyur senior yang telah berada di timmu selama berbulan-bulan.",
+          "tags": ["Presisi FastAPI", "Persistensi State Game", "TypeScript Ketat", "Kesadaran Arsitektural"]
+        },
+        "benefits": [
+          "Secara signifikan mengurangi penyimpangan arsitektur di seluruh sesi",
+          "Tidak perlu lagi menjelaskan kembali stack-mu dari awal",
+          "Keluaran yang terstruktur secara konsisten dan berkualitas lebih tinggi sejak awal"
+        ],
+        "cta": "Coba Generator Pengembang"
+      },
+      "creators": {
+        "label": "Kreator Konten Digital",
+        "shortLabel": "Kreator",
+        "tagline": "Dari naskah AI generik hingga konten yang dioptimalkan untuk platform.",
+        "problem": {
+          "heading": "Masalahnya",
+          "body": "AI menghasilkan naskah robotik dan monoton yang gagal menarik perhatian dalam 3 detik pertama — jendela kritis untuk video bentuk pendek. Ini mengabaikan tempo spesifik platform, struktur kait psikologis, dan aturan algoritmik tak tertulis yang membedakan konten viral dari konten yang terkubur. Hasilnya terdengar seperti AI yang menulisnya, karena memang begitu.",
+          "tags": ["Nada Robotik", "Tanpa Struktur Kait", "Ketidaktahuan Platform", "Kebutaan Algoritmik"]
+        },
+        "solution": {
+          "heading": "Solusinya",
+          "body": "Kerangka kerja ini mengubah AI menjadi ahli strategi konten dengan kesadaran platform yang kuat. Ini diarahkan untuk merekayasa kaitan psikologis, menyusun alur ketegangan-imbalan, dan mengevaluasi setiap output terhadap prinsip tempo platform dan praktik terbaik retensi sebelum menghasilkan satu kata pun. Skripmu akan terasa buatan tangan — karena AI dipertahankan pada standar yang sama dengan penulis bayangan tingkat atas.",
+          "tags": ["Arsitektur Kait", "Kepatuhan Platform", "Psikologi Penonton", "Rekayasa Retensi"]
+        },
+        "benefits": [
+          "Kait yang direkayasa untuk berhasil dalam 3 detik pertama",
+          "Praktik terbaik spesifik platform dibangun ke dalam setiap instruksi",
+          "Nada dan tempo yang cocok dengan suara saluranmu"
+        ],
+        "cta": "Coba Generator Kreator"
+      },
+      "prompters": {
+        "label": "Insinyur Prompt Digital",
+        "shortLabel": "Insinyur Prompt",
+        "tagline": "Dari generasi yang tidak konsisten ke identitas visual yang terkunci.",
+        "problem": {
+          "heading": "Masalahnya",
+          "body": "Midjourney dan AI gambar menghasilkan hasil yang tidak konsisten secara visual di seluruh proyek. Desain karakter bergeser antargenerasi, pencahayaan sewenang-wenang, dan estetika yang kamu buat dengan cermat diatur ulang dengan setiap prompt baru. Kamu akhirnya menghabiskan lebih banyak waktu untuk memperbaiki ketidakkonsistenan daripada benar-benar membuat — dan saat kamu memberikan prompt kepada klien atau anggota tim, identitas visualnya runtuh sepenuhnya.",
+          "tags": ["Penyimpangan Karakter", "Gaya Tidak Konsisten", "Tanpa Sistem Visual", "Keruntuhan Estetika"]
+        },
+        "solution": {
+          "heading": "Solusinya",
+          "body": "Instruksi menyusun arsitektur prompt visual multi-lapis yang berfungsi seperti panduan gaya untuk AI-mu. Ini mendorong kepatuhan yang konsisten pada estetika pilihanmu — rasio pencahayaan sinematik, bayangan bergaya Pixar, pengetahuan karakter tertentu, atau aturan komposisi seni rupa — di seluruh generasi. Identitas visualmu menjadi sistem yang terstruktur dan dapat ditransfer, bukan kebetulan yang beruntung.",
+          "tags": ["Penguncian Gaya", "Konsistensi Karakter", "Pemformatan Sinematik", "Sistem Dapat Ditransfer"]
+        },
+        "benefits": [
+          "Identitas visual terkunci di semua generasi",
+          "Berhenti membangun kembali referensi gayamu dari awal",
+          "Sistem prompt yang dapat dibagikan yang dapat digunakan seluruh timmu"
+        ],
+        "cta": "Coba Generator Insinyur Prompt"
+      }
+    },
+    "keyBenefits": "Manfaat Utama",
+    "previewLabel": "Pratinjau Instruksi yang Dihasilkan",
+    "previewCaption": "Output nyata dari mesin generator AI kami",
+    "filename": "instruksi_utama.md"
+  },
+  "settings": {
+    "title": "Pengaturan",
+    "subtitle": "Kelola preferensimu untuk aplikasi Orxis.",
+    "sidebar": {
+      "appearance": "Penampilan"
+    },
+    "theme": {
+      "title": "Tema",
+      "description": "Pilih bagaimana Orxis terlihat. Sistem mengikuti preferensi OS-mu.",
+      "system": "Sistem",
+      "light": "Terang",
+      "dark": "Gelap",
+      "current": "Preferensi saat ini: <1>{{theme}}</1>. Perubahan diterapkan segera dan disimpan di browsermu."
+    },
+    "accent": {
+      "title": "Warna Aksen",
+      "description": "Warna aksen kustom — segera hadir di pembaruan mendatang.",
+      "soon": "Segera"
+    }
+  },
+  "changelog": {
+    "meta": {
+      "title": "Catatan Perubahan | Orxis",
+      "description": "Pembaruan dan peningkatan baru pada platform Orxis. Catatan lengkap tentang rilis, perbaikan, dan perubahan arsitektur."
+    },
+    "badge": "Platform Orxis",
+    "title": "Catatan Perubahan",
+    "subtitle": "Pembaruan dan peningkatan baru ke ekosistem Orxis.",
+    "footer": "Orxis mengikuti <1>Semantic Versioning</1>. Entri dicantumkan dalam urutan kronologis terbalik.",
+    "categories": {
+      "features": "Fitur",
+      "design": "Desain",
+      "platform": "Platform",
+      "legal": "Legal & Transparansi",
+      "documentation": "Dokumentasi"
+    },
+    "releases": {
+      "v0.1.0": {
+        "overview": "Rilis ini menetapkan arsitektur platform dasar, sistem desain, dan semua fitur inti yang menghadap pengguna. Orxis beroperasi sepenuhnya di browser — tanpa akun, tanpa kunci API, dan tidak ada data yang meninggalkan perangkat.",
+        "items": {
+          "features": [
+            "Meluncurkan generator instruksi Orxis inti. Seluruh alur pembuatan berjalan di sisi klien — tidak ada server yang memproses inputmu, dan tidak ada kredensial yang diperlukan untuk menggunakan alat ini.",
+            "Memperkenalkan arsitektur instruksi enam bagian — Peran & Identitas, Misi, Putaran Kognitif, Konteks & Input, Batas & Aturan Eksekusi, dan Pemformatan Output — yang menghasilkan prompt sistem terstruktur dan siap ditempel.",
+            "Membangun Output Studio: antarmuka khusus untuk meninjau, menyalin, dan memeriksa instruksi yang dihasilkan per bagian. Termasuk penghitungan karakter langsung.",
+            "Menambahkan perbandingan Sebelum/Sesudah di halaman arahan, yang menunjukkan perbedaan praktis antara respons AI yang tidak terstruktur dan terstruktur terhadap prompt yang sama.",
+            "Menambahkan Galeri Prompt di /gallery untuk menelusuri dan mereferensikan templat instruksi yang disumbangkan oleh komunitas.",
+            "Menerbitkan bagian Kasus Penggunaan yang mencakup alur kerja praktis untuk pengembang perangkat lunak, kreator konten, dan insinyur prompt."
+          ],
+          "design": [
+            "Memperkenalkan identitas visual Orxis: tanda logo kustom, sistem aksen gradien Periwinkle-ke-Violet, dan antarmuka gelap pertama yang dirancang untuk sesi penggunaan yang diperpanjang.",
+            "Menerapkan sistem tema yang konsisten di setiap halaman, memastikan warna, spasi, dan tipografi yang koheren di seluruh produk.",
+            "Elemen kartu dan permukaan menggunakan perlakuan glassmorphism — lapisan kedalaman buram, batas halus, dan sorotan aksen neon pada status interaksi — untuk mempertahankan hierarki visual yang jelas."
+          ],
+          "platform": [
+            "Aplikasi dapat dipasang langsung dari browsermu sebagai Progressive Web App di perangkat desktop dan seluler yang didukung — tidak perlu app store.",
+            "Menambahkan halaman Pengaturan dengan tata letak terstruktur, siap diperluas seiring dengan diperkenalkannya opsi konfigurasi baru di pembaruan mendatang."
+          ],
+          "legal": [
+            "Menerbitkan halaman Kebijakan Privasi, Ketentuan Layanan, dan Lisensi — masing-masing dapat diakses dari footer situs.",
+            "Kebijakan Privasi mendokumentasikan model data lokal-pertama kami: masukanmu diproses sepenuhnya dalam sesi browser dan tidak pernah dikirim ke atau disimpan di server eksternal.",
+            "Ketentuan Layanan mendefinisikan penggunaan yang dapat diterima dalam bahasa yang jelas dan spesifik. Halaman Lisensi mengklarifikasi hak penggunaan platform dan prompt yang kamu hasilkan."
+          ],
+          "documentation": [
+            "Meluncurkan pusat dokumentasi Orxis di /docs, mencakup panduan mulai cepat dan referensi mendetail untuk masing-masing dari enam bagian instruksi.",
+            "Menerbitkan panduan integrasi per model untuk ChatGPT, Claude, dan Gemini, mencakup metode penyiapan yang disarankan dan perilaku khusus platform yang relevan dengan penggunaan instruksi terstruktur."
+          ]
+        }
+      }
+    }
+  }
+}
