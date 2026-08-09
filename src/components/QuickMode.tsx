@@ -216,14 +216,14 @@ export default function QuickMode({ onGenerate }: QuickModeProps) {
             {/* Textarea with gradient border */}
             <motion.div
               variants={itemVariants}
-              className="relative rounded-2xl p-[1px] transition-all duration-500"
+              className="group/textarea relative rounded-2xl p-[1px] transition-all duration-500 focus-within:shadow-[0_0_30px_rgba(0,240,255,0.15),0_0_60px_rgba(138,43,226,0.1)]"
               style={{
                 background:
                   "linear-gradient(135deg, rgba(0,240,255,0.25), rgba(138,43,226,0.25), rgba(0,240,255,0.15))",
               }}
             >
-              {/* Ambient glow behind the card */}
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-neon-cyan/10 via-neon-purple/8 to-neon-cyan/10 blur-xl opacity-60 pointer-events-none" />
+              {/* Ambient glow behind the card — intensifies on focus */}
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-neon-cyan/10 via-neon-purple/8 to-neon-cyan/10 blur-xl opacity-60 group-focus-within/textarea:opacity-100 group-focus-within/textarea:from-neon-cyan/20 group-focus-within/textarea:via-neon-purple/15 group-focus-within/textarea:to-neon-cyan/20 transition-all duration-500 pointer-events-none" />
 
               <div className="relative rounded-2xl bg-[#0a0820] backdrop-blur-sm overflow-hidden">
                 {/* Subtle top highlight */}
@@ -271,7 +271,7 @@ export default function QuickMode({ onGenerate }: QuickModeProps) {
                     key={i}
                     variants={chipVariants}
                     onClick={() => handleExampleClick(example)}
-                    className="px-4 py-2 rounded-full text-sm text-white/70 glass-border bg-white/[0.03] hover:bg-white/[0.08] hover:text-white transition-all text-left max-w-full truncate whitespace-nowrap overflow-hidden"
+                    className="px-4 py-2 rounded-2xl text-sm text-white/70 glass-border bg-white/[0.03] hover:bg-white/[0.08] hover:text-white transition-all text-left whitespace-normal break-words cursor-pointer"
                   >
                     {example}
                   </motion.button>
