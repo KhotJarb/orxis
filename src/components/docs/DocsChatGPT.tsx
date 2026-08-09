@@ -38,51 +38,44 @@ export default function DocsChatGPT() {
 
       {/* ── WHY CHATGPT EXCELS ────────────────────────────────────── */}
       <section id="why-chatgpt-excels" className="scroll-mt-24">
-        <h2>Why ChatGPT Excels</h2>
+        <h2>{t("chatgpt.whyExcels.title")}</h2>
         <p>
-          OpenAI&apos;s instruction-following fine-tuning has a distinct
-          architectural advantage: the model was explicitly trained to prioritize
-          the <strong>system prompt</strong> above all other context. This is
-          most visible in Section 1 (Role &amp; Identity), where ChatGPT
-          tends to maintain persona consistency — including the assigned
-          voice, expertise level, and decision-making style — even across
-          longer conversations.
+          {t("chatgpt.whyExcels.para1")}
+          <strong>{t("chatgpt.whyExcels.para1Strong")}</strong>
+          {t("chatgpt.whyExcels.para1After")}
         </p>
         <p>
-          GPT-4o&apos;s extended context window (128K tokens) also means your
-          entire instruction — including the verbose{" "}
-          <InlineCode>{"<self_reflection>"}</InlineCode> scaffolding in Section
-          3 — fits comfortably with room for thousands of turns of dialogue. The
-          model won&apos;t &quot;forget&quot; its role as the conversation
-          grows.
+          {t("chatgpt.whyExcels.para2")}
+          <InlineCode>{"<self_reflection>"}</InlineCode>
+          {t("chatgpt.whyExcels.para2Mid")}
         </p>
 
         <div className="my-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
           {[
             {
-              label: "Section 1 — Role & Identity",
-              note: "Strong persona locking via RLHF",
+              label: t("chatgpt.whyExcels.sec1Label"),
+              note: t("chatgpt.whyExcels.sec1Note"),
               color: "border-emerald-500/20 bg-emerald-500/[0.03]",
               tag: "★★★★★",
               tagColor: "text-emerald-400",
             },
             {
-              label: "Section 2 — Mission",
-              note: "Strong goal persistence across long contexts",
+              label: t("chatgpt.whyExcels.sec2Label"),
+              note: t("chatgpt.whyExcels.sec2Note"),
               color: "border-neon-cyan/20 bg-neon-cyan/[0.03]",
               tag: "★★★★☆",
               tagColor: "text-neon-cyan",
             },
             {
-              label: "Section 3 — Cognitive Loop",
-              note: "GPT-4o honors self_reflection; GPT-3.5 does not",
+              label: t("chatgpt.whyExcels.sec3Label"),
+              note: t("chatgpt.whyExcels.sec3Note"),
               color: "border-neon-purple/20 bg-neon-purple/[0.03]",
               tag: "★★★★☆",
               tagColor: "text-neon-purple-light",
             },
             {
-              label: "Section 5 — Boundaries",
-              note: "Reliable constraint adherence in GPT-4o",
+              label: t("chatgpt.whyExcels.sec5Label"),
+              note: t("chatgpt.whyExcels.sec5Note"),
               color: "border-amber-500/20 bg-amber-500/[0.03]",
               tag: "★★★★☆",
               tagColor: "text-amber-400",
@@ -99,14 +92,15 @@ export default function DocsChatGPT() {
           ))}
         </div>
 
-        <Callout variant="tip" title="Use GPT-4o, Not GPT-3.5">
+        <Callout variant="tip" title={t("chatgpt.whyExcels.tipTitle")}>
           <p>
-            GPT-4o honors the Cognitive Loop&apos;s{" "}
-            <InlineCode>{"<self_reflection>"}</InlineCode> directive
-            significantly better than GPT-3.5. With GPT-3.5, the model may
-            acknowledge the tag but perform only superficial reflection. Always
-            use <strong>GPT-4o</strong> or <strong>GPT-4o-mini</strong> for
-            structured instructions to get the full benefit of Section 3.
+            {t("chatgpt.whyExcels.tipPara")}
+            <InlineCode>{"<self_reflection>"}</InlineCode>
+            {t("chatgpt.whyExcels.tipParaMid")}
+            <strong>{t("chatgpt.whyExcels.tipParaStrong1")}</strong>
+            {t("chatgpt.whyExcels.tipParaOr")}
+            <strong>{t("chatgpt.whyExcels.tipParaStrong2")}</strong>
+            {t("chatgpt.whyExcels.tipParaAfter")}
           </p>
         </Callout>
       </section>
@@ -115,34 +109,36 @@ export default function DocsChatGPT() {
 
       {/* ── TWO-FIELD STRATEGY ────────────────────────────────────── */}
       <section id="two-field-strategy" className="scroll-mt-24">
-        <h2>The Two-Field Strategy</h2>
+        <h2>{t("chatgpt.twoField.title")}</h2>
         <p>
-          ChatGPT&apos;s Custom Instructions UI exposes two text fields. Rather
-          than splitting your instruction arbitrarily, map each section of your
-          Master Instruction to the field whose{" "}
-          <strong>semantic intent</strong> it matches. This produces the
-          strongest behavioral alignment:
+          {t("chatgpt.twoField.para1")}
+          <strong>{t("chatgpt.twoField.para1Strong")}</strong>
+          {t("chatgpt.twoField.para1After")}
         </p>
 
         <div className="my-6 space-y-4">
           {/* Field 1 */}
           <div className="rounded-xl border border-neon-cyan/20 bg-neon-cyan/[0.03] p-5">
             <p className="text-xs font-bold uppercase tracking-widest text-neon-cyan mb-2">
-              Field 1 — &quot;What would you like ChatGPT to know about you?&quot;
+              {t("chatgpt.twoField.field1Label")}
             </p>
             <p className="text-sm text-slate-300 mb-3">
-              This field sets the model&apos;s understanding of{" "}
-              <strong>who it is working with</strong> and{" "}
-              <strong>what kind of entity it should be</strong>. Paste:
+              {t("chatgpt.twoField.field1Desc")}
+              <strong>{t("chatgpt.twoField.field1Strong1")}</strong>
+              {t("chatgpt.twoField.field1And")}
+              <strong>{t("chatgpt.twoField.field1Strong2")}</strong>
+              {t("chatgpt.twoField.field1After")}
             </p>
             <ul className="text-sm text-slate-400 space-y-1.5">
               <li>
                 <span className="text-neon-cyan font-mono text-xs mr-2">→</span>
-                <strong className="text-slate-300">Section 1</strong> — Role &amp; Identity (the full persona block)
+                <strong className="text-slate-300">{t("chatgpt.twoField.field1List1Strong")}</strong>
+                {t("chatgpt.twoField.field1List1")}
               </li>
               <li>
                 <span className="text-neon-cyan font-mono text-xs mr-2">→</span>
-                <strong className="text-slate-300">Section 4</strong> — Context &amp; Input (your background, domain, and task environment)
+                <strong className="text-slate-300">{t("chatgpt.twoField.field1List2Strong")}</strong>
+                {t("chatgpt.twoField.field1List2")}
               </li>
             </ul>
           </div>
@@ -150,41 +146,47 @@ export default function DocsChatGPT() {
           {/* Field 2 */}
           <div className="rounded-xl border border-neon-purple/20 bg-neon-purple/[0.03] p-5">
             <p className="text-xs font-bold uppercase tracking-widest text-neon-purple-light mb-2">
-              Field 2 — &quot;How would you like ChatGPT to respond?&quot;
+              {t("chatgpt.twoField.field2Label")}
             </p>
             <p className="text-sm text-slate-300 mb-3">
-              This field governs <strong>behavior and output</strong>. Paste:
+              {t("chatgpt.twoField.field2Desc")}
+              <strong>{t("chatgpt.twoField.field2Strong")}</strong>
+              {t("chatgpt.twoField.field2After")}
             </p>
             <ul className="text-sm text-slate-400 space-y-1.5">
               <li>
                 <span className="text-neon-purple-light font-mono text-xs mr-2">→</span>
-                <strong className="text-slate-300">Section 2</strong> — Mission &amp; Objective
+                <strong className="text-slate-300">{t("chatgpt.twoField.field2List1Strong")}</strong>
+                {t("chatgpt.twoField.field2List1")}
               </li>
               <li>
                 <span className="text-neon-purple-light font-mono text-xs mr-2">→</span>
-                <strong className="text-slate-300">Section 3</strong> — The Cognitive Loop
+                <strong className="text-slate-300">{t("chatgpt.twoField.field2List2Strong")}</strong>
+                {t("chatgpt.twoField.field2List2")}
               </li>
               <li>
                 <span className="text-neon-purple-light font-mono text-xs mr-2">→</span>
-                <strong className="text-slate-300">Section 5</strong> — Boundaries &amp; Execution Rules
+                <strong className="text-slate-300">{t("chatgpt.twoField.field2List3Strong")}</strong>
+                {t("chatgpt.twoField.field2List3")}
               </li>
               <li>
                 <span className="text-neon-purple-light font-mono text-xs mr-2">→</span>
-                <strong className="text-slate-300">Section 6</strong> — Output Formatting
+                <strong className="text-slate-300">{t("chatgpt.twoField.field2List4Strong")}</strong>
+                {t("chatgpt.twoField.field2List4")}
               </li>
             </ul>
           </div>
         </div>
 
-        <Callout variant="note" title="Character Limit">
+        <Callout variant="note" title={t("chatgpt.twoField.limitTitle")}>
           <p>
-            ChatGPT&apos;s Custom Instructions UI has a limit of approximately{" "}
-            <strong>1,500 characters per field</strong> (3,000 total). If your
-            generated instruction exceeds this — which is common for detailed
-            instructions — you have two options: inject the full instruction
-            via the <strong>OpenAI API</strong> as a system message, or use{" "}
-            <strong>ChatGPT Projects</strong>, which accepts unlimited
-            instruction text.
+            {t("chatgpt.twoField.limitPara")}
+            <strong>{t("chatgpt.twoField.limitStrong1")}</strong>
+            {t("chatgpt.twoField.limitMid1")}
+            <strong>{t("chatgpt.twoField.limitStrong2")}</strong>
+            {t("chatgpt.twoField.limitMid2")}
+            <strong>{t("chatgpt.twoField.limitStrong3")}</strong>
+            {t("chatgpt.twoField.limitAfter")}
           </p>
         </Callout>
       </section>
@@ -193,15 +195,14 @@ export default function DocsChatGPT() {
 
       {/* ── STEP-BY-STEP SETUP ────────────────────────────────────── */}
       <section id="step-by-step-setup" className="scroll-mt-24">
-        <h2>Step-by-Step Setup</h2>
+        <h2>{t("chatgpt.stepByStep.title")}</h2>
         <p>
-          Follow these steps to activate your custom instruction in the ChatGPT
-          web UI (chatgpt.com):
+          {t("chatgpt.stepByStep.para")}
         </p>
 
         <div className="space-y-3 my-5">
-          <Step number={1} title="Open Settings">
-            Navigate to{" "}
+          <Step number={1} title={t("chatgpt.stepByStep.step1Title")}>
+            {t("chatgpt.stepByStep.step1Before")}
             <a
               href="https://chatgpt.com"
               target="_blank"
@@ -209,35 +210,40 @@ export default function DocsChatGPT() {
               className="text-neon-cyan"
             >
               chatgpt.com
-            </a>{" "}
-            and sign in. Click your <strong>avatar</strong> (profile picture) in
-            the top-right corner of the sidebar, then select{" "}
-            <InlineCode>Settings</InlineCode> from the dropdown menu.
+            </a>
+            {t("chatgpt.stepByStep.step1Mid1")}
+            <strong>{t("chatgpt.stepByStep.step1Strong")}</strong>
+            {t("chatgpt.stepByStep.step1Mid2")}
+            <InlineCode>Settings</InlineCode>
+            {t("chatgpt.stepByStep.step1After")}
           </Step>
-          <Step number={2} title="Enable Custom Instructions">
-            In the Settings modal, navigate to{" "}
-            <InlineCode>Personalization</InlineCode> →{" "}
-            <InlineCode>Custom Instructions</InlineCode>. Toggle the switch to{" "}
-            <InlineCode>ON</InlineCode> if it isn&apos;t already enabled. This
-            unlocks the two text fields described above.
+          <Step number={2} title={t("chatgpt.stepByStep.step2Title")}>
+            {t("chatgpt.stepByStep.step2Before")}
+            <InlineCode>Personalization</InlineCode>
+            {t("chatgpt.stepByStep.step2Mid1")}
+            <InlineCode>Custom Instructions</InlineCode>
+            {t("chatgpt.stepByStep.step2Mid2")}
+            <InlineCode>ON</InlineCode>
+            {t("chatgpt.stepByStep.step2After")}
           </Step>
-          <Step number={3} title="Paste your instruction split across the two fields">
-            Following the Two-Field Strategy above, paste{" "}
-            <strong>Sections 1 + 4</strong> into Field 1 and{" "}
-            <strong>Sections 2 + 3 + 5 + 6</strong> into Field 2. Click{" "}
-            <InlineCode>Save</InlineCode>. Your instruction is now active for
-            all new ChatGPT conversations.
+          <Step number={3} title={t("chatgpt.stepByStep.step3Title")}>
+            {t("chatgpt.stepByStep.step3Before")}
+            <strong>{t("chatgpt.stepByStep.step3Strong1")}</strong>
+            {t("chatgpt.stepByStep.step3Mid")}
+            <strong>{t("chatgpt.stepByStep.step3Strong2")}</strong>
+            {t("chatgpt.stepByStep.step3After1")}
+            <InlineCode>Save</InlineCode>
+            {t("chatgpt.stepByStep.step3After2")}
           </Step>
         </div>
 
-        <Callout variant="warning" title="Global Scope Warning">
+        <Callout variant="warning" title={t("chatgpt.stepByStep.warningTitle")}>
           <p>
-            ChatGPT&apos;s Custom Instructions apply to{" "}
-            <strong>every new chat</strong> — there is no per-conversation
-            toggle. If you need different personas for different tasks (e.g., a
-            coding expert for one project and a writing coach for another), use{" "}
-            <strong>ChatGPT Projects</strong> to isolate contexts. Each Project
-            has its own independent system instruction.
+            {t("chatgpt.stepByStep.warningPara")}
+            <strong>{t("chatgpt.stepByStep.warningStrong1")}</strong>
+            {t("chatgpt.stepByStep.warningMid")}
+            <strong>{t("chatgpt.stepByStep.warningStrong2")}</strong>
+            {t("chatgpt.stepByStep.warningAfter")}
           </p>
         </Callout>
       </section>
@@ -246,52 +252,43 @@ export default function DocsChatGPT() {
 
       {/* ── CHATGPT PROJECTS ──────────────────────────────────────── */}
       <section id="chatgpt-projects" className="scroll-mt-24">
-        <h2>Using with ChatGPT Projects</h2>
+        <h2>{t("chatgpt.projects.title")}</h2>
         <p>
-          <strong>Projects</strong> are ChatGPT&apos;s most powerful deployment
-          mechanism for custom instructions. Unlike the global Custom
-          Instructions field, Projects allow you to paste your{" "}
-          <strong>complete Master Instruction without any character limit</strong>{" "}
-          and scope it to a dedicated workspace. Each Project maintains its own
-          instruction, file context (via uploaded documents), and conversation
-          history — making it ideal for role-specific or client-specific
-          deployments.
+          {t("chatgpt.projects.para")}
+          <strong>{t("chatgpt.projects.paraStrong1")}</strong>
+          {t("chatgpt.projects.paraMid1")}
+          <strong>{t("chatgpt.projects.paraStrong2")}</strong>
+          {t("chatgpt.projects.paraAfter")}
         </p>
 
         <div className="space-y-3 my-5">
-          <Step number={1} title="Create a new Project">
-            In the ChatGPT sidebar, click{" "}
-            <InlineCode>New project</InlineCode> (or the{" "}
-            <InlineCode>+</InlineCode> icon next to &quot;Projects&quot;). Give
-            it a descriptive name that reflects the persona — e.g.,{" "}
-            &quot;Senior TypeScript Engineer&quot; or &quot;Product Strategy
-            Advisor&quot;.
+          <Step number={1} title={t("chatgpt.projects.step1Title")}>
+            {t("chatgpt.projects.step1Before")}
+            <InlineCode>New project</InlineCode>
+            {t("chatgpt.projects.step1Mid1")}
+            <InlineCode>+</InlineCode>
+            {t("chatgpt.projects.step1Mid2")}
           </Step>
-          <Step number={2} title="Add project instructions">
-            Inside the Project, click{" "}
-            <InlineCode>Add instructions</InlineCode> (visible in the Project
-            overview panel on the right). A full-size text editor will open with
-            no character limit.
+          <Step number={2} title={t("chatgpt.projects.step2Title")}>
+            {t("chatgpt.projects.step2Before")}
+            <InlineCode>Add instructions</InlineCode>
+            {t("chatgpt.projects.step2After")}
           </Step>
-          <Step number={3} title="Paste the full Master Instruction">
-            Copy your complete generated instruction from the Output Studio and
-            paste it directly into the Project instructions editor — no splitting
-            required. Click <InlineCode>Save</InlineCode>.
+          <Step number={3} title={t("chatgpt.projects.step3Title")}>
+            {t("chatgpt.projects.step3Before")}
+            <InlineCode>Save</InlineCode>
+            {t("chatgpt.projects.step3After")}
           </Step>
-          <Step number={4} title="Start a conversation inside the Project">
-            Every new conversation you begin inside this Project automatically
-            inherits the instruction. You can create multiple Projects with
-            different personas and switch between them at any time.
+          <Step number={4} title={t("chatgpt.projects.step4Title")}>
+            {t("chatgpt.projects.step4Desc")}
           </Step>
         </div>
 
-        <Callout variant="tip" title="Upload Reference Files to Projects">
+        <Callout variant="tip" title={t("chatgpt.projects.tipTitle")}>
           <p>
-            Projects also support <strong>file uploads</strong>. Upload your
-            codebase, documentation, or style guides alongside your Master
-            Instruction — GPT-4o will consult them as additional context when
-            answering questions, dramatically increasing accuracy for
-            domain-specific tasks.
+            {t("chatgpt.projects.tipPara")}
+            <strong>{t("chatgpt.projects.tipStrong")}</strong>
+            {t("chatgpt.projects.tipAfter")}
           </p>
         </Callout>
       </section>
@@ -300,17 +297,15 @@ export default function DocsChatGPT() {
 
       {/* ── API INTEGRATION ───────────────────────────────────────── */}
       <section id="api-integration" className="scroll-mt-24">
-        <h2>API Integration</h2>
+        <h2>{t("chatgpt.api.title")}</h2>
         <p>
-          For production applications, inject your Master Instruction as the{" "}
-          <InlineCode>system</InlineCode> message in the OpenAI Chat Completions
-          API. This approach has no character limits, gives you full control over
-          the model and temperature, and works identically with the OpenAI Python
-          SDK, Node.js SDK, or any HTTP client.
+          {t("chatgpt.api.para")}
+          <InlineCode>system</InlineCode>
+          {t("chatgpt.api.paraMid")}
         </p>
 
         <h3 id="api-python-example" className="scroll-mt-24">
-          Python SDK Example
+          {t("chatgpt.api.pythonTitle")}
         </h3>
 
         <CodeBlock language="python" filename="chatgpt_integration.py">
@@ -357,13 +352,12 @@ print(response.choices[0].message.content)`}
         </CodeBlock>
 
         <h3 id="api-streaming-example" className="scroll-mt-24 mt-8">
-          Streaming Responses
+          {t("chatgpt.api.streamingTitle")}
         </h3>
         <p>
-          For chat applications, enable streaming to progressively render the
-          model&apos;s output — especially useful since the{" "}
-          <InlineCode>{"<self_reflection>"}</InlineCode> block adds latency
-          before the visible response begins:
+          {t("chatgpt.api.streamingPara")}
+          <InlineCode>{"<self_reflection>"}</InlineCode>
+          {t("chatgpt.api.streamingMid")}
         </p>
 
         <CodeBlock language="python" filename="chatgpt_streaming.py">
@@ -387,27 +381,27 @@ for chunk in stream:
         print(delta, end="", flush=True)`}
         </CodeBlock>
 
-        <Callout variant="important" title="System Message Position">
+        <Callout variant="important" title={t("chatgpt.api.importantTitle")}>
           <p>
-            Always place the Master Instruction as the{" "}
-            <strong>first message</strong> in the{" "}
-            <InlineCode>messages</InlineCode> array with{" "}
-            <InlineCode>{`role: "system"`}</InlineCode>. OpenAI&apos;s model
-            treats the system message as highest-priority context — placing it
-            later in the array, or mixing it with user messages, will degrade
-            instruction adherence significantly.
+            {t("chatgpt.api.importantPara")}
+            <strong>{t("chatgpt.api.importantStrong")}</strong>
+            {t("chatgpt.api.importantMid1")}
+            <InlineCode>messages</InlineCode>
+            {t("chatgpt.api.importantMid2")}
+            <InlineCode>{`role: "system"`}</InlineCode>
+            {t("chatgpt.api.importantAfter")}
           </p>
         </Callout>
       </section>
 
       {/* ── Bottom nav ─────────────────────────────────────────────── */}
       <div className="mt-12 rounded-xl border border-white/[0.07] bg-white/[0.02] p-5">
-        <p className="text-xs uppercase tracking-wider text-slate-600 mb-1">Next</p>
+        <p className="text-xs uppercase tracking-wider text-slate-600 mb-1">{t("chatgpt.nextLabel")}</p>
         <Link
           href="/docs?page=claude"
           className="font-semibold text-white hover:text-neon-cyan transition-colors"
         >
-          Claude Guide →
+          {t("chatgpt.nextLink")}
         </Link>
       </div>
 

@@ -310,7 +310,135 @@
     "badge": "Platform Guides",
     "title": "Using Instructions with ChatGPT",
     "introPara1": "This guide covers setting up your Orxis-generated instruction in ChatGPT, including both the System Prompt method (via API or the Playground) and the Custom Instructions feature available to ChatGPT Plus subscribers.",
-    "introPara2": "This guide covers every method available for deploying your custom instruction in ChatGPT: the native Custom Instructions UI, Projects, and the OpenAI API — so you can choose the workflow that best fits your use case."
+    "introPara2": "This guide covers every method available for deploying your custom instruction in ChatGPT: the native Custom Instructions UI, Projects, and the OpenAI API — so you can choose the workflow that best fits your use case.",
+    "whyExcels": {
+      "title": "Why ChatGPT Excels",
+      "para1": "OpenAI's instruction-following fine-tuning has a distinct architectural advantage: the model was explicitly trained to prioritize the ",
+      "para1Strong": "system prompt",
+      "para1After": " above all other context. This is most visible in Section 1 (Role & Identity), where ChatGPT tends to maintain persona consistency — including the assigned voice, expertise level, and decision-making style — even across longer conversations.",
+      "para2": "GPT-4o's extended context window (128K tokens) also means your entire instruction — including the verbose ",
+      "para2Mid": " scaffolding in Section 3 — fits comfortably with room for thousands of turns of dialogue. The model won't \"forget\" its role as the conversation grows.",
+      "sec1Label": "Section 1 — Role & Identity",
+      "sec1Note": "Strong persona locking via RLHF",
+      "sec2Label": "Section 2 — Mission",
+      "sec2Note": "Strong goal persistence across long contexts",
+      "sec3Label": "Section 3 — Cognitive Loop",
+      "sec3Note": "GPT-4o honors self_reflection; GPT-3.5 does not",
+      "sec5Label": "Section 5 — Boundaries",
+      "sec5Note": "Reliable constraint adherence in GPT-4o",
+      "tipTitle": "Use GPT-4o, Not GPT-3.5",
+      "tipPara": "GPT-4o honors the Cognitive Loop's ",
+      "tipParaMid": " directive significantly better than GPT-3.5. With GPT-3.5, the model may acknowledge the tag but perform only superficial reflection. Always use ",
+      "tipParaStrong1": "GPT-4o",
+      "tipParaOr": " or ",
+      "tipParaStrong2": "GPT-4o-mini",
+      "tipParaAfter": " for structured instructions to get the full benefit of Section 3."
+    },
+    "twoField": {
+      "title": "The Two-Field Strategy",
+      "para1": "ChatGPT's Custom Instructions UI exposes two text fields. Rather than splitting your instruction arbitrarily, map each section of your Master Instruction to the field whose ",
+      "para1Strong": "semantic intent",
+      "para1After": " it matches. This produces the strongest behavioral alignment:",
+      "field1Label": "Field 1 — \"What would you like ChatGPT to know about you?\"",
+      "field1Desc": "This field sets the model's understanding of ",
+      "field1Strong1": "who it is working with",
+      "field1And": " and ",
+      "field1Strong2": "what kind of entity it should be",
+      "field1After": ". Paste:",
+      "field1List1Strong": "Section 1",
+      "field1List1": " — Role & Identity (the full persona block)",
+      "field1List2Strong": "Section 4",
+      "field1List2": " — Context & Input (your background, domain, and task environment)",
+      "field2Label": "Field 2 — \"How would you like ChatGPT to respond?\"",
+      "field2Desc": "This field governs ",
+      "field2Strong": "behavior and output",
+      "field2After": ". Paste:",
+      "field2List1Strong": "Section 2",
+      "field2List1": " — Mission & Objective",
+      "field2List2Strong": "Section 3",
+      "field2List2": " — The Cognitive Loop",
+      "field2List3Strong": "Section 5",
+      "field2List3": " — Boundaries & Execution Rules",
+      "field2List4Strong": "Section 6",
+      "field2List4": " — Output Formatting",
+      "limitTitle": "Character Limit",
+      "limitPara": "ChatGPT's Custom Instructions UI has a limit of approximately ",
+      "limitStrong1": "1,500 characters per field",
+      "limitMid1": " (3,000 total). If your generated instruction exceeds this — which is common for detailed instructions — you have two options: inject the full instruction via the ",
+      "limitStrong2": "OpenAI API",
+      "limitMid2": " as a system message, or use ",
+      "limitStrong3": "ChatGPT Projects",
+      "limitAfter": ", which accepts unlimited instruction text."
+    },
+    "stepByStep": {
+      "title": "Step-by-Step Setup",
+      "para": "Follow these steps to activate your custom instruction in the ChatGPT web UI (chatgpt.com):",
+      "step1Title": "Open Settings",
+      "step1Before": "Navigate to ",
+      "step1Mid1": " and sign in. Click your ",
+      "step1Strong": "avatar",
+      "step1Mid2": " (profile picture) in the top-right corner of the sidebar, then select ",
+      "step1After": " from the dropdown menu.",
+      "step2Title": "Enable Custom Instructions",
+      "step2Before": "In the Settings modal, navigate to ",
+      "step2Mid1": " → ",
+      "step2Mid2": ". Toggle the switch to ",
+      "step2After": " if it isn't already enabled. This unlocks the two text fields described above.",
+      "step3Title": "Paste your instruction split across the two fields",
+      "step3Before": "Following the Two-Field Strategy above, paste ",
+      "step3Strong1": "Sections 1 + 4",
+      "step3Mid": " into Field 1 and ",
+      "step3Strong2": "Sections 2 + 3 + 5 + 6",
+      "step3After1": " into Field 2. Click ",
+      "step3After2": ". Your instruction is now active for all new ChatGPT conversations.",
+      "warningTitle": "Global Scope Warning",
+      "warningPara": "ChatGPT's Custom Instructions apply to ",
+      "warningStrong1": "every new chat",
+      "warningMid": " — there is no per-conversation toggle. If you need different personas for different tasks (e.g., a coding expert for one project and a writing coach for another), use ",
+      "warningStrong2": "ChatGPT Projects",
+      "warningAfter": " to isolate contexts. Each Project has its own independent system instruction."
+    },
+    "projects": {
+      "title": "Using with ChatGPT Projects",
+      "para": "",
+      "paraStrong1": "Projects",
+      "paraMid1": " are ChatGPT's most powerful deployment mechanism for custom instructions. Unlike the global Custom Instructions field, Projects allow you to paste your ",
+      "paraStrong2": "complete Master Instruction without any character limit",
+      "paraAfter": " and scope it to a dedicated workspace. Each Project maintains its own instruction, file context (via uploaded documents), and conversation history — making it ideal for role-specific or client-specific deployments.",
+      "step1Title": "Create a new Project",
+      "step1Before": "In the ChatGPT sidebar, click ",
+      "step1Mid1": " (or the ",
+      "step1Mid2": " icon next to \"Projects\"). Give it a descriptive name that reflects the persona — e.g., \"Senior TypeScript Engineer\" or \"Product Strategy Advisor\".",
+      "step2Title": "Add project instructions",
+      "step2Before": "Inside the Project, click ",
+      "step2After": " (visible in the Project overview panel on the right). A full-size text editor will open with no character limit.",
+      "step3Title": "Paste the full Master Instruction",
+      "step3Before": "Copy your complete generated instruction from the Output Studio and paste it directly into the Project instructions editor — no splitting required. Click ",
+      "step3After": ".",
+      "step4Title": "Start a conversation inside the Project",
+      "step4Desc": "Every new conversation you begin inside this Project automatically inherits the instruction. You can create multiple Projects with different personas and switch between them at any time.",
+      "tipTitle": "Upload Reference Files to Projects",
+      "tipPara": "Projects also support ",
+      "tipStrong": "file uploads",
+      "tipAfter": ". Upload your codebase, documentation, or style guides alongside your Master Instruction — GPT-4o will consult them as additional context when answering questions, dramatically increasing accuracy for domain-specific tasks."
+    },
+    "api": {
+      "title": "API Integration",
+      "para": "For production applications, inject your Master Instruction as the ",
+      "paraMid": " message in the OpenAI Chat Completions API. This approach has no character limits, gives you full control over the model and temperature, and works identically with the OpenAI Python SDK, Node.js SDK, or any HTTP client.",
+      "pythonTitle": "Python SDK Example",
+      "streamingTitle": "Streaming Responses",
+      "streamingPara": "For chat applications, enable streaming to progressively render the model's output — especially useful since the ",
+      "streamingMid": " block adds latency before the visible response begins:",
+      "importantTitle": "System Message Position",
+      "importantPara": "Always place the Master Instruction as the ",
+      "importantStrong": "first message",
+      "importantMid1": " in the ",
+      "importantMid2": " array with ",
+      "importantAfter": ". OpenAI's model treats the system message as highest-priority context — placing it later in the array, or mixing it with user messages, will degrade instruction adherence significantly."
+    },
+    "nextLabel": "Next",
+    "nextLink": "Claude Guide →"
   },
   "claude": {
     "badge": "Platform Guides",
@@ -322,7 +450,143 @@
     "introPara1Mid3": "tags, Claude doesn't merely see them as formatting — it uses them as",
     "introPara1Strong2": "architectural scaffolding for its reasoning chain",
     "introPara1After": ", producing deeper, more structured analysis than many other models.",
-    "introPara2": "Claude 3.5 Sonnet and Claude 3.7 Sonnet (with extended thinking) take this further — combining the Cognitive Loop with native reasoning transparency produces highly auditable, structured outputs."
+    "introPara2": "Claude 3.5 Sonnet and Claude 3.7 Sonnet (with extended thinking) take this further — combining the Cognitive Loop with native reasoning transparency produces highly auditable, structured outputs.",
+    "whyExcels": {
+      "title": "Why Claude Excels",
+      "para1": {
+        "before": "Anthropic trained Claude using ",
+        "strong1": "Constitutional AI (CAI)",
+        "mid": " — a process in which the model was given a set of principles and asked to critique and revise its own outputs against them. This training was conducted using ",
+        "strong2": "XML-tagged feedback pairs",
+        "after": ": the model was shown its reasoning inside structured XML blocks and learned to treat those blocks as first-class cognitive artifacts, not decorative markup."
+      },
+      "para2": {
+        "before": "The practical consequence is that Claude processes the ",
+        "mid": " tags in your generated Section 3 as ",
+        "strong": "genuine internal reasoning directives",
+        "after": ". It will follow the multi-point evaluation rubric inside the tags before constructing its visible response — creating a two-layer output where the hidden reasoning layer materially improves the quality of what the user sees."
+      },
+      "cards": [
+        {
+          "label": "Section 3 — Cognitive Loop",
+          "note": "XML tags processed as native reasoning scaffolds"
+        },
+        {
+          "label": "Section 1 — Role & Identity",
+          "note": "Strong persona adoption with constitutional grounding"
+        },
+        {
+          "label": "Section 5 — Boundaries",
+          "note": "Excellent constraint adherence from CAI training"
+        },
+        {
+          "label": "Section 6 — Output Formatting",
+          "note": "Strong Markdown structure compliance"
+        }
+      ],
+      "cogLoopLabel": "Section 3 — Cognitive Loop",
+      "cogLoopNote": "XML tags processed as native reasoning scaffolds",
+      "roleLabel": "Section 1 — Role & Identity",
+      "roleNote": "Strong persona adoption with constitutional grounding",
+      "boundLabel": "Section 5 — Boundaries",
+      "boundNote": "Excellent constraint adherence from CAI training",
+      "formatLabel": "Section 6 — Output Formatting",
+      "formatNote": "Strong Markdown structure compliance"
+    },
+    "projects": {
+      "title": "Claude.ai Projects (Recommended)",
+      "para": {
+        "before": "The best way to deploy your Master Instruction with Claude is through ",
+        "strong1": "Projects",
+        "mid": " on claude.ai. Projects give your instruction a permanent home — it is automatically prepended to every conversation you start inside the Project, without you having to paste it manually. This is particularly powerful with Claude because ",
+        "strong2": "200K-token context window",
+        "after": " means your entire instruction history, including appended documents, fits with room to spare."
+      },
+      "step1": {
+        "title": "Navigate to Projects",
+        "before": "Go to ",
+        "mid1": " and sign in. In the ",
+        "strong": "left sidebar",
+        "mid2": ", click ",
+        "after": ". If you don't see it, ensure you're on a Pro or Team plan — Projects require a paid account."
+      },
+      "step2": {
+        "title": "Create a new Project",
+        "before": "Click ",
+        "mid": " (or the ",
+        "after": " button). Give it a descriptive name — e.g., \"Research Analyst\" or \"Principal Engineer\". This name helps you quickly identify which instruction set is active."
+      },
+      "step3": {
+        "title": "Add project instructions",
+        "before": "Inside the Project view, click ",
+        "after": " (visible in the right-hand panel or at the top of the Project page). A full editor opens — paste your complete Master Instruction here. There is no character limit."
+      },
+      "step4": {
+        "title": "Save and start a conversation",
+        "before": "Click ",
+        "after": ". Every new conversation started inside this Project will automatically receive your Master Instruction as its system context. Claude will honor it for the entire session without any re-pasting."
+      },
+      "callout": {
+        "title": "Projects Preserve Instructions Permanently",
+        "before": "Unlike pasting at the start of a chat, Project instructions are ",
+        "strong": "stored server-side indefinitely",
+        "after": ". You can update them at any time by returning to the Project and editing the instructions field. Claude's 200K-token context window means your entire instruction — including all six sections — fits comfortably alongside thousands of turns of conversation history."
+      }
+    },
+    "directChat": {
+      "title": "Direct Chat Method",
+      "para1": "For quick tests, one-off sessions, or if you're on the free plan without access to Projects, you can paste the Master Instruction directly into a new Claude conversation. Claude will honor it for the entire session, no Projects setup required.",
+      "para2": {
+        "before": "The workflow is simple: open a new chat, paste your complete Master Instruction as your ",
+        "strong1": "first message",
+        "mid": ", send it, and then on your ",
+        "strong2": "second message",
+        "after": " send your actual request. Claude treats the first message as a context-setting primer and will operate within the defined persona and constraints from that point forward."
+      },
+      "callout": {
+        "title": "Session-Scoped Only",
+        "text": "The direct chat method only persists for the duration of that specific conversation. If you start a new chat, you'll need to paste the instruction again. For repeated use of the same persona, Projects are strongly recommended over this method."
+      }
+    },
+    "xmlAdvantage": {
+      "title": "The XML Advantage",
+      "para1": "Section 3 of your generated instruction — The Cognitive Loop — uses XML tags as a structured internal reasoning scaffold. Here is what a typical Cognitive Loop block looks like and how Claude interprets it:",
+      "para2": {
+        "before": "When Claude reads this block, it doesn't produce the ",
+        "mid": " XML in its output (unless explicitly instructed to). Instead, it uses the internal structure as a ",
+        "strong": "reasoning template",
+        "after": " — executing each sub-tag as a discrete thinking step before constructing its reply. The result is a response that has been implicitly evaluated against a 5-point rubric, checked for persona consistency, and verified against formatting rules — all before the user sees a single word."
+      },
+      "callout": {
+        "title": "Add <thinking> Tags for Visible Reasoning",
+        "before": "On Claude 3.5 Sonnet and later, you can add ",
+        "mid1": " to your instruction to expose Claude's reasoning chain visibly in its output. Combine this with the Cognitive Loop for detailed transparency: ",
+        "code": "Before responding, show your reasoning inside <thinking> tags.",
+        "after": " This makes Claude's evaluation rubric auditable — ideal for high-stakes decisions or teaching contexts."
+      }
+    },
+    "apiIntegration": {
+      "title": "API Integration",
+      "para1": {
+        "before": "For production applications, use the ",
+        "strong": "Anthropic Python SDK",
+        "mid": " to inject your Master Instruction as the ",
+        "after": " parameter. Anthropic's API treats the system prompt as a first-class parameter — not a message in the conversation array — which gives it the highest priority in the model's attention."
+      },
+      "streaming": {
+        "title": "Streaming with Extended Thinking",
+        "before": "Claude 3.7 Sonnet supports ",
+        "strong": "extended thinking",
+        "after": " — a first-class API feature that gives Claude dedicated compute for deep reasoning before responding. This combines powerfully with your Cognitive Loop:"
+      },
+      "callout": {
+        "title": "Temperature Constraint for Extended Thinking",
+        "before": "When using Claude's extended thinking mode, Anthropic requires ",
+        "after": ". This does not reduce instruction adherence — the extended thinking budget provides structured exploration, and the Cognitive Loop in your system instruction provides the evaluation rubric that guides it."
+      }
+    },
+    "next": "Next",
+    "nextLink": "Gemini Guide →"
   },
   "gemini": {
     "badge": "Platform Guides",

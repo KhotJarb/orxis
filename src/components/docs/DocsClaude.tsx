@@ -43,52 +43,44 @@ export default function DocsClaude() {
 
       {/* ── WHY CLAUDE EXCELS ─────────────────────────────────────── */}
       <section id="why-claude-excels" className="scroll-mt-24">
-        <h2>Why Claude Excels</h2>
+        <h2>{t("claude.whyExcels.title")}</h2>
         <p>
-          Anthropic trained Claude using{" "}
-          <strong>Constitutional AI (CAI)</strong> — a process in which the model
-          was given a set of principles and asked to critique and revise its own
-          outputs against them. This training was conducted using{" "}
-          <strong>XML-tagged feedback pairs</strong>: the model was shown its
-          reasoning inside structured XML blocks and learned to treat those
-          blocks as first-class cognitive artifacts, not decorative markup.
+          {t("claude.whyExcels.para1.before")}{" "}
+          <strong>{t("claude.whyExcels.para1.strong1")}</strong>{t("claude.whyExcels.para1.mid")}{" "}
+          <strong>{t("claude.whyExcels.para1.strong2")}</strong>{t("claude.whyExcels.para1.after")}
         </p>
         <p>
-          The practical consequence is that Claude processes the{" "}
-          <InlineCode>{"<self_reflection>"}</InlineCode> tags in your generated
-          Section 3 as <strong>genuine internal reasoning directives</strong>.
-          It will follow the multi-point evaluation rubric inside the tags
-          before constructing its visible response — creating a two-layer output
-          where the hidden reasoning layer materially improves the quality of
-          what the user sees.
+          {t("claude.whyExcels.para2.before")}{" "}
+          <InlineCode>{"<self_reflection>"}</InlineCode>{t("claude.whyExcels.para2.mid")}{" "}
+          <strong>{t("claude.whyExcels.para2.strong")}</strong>{t("claude.whyExcels.para2.after")}
         </p>
 
         <div className="my-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
           {[
             {
-              label: "Section 3 — Cognitive Loop",
-              note: "XML tags processed as native reasoning scaffolds",
+              label: t("claude.whyExcels.cogLoopLabel"),
+              note: t("claude.whyExcels.cogLoopNote"),
               color: "border-emerald-500/20 bg-emerald-500/[0.03]",
               tag: "★★★★★",
               tagColor: "text-emerald-400",
             },
             {
-              label: "Section 1 — Role & Identity",
-              note: "Strong persona adoption with constitutional grounding",
+              label: t("claude.whyExcels.roleLabel"),
+              note: t("claude.whyExcels.roleNote"),
               color: "border-neon-cyan/20 bg-neon-cyan/[0.03]",
               tag: "★★★★★",
               tagColor: "text-neon-cyan",
             },
             {
-              label: "Section 5 — Boundaries",
-              note: "Excellent constraint adherence from CAI training",
+              label: t("claude.whyExcels.boundLabel"),
+              note: t("claude.whyExcels.boundNote"),
               color: "border-neon-purple/20 bg-neon-purple/[0.03]",
               tag: "★★★★☆",
               tagColor: "text-neon-purple-light",
             },
             {
-              label: "Section 6 — Output Formatting",
-              note: "Strong Markdown structure compliance",
+              label: t("claude.whyExcels.formatLabel"),
+              note: t("claude.whyExcels.formatNote"),
               color: "border-amber-500/20 bg-amber-500/[0.03]",
               tag: "★★★★☆",
               tagColor: "text-amber-400",
@@ -110,21 +102,16 @@ export default function DocsClaude() {
 
       {/* ── CLAUDE.AI PROJECTS ────────────────────────────────────── */}
       <section id="claude-projects" className="scroll-mt-24">
-        <h2>Claude.ai Projects (Recommended)</h2>
+        <h2>{t("claude.projects.title")}</h2>
         <p>
-          The best way to deploy your Master Instruction with Claude is through{" "}
-          <strong>Projects</strong> on claude.ai. Projects give your instruction
-          a permanent home — it is automatically prepended to every conversation
-          you start inside the Project, without you having to paste it manually.
-          This is particularly powerful with Claude because{" "}
-          <strong>200K-token context window</strong> means your entire
-          instruction history, including appended documents, fits with room to
-          spare.
+          {t("claude.projects.para.before")}{" "}
+          <strong>{t("claude.projects.para.strong1")}</strong>{t("claude.projects.para.mid")}{" "}
+          <strong>{t("claude.projects.para.strong2")}</strong>{t("claude.projects.para.after")}
         </p>
 
         <div className="space-y-3 my-5">
-          <Step number={1} title="Navigate to Projects">
-            Go to{" "}
+          <Step number={1} title={t("claude.projects.step1.title")}>
+            {t("claude.projects.step1.before")}{" "}
             <a
               href="https://claude.ai"
               target="_blank"
@@ -133,39 +120,26 @@ export default function DocsClaude() {
             >
               claude.ai
             </a>{" "}
-            and sign in. In the <strong>left sidebar</strong>, click{" "}
-            <InlineCode>Projects</InlineCode>. If you don&apos;t see it, ensure
-            you&apos;re on a Pro or Team plan — Projects require a paid account.
+            {t("claude.projects.step1.mid1")} <strong>{t("claude.projects.step1.strong")}</strong>{t("claude.projects.step1.mid2")}{" "}
+            <InlineCode>Projects</InlineCode>{t("claude.projects.step1.after")}
           </Step>
-          <Step number={2} title="Create a new Project">
-            Click <InlineCode>New Project</InlineCode> (or the{" "}
-            <InlineCode>+</InlineCode> button). Give it a descriptive name —
-            e.g., &quot;Research Analyst&quot; or &quot;Principal Engineer&quot;.
-            This name helps you quickly identify which instruction set is active.
+          <Step number={2} title={t("claude.projects.step2.title")}>
+            {t("claude.projects.step2.before")} <InlineCode>New Project</InlineCode> {t("claude.projects.step2.mid")}{" "}
+            <InlineCode>+</InlineCode>{t("claude.projects.step2.after")}
           </Step>
-          <Step number={3} title="Add project instructions">
-            Inside the Project view, click{" "}
-            <InlineCode>Add project instructions</InlineCode> (visible in the
-            right-hand panel or at the top of the Project page). A full editor
-            opens — paste your complete Master Instruction here. There is no
-            character limit.
+          <Step number={3} title={t("claude.projects.step3.title")}>
+            {t("claude.projects.step3.before")}{" "}
+            <InlineCode>Add project instructions</InlineCode>{t("claude.projects.step3.after")}
           </Step>
-          <Step number={4} title="Save and start a conversation">
-            Click <InlineCode>Save</InlineCode>. Every new conversation started
-            inside this Project will automatically receive your Master
-            Instruction as its system context. Claude will honor it for the
-            entire session without any re-pasting.
+          <Step number={4} title={t("claude.projects.step4.title")}>
+            {t("claude.projects.step4.before")} <InlineCode>Save</InlineCode>{t("claude.projects.step4.after")}
           </Step>
         </div>
 
-        <Callout variant="important" title="Projects Preserve Instructions Permanently">
+        <Callout variant="important" title={t("claude.projects.callout.title")}>
           <p>
-            Unlike pasting at the start of a chat, Project instructions are{" "}
-            <strong>stored server-side indefinitely</strong>. You can update them
-            at any time by returning to the Project and editing the instructions
-            field. Claude&apos;s 200K-token context window means your entire
-            instruction — including all six sections — fits comfortably alongside
-            thousands of turns of conversation history.
+            {t("claude.projects.callout.before")}{" "}
+            <strong>{t("claude.projects.callout.strong")}</strong>{t("claude.projects.callout.after")}
           </p>
         </Callout>
       </section>
@@ -174,28 +148,19 @@ export default function DocsClaude() {
 
       {/* ── DIRECT CHAT METHOD ────────────────────────────────────── */}
       <section id="direct-chat-method" className="scroll-mt-24">
-        <h2>Direct Chat Method</h2>
+        <h2>{t("claude.directChat.title")}</h2>
         <p>
-          For quick tests, one-off sessions, or if you&apos;re on the free plan
-          without access to Projects, you can paste the Master Instruction
-          directly into a new Claude conversation. Claude will honor it for the
-          entire session, no Projects setup required.
+          {t("claude.directChat.para1")}
         </p>
         <p>
-          The workflow is simple: open a new chat, paste your complete Master
-          Instruction as your <strong>first message</strong>, send it, and then
-          on your <strong>second message</strong> send your actual request.
-          Claude treats the first message as a context-setting primer and will
-          operate within the defined persona and constraints from that point
-          forward.
+          {t("claude.directChat.para2.before")}{" "}
+          <strong>{t("claude.directChat.para2.strong1")}</strong>{t("claude.directChat.para2.mid")}{" "}
+          <strong>{t("claude.directChat.para2.strong2")}</strong>{t("claude.directChat.para2.after")}
         </p>
 
-        <Callout variant="note" title="Session-Scoped Only">
+        <Callout variant="note" title={t("claude.directChat.callout.title")}>
           <p>
-            The direct chat method only persists for the duration of that
-            specific conversation. If you start a new chat, you&apos;ll need to
-            paste the instruction again. For repeated use of the same persona,
-            Projects are strongly recommended over this method.
+            {t("claude.directChat.callout.text")}
           </p>
         </Callout>
       </section>
@@ -204,11 +169,9 @@ export default function DocsClaude() {
 
       {/* ── THE XML ADVANTAGE ─────────────────────────────────────── */}
       <section id="xml-advantage" className="scroll-mt-24">
-        <h2>The XML Advantage</h2>
+        <h2>{t("claude.xmlAdvantage.title")}</h2>
         <p>
-          Section 3 of your generated instruction — The Cognitive Loop — uses
-          XML tags as a structured internal reasoning scaffold. Here is what a
-          typical Cognitive Loop block looks like and how Claude interprets it:
+          {t("claude.xmlAdvantage.para1")}
         </p>
 
         <CodeBlock language="xml" filename="Section 3 — Cognitive Loop (excerpt)">
@@ -241,27 +204,18 @@ Before generating any response, you MUST reason silently using this structure:
         </CodeBlock>
 
         <p>
-          When Claude reads this block, it doesn&apos;t produce the{" "}
-          <InlineCode>{"<self_reflection>"}</InlineCode> XML in its output
-          (unless explicitly instructed to). Instead, it uses the internal
-          structure as a <strong>reasoning template</strong> — executing each
-          sub-tag as a discrete thinking step before constructing its reply. The
-          result is a response that has been implicitly evaluated against a
-          5-point rubric, checked for persona consistency, and verified against
-          formatting rules — all before the user sees a single word.
+          {t("claude.xmlAdvantage.para2.before")}{" "}
+          <InlineCode>{"<self_reflection>"}</InlineCode>{t("claude.xmlAdvantage.para2.mid")}{" "}
+          <strong>{t("claude.xmlAdvantage.para2.strong")}</strong>{t("claude.xmlAdvantage.para2.after")}
         </p>
 
-        <Callout variant="tip" title="Add &lt;thinking&gt; Tags for Visible Reasoning">
+        <Callout variant="tip" title={t("claude.xmlAdvantage.callout.title")}>
           <p>
-            On Claude 3.5 Sonnet and later, you can add{" "}
-            <InlineCode>{"<thinking>"}</InlineCode> to your instruction to expose
-            Claude&apos;s reasoning chain visibly in its output. Combine this
-            with the Cognitive Loop for detailed transparency:{" "}
+            {t("claude.xmlAdvantage.callout.before")}{" "}
+            <InlineCode>{"<thinking>"}</InlineCode>{t("claude.xmlAdvantage.callout.mid1")}{" "}
             <InlineCode>
-              {"Before responding, show your reasoning inside <thinking> tags."}
-            </InlineCode>{" "}
-            This makes Claude&apos;s evaluation rubric auditable — ideal for
-            high-stakes decisions or teaching contexts.
+              {t("claude.xmlAdvantage.callout.code")}
+            </InlineCode>{t("claude.xmlAdvantage.callout.after")}
           </p>
         </Callout>
       </section>
@@ -270,14 +224,11 @@ Before generating any response, you MUST reason silently using this structure:
 
       {/* ── API INTEGRATION ───────────────────────────────────────── */}
       <section id="api-integration" className="scroll-mt-24">
-        <h2>API Integration</h2>
+        <h2>{t("claude.apiIntegration.title")}</h2>
         <p>
-          For production applications, use the{" "}
-          <strong>Anthropic Python SDK</strong> to inject your Master Instruction
-          as the <InlineCode>system</InlineCode> parameter. Anthropic&apos;s API
-          treats the system prompt as a first-class parameter — not a message in
-          the conversation array — which gives it the highest priority in the
-          model&apos;s attention.
+          {t("claude.apiIntegration.para1.before")}{" "}
+          <strong>{t("claude.apiIntegration.para1.strong")}</strong>{t("claude.apiIntegration.para1.mid")}{" "}
+          <InlineCode>system</InlineCode>{t("claude.apiIntegration.para1.after")}
         </p>
 
         <CodeBlock language="python" filename="claude_integration.py">
@@ -332,13 +283,11 @@ print(message.content[0].text)`}
         </CodeBlock>
 
         <h3 id="api-streaming" className="scroll-mt-24 mt-8">
-          Streaming with Extended Thinking
+          {t("claude.apiIntegration.streaming.title")}
         </h3>
         <p>
-          Claude 3.7 Sonnet supports{" "}
-          <strong>extended thinking</strong> — a first-class API feature that
-          gives Claude dedicated compute for deep reasoning before responding.
-          This combines powerfully with your Cognitive Loop:
+          {t("claude.apiIntegration.streaming.before")}{" "}
+          <strong>{t("claude.apiIntegration.streaming.strong")}</strong>{t("claude.apiIntegration.streaming.after")}
         </p>
 
         <CodeBlock language="python" filename="claude_extended_thinking.py">
@@ -372,25 +321,22 @@ for block in response.content:
         print(block.text)`}
         </CodeBlock>
 
-        <Callout variant="important" title="Temperature Constraint for Extended Thinking">
+        <Callout variant="important" title={t("claude.apiIntegration.callout.title")}>
           <p>
-            When using Claude&apos;s extended thinking mode, Anthropic requires{" "}
-            <InlineCode>temperature=1</InlineCode>. This does not reduce
-            instruction adherence — the extended thinking budget provides
-            structured exploration, and the Cognitive Loop in your system
-            instruction provides the evaluation rubric that guides it.
+            {t("claude.apiIntegration.callout.before")}{" "}
+            <InlineCode>temperature=1</InlineCode>{t("claude.apiIntegration.callout.after")}
           </p>
         </Callout>
       </section>
 
       {/* ── Bottom nav ─────────────────────────────────────────────── */}
       <div className="mt-12 rounded-xl border border-white/[0.07] bg-white/[0.02] p-5">
-        <p className="text-xs uppercase tracking-wider text-slate-600 mb-1">Next</p>
+        <p className="text-xs uppercase tracking-wider text-slate-600 mb-1">{t("claude.next")}</p>
         <Link
           href="/docs?page=gemini"
           className="font-semibold text-white hover:text-neon-cyan transition-colors"
         >
-          Gemini Guide →
+          {t("claude.nextLink")}
         </Link>
       </div>
 
