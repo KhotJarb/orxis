@@ -1,0 +1,122 @@
+{
+  "nav": {
+    "dropdowns": {
+      "products": "Products",
+      "resources": "Resources"
+    },
+    "items": {
+      "generator": "Generator",
+      "features": "Features",
+      "howItWorks": "How It Works",
+      "useCases": "Use Cases",
+      "pricing": "Pricing",
+      "documentation": "Documentation",
+      "promptGallery": "Prompt Gallery",
+      "changelog": "Changelog",
+      "aboutUs": "About Us",
+      "supportFaq": "Support & FAQ"
+    },
+    "getStarted": "Get Started",
+    "toggleMenu": "Toggle menu"
+  },
+  "footer": {
+    "description": "A structured instruction generator for developers, creators, and AI engineers. Free to use and community-supported.",
+    "columns": {
+      "product": "Product",
+      "resources": "Resources",
+      "legal": "Legal",
+      "social": "Social"
+    },
+    "links": {
+      "generator": "Generator",
+      "features": "Features",
+      "howItWorks": "How It Works",
+      "useCases": "Use Cases",
+      "pricing": "Pricing",
+      "documentation": "Documentation",
+      "promptGallery": "Prompt Gallery",
+      "changelog": "Changelog",
+      "aboutUs": "About Us",
+      "supportFaq": "Support & FAQ",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "license": "License",
+      "github": "GitHub"
+    },
+    "social": {
+      "supportFaq": "Support & FAQ",
+      "email": "Email"
+    },
+    "copyright": "© {{year}} Orxis. All rights reserved.",
+    "supportProject": "Support the Project"
+  },
+  "generatePage": {
+    "header": {
+      "badge": "AI Assistant Builder",
+      "title": "Build Your",
+      "titleHighlight": "AI Assistant",
+      "quickModeSubtitle": "Describe what you want in your own words — we'll build it for you.",
+      "stepsModeSubtitle": "Answer a few questions and we'll generate a complete AI assistant profile."
+    },
+    "modes": {
+      "quickMode": "Quick Mode",
+      "stepByStep": "Step-by-Step",
+      "takeTour": "Take the tour"
+    }
+  },
+  "onboarding": {
+    "welcome": {
+      "title": "Welcome to Orxis",
+      "description": "Orxis helps you build a complete AI assistant profile in minutes — no account needed, totally free. Just answer a few questions and copy the result into Gemini, ChatGPT, or Claude.",
+      "tip": "You can skip any step you want — every field is optional."
+    },
+    "step1": {
+      "title": "Step 1 — Pick Your Direction",
+      "description": "Start by describing what you need your AI assistant for — or tap a category like \"Content Creation\" or \"Business\" to get domain-specific suggestions throughout the wizard.",
+      "tip": "Choosing a category pre-fills relevant presets, but you can always type your own."
+    },
+    "step23": {
+      "title": "Step 2 & 3 — Persona & Task",
+      "description": "Choose the AI's expert role (like \"Scriptwriter\" or \"Business Analyst\") and what you want it to do (like \"Script Writing\" or \"Market Analysis\"). The presets adapt to your chosen domain.",
+      "tip": "Click \"Show all presets\" to see options from every domain."
+    },
+    "step4": {
+      "title": "Step 4 — Your Context",
+      "description": "Tell the AI about your channel, company, or project. This makes the generated assistant way more tailored — but it's totally optional if you want a general-purpose one.",
+      "tip": "Try \"Fill with example\" to see what kind of details work best."
+    },
+    "step7": {
+      "title": "Step 7 — Shortcuts",
+      "description": "Create reusable prompt templates with {{variables}} you fill in each time. For example: \"Generate {{count}} video ideas about {{topic}}\". These are included in your final output.",
+      "tip": "Click \"✨ Suggest for me\" to get domain-specific templates instantly."
+    },
+    "output": {
+      "title": "Your Output — Ready to Paste",
+      "description": "After generating, you'll get a complete AI assistant profile with a name, description, full instructions, conversation starters, and shortcuts. Use the platform tabs (Gems · GPTs · Projects) to see it formatted for each platform.",
+      "tip": "Each field has its own copy button, or use \"Copy Everything\" at the bottom."
+    },
+    "ui": {
+      "progress": "{{current}} of {{total}}",
+      "skip": "Skip tour",
+      "back": "Back",
+      "next": "Next",
+      "finish": "Let's go!"
+    }
+  },
+  "theme": {
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark",
+    "aria": {
+      "group": "Theme preference",
+      "switchTo": "Switch to {{theme}} theme"
+    }
+  },
+  "language": {
+    "change": "Change language"
+  },
+  "meta": {
+    "title": "Orxis | Orchestrate AI with Strict Boundaries",
+    "description": "Orxis is a structured AI custom instruction generator. Define precise roles, cognitive loops, and output boundaries for ChatGPT, Claude, Gemini, and other LLMs."
+  }
+}

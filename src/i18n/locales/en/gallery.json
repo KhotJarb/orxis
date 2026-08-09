@@ -1,0 +1,119 @@
+{
+  "gallery": {
+    "header": {
+      "badge": "Prompt Gallery",
+      "title": "The Instruction ",
+      "titleHighlight": "Vault.",
+      "description": "Structured instruction templates, ready to paste. Click any card to view and copy the full six-section framework.",
+      "submitButton": "Submit Prompt"
+    },
+    "sidebar": {
+      "searchPlaceholder": "Search prompts...",
+      "categoryLabel": "Category",
+      "hint": "Click any card to view the full master instruction and copy it to your clipboard."
+    },
+    "emptyState": {
+      "message": "No prompts match",
+      "clearFilters": "Clear filters"
+    },
+    "card": {
+      "communityBadge": "Community",
+      "viewPrompt": "View Prompt"
+    },
+    "drawer": {
+      "masterInstruction": "Master Instruction — Full Source",
+      "copied": "Copied to clipboard!",
+      "copy": "Copy Full Instruction",
+      "pasteHint": "Paste directly into ChatGPT, Claude, or Gemini"
+    },
+    "categories": {
+      "all": "All",
+      "software-dev": "Software Dev",
+      "content-strategy": "Content Strategy",
+      "creative-design": "Creative Design",
+      "data-analytics": "Data & Analytics",
+      "marketing": "Marketing",
+      "education": "Education",
+      "business": "Business",
+      "research": "Research",
+      "writing": "Writing & Editing",
+      "other": "Other",
+      "community": "Community"
+    },
+    "prompts": {
+      "clean-code-master": {
+        "title": "Clean Code & Refactoring Master",
+        "snippet": "Assume the role of a Principal Software Engineer obsessed with SOLID principles and algorithmic efficiency, transforming legacy code into clean, testable architecture.",
+        "tags": {
+          "refactoring": "Refactoring",
+          "solid": "SOLID",
+          "cleanCode": "Clean Code",
+          "testing": "Testing"
+        }
+      },
+      "viral-strategist": {
+        "title": "Viral Short-Form Strategist",
+        "snippet": "Assume the role of an elite TikTok/YouTube Shorts retention analyst who engineers psychological hooks, platform compliance, and dopamine-driven pacing.",
+        "tags": {
+          "tiktok": "TikTok",
+          "youtube": "YouTube",
+          "hooks": "Hooks",
+          "copywriting": "Copywriting"
+        }
+      },
+      "pixar-avatar-director": {
+        "title": "Pixar-Style 3D Avatar Director",
+        "snippet": "Assume the role of a Lead 3D Character Rigger and Midjourney Expert maintaining strict visual consistency across multi-layered character aesthetics.",
+        "tags": {
+          "midjourney": "Midjourney",
+          "3d": "3D",
+          "characterDesign": "Character Design",
+          "promptEngineering": "Prompt Engineering"
+        }
+      }
+    }
+  },
+  "submit": {
+    "success": {
+      "title": "Your prompt is in the forge.",
+      "description": "Our team will review it for quality before it goes live. We'll be in touch.",
+      "closing": "Closing automatically…"
+    },
+    "modal": {
+      "headerTitle": "Share Your Framework",
+      "headerSubtitle": "Contribute to the community vault",
+      "fields": {
+        "title": {
+          "label": "Title",
+          "placeholder": "Name your Master Instruction"
+        },
+        "description": {
+          "label": "Description",
+          "placeholder": "A one-line summary shown on the gallery card…",
+          "hint": "This appears as the card's visible description in the gallery."
+        },
+        "category": {
+          "label": "Category"
+        },
+        "author": {
+          "label": "Author / Handle",
+          "optional": "(optional)",
+          "placeholder": "Your name or @x_handle"
+        },
+        "tags": {
+          "label": "Tags",
+          "optional": "(optional)",
+          "placeholder": "e.g. SOLID, Testing, Python",
+          "hint": "Separate tags with commas."
+        },
+        "prompt": {
+          "label": "Full Master Instruction",
+          "placeholder": "# 1. Role & Identity\nPaste your full 6-section Master Instruction here…"
+        }
+      },
+      "disclaimer": "All submissions are reviewed by our team before publishing to ensure great quality. We may lightly edit for formatting.",
+      "submitButton": "Submit for Review",
+      "submittingButton": "Submitting…"
+    }
+  }
+}

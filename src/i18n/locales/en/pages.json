@@ -1,0 +1,261 @@
+{
+  "about": {
+    "badge": "Our Philosophy",
+    "title": "We Don't Just Prompt.",
+    "titleHighlight": "We Orchestrate.",
+    "subtitle": "Built to bridge the gap between raw AI potential and professional, multi-channel workflow execution.",
+    "origin": {
+      "label": "The Origin",
+      "quote": "“It started with a need for control.”",
+      "p1": "Whether managing multiple short-form content channels, defining strict logic boundaries for software development, or crafting precise visual prompts — generic AI outputs were too variable, too easily derailed, and too surface-level for professional use.",
+      "p2": "We built this framework to turn a general-purpose model into a focused, rule-bound engine. One that separates <1>role</1> from <2>mission</2>, <3>context</3> from <4>output</4>, and <5>opinion</5> from <6>fact</6> — at the prompt layer, before any conversation begins.",
+      "p3": "The result is an instruction architecture that doesn't just guide AI — it constrains it with purpose."
+    },
+    "graphCaption": "Instruction Orchestration Graph",
+    "principles": {
+      "label": "Core Principles",
+      "title": "What guides every decision.",
+      "items": {
+        "boundaries": {
+          "title": "Strict Boundaries",
+          "body": "AI is only as reliable as the constraints it operates within. Each instruction set defines hard limits: verified facts first, no conflation of metrics and opinion, structured fallback behavior when inputs are ambiguous."
+        },
+        "adaptability": {
+          "title": "Multi-Channel Adaptability",
+          "body": "The same core framework pivots cleanly from backend architecture planning to short-form content strategy. Role isolation and context scoping keep each deployment focused without bleed-over."
+        },
+        "functionality": {
+          "title": "Pure Functionality",
+          "body": "No decorative framing. Just a structured cognitive loop that requires the model to reason through context before generating output — reducing the surface area for drift and generic hedging."
+        }
+      }
+    }
+  },
+  "pricing": {
+    "badge": "Pricing",
+    "title": "Advanced Framework.",
+    "titleHighlight": "Free Access.",
+    "subtitle": "Experience elite AI intelligence. Generate your master instructions at no cost — right now, today.",
+    "freeCard": {
+      "badge": "Current Offering",
+      "price": "$0",
+      "period": "/ always",
+      "description": "No credit card. No account. No expiry.",
+      "features": [
+        "Generate Master Instructions instantly",
+        "All six-section master framework",
+        "Platform guides for ChatGPT, Claude & Gemini",
+        "No account or login required",
+        "Copy-ready output, always"
+      ],
+      "cta": "Start Generating"
+    },
+    "supporterCard": {
+      "badge": "Support the Developer",
+      "label": "Choose your amount",
+      "description": "Love the tool? Help keep the servers running and fuel the next wave of features — a Prompt Gallery, team workspaces, and smarter generation models.",
+      "perks": [
+        "Priority access to upcoming features",
+        "Keep the core tool free for everyone",
+        "Direct influence on the product roadmap"
+      ],
+      "cta": "Support with {{amount}}",
+      "toastCopied": "{{amount}} copied — paste it into the amount field ✓",
+      "toastDefault": "Processed securely via Buy Me a Coffee"
+    },
+    "faq": {
+      "title": "Common Questions",
+      "subtitle": "Everything you need to know before getting started.",
+      "items": {
+        "free": {
+          "q": "Is the generator free to use?",
+          "a": "Yes — the core generation engine is completely free for everyone to access and use, right now. No credit card, no signup, no strings attached."
+        },
+        "account": {
+          "q": "Do I need to create an account?",
+          "a": "Nope. Just open the generator, complete the four-step wizard, and copy your master instruction directly into ChatGPT, Claude, Gemini, or any AI of your choice. Zero friction."
+        },
+        "donation": {
+          "q": "Where does donation money go?",
+          "a": "100% goes directly into covering server costs, LLM API usage, and funding the next wave of advanced features — smarter generation models, a full prompt gallery, and team collaboration tools."
+        }
+      }
+    }
+  },
+  "support": {
+    "badge": "Support",
+    "title": "Questions & Feedback.",
+    "subtitle": "Find answers to common questions about the generator, or share your suggestions to help us improve the tool.",
+    "faq": {
+      "label": "Frequently Asked Questions",
+      "items": {
+        "q1": {
+          "q": "Will the AI follow these instructions perfectly every time?",
+          "a": "Not unconditionally. This framework significantly improves AI adherence and consistency, but Large Language Models inherently have variation in their outputs. You may still need to review responses occasionally and guide the model back on track, especially on longer sessions or edge-case inputs."
+        },
+        "q2": {
+          "q": "Is my input data saved or used for training?",
+          "a": "No. The core generation process runs locally in your browser or through a stateless API call. We do not store your raw inputs or generated instructions. The only exception is if you explicitly choose to submit a prompt to the Community Gallery — that action requires your deliberate consent."
+        },
+        "q3": {
+          "q": "Can I use the generated instructions for non-English prompts?",
+          "a": "Yes. The structural logic of the framework applies across languages. For best results, specify your target language in the Role & Identity section (Section 1), and the model will generally maintain that language throughout the session."
+        },
+        "q4": {
+          "q": "Do I need to pay to use the tool?",
+          "a": "The core generation features are currently free to use. The project runs on community support and voluntary donations to cover operational costs. There is no paywall for the generator at this time."
+        }
+      }
+    },
+    "feedback": {
+      "title": "Have a Suggestion?",
+      "description": "We are constantly refining the generator based on real-world use cases. While we don't have the capacity to respond to every message individually, we read all feedback carefully to inform future updates.",
+      "cta": "Share Feedback"
+    }
+  },
+  "useCases": {
+    "badge": "Use Cases",
+    "title": "Built for Every",
+    "titleHighlight": "Professional.",
+    "subtitle": "See how the instruction framework adapts to your specific workflow — and why generic AI prompts are holding you back.",
+    "professions": {
+      "developers": {
+        "label": "Software & Game Developers",
+        "shortLabel": "Developers",
+        "tagline": "From scattered LLM outputs to architectural precision.",
+        "problem": {
+          "heading": "The Problem",
+          "body": "LLMs lose track of complex game state logic, API architectures, and strict typing rules across long sessions. Every new chat resets the context entirely — you end up re-explaining your stack, your conventions, and your constraints instead of actually building. The result is inconsistent code, forgotten interfaces, and an AI that confidently contradicts the architecture you defined two messages ago.",
+          "tags": ["Context Drift", "No Type Safety", "Lost State Logic", "Convention Amnesia"]
+        },
+        "solution": {
+          "heading": "The Solution",
+          "body": "Your generated instruction locks the AI into your stack, design patterns, and quality standards. It's directed to map all logic trees, state transitions, and type hierarchies before writing a single line. The result isn't just code — it's code that fits your architecture as if written by a senior engineer who's been on your team for months.",
+          "tags": ["FastAPI Precision", "Game State Persistence", "Strict TypeScript", "Architectural Awareness"]
+        },
+        "benefits": [
+          "Significantly reduced architectural drift across sessions",
+          "No more re-explaining your stack from scratch",
+          "Consistently structured, higher-quality output from the start"
+        ],
+        "cta": "Try the Developer Generator"
+      },
+      "creators": {
+        "label": "Digital Content Creators",
+        "shortLabel": "Creators",
+        "tagline": "From generic AI scripts to platform-optimised content.",
+        "problem": {
+          "heading": "The Problem",
+          "body": "AI generates robotic, monotone scripts that fail to capture attention in the first 3 seconds — the critical window for short-form video. It ignores platform-specific pacing, psychological hook structures, and the unwritten algorithmic rules that separate viral content from content that gets buried. The result sounds like AI wrote it, because it did.",
+          "tags": ["Robotic Tone", "No Hook Structure", "Platform Ignorance", "Algorithmic Blindness"]
+        },
+        "solution": {
+          "heading": "The Solution",
+          "body": "The framework transforms the AI into a content strategist with strong platform awareness. It's directed to engineer the psychological hook, structure the tension-payoff arc, and evaluate every output against platform pacing principles and retention best practices before producing a single word. Your scripts will feel handcrafted — because the AI is held to the same standards a top-tier ghostwriter would be.",
+          "tags": ["Hook Architecture", "Platform Compliance", "Viewer Psychology", "Retention Engineering"]
+        },
+        "benefits": [
+          "Hooks engineered to land in the first 3 seconds",
+          "Platform-specific best practices built into every instruction",
+          "Tone and pacing that match your channel's voice"
+        ],
+        "cta": "Try the Creator Generator"
+      },
+      "prompters": {
+        "label": "Digital Prompt Engineers",
+        "shortLabel": "Prompt Engineers",
+        "tagline": "From inconsistent generations to a locked visual identity.",
+        "problem": {
+          "heading": "The Problem",
+          "body": "Midjourney and image AI prompts produce visually inconsistent results across a project. Character design drifts between generations, lighting is arbitrary, and your carefully established aesthetic resets with every new prompt. You end up spending more time fixing inconsistencies than actually creating — and the moment you pass prompts to a client or team member, the visual identity collapses entirely.",
+          "tags": ["Character Drift", "Inconsistent Style", "No Visual System", "Aesthetic Collapse"]
+        },
+        "solution": {
+          "heading": "The Solution",
+          "body": "The instruction structures a multi-layered visual prompt architecture that functions like a style guide for your AI. It promotes consistent adherence to your chosen aesthetic — cinematic lighting ratios, Pixar-style shading, specific character lore, or fine-art compositional rules — across generations. Your visual identity becomes a structured, transferable system, not a lucky accident.",
+          "tags": ["Style Locking", "Character Consistency", "Cinematic Formatting", "Transferable System"]
+        },
+        "benefits": [
+          "Visual identity locked across all generations",
+          "Stop re-building your style reference from scratch",
+          "Shareable prompt system your whole team can use"
+        ],
+        "cta": "Try the Prompt Engineer Generator"
+      }
+    },
+    "keyBenefits": "Key Benefits",
+    "previewLabel": "Generated Instruction Preview",
+    "previewCaption": "Real output from our AI generator engine",
+    "filename": "master_instruction.md"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your preferences for the Orxis application.",
+    "sidebar": {
+      "appearance": "Appearance"
+    },
+    "theme": {
+      "title": "Theme",
+      "description": "Choose how Orxis looks. System follows your OS preference.",
+      "system": "System",
+      "light": "Light",
+      "dark": "Dark",
+      "current": "Current preference: <1>{{theme}}</1>. Changes apply immediately and are saved to your browser."
+    },
+    "accent": {
+      "title": "Accent Color",
+      "description": "Custom accent colours — coming in a future update.",
+      "soon": "Soon"
+    }
+  },
+  "changelog": {
+    "meta": {
+      "title": "Changelog | Orxis",
+      "description": "New updates and improvements to the Orxis platform. A complete record of releases, fixes, and architectural changes."
+    },
+    "badge": "Orxis Platform",
+    "title": "Changelog",
+    "subtitle": "New updates and improvements to the Orxis ecosystem.",
+    "footer": "Orxis follows <1>Semantic Versioning</1>. Entries are listed in reverse chronological order.",
+    "categories": {
+      "features": "Features",
+      "design": "Design",
+      "platform": "Platform",
+      "legal": "Legal & Transparency",
+      "documentation": "Documentation"
+    },
+    "releases": {
+      "v0.1.0": {
+        "overview": "This release establishes the foundational platform architecture, design system, and all core user-facing features. Orxis operates entirely in the browser — no accounts, no API keys, and no data leaves the device.",
+        "items": {
+          "features": [
+            "Launched the core Orxis instruction generator. The entire generation pipeline runs client-side — no server processes your input, and no credentials are required to use the tool.",
+            "Introduced a six-section instruction architecture — Role & Identity, Mission, Cognitive Loop, Context & Input, Boundaries & Execution Rules, and Output Formatting — that produces structured, paste-ready system prompts.",
+            "Built the Output Studio: a dedicated interface for reviewing, copying, and inspecting the generated instruction by section. Includes a live character count.",
+            "Added a Before/After comparison on the landing page, demonstrating the practical difference between an unstructured and a structured AI response to the same prompt.",
+            "Added a Prompt Gallery at /gallery for browsing and referencing instruction templates contributed by the community.",
+            "Published a Use Cases section covering practical workflows for software developers, content creators, and prompt engineers."
+          ],
+          "design": [
+            "Introduced the Orxis visual identity: a custom logo mark, a Periwinkle-to-Violet gradient accent system, and a dark-first interface designed for extended use sessions.",
+            "Applied a consistent theming system across every page, ensuring coherent colour, spacing, and typography throughout the product.",
+            "Card and surface elements use a glassmorphism treatment — frosted depth layers, subtle borders, and neon accent highlights on interaction states — to maintain clear visual hierarchy."
+          ],
+          "platform": [
+            "The app is installable directly from your browser as a Progressive Web App on supported desktop and mobile devices — no app store required.",
+            "Added a Settings page with a structured layout, ready to expand as new configuration options are introduced in future updates."
+          ],
+          "legal": [
+            "Published Privacy Policy, Terms of Service, and License pages — each accessible from the site footer.",
+            "The Privacy Policy documents our local-first data model: your inputs are processed entirely within the browser session and are never transmitted to or stored on external servers.",
+            "The Terms of Service defines acceptable use in plain, specific language. The License page clarifies usage rights for the platform and for prompts you generate."
+          ],
+          "documentation": [
+            "Launched the Orxis documentation hub at /docs, covering a quick-start guide and a detailed reference for each of the six instruction sections.",
+            "Published per-model integration guides for ChatGPT, Claude, and Gemini, covering recommended setup methods and platform-specific behaviours relevant to structured instruction use."
+          ]
+        }
+      }
+    }
+  }
+}

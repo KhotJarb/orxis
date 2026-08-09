@@ -18,6 +18,7 @@ import {
   Briefcase,
   Tag,
 } from "lucide-react";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -178,8 +179,9 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Desktop CTA */}
-            <div className="hidden md:block ml-auto">
+            {/* Desktop CTA + Language */}
+            <div className="hidden md:flex items-center gap-3 ml-auto">
+              <LanguageSwitcher />
               <a
                 href="/generate"
                 className="glow-btn inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold text-[var(--text-heading)] transition-all duration-300 hover:scale-105"
@@ -270,17 +272,27 @@ export default function Navbar() {
                 </motion.div>
               ))}
 
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navDropdowns.length * 0.1, duration: 0.3 }}
+                className="mt-3 flex items-center gap-3"
+              >
+                <LanguageSwitcher />
+              </motion.div>
+
               <motion.a
                 href="/generate"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: navDropdowns.length * 0.1, duration: 0.3 }}
+                transition={{ delay: navDropdowns.length * 0.1 + 0.05, duration: 0.3 }}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="glow-btn mt-3 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white"
               >
                 Get Started
               </motion.a>
             </div>
+
           </motion.div>
         )}
       </AnimatePresence>

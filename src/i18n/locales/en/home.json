@@ -1,0 +1,178 @@
+{
+  "hero": {
+    "badge": "AI-Powered Instruction Engine",
+    "titleLine1": "Shape the",
+    "titleLine2": "Perfect AI Mind",
+    "description": "Craft precise, powerful custom instructions for any AI model. Our intelligent generator helps you build the perfect system prompt to unlock AI's full potential.",
+    "ctaPrimary": "Start Generating",
+    "ctaSecondary": "See How It Works"
+  },
+  "bento": {
+    "badge": "Understanding the Core",
+    "title": "What is a",
+    "titleHighlight": "Custom Instruction",
+    "titleQuestionMark": "?",
+    "description": "The most powerful and underused feature in AI today. Here's everything you need to know, in one place.",
+    "card1": {
+      "title": "The DNA of Your AI",
+      "subtitle": "Core Definition",
+      "p1": "A Custom Instruction is a <1>persistent set of directives</1> you give to an AI assistant that shapes its behavior, personality, and output format for <2>every single conversation</2>. Think of it as programming the AI's identity layer.",
+      "p2": "It tells the model exactly who to be, how to think, and what rules to follow — before you even ask your first question. Unlike regular prompts that apply to a single message, Custom Instructions persist across all interactions, creating a consistently tailored experience that feels like working with a specialist, not a generalist.",
+      "p3": "When crafted properly, a Custom Instruction can transform a generic chatbot into a senior engineer who writes production-ready code, a writing coach who mirrors your exact voice and style, or a strategic advisor who reasons consistently within your defined framework.",
+      "footer": "Also known as: System Prompts, Meta Prompts, AI Personas, Behavioral Directives"
+    },
+    "card2": {
+      "title": "The Secret Sauce",
+      "subtitle": "Constraints & Rules",
+      "p1": "The real power lies in constraints. By defining what the AI should <1>NOT</1> do, you paradoxically make it better:",
+      "list": [
+        "Eliminate fluff and filler phrases",
+        "Enforce specific output formats",
+        "Set domain-specific boundaries",
+        "Control response length & detail",
+        "Discourage hallucinated citations",
+        "Lock in consistent terminology"
+      ]
+    },
+    "card3": {
+      "title": "Universal Compatibility",
+      "subtitle": "Works Everywhere",
+      "p1": "Our generated instructions are model-agnostic. Paste them into any AI assistant's system prompt or custom instructions field and get immediate results."
+    },
+    "card4": {
+      "title": "The Anatomy",
+      "subtitle": "The Four Pillars",
+      "p1": "Every master custom instruction is built on four foundational pillars. Our generator crafts each one for you through an interactive wizard — no prompt engineering expertise required.",
+      "pillars": {
+        "persona": { "label": "Persona", "desc": "Who the AI is" },
+        "task": { "label": "Task", "desc": "What it does" },
+        "tone": { "label": "Tone", "desc": "How it speaks" },
+        "rules": { "label": "Rules", "desc": "What it follows" }
+      },
+      "footer": "Each pillar is independent but interconnected. A strong Persona without clear Rules still produces inconsistent output. Our engine ensures all four work in harmony."
+    }
+  },
+  "features": {
+    "title": "Built for",
+    "titleHighlight": "Perfection",
+    "description": "Every feature is engineered to produce structured, consistent custom instructions — no prompt engineering expertise required.",
+    "items": {
+      "cognitiveLoop": {
+        "title": "The Cognitive Loop",
+        "subtitle": "Self-Reflection AI",
+        "description": "The engine doesn't just generate — it evaluates, critiques, and refines its own output to produce a more structured, well-considered result."
+      },
+      "personaElevation": {
+        "title": "Persona Elevation",
+        "subtitle": "Expert-Level Identity",
+        "description": "Transform generic AI responses into expert-caliber output by crafting the perfect identity, expertise scope, and behavioral framework for your assistant."
+      },
+      "zeroCost": {
+        "title": "Zero-Cost Optimization",
+        "subtitle": "Free Forever",
+        "description": "No API keys, no subscriptions, no hidden fees. Get professional-grade custom instructions completely free with our intelligent client-side engine."
+      },
+      "instantFormat": {
+        "title": "Instant Format Perfection",
+        "subtitle": "Output Architecture",
+        "description": "One-click format rules ensure every AI response follows your exact structure — bullet points, headers, code blocks, tables — you name it."
+      }
+    }
+  },
+  "howItWorks": {
+    "badge": "The Pipeline",
+    "title": "How It",
+    "titleHighlight": "Works",
+    "description": "Three steps. Zero complexity. One masterpiece.",
+    "steps": {
+      "step1": {
+        "title": "Input Your Vision",
+        "subtitle": "The Extraction",
+        "description": "Answer four intuitive questions about your ideal AI persona, task, tone, and rules. No prompt engineering knowledge required — just your intent."
+      },
+      "step2": {
+        "title": "AI Architect Processes It",
+        "subtitle": "The Forge",
+        "description": "Our meta-prompting engine analyzes your preferences, applies cognitive loops, and architects a comprehensive system prompt with zero manual effort."
+      },
+      "step3": {
+        "title": "Get Your Masterpiece",
+        "subtitle": "The Output",
+        "description": "Receive a precision-crafted custom instruction ready to paste into any AI assistant. Tweak it further with one-click refinements in our Output Studio."
+      }
+    }
+  },
+  "beforeAfter": {
+    "badge": "See the Difference",
+    "title": "The",
+    "titleHighlight": "Impact",
+    "titleEnd": "is Massive",
+    "description": "Same question, same AI model, dramatically different results.",
+    "toggle": {
+      "without": "Without CI",
+      "with": "With Master Prompt"
+    },
+    "promptLabel": "Prompt: ",
+    "promptText": "\"Explain React hooks to me\"",
+    "before": {
+      "fileName": "generic-response.txt",
+      "footer": "Generic • Unstructured • No actionable takeaways • Wall of text"
+    },
+    "after": {
+      "fileName": "master-response.md",
+      "footer": "Structured • Expert-Level • Actionable • Tables & Warnings Included"
+    },
+    "stats": {
+      "structured": {
+        "stat": "10×",
+        "label": "More Structured"
+      },
+      "filler": {
+        "stat": "95%",
+        "label": "Less Filler"
+      },
+      "actionable": {
+        "stat": "100%",
+        "label": "Actionable"
+      },
+      "reusable": {
+        "stat": "∞",
+        "label": "Reusable"
+      }
+    }
+  },
+  "useCaseTeaser": {
+    "title": "Endless",
+    "titleHighlight": "Possibilities.",
+    "description": "A framework powerful enough for any complex workflow.",
+    "cards": {
+      "devs": {
+        "title": "Software & Game Devs",
+        "snippet": "Maintain complex state architectures, strict syntax rules, and deep logic hierarchies — consistently."
+      },
+      "creators": {
+        "title": "Content Creators",
+        "snippet": "Engineer psychological hooks, platform-specific pacing, and viral content strategy at expert level."
+      },
+      "promptEngineers": {
+        "title": "Prompt Engineers",
+        "snippet": "Lock in aesthetic consistency, multi-layered visual styles, and precise character specifications."
+      }
+    },
+    "learnMore": "Learn more",
+    "exploreAll": "Explore All Use Cases"
+  },
+  "ctaSection": {
+    "badge": "Free to use • No sign-up • Instant results",
+    "titleLine1": "Stop Prompting.",
+    "titleLine2": "Start Orchestrating.",
+    "description": "Build a precise, structured instruction in minutes. Paste it into any AI model and start getting more consistent, structured responses right away.",
+    "btnPrimary": "Build My Instruction",
+    "btnSecondary": "Read the docs",
+    "perks": {
+      "noAccount": "No account required",
+      "clientSide": "Fully client-side",
+      "worksWith": "Works with ChatGPT, Claude & Gemini"
+    }
+  }
+}

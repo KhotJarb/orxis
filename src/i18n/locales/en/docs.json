@@ -1,0 +1,55 @@
+{
+  "apiReference": {
+    "badge": "Developer Reference",
+    "title": "API Reference",
+    "description1": "Orxis exposes a clean FastAPI REST backend that powers every generation and tweak operation. This page documents every endpoint, its request schema, expected response format, and relevant error codes — everything you need to call the API directly, integrate it into your own tooling, or extend it with new routes.",
+    "description2": "All endpoints accept and return application/json. No special SDK is required — plain curl, the requests Python library, or fetch in the browser all work out of the box.",
+    "baseUrl": {
+      "title": "Base URL",
+      "description1": "The backend runs on port 8000 when started locally with uvicorn. For production Vercel deployments, the frontend proxies API calls through Next.js rewrites, so the effective base URL is your deployment domain.",
+      "description2": "All examples in this reference use the local base URL http://localhost:8000. Replace it with your production domain in deployed environments."
+    },
+    "authentication": {
+      "title": "Authentication"
+    }
+  },
+  "bestPractices": {
+    "badge": "Strategy Guide",
+    "title": "Best Practices for Raw Inputs",
+    "goldenRules": {
+      "title": "The 3 Golden Rules"
+    }
+  },
+  "content": {
+    "badge": "Getting Started",
+    "title": "Introduction",
+    "whatAreCIs": "What Are Custom Instructions?",
+    "whyItMatters": "Why It Matters"
+  },
+  "sidebar": {
+    "searchPlaceholder": "Search docs...",
+    "noResults": "No results for",
+    "categories": {
+      "gettingStarted": "Getting Started",
+      "platformGuides": "Platform Guides",
+      "advanced": "Advanced"
+    },
+    "items": {
+      "introduction": "Introduction",
+      "quickStart": "Quick Start",
+      "coreConcepts": "Core Concepts",
+      "chatgpt": "ChatGPT",
+      "claude": "Claude",
+      "gemini": "Gemini",
+      "otherLlms": "Other LLMs",
+      "promptChaining": "Prompt Chaining",
+      "contextInjection": "Context Injection",
+      "bestPractices": "Best Practices"
+    }
+  },
+  "tableOfContents": {
+    "title": "On this page",
+    "helpful": "Was this helpful?",
+    "improve": "Help us improve the docs."
+  }
+}
