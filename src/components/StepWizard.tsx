@@ -618,7 +618,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
         <textarea
           value={intent.custom}
           onChange={(e) => setIntent((prev) => ({ ...prev, custom: e.target.value }))}
-          placeholder="e.g., &quot;Help me plan content for my cooking channel&quot; or &quot;Review code for my startup&quot;"
+          placeholder={t("wizard.steps.intent.placeholder")}
           rows={3}
           className="
             w-full rounded-xl bg-white/[0.03] border border-glass-border
@@ -845,7 +845,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
 
       <p className="mt-3 text-[11px] sm:text-xs text-slate-600 flex items-center gap-1.5">
         <span className="text-neon-cyan/60">✦</span>
-        All fields are optional — skip this step for a general-purpose assistant
+        {t("wizard.ui.context.allFieldsOptional")}
       </p>
     </>
   );

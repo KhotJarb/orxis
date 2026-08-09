@@ -35,7 +35,8 @@
     "steps": {
       "intent": {
         "question": "What are you building this AI assistant for?",
-        "subtitle": "Describe your goal or pick a category to get started"
+        "subtitle": "Describe your goal or pick a category to get started",
+        "placeholder": "e.g., \"Help me plan content for my cooking channel\" or \"Build a customer support bot for e-commerce\""
       },
       "persona": {
         "question": "What expert persona do you need?",
@@ -83,7 +84,8 @@
         "keyDetails": {
           "label": "Any other key details?",
           "placeholder": "e.g., I post twice a week, my competitors are X and Y, my brand colors are neon blue and purple…"
-        }
+        },
+        "allFieldsOptional": "All fields are optional — skip this step for a general-purpose assistant"
       },
       "shortcuts": {
         "suggest": "✨ Suggest for me",

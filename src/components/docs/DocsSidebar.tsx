@@ -13,6 +13,7 @@ import {
   Command,
 } from "lucide-react";
 import Link from "next/link";
+import { useT } from "@/i18n";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -90,6 +91,7 @@ export default function DocsSidebar({
   onNavigate,
 }: DocsSidebarProps) {
   const [search, setSearch] = useState("");
+  const t = useT("docs");
 
   // Keyboard shortcut to focus search
   useEffect(() => {
@@ -104,12 +106,24 @@ export default function DocsSidebar({
   }, []);
 
   // Filter sections based on search
-  const filteredSections = NAV_SECTIONS.map((section) => ({
-    ...section,
-    items: section.items.filter((item) =>
-      item.label.toLowerCase().includes(search.toLowerCase())
-    ),
-  })).filter((s) => s.items.length > 0);
+  const filteredSections = NAV_SECTIONS.map((section) => {
+    const sectionTitleKey = section.title === "Getting Started" ? "gettingStarted" : section.title === "Platform Guides" ? "platformGuides" : "advanced";
+    const translatedTitle = t(`sidebar.categories.${sectionTitleKey}`);
+
+    return {
+      ...section,
+      translatedTitle,
+      items: section.items.map(item => {
+        const itemKey = item.id.replace(/-([a-z])/g, g => g[1].toUpperCase());
+        return {
+          ...item,
+          translatedLabel: t(`sidebar.items.${itemKey}`)
+        }
+      }).filter((item) =>
+        item.translatedLabel.toLowerCase().includes(search.toLowerCase())
+      ),
+    }
+  }).filter((s) => s.items.length > 0);
 
   const handleNav = (id: DocPageId) => {
     onNavigate(id);
@@ -127,7 +141,7 @@ export default function DocsSidebar({
           <input
             id="docs-search"
             type="text"
-            placeholder="Search docs..."
+            placeholder={t("sidebar.searchPlaceholder")}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="w-full rounded-lg border border-white/[0.07] bg-white/[0.03] py-2 pl-9 pr-14 text-sm text-slate-300 placeholder-slate-600 outline-none transition-all duration-200 focus:border-neon-cyan/40 focus:bg-white/[0.05] focus:ring-1 focus:ring-neon-cyan/20"
@@ -152,7 +166,7 @@ export default function DocsSidebar({
               <div className="mb-2.5 flex items-center gap-2 px-2">
                 <span className="text-neon-cyan/60">{section.icon}</span>
                 <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500">
-                  {section.title}
+                  {section.translatedTitle}
                 </span>
               </div>
 
@@ -179,7 +193,7 @@ export default function DocsSidebar({
                           />
                         )}
 
-                        <span className="pl-1 font-medium">{item.label}</span>
+                        <span className="pl-1 font-medium">{item.translatedLabel}</span>
 
                         <ChevronRight
                           className={`h-3.5 w-3.5 flex-shrink-0 transition-all duration-150 ${
@@ -198,7 +212,7 @@ export default function DocsSidebar({
 
           {filteredSections.length === 0 && (
             <div className="px-3 py-10 text-center">
-              <p className="text-sm text-slate-600">No results for</p>
+              <p className="text-sm text-slate-600">{t("sidebar.noResults")}</p>
               <p className="mt-1 font-medium text-slate-400">
                 &ldquo;{search}&rdquo;
               </p>

@@ -35,7 +35,8 @@
     "steps": {
       "intent": {
         "question": "您构建此 AI 助手的目的是什么？",
-        "subtitle": "描述您的目标或选择一个类别即可开始"
+        "subtitle": "描述您的目标或选择一个类别即可开始",
+        "placeholder": "例如：\"帮我规划我的 YouTube 频道内容\" 或 \"为电商平台搭建客服机器人\""
       },
       "persona": {
         "question": "您需要什么专家角色？",
@@ -83,7 +84,8 @@
         "keyDetails": {
           "label": "还有其他关键细节吗？",
           "placeholder": "例如：我每周发两次视频，我的竞争对手是 X 和 Y，我的品牌颜色是霓虹蓝和紫色…"
-        }
+        },
+        "allFieldsOptional": "所有字段均为可选 — 如需通用助手可跳过此步骤"
       },
       "shortcuts": {
         "suggest": "✨ 为我建议",

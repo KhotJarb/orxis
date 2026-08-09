@@ -194,18 +194,22 @@ export default function Navbar() {
               </a>
             </div>
 
-            {/* Mobile toggle */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden ml-auto flex h-10 w-10 items-center justify-center rounded-lg text-[var(--text-muted)] hover:text-[var(--text-heading)] hover:bg-[var(--glass-bg)] transition-colors"
-              aria-label={t("nav.toggleMenu")}
-            >
-              {isMobileMenuOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
-            </button>
+
+            {/* Mobile: Language + Toggle */}
+            <div className="md:hidden ml-auto flex items-center gap-2">
+              <LanguageSwitcher />
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="flex h-10 w-10 items-center justify-center rounded-lg text-[var(--text-muted)] hover:text-[var(--text-heading)] hover:bg-[var(--glass-bg)] transition-colors"
+                aria-label={t("nav.toggleMenu")}
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </motion.nav>
@@ -276,14 +280,6 @@ export default function Navbar() {
                 </motion.div>
               ))}
 
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: navDropdowns.length * 0.1, duration: 0.3 }}
-                className="mt-3 flex items-center gap-3"
-              >
-                <LanguageSwitcher />
-              </motion.div>
 
               <motion.a
                 href="/generate"

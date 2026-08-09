@@ -35,7 +35,8 @@
     "steps": {
       "intent": {
         "question": "¿Para qué estás construyendo este asistente de IA?",
-        "subtitle": "Describe tu objetivo o elige una categoría para empezar"
+        "subtitle": "Describe tu objetivo o elige una categoría para empezar",
+        "placeholder": "Ej.: \"Ayúdame a planificar contenido para mi canal de YouTube\" o \"Crea un bot de atención al cliente para e-commerce\""
       },
       "persona": {
         "question": "¿Qué persona experta necesitas?",
@@ -83,7 +84,8 @@
         "keyDetails": {
           "label": "¿Algún otro detalle clave?",
           "placeholder": "ej., Publico dos veces por semana, mis competidores son X y Y, los colores de mi marca son azul neón y morado…"
-        }
+        },
+        "allFieldsOptional": "Todos los campos son opcionales — omite este paso si prefieres un asistente de propósito general"
       },
       "shortcuts": {
         "suggest": "✨ Sugerir para mí",

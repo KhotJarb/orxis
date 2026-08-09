@@ -9,6 +9,7 @@ import Callout, {
 } from "@/components/docs/DocsComponents";
 import Link from "next/link";
 import type { DocPageId } from "@/components/docs/DocsSidebar";
+import { useT } from "@/i18n";
 
 export default function DocsContent({
   scrollTarget,
@@ -16,6 +17,8 @@ export default function DocsContent({
   activePage?: DocPageId;   // used externally for sidebar/ToC highlight only
   scrollTarget?: { anchor: string; ts: number } | null;
 }) {
+  const t = useT("docs");
+
   // Only scroll when the user explicitly CLICKS a sidebar item (ts changes).
   // The scroll observer in docs/page.tsx updates activePage silently —
   // it must NOT trigger scrollIntoView or the page snaps back on scroll-up.
@@ -36,12 +39,12 @@ export default function DocsContent({
       <section id="introduction" className="scroll-mt-24">
         <div className="mb-3 flex items-center gap-2">
           <span className="rounded-full border border-neon-cyan/30 bg-neon-cyan/10 px-3 py-0.5 text-xs font-semibold text-neon-cyan">
-            Getting Started
+            {t("content.badge")}
           </span>
         </div>
 
         <h1 className="mb-4 text-4xl font-bold tracking-tight text-white">
-          Introduction
+          {t("content.title")}
         </h1>
         <p className="mb-6 text-lg leading-relaxed text-slate-400">
           <strong className="text-slate-200">Orxis</strong> is a
@@ -51,19 +54,19 @@ export default function DocsContent({
           and every response thereafter is shaped by that foundation.
         </p>
 
-        <Callout variant="important" title="Before You Begin">
+        <Callout variant="important" title={t("content.beforeYouBegin")}>
           This documentation assumes you have a basic understanding of Large Language
           Models (LLMs) such as ChatGPT, Claude, or Gemini. If you&apos;re new to AI
           tools entirely, start with our{" "}
           <a href="#what-are-custom-instructions" className="text-neon-cyan underline underline-offset-4 hover:text-neon-cyan-light transition-colors">
-            What Are Custom Instructions?
+            {t("content.whatAreCIs")}
           </a>{" "}
           section below.
         </Callout>
 
         {/* Sub-section */}
         <h2 id="what-are-custom-instructions" className="scroll-mt-24 mt-10 mb-4 text-2xl font-bold text-white border-b border-glass-border pb-3">
-          What Are Custom Instructions?
+          {t("content.whatAreCIs")}
         </h2>
         <p className="mb-4 text-slate-400 leading-relaxed">
           Custom Instructions (CIs) are persistent system-level directives that you
@@ -91,7 +94,7 @@ export default function DocsContent({
         </ul>
 
         <h2 id="why-it-matters" className="scroll-mt-24 mt-10 mb-4 text-2xl font-bold text-white border-b border-glass-border pb-3">
-          Why It Matters
+          {t("content.whyItMatters")}
         </h2>
         <p className="mb-4 text-slate-400 leading-relaxed">
           Evidence suggests that prompting strategy can be as important as model
@@ -124,7 +127,7 @@ export default function DocsContent({
       {/* ── QUICK START ──────────────────────────────────────────── */}
       <section id="quick-start" className="scroll-mt-24">
         <h1 className="mb-4 text-4xl font-bold tracking-tight text-white">
-          Quick Start
+          {t("content.quickStart")}
         </h1>
         <p className="mb-6 text-lg leading-relaxed text-slate-400">
           Go from zero to a production-ready Custom Instruction in under 5 minutes.
@@ -140,7 +143,7 @@ export default function DocsContent({
         </Callout>
 
         <h2 id="step-1-describe" className="scroll-mt-24 mt-10 mb-5 text-2xl font-bold text-white border-b border-glass-border pb-3">
-          Step 1 — Describe Your Persona
+          {t("content.step1")}
         </h2>
         <p className="mb-4 text-slate-400 leading-relaxed">
           The persona defines <em>who</em> the AI pretends to be. The more specific
@@ -149,13 +152,13 @@ export default function DocsContent({
         </p>
 
         <div className="my-5 space-y-3">
-          <Step number={1} title="Choose a preset chip">
+          <Step number={1} title={t("content.step1Title")}>
             Click one of the preset roles like{" "}
             <InlineCode>Software Engineer</InlineCode>,{" "}
             <InlineCode>Data Scientist</InlineCode>, or{" "}
             <InlineCode>Marketing Strategist</InlineCode>.
           </Step>
-          <Step number={2} title="Optionally, refine with custom text">
+          <Step number={2} title={t("content.step2")}>
             Add specific detail in the input field. For example, typing{" "}
             <InlineCode>Senior TypeScript engineer specializing in distributed systems</InlineCode>{" "}
             creates a more targeted persona than just{" "}
@@ -164,7 +167,7 @@ export default function DocsContent({
         </div>
 
         <h2 id="step-2-task" className="scroll-mt-24 mt-10 mb-5 text-2xl font-bold text-white border-b border-glass-border pb-3">
-          Step 2 — Define Your Task
+          {t("content.step2Heading")}
         </h2>
         <p className="mb-4 text-slate-400 leading-relaxed">
           The task is the AI&apos;s <strong className="text-slate-200">primary objective</strong> —
@@ -183,7 +186,7 @@ Always propose a refactored version with explanations."`}
         </CodeBlock>
 
         <h2 id="step-3-tone" className="scroll-mt-24 mt-10 mb-5 text-2xl font-bold text-white border-b border-glass-border pb-3">
-          Step 3 — Set the Tone
+          {t("content.step3Heading")}
         </h2>
         <p className="mb-4 text-slate-400 leading-relaxed">
           Tone controls the AI&apos;s communication style. You can combine multiple
@@ -202,7 +205,7 @@ Always propose a refactored version with explanations."`}
         </Callout>
 
         <h2 id="step-4-rules" className="scroll-mt-24 mt-10 mb-5 text-2xl font-bold text-white border-b border-glass-border pb-3">
-          Step 4 — Add Rules
+          {t("content.step4Heading")}
         </h2>
         <p className="mb-4 text-slate-400 leading-relaxed">
           Rules are hard constraints and output formatting requirements. These map
@@ -225,7 +228,7 @@ Always propose a refactored version with explanations."`}
       {/* ── CORE CONCEPTS ────────────────────────────────────────── */}
       <section id="core-concepts" className="scroll-mt-24">
         <h1 className="mb-4 text-4xl font-bold tracking-tight text-white">
-          Core Concepts
+          {t("content.coreConcepts")}
         </h1>
         <p className="mb-6 text-lg leading-relaxed text-slate-400">
           Every Custom Instruction generated by this tool follows a rigid 6-section
@@ -234,7 +237,7 @@ Always propose a refactored version with explanations."`}
         </p>
 
         <h2 id="the-six-sections" className="scroll-mt-24 mt-8 mb-5 text-2xl font-bold text-white border-b border-glass-border pb-3">
-          The Six Sections
+          {t("content.theSixSections")}
         </h2>
 
         <div className="space-y-4">
@@ -242,7 +245,7 @@ Always propose a refactored version with explanations."`}
             {
               emoji: "🎭",
               num: "1",
-              title: "Role & Identity",
+              title: t("content.sections.role", { num: "1" }),
               desc: "Establishes WHO the AI is — a precisely defined persona that shapes the model's behaviour as a domain expert.",
               color: "border-neon-cyan/20 bg-neon-cyan/[0.03]",
               accent: "text-neon-cyan",
@@ -250,7 +253,7 @@ Always propose a refactored version with explanations."`}
             {
               emoji: "🎯",
               num: "2",
-              title: "Mission & Objective",
+              title: t("content.sections.mission", { num: "2" }),
               desc: "Defines WHAT success looks like. A clear north star that every response is measured against.",
               color: "border-neon-purple/20 bg-neon-purple/[0.03]",
               accent: "text-neon-purple-light",
@@ -258,7 +261,7 @@ Always propose a refactored version with explanations."`}
             {
               emoji: "🧠",
               num: "3",
-              title: "The Cognitive Loop",
+              title: t("content.sections.cognitive", { num: "3" }),
               desc: "Forces the AI to self-reflect before responding. Creates a pre/mid/post quality-check loop invisible to the user.",
               color: "border-emerald-500/20 bg-emerald-500/[0.03]",
               accent: "text-emerald-400",
@@ -266,7 +269,7 @@ Always propose a refactored version with explanations."`}
             {
               emoji: "📥",
               num: "4",
-              title: "Context & Input",
+              title: t("content.sections.context", { num: "4" }),
               desc: "Defines what kind of inputs the AI should anticipate and how to handle edge cases or ambiguous requests.",
               color: "border-amber-500/20 bg-amber-500/[0.03]",
               accent: "text-amber-400",
@@ -274,7 +277,7 @@ Always propose a refactored version with explanations."`}
             {
               emoji: "⚙️",
               num: "5",
-              title: "Boundaries & Rules",
+              title: t("content.sections.boundaries", { num: "5" }),
               desc: "Hard constraints that the AI must obey. Anti-hallucination directives, scope limits, and ethical guardrails.",
               color: "border-rose-500/20 bg-rose-500/[0.03]",
               accent: "text-rose-400",
@@ -282,7 +285,7 @@ Always propose a refactored version with explanations."`}
             {
               emoji: "📝",
               num: "6",
-              title: "Output Formatting",
+              title: t("content.sections.formatting", { num: "6" }),
               desc: "The blueprint for every response: headers, lists, code blocks, tables, length, and sign-off protocol.",
               color: "border-sky-500/20 bg-sky-500/[0.03]",
               accent: "text-sky-400",
@@ -296,9 +299,6 @@ Always propose a refactored version with explanations."`}
                 <span className="text-2xl leading-none">{section.emoji}</span>
                 <div>
                   <p className={`mb-1 font-semibold ${section.accent}`}>
-                    <span className="text-slate-600 font-normal">
-                      Section {section.num} —{" "}
-                    </span>
                     {section.title}
                   </p>
                   <p className="text-sm leading-relaxed text-slate-400">
@@ -311,7 +311,7 @@ Always propose a refactored version with explanations."`}
         </div>
 
         <h2 id="cognitive-loop" className="scroll-mt-24 mt-10 mb-5 text-2xl font-bold text-white border-b border-glass-border pb-3">
-          The Cognitive Loop
+          {t("content.cognitiveLoop")}
         </h2>
         <p className="mb-4 text-slate-400 leading-relaxed">
           The Cognitive Loop is a key differentiator in this framework.
@@ -331,7 +331,7 @@ Always propose a refactored version with explanations."`}
    Output only the final, perfected response.`}
         </CodeBlock>
 
-        <Callout variant="tip" title="Pro Tip">
+        <Callout variant="tip" title={t("content.proTip")}>
           <p>
             The Cognitive Loop dramatically reduces hallucinations on factual topics
             and eliminates &quot;first-draft&quot; quality responses. LLMs that are
@@ -342,12 +342,12 @@ Always propose a refactored version with explanations."`}
 
         {/* Next page link */}
         <div className="mt-12 rounded-xl border border-glass-border bg-glass-bg p-5">
-          <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">Next</p>
+          <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">{t("content.next")}</p>
           <Link
             href="/docs?page=chatgpt"
             className="font-semibold text-white hover:text-neon-cyan transition-colors"
           >
-            Platform Guides — ChatGPT →
+            {t("content.nextPlatformGuides")}
           </Link>
         </div>
       </section>

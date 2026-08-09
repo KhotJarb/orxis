@@ -35,7 +35,8 @@
     "steps": {
       "intent": {
         "question": "Untuk apa kamu membangun asisten AI ini?",
-        "subtitle": "Jelaskan tujuanmu atau pilih kategori untuk memulai"
+        "subtitle": "Jelaskan tujuanmu atau pilih kategori untuk memulai",
+        "placeholder": "Mis.: \"Bantu saya merencanakan konten untuk channel YouTube saya\" atau \"Buat bot layanan pelanggan untuk e-commerce\""
       },
       "persona": {
         "question": "Persona ahli apa yang kamu butuhkan?",
@@ -83,7 +84,8 @@
         "keyDetails": {
           "label": "Ada detail penting lainnya?",
           "placeholder": "mis., Saya memposting dua kali seminggu, pesaing saya adalah X dan Y, warna merek saya biru neon dan ungu…"
-        }
+        },
+        "allFieldsOptional": "Semua kolom bersifat opsional — lewati langkah ini jika Anda menginginkan asisten serba guna"
       },
       "shortcuts": {
         "suggest": "✨ Sarankan untukku",

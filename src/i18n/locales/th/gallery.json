@@ -3,7 +3,7 @@
     "header": {
       "badge": "คลัง Prompt",
       "title": "คลังคำสั่ง",
-      "titleHighlight": "",
+      "titleHighlight": "คลัง",
       "description": "เทมเพลตคำสั่งที่มีโครงสร้าง พร้อมใช้งานทันที คลิกที่การ์ดใดก็ได้เพื่อดูและคัดลอกโครงสร้างทั้งหกส่วนฉบับเต็ม",
       "submitButton": "ส่ง Prompt"
     },

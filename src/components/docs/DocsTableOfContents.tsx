@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import type { DocPageId } from "@/components/docs/DocsSidebar";
+import { useT } from "@/i18n";
 
 // ── ToC definitions per page ───────────────────────────────────────────────
 // IDs must exactly match the id= attributes in the rendered component files.
@@ -111,6 +112,7 @@ const GETTING_STARTED = new Set<DocPageId>([
 // ── Component ──────────────────────────────────────────────────────────────
 
 export default function DocsTableOfContents({ activePage }: { activePage: DocPageId }) {
+  const t = useT("docs");
   const tocItems = TOC_BY_PAGE[activePage] ?? [];
   const [activeId, setActiveId] = useState<string>(tocItems[0]?.id ?? "");
 
@@ -195,7 +197,7 @@ export default function DocsTableOfContents({ activePage }: { activePage: DocPag
   return (
     <div className="w-52 pt-2">
       <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.12em] text-slate-600">
-        On this page
+        {t("tableOfContents.title")}
       </p>
 
       <nav className="relative">
@@ -238,9 +240,9 @@ export default function DocsTableOfContents({ activePage }: { activePage: DocPag
       </nav>
 
       <div className="mt-8 rounded-xl border border-white/[0.07] bg-white/[0.02] p-4">
-        <p className="text-xs font-semibold text-slate-300">Was this helpful?</p>
+        <p className="text-xs font-semibold text-slate-300">{t("tableOfContents.helpful")}</p>
         <p className="mt-1 text-xs text-slate-600 leading-relaxed">
-          Help us improve the docs.
+          {t("tableOfContents.improve")}
         </p>
         <div className="mt-3 flex gap-2">
           {["👍", "👎"].map((emoji) => (

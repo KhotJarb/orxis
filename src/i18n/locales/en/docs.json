@@ -24,7 +24,37 @@
     "badge": "Getting Started",
     "title": "Introduction",
     "whatAreCIs": "What Are Custom Instructions?",
-    "whyItMatters": "Why It Matters"
+    "whyItMatters": "Why It Matters",
+    "beforeYouBegin": "Before You Begin",
+    "quickStart": "Quick Start",
+    "step1": "Step 1 — Describe Your Persona",
+    "step1Title": "Choose a preset chip",
+    "step2": "Optionally, refine with custom text",
+    "step2Heading": "Step 2 — Define Your Task",
+    "step3Heading": "Step 3 — Set the Tone",
+    "step4Heading": "Step 4 — Add Rules",
+    "coreConcepts": "Core Concepts",
+    "theSixSections": "The Six Sections",
+    "sections": {
+      "role": "Section {{num}} — Role & Identity",
+      "mission": "Section {{num}} — Mission & Objective",
+      "cognitive": "Section {{num}} — The Cognitive Loop",
+      "context": "Section {{num}} — Context & Input",
+      "boundaries": "Section {{num}} — Boundaries & Rules",
+      "formatting": "Section {{num}} — Output Formatting"
+    },
+    "cognitiveLoop": "The Cognitive Loop",
+    "proTip": "Pro Tip",
+    "next": "Next",
+    "nextPlatformGuides": "Platform Guides — ChatGPT →"
+  },
+  "components": {
+    "callout": {
+      "note": "Note",
+      "tip": "Tip",
+      "warning": "Warning",
+      "important": "Important"
+    }
   },
   "sidebar": {
     "searchPlaceholder": "Search docs...",

@@ -2,6 +2,7 @@
 
 import { AlertTriangle, Info, Lightbulb, Zap } from "lucide-react";
 import { ReactNode } from "react";
+import { useT } from "@/i18n";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -73,6 +74,7 @@ export default function Callout({
   children,
 }: CalloutProps) {
   const config = CALLOUT_CONFIG[variant];
+  const t = useT("docs");
 
   return (
     <div
@@ -87,7 +89,7 @@ export default function Callout({
         <div className="flex-1 min-w-0">
           {/* Label */}
           <p className={`mb-1.5 text-xs font-bold uppercase tracking-widest ${config.labelColor}`}>
-            {title ?? config.label}
+            {title ?? t(`components.callout.${variant}`)}
           </p>
 
           {/* Content */}
