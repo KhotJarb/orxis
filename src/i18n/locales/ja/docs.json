@@ -208,11 +208,11 @@
   "content": {
     "badge": "はじめに",
     "title": "イントロダクション",
-    "whatAreCIs": "カスタムインストラクションとは？",
+    "whatAreCIs": "カスタム指示とは？",
     "whyItMatters": "なぜ重要なのか",
     "beforeYouBegin": "始める前に",
     "quickStart": "クイックスタート",
-    "step1": "ステップ 1 — ペルソナを記述する",
+    "step1": "ステップ 1 — ペルソナを説明する",
     "step1Title": "プリセットチップを選択する",
     "step2": "必要に応じて、カスタムテキストで調整します",
     "step2Heading": "ステップ 2 — タスクを定義する",
@@ -322,7 +322,7 @@
   },
   "chatgpt": {
     "badge": "プラットフォームガイド",
-    "title": "ChatGPT での指示の使用",
+    "title": "ChatGPTでの使用",
     "introPara1": "ChatGPT、特に <strong>GPT-4o</strong> は、深いペルソナの採用を目的として構築されています。OpenAI の RLHF (人間からのフィードバックによる強化学習) 微調整プロセスは、<strong>長い会話</strong>全体であっても、割り当てられた役割を強力な一貫性で保持するようにモデルをトレーニングします。よく練られたマスター指示を注入すると、GPT-4o はペルソナに密接に従います。生成された指示の <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> セクション (セクション 1) は、ChatGPT が最も価値を引き出す場所です。",
     "introPara2": "このガイドでは、ChatGPT でカスタム指示を展開するために利用できるすべての方法 (ネイティブのカスタム指示 UI、プロジェクト、および OpenAI API) について説明します。そのため、ユースケースに最も適したワークフローを選択できます。"
   },
@@ -443,8 +443,8 @@
     "intro2": "コンテキストインジェクションにより、会話中にAIへ特定情報を渡せます。"
   },
   "gemini": {
-    "badge": "統合ガイド",
-    "title": "GeminiでOrxisを使用する",
+    "badge": "プラットフォームガイド",
+    "title": "Geminiでの使用",
     "intro1Before": "このガイドでは",
     "intro1And": "および",
     "intro1Mid": "Gemini Advanced",
@@ -453,13 +453,17 @@
     "intro2": "GeminiはロングコンテキストInstruction遵守とマルチモーダル使用に優れています。"
   },
   "otherLLMs": {
-    "badge": "統合ガイド",
-    "title": "その他のLLM — Copilot、Mistral、Llamaなど",
+    "badge": "プラットフォームガイド",
+    "title": "他のLLMでの使用",
     "intro1Before": "OrxisのインストラクションはあらゆるLLM向けに設計されています。プラットフォーム固有の機能はありますが、",
     "intro1Strong1": "すべてのLLM",
     "intro1Mid": "に対して",
     "intro1Strong2": "6セクション",
     "intro1After": "フレームワークが適用されます。",
     "intro2": "本記事ではChatGPT、Claude、Gemini以外のAIプラットフォームでのOrxisの使用方法を説明します。"
+  },
+  "claude": {
+    "badge": "プラットフォームガイド",
+    "title": "Claudeでの使用"
   }
 }

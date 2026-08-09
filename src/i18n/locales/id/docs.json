@@ -208,11 +208,11 @@
   "content": {
     "badge": "Memulai",
     "title": "Pengantar",
-    "whatAreCIs": "Apa itu Instruksi Kustom?",
+    "whatAreCIs": "Apa Itu Instruksi Kustom?",
     "whyItMatters": "Mengapa Ini Penting",
-    "beforeYouBegin": "Sebelum Kamu Memulai",
+    "beforeYouBegin": "Sebelum Anda Memulai",
     "quickStart": "Mulai Cepat",
-    "step1": "Langkah 1 — Jelaskan Persona-mu",
+    "step1": "Langkah 1 — Deskripsikan Persona Anda",
     "step1Title": "Pilih preset chip",
     "step2": "Secara opsional, saring dengan teks kustom",
     "step2Heading": "Langkah 2 — Tentukan Tugasmu",
@@ -273,7 +273,7 @@
   },
   "chatgpt": {
     "badge": "Panduan Platform",
-    "title": "Menggunakan Instruksi dengan ChatGPT",
+    "title": "Menggunakan dengan ChatGPT",
     "introPara1": "ChatGPT — khususnya <strong>GPT-4o</strong> — dibuat khusus untuk adopsi persona yang mendalam. Proses penyempurnaan RLHF (Reinforcement Learning from Human Feedback) dari OpenAI melatih model untuk memegang peran yang ditugaskan dengan konsistensi yang kuat, bahkan di seluruh <strong>percakapan yang lebih lama</strong>. Saat Anda memasukkan Master Instruction yang dirancang dengan baik, GPT-4o akan mengikuti persona tersebut dengan cermat. Bagian <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> (Bagian 1) dari instruksi yang Anda hasilkan adalah tempat ChatGPT memperoleh nilai paling banyak.",
     "introPara2": "Panduan ini mencakup setiap metode yang tersedia untuk menerapkan instruksi khusus Anda di ChatGPT: UI Instruksi Khusus asli, Proyek, dan API OpenAI — sehingga Anda dapat memilih alur kerja yang paling sesuai dengan kasus penggunaan Anda."
   },
@@ -394,8 +394,8 @@
     "intro2": "Injeksi konteks memungkinkan Anda meneruskan informasi spesifik ke AI selama percakapan."
   },
   "gemini": {
-    "badge": "Panduan Integrasi",
-    "title": "Menggunakan Orxis dengan Gemini",
+    "badge": "Panduan Platform",
+    "title": "Menggunakan dengan Gemini",
     "intro1Before": "Panduan ini mencakup pengaturan instruksi yang dibuat Orxis di",
     "intro1And": "termasuk",
     "intro1Mid": "Gemini Advanced",
@@ -404,13 +404,17 @@
     "intro2": "Gemini unggul dalam mengikuti instruksi konteks panjang dan penggunaan multimodal."
   },
   "otherLLMs": {
-    "badge": "Panduan Integrasi",
-    "title": "LLM Lainnya — Copilot, Mistral, Llama dan lainnya",
+    "badge": "Panduan Platform",
+    "title": "Menggunakan dengan LLM Lainnya",
     "intro1Before": "Instruksi Orxis dirancang untuk",
     "intro1Strong1": "LLM mana pun",
     "intro1Mid": ". Meskipun ada fitur khusus platform, kerangka",
     "intro1Strong2": "enam bagian",
     "intro1After": "berlaku untuk semua model.",
     "intro2": "Artikel ini membahas cara menggunakan Orxis di platform AI lain selain ChatGPT, Claude, dan Gemini."
+  },
+  "claude": {
+    "badge": "Panduan Platform",
+    "title": "Menggunakan dengan Claude"
   }
 }

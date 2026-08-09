@@ -1,7 +1,7 @@
 {
   "apiReference": {
-    "badge": "Referencia del Desarrollador",
-    "title": "Referencia de la API",
+    "badge": "Referencia para desarrolladores",
+    "title": "Referencia de API",
     "description1": "Orxis expone un backend REST limpio en FastAPI que impulsa cada operación de generación y ajuste. Esta página documenta cada endpoint, su esquema de solicitud, el formato de respuesta esperado y los códigos de error relevantes — todo lo que necesitas para llamar a la API directamente, integrarla en tus propias herramientas o extenderla con nuevas rutas.",
     "description2": "Todos los endpoints aceptan y devuelven application/json. No se requiere ningún SDK especial — curl estándar, la biblioteca requests de Python o fetch en el navegador funcionan listos para usar.",
     "baseUrl": {
@@ -208,11 +208,11 @@
   "content": {
     "badge": "Empezando",
     "title": "Introducción",
-    "whatAreCIs": "¿Qué Son las Instrucciones Personalizadas?",
-    "whyItMatters": "Por Qué Importa",
+    "whatAreCIs": "¿Qué son las instrucciones personalizadas?",
+    "whyItMatters": "Por qué es importante",
     "beforeYouBegin": "Antes de empezar",
     "quickStart": "Inicio rápido",
-    "step1": "Paso 1 — Describe tu Persona",
+    "step1": "Paso 1 — Describe tu persona",
     "step1Title": "Elige un chip predeterminado",
     "step2": "Opcionalmente, refina con texto personalizado",
     "step2Heading": "Paso 2 — Define tu tarea",
@@ -273,7 +273,7 @@
   },
   "chatgpt": {
     "badge": "Guías de plataforma",
-    "title": "Uso de instrucciones con ChatGPT",
+    "title": "Uso con ChatGPT",
     "introPara1": "ChatGPT, especialmente <strong>GPT-4o</strong>, está diseñado específicamente para una adopción profunda de personajes. El proceso de ajuste fino RLHF (Aprendizaje por refuerzo a partir de retroalimentación humana) de OpenAI entrena al modelo para mantener su papel asignado con gran consistencia, incluso en <strong>conversaciones más largas</strong>. Cuando inyectas una Instrucción Maestra bien elaborada, GPT-4o sigue de cerca al personaje. La sección <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> (Sección 1) de la instrucción generada es de donde ChatGPT obtiene el mayor valor.",
     "introPara2": "Esta guía cubre todos los métodos disponibles para implementar su instrucción personalizada en ChatGPT: la interfaz de usuario nativa de Instrucciones personalizadas, Proyectos y la API de OpenAI, para que pueda elegir el flujo de trabajo que mejor se adapte a su caso de uso."
   },
@@ -394,8 +394,8 @@
     "intro2": "La inyección de contexto te permite pasar información específica a la IA durante la conversación."
   },
   "gemini": {
-    "badge": "Guía de integración",
-    "title": "Usar Orxis con Gemini",
+    "badge": "Guías de plataforma",
+    "title": "Uso con Gemini",
     "intro1Before": "Esta guía cubre la configuración de instrucciones generadas por Orxis en",
     "intro1And": "incluyendo",
     "intro1Mid": "Gemini Advanced",
@@ -404,13 +404,17 @@
     "intro2": "Gemini destaca en el seguimiento de instrucciones en contextos largos y el uso multimodal."
   },
   "otherLLMs": {
-    "badge": "Guía de integración",
-    "title": "Otros LLMs — Copilot, Mistral, Llama y más",
+    "badge": "Guías de plataforma",
+    "title": "Uso con otros LLMs",
     "intro1Before": "Las instrucciones de Orxis están diseñadas para",
     "intro1Strong1": "cualquier LLM",
     "intro1Mid": ". Aunque hay características específicas de plataforma, el marco de",
     "intro1Strong2": "seis secciones",
     "intro1After": "se aplica a todos los modelos.",
     "intro2": "Este artículo cubre cómo usar Orxis con otras plataformas de IA además de ChatGPT, Claude y Gemini."
+  },
+  "claude": {
+    "badge": "Guías de plataforma",
+    "title": "Uso con Claude"
   }
 }

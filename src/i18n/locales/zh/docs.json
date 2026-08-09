@@ -1,7 +1,7 @@
 {
   "apiReference": {
     "badge": "开发者参考",
-    "title": "API Reference",
+    "title": "API 参考",
     "description1": "Orxis 公开了一个整洁的 FastAPI REST 后端，它为每个生成和微调操作提供动力。本页记录了每个端点 (Endpoint)、其请求模式 (Request Schema)、预期的响应格式以及相关的错误代码 —— 直接调用 API、将其集成到您自己的工具中或通过新路由对其进行扩展所需的一切信息。",
     "description2": "所有端点均接受并返回 application/json。不需要特殊的 SDK —— 纯粹的 curl、Python 的 requests 库或浏览器中的 fetch 都可以开箱即用。",
     "baseUrl": {
@@ -208,11 +208,11 @@
   "content": {
     "badge": "快速入门",
     "title": "简介",
-    "whatAreCIs": "什么是自定义指令 (Custom Instructions)？",
-    "whyItMatters": "为什么它很重要",
-    "beforeYouBegin": "在您开始之前",
+    "whatAreCIs": "什么是自定义指令？",
+    "whyItMatters": "为什么这很重要",
+    "beforeYouBegin": "在你开始之前",
     "quickStart": "快速开始",
-    "step1": "步骤 1 — 描述您的 Persona",
+    "step1": "第 1 步 — 描述你的角色",
     "step1Title": "选择一个预设标签",
     "step2": "（可选）使用自定义文本进行完善",
     "step2Heading": "步骤 2 — 定义您的任务",
@@ -322,7 +322,7 @@
   },
   "chatgpt": {
     "badge": "平台指南",
-    "title": "在 ChatGPT 中使用指令",
+    "title": "与 ChatGPT 一起使用",
     "introPara1": "ChatGPT —— 尤其是 <strong>GPT-4o</strong> —— 是专门为深度角色采纳而构建的。OpenAI 的 RLHF（基于人类反馈的强化学习）微调过程训练该模型以高度一致性保持其分配的角色，即使在<strong>较长的对话</strong>中也是如此。当您注入精心设计的 Master Instruction 时，GPT-4o 会紧密地遵循该角色。您生成的指令中的 <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> 部分（第 1 部分）是 ChatGPT 获取最大价值的地方。",
     "introPara2": "本指南涵盖了在 ChatGPT 中部署自定义指令的所有可用方法：原生的自定义指令 UI、项目（Projects）和 OpenAI API —— 这样您就可以选择最适合您的用例的工作流程。"
   },
@@ -443,8 +443,8 @@
     "intro2": "上下文注入使您能够在对话过程中向 AI 传递特定信息。"
   },
   "gemini": {
-    "badge": "集成指南",
-    "title": "在 Gemini 中使用 Orxis",
+    "badge": "平台指南",
+    "title": "与 Gemini 一起使用",
     "intro1Before": "本指南涵盖在",
     "intro1And": "以及",
     "intro1Mid": "Gemini Advanced",
@@ -453,13 +453,17 @@
     "intro2": "Gemini 在长上下文指令遵循和多模态使用方面表现出色。"
   },
   "otherLLMs": {
-    "badge": "集成指南",
-    "title": "其他 LLM — Copilot、Mistral、Llama 等",
+    "badge": "平台指南",
+    "title": "与其他 LLMs 一起使用",
     "intro1Before": "Orxis 生成的指令为",
     "intro1Strong1": "任何 LLM",
     "intro1Mid": "而设计。虽然有一些平台特定的功能，但",
     "intro1Strong2": "六部分",
     "intro1After": "框架适用于所有模型。",
     "intro2": "本文介绍如何在 ChatGPT、Claude 和 Gemini 之外的其他 AI 平台上使用 Orxis。"
+  },
+  "claude": {
+    "badge": "平台指南",
+    "title": "与 Claude 一起使用"
   }
 }
