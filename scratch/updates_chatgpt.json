@@ -1,0 +1,58 @@
+{
+  "en": {
+    "chatgpt": {
+      "badge": "Platform Guides",
+      "title": "Using Instructions with ChatGPT",
+      "introPara1": "ChatGPT — especially <strong>GPT-4o</strong> — is purpose-built for deep persona adoption. OpenAI's RLHF (Reinforcement Learning from Human Feedback) fine-tuning process trains the model to hold its assigned role with strong consistency, even across <strong>longer conversations</strong>. When you inject a well-crafted Master Instruction, GPT-4o follows the persona closely. The <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> section (Section 1) of your generated instruction is where ChatGPT derives the most value.",
+      "introPara2": "This guide covers every method available for deploying your custom instruction in ChatGPT: the native Custom Instructions UI, Projects, and the OpenAI API — so you can choose the workflow that best fits your use case."
+    }
+  },
+  "th": {
+    "chatgpt": {
+      "badge": "คู่มือแพลตฟอร์ม",
+      "title": "การใช้คำสั่งกับ ChatGPT",
+      "introPara1": "ChatGPT — โดยเฉพาะ <strong>GPT-4o</strong> — ถูกสร้างขึ้นมาโดยมีวัตถุประสงค์เพื่อการสวมบทบาทที่ลึกซึ้ง กระบวนการปรับแต่ง RLHF (Reinforcement Learning from Human Feedback) ของ OpenAI ฝึกให้โมเดลสามารถรักษาบทบาทที่ได้รับมอบหมายได้อย่างสม่ำเสมอ แม้ใน<strong>การสนทนาที่ยาวนาน</strong> เมื่อคุณใส่คำสั่งหลักที่ออกแบบมาอย่างดี GPT-4o จะติดตามบุคลิกภาพอย่างใกล้ชิด ส่วน <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> (ส่วนที่ 1) ของคำสั่งที่สร้างขึ้น เป็นจุดที่ ChatGPT นำไปใช้ประโยชน์ได้มากที่สุด",
+      "introPara2": "คู่มือนี้ครอบคลุมทุกวิธีที่มีให้สำหรับการปรับใช้คำสั่งที่กำหนดเองของคุณใน ChatGPT: UI คำสั่งที่กำหนดเองแบบดั้งเดิม, โครงการ (Projects) และ OpenAI API — เพื่อให้คุณสามารถเลือกเวิร์กโฟลว์ที่เหมาะสมกับกรณีการใช้งานของคุณมากที่สุด"
+    }
+  },
+  "zh": {
+    "chatgpt": {
+      "badge": "平台指南",
+      "title": "在 ChatGPT 中使用指令",
+      "introPara1": "ChatGPT —— 尤其是 <strong>GPT-4o</strong> —— 是专门为深度角色采纳而构建的。OpenAI 的 RLHF（基于人类反馈的强化学习）微调过程训练该模型以高度一致性保持其分配的角色，即使在<strong>较长的对话</strong>中也是如此。当您注入精心设计的 Master Instruction 时，GPT-4o 会紧密地遵循该角色。您生成的指令中的 <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> 部分（第 1 部分）是 ChatGPT 获取最大价值的地方。",
+      "introPara2": "本指南涵盖了在 ChatGPT 中部署自定义指令的所有可用方法：原生的自定义指令 UI、项目（Projects）和 OpenAI API —— 这样您就可以选择最适合您的用例的工作流程。"
+    }
+  },
+  "ja": {
+    "chatgpt": {
+      "badge": "プラットフォームガイド",
+      "title": "ChatGPT での指示の使用",
+      "introPara1": "ChatGPT、特に <strong>GPT-4o</strong> は、深いペルソナの採用を目的として構築されています。OpenAI の RLHF (人間からのフィードバックによる強化学習) 微調整プロセスは、<strong>長い会話</strong>全体であっても、割り当てられた役割を強力な一貫性で保持するようにモデルをトレーニングします。よく練られたマスター指示を注入すると、GPT-4o はペルソナに密接に従います。生成された指示の <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> セクション (セクション 1) は、ChatGPT が最も価値を引き出す場所です。",
+      "introPara2": "このガイドでは、ChatGPT でカスタム指示を展開するために利用できるすべての方法 (ネイティブのカスタム指示 UI、プロジェクト、および OpenAI API) について説明します。そのため、ユースケースに最も適したワークフローを選択できます。"
+    }
+  },
+  "ko": {
+    "chatgpt": {
+      "badge": "플랫폼 가이드",
+      "title": "ChatGPT와 함께 지침 사용",
+      "introPara1": "ChatGPT — 특히 <strong>GPT-4o</strong> —는 깊은 페르소나 채택을 목적으로 구축되었습니다. OpenAI의 RLHF(인간 피드백을 통한 강화 학습) 미세 조정 프로세스는 <strong>더 긴 대화</strong>에서도 지정된 역할을 강력한 일관성으로 유지하도록 모델을 훈련시킵니다. 잘 만들어진 마스터 지침을 주입하면 GPT-4o는 페르소나를 밀접하게 따릅니다. 생성된 지침의 <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> 섹션(섹션 1)은 ChatGPT가 가장 많은 가치를 도출하는 곳입니다.",
+      "introPara2": "이 가이드는 기본 사용자 지정 지침 UI, 프로젝트 및 OpenAI API와 같이 ChatGPT에서 사용자 지정 지침을 배포하는 데 사용할 수 있는 모든 방법을 다루므로 사용 사례에 가장 적합한 워크플로를 선택할 수 있습니다."
+    }
+  },
+  "es": {
+    "chatgpt": {
+      "badge": "Guías de plataforma",
+      "title": "Uso de instrucciones con ChatGPT",
+      "introPara1": "ChatGPT, especialmente <strong>GPT-4o</strong>, está diseñado específicamente para una adopción profunda de personajes. El proceso de ajuste fino RLHF (Aprendizaje por refuerzo a partir de retroalimentación humana) de OpenAI entrena al modelo para mantener su papel asignado con gran consistencia, incluso en <strong>conversaciones más largas</strong>. Cuando inyectas una Instrucción Maestra bien elaborada, GPT-4o sigue de cerca al personaje. La sección <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> (Sección 1) de la instrucción generada es de donde ChatGPT obtiene el mayor valor.",
+      "introPara2": "Esta guía cubre todos los métodos disponibles para implementar su instrucción personalizada en ChatGPT: la interfaz de usuario nativa de Instrucciones personalizadas, Proyectos y la API de OpenAI, para que pueda elegir el flujo de trabajo que mejor se adapte a su caso de uso."
+    }
+  },
+  "id": {
+    "chatgpt": {
+      "badge": "Panduan Platform",
+      "title": "Menggunakan Instruksi dengan ChatGPT",
+      "introPara1": "ChatGPT — khususnya <strong>GPT-4o</strong> — dibuat khusus untuk adopsi persona yang mendalam. Proses penyempurnaan RLHF (Reinforcement Learning from Human Feedback) dari OpenAI melatih model untuk memegang peran yang ditugaskan dengan konsistensi yang kuat, bahkan di seluruh <strong>percakapan yang lebih lama</strong>. Saat Anda memasukkan Master Instruction yang dirancang dengan baik, GPT-4o akan mengikuti persona tersebut dengan cermat. Bagian <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> (Bagian 1) dari instruksi yang Anda hasilkan adalah tempat ChatGPT memperoleh nilai paling banyak.",
+      "introPara2": "Panduan ini mencakup setiap metode yang tersedia untuk menerapkan instruksi khusus Anda di ChatGPT: UI Instruksi Khusus asli, Proyek, dan API OpenAI — sehingga Anda dapat memilih alur kerja yang paling sesuai dengan kasus penggunaan Anda."
+    }
+  }
+}
