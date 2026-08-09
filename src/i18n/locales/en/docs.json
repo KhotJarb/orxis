@@ -1,18 +1,4 @@
 {
-  "apiReference": {
-    "badge": "Developer Reference",
-    "title": "API Reference",
-    "description1": "Orxis exposes a clean FastAPI REST backend that powers every generation and tweak operation. This page documents every endpoint, its request schema, expected response format, and relevant error codes — everything you need to call the API directly, integrate it into your own tooling, or extend it with new routes.",
-    "description2": "All endpoints accept and return application/json. No special SDK is required — plain curl, the requests Python library, or fetch in the browser all work out of the box.",
-    "baseUrl": {
-      "title": "Base URL",
-      "description1": "The backend runs on port 8000 when started locally with uvicorn. For production Vercel deployments, the frontend proxies API calls through Next.js rewrites, so the effective base URL is your deployment domain.",
-      "description2": "All examples in this reference use the local base URL http://localhost:8000. Replace it with your production domain in deployed environments."
-    },
-    "authentication": {
-      "title": "Authentication"
-    }
-  },
   "bestPractices": {
     "badge": "Strategy Guide",
     "breadcrumb": "Best Practices",
@@ -537,12 +523,30 @@
     "compatProvidersParaBefore": "The following providers all support the",
     "compatProvidersParaAfter": "role in their Chat Completions API and are fully compatible with your generated instruction:",
     "providers": [
-      { "name": "OpenAI", "tag": "GPT-4o, o3" },
-      { "name": "DeepSeek", "tag": "deepseek-chat, R1" },
-      { "name": "Groq", "tag": "Llama 3, Mixtral" },
-      { "name": "Together AI", "tag": "200+ open models" },
-      { "name": "Anthropic", "tag": "Claude 3.5 Sonnet" },
-      { "name": "Google", "tag": "Gemini 2.0 Flash" }
+      {
+        "name": "OpenAI",
+        "tag": "GPT-4o, o3"
+      },
+      {
+        "name": "DeepSeek",
+        "tag": "deepseek-chat, R1"
+      },
+      {
+        "name": "Groq",
+        "tag": "Llama 3, Mixtral"
+      },
+      {
+        "name": "Together AI",
+        "tag": "200+ open models"
+      },
+      {
+        "name": "Anthropic",
+        "tag": "Claude 3.5 Sonnet"
+      },
+      {
+        "name": "Google",
+        "tag": "Gemini 2.0 Flash"
+      }
     ],
     "next": "Next",
     "nextLink": "Advanced — Prompt Chaining →"

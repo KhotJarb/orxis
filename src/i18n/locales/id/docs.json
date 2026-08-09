@@ -1,18 +1,4 @@
 {
-  "apiReference": {
-    "badge": "Referensi Pengembang",
-    "title": "Referensi API",
-    "description1": "Orxis mengekspos backend REST FastAPI bersih yang mendayagunakan setiap operasi pembuatan dan penyesuaian. Halaman ini mendokumentasikan setiap endpoint, skema permintaannya, format respons yang diharapkan, dan kode kesalahan yang relevan — semua yang kamu butuhkan untuk memanggil API secara langsung, mengintegrasikannya ke dalam alatmu sendiri, atau memperluasnya dengan rute baru.",
-    "description2": "Semua endpoint menerima dan mengembalikan application/json. Tidak diperlukan SDK khusus — curl biasa, pustaka permintaan Python, atau fetch di browser semuanya berfungsi langsung.",
-    "baseUrl": {
-      "title": "URL Dasar",
-      "description1": "Backend berjalan pada port 8000 saat dimulai secara lokal dengan uvicorn. Untuk penerapan produksi Vercel, frontend mem-proxy panggilan API melalui penulisan ulang Next.js, sehingga URL dasar yang efektif adalah domain penerapanmu.",
-      "description2": "Semua contoh dalam referensi ini menggunakan URL dasar lokal http://localhost:8000. Ganti dengan domain produksimu di lingkungan yang disebarkan."
-    },
-    "authentication": {
-      "title": "Otentikasi"
-    }
-  },
   "bestPractices": {
     "badge": "Panduan Strategi",
     "breadcrumb": "Praktik Terbaik",
