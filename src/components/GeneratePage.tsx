@@ -2,8 +2,9 @@
 
 import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Wand2, HelpCircle } from "lucide-react";
+import { Wand2, HelpCircle, Zap, List } from "lucide-react";
 import Navbar from "./Navbar";
+import QuickMode from "./QuickMode";
 import StepWizard from "./StepWizard";
 import OutputStudio from "./OutputStudio";
 import OnboardingTour from "./OnboardingTour";
@@ -11,9 +12,12 @@ import type { GenerateResult } from "./StepWizard";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
+type BuilderMode = "quick" | "steps";
+
 // ===== Component =====
 export default function GeneratePage() {
   const [result, setResult] = useState<GenerateResult | null>(null);
+  const [mode, setMode] = useState<BuilderMode>("quick");
   const [showTour, setShowTour] = useState(false);
   const [tourPulse, setTourPulse] = useState(false);
 
@@ -22,7 +26,6 @@ export default function GeneratePage() {
     if (typeof window === "undefined") return;
     const completed = localStorage.getItem("orxis_tour_completed");
     if (!completed) {
-      // Pulse the tour button once on first visit
       setTourPulse(true);
       const timer = setTimeout(() => setTourPulse(false), 3000);
       return () => clearTimeout(timer);
@@ -69,21 +72,18 @@ export default function GeneratePage() {
               exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
               transition={{ duration: 0.5, ease: EASE_SMOOTH }}
             >
-              <OutputStudio
-                result={result}
-                onReset={handleReset}
-              />
+              <OutputStudio result={result} onReset={handleReset} />
             </motion.div>
           ) : (
             <motion.div
-              key="wizard"
+              key="builder"
               initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
               transition={{ duration: 0.5, ease: EASE_SMOOTH }}
             >
               {/* Section Header */}
-              <div className="text-center mb-10 sm:mb-14">
+              <div className="text-center mb-8 sm:mb-10">
                 <div className="inline-flex items-center gap-2 rounded-full border border-glass-border bg-glass-bg px-4 py-2 text-xs sm:text-sm font-medium text-neon-purple-light mb-6">
                   <Wand2 className="h-3.5 w-3.5" />
                   AI Assistant Builder
@@ -93,14 +93,47 @@ export default function GeneratePage() {
                   <span className="text-gradient">AI Assistant</span>
                 </h1>
                 <p className="max-w-2xl mx-auto text-slate-400 text-base sm:text-lg leading-relaxed">
-                  Answer a few questions and we&apos;ll generate a complete AI
-                  assistant profile — ready for Gemini Gems, ChatGPT GPTs, or
-                  Claude Projects.
+                  {mode === "quick"
+                    ? "Describe what you want in your own words — we'll build it for you."
+                    : "Answer a few questions and we'll generate a complete AI assistant profile."}
                 </p>
               </div>
 
-              {/* Tour Button */}
-              <div className="flex justify-center mb-6">
+              {/* Mode Toggle + Tour Button */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8 sm:mb-10">
+                {/* Mode Toggle */}
+                <div className="flex gap-1 p-1 rounded-xl bg-white/[0.03] border border-glass-border">
+                  <button
+                    onClick={() => setMode("quick")}
+                    className={`
+                      flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-300 cursor-pointer
+                      ${
+                        mode === "quick"
+                          ? "bg-neon-purple/15 text-neon-purple-light border border-neon-purple/30"
+                          : "text-slate-500 hover:text-slate-300 hover:bg-white/[0.03] border border-transparent"
+                      }
+                    `}
+                  >
+                    <Zap className="h-4 w-4" />
+                    Quick Mode
+                  </button>
+                  <button
+                    onClick={() => setMode("steps")}
+                    className={`
+                      flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-300 cursor-pointer
+                      ${
+                        mode === "steps"
+                          ? "bg-neon-purple/15 text-neon-purple-light border border-neon-purple/30"
+                          : "text-slate-500 hover:text-slate-300 hover:bg-white/[0.03] border border-transparent"
+                      }
+                    `}
+                  >
+                    <List className="h-4 w-4" />
+                    Step-by-Step
+                  </button>
+                </div>
+
+                {/* Tour Button */}
                 <motion.button
                   onClick={() => setShowTour(true)}
                   whileHover={{ scale: 1.05 }}
@@ -118,7 +151,30 @@ export default function GeneratePage() {
                 </motion.button>
               </div>
 
-              <StepWizard onGenerate={handleGenerate} />
+              {/* Mode Content */}
+              <AnimatePresence mode="wait">
+                {mode === "quick" ? (
+                  <motion.div
+                    key="quick"
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.3, ease: EASE_SMOOTH }}
+                  >
+                    <QuickMode onGenerate={handleGenerate} />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="steps"
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.3, ease: EASE_SMOOTH }}
+                  >
+                    <StepWizard onGenerate={handleGenerate} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           )}
         </AnimatePresence>
