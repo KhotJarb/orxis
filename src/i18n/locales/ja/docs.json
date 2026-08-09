@@ -8,56 +8,56 @@
     "intro1After": "だけでなく、AIが何を、どのように、いつ行うべきかを明確に伝えます",
     "intro2": "重要なタスクにインストラクションをデプロイする前に、このチェックリストを使用してください。",
     "compoundingEffect": {
-      "title": "The Compounding Effect",
-      "textBefore": "The wizard is designed to extract the maximum signal from your inputs. Each of the four fields feeds a different section of the 6-section framework, and they ",
-      "textEm": "compound",
-      "textAfter": " — a strong persona amplifies a strong task definition, which amplifies strong tone signals, which makes your rules more effective. Invest 3 extra minutes in your inputs and the output quality difference is significant."
+      "title": "複利効果",
+      "textBefore": "ウィザードは、入力から最大のシグナルを抽出するように設計されています。4つのフィールドのそれぞれが、6セクションのフレームワークの異なる部分にフィードされ、それらは",
+      "textEm": "相互に強化（compound）",
+      "textAfter": "されます。強力なペルソナは強力なタスク定義を増幅し、それがトーンのシグナルを増幅し、ルールの効果を高めます。入力にさらに3分投資するだけで、出力品質の違いは歴然とします。"
     },
     "goldenRules": {
-      "title": "The 3 Golden Rules",
+      "title": "3つの黄金律",
       "rule1": {
-        "title": "Be Hyper-Specific With Your Task",
-        "text": "The task field is the most important of the four inputs. It feeds directly into Section 2 (Mission) and Section 3 (Cognitive Loop) of the generated instruction. Vague tasks produce vague missions. Domain-specific vocabulary in your task description activates domain-expert behavior in the output.",
+        "title": "タスクを極めて具体的にする",
+        "text": "タスクフィールドは、4つの入力の中で最も重要です。これは生成される指示のセクション2（Mission）とセクション3（Cognitive Loop）に直接フィードされます。曖昧なタスクは曖昧なミッションを生み出します。タスク説明にドメイン固有の語彙を使用すると、出力にドメイン専門家としての動作が有効になります。",
         "table": {
-          "weak": "❌ Weak Task",
-          "strong": "✓ Strong Task"
+          "weak": "❌ 弱いタスク",
+          "strong": "✓ 強いタスク"
         },
-        "note": "Notice the pattern: strong tasks use specific library names, version numbers, architectural patterns, and measurable outcomes. The more domain-specific vocabulary you use, the more the generated instruction sounds like it was written by an expert in that exact domain — because the AI is conditioned on that signal."
+        "note": "パターンに注目してください。強いタスクは、特定のライブラリ名、バージョン番号、アーキテクチャパターン、および測定可能な結果を使用します。ドメイン固有の語彙を使用すればするほど、AIはそのシグナルによって条件付けられるため、生成された指示はまさにそのドメインの専門家によって書かれたように聞こえます。"
       },
       "rule2": {
-        "title": "Never Contradict Your Own Rules",
-        "textBefore": "When the persona, tone, and rules fields contain ",
-        "textStrong": "conflicting signals",
-        "textMid": ", the AI receives competing constraints simultaneously. It doesn't choose one — it ",
-        "textEm": "oscillates",
-        "textAfter": ", producing inconsistent output that satisfies neither constraint well. Coherence across all four fields is non-negotiable.",
+        "title": "決してルールを矛盾させない",
+        "textBefore": "ペルソナ、トーン、ルールの各フィールドに",
+        "textStrong": "矛盾するシグナル",
+        "textMid": "が含まれている場合、AIは同時に競合する制約を受け取ることになります。AIはどちらか一方を選ぶことはなく、",
+        "textEm": "揺れ動き",
+        "textAfter": "、どちらの制約も十分に満たさない一貫性のない出力を生成します。4つのフィールドすべてにわたる一貫性は絶対条件です。",
         "badSetup": {
-          "title": "❌ Contradictory Setup",
-          "result": "Result: The AI will alternate between terse and exhaustive within the same response."
+          "title": "❌ 矛盾する設定",
+          "result": "結果：AIは、同じ回答の中で簡潔な表現と詳細な説明を交互に繰り返します。"
         },
         "goodSetup": {
-          "title": "✓ Coherent Setup",
-          "result": "Result: Every response is consistently tight and high-signal."
+          "title": "✓ 一貫性のある設定",
+          "result": "結果：すべての回答が一貫して簡潔でシグナル密度が高くなります。"
         },
-        "personaLabel": "Persona:",
-        "toneLabel": "Tone:",
-        "rulesLabel": "Rules:"
+        "personaLabel": "ペルソナ：",
+        "toneLabel": "トーン：",
+        "rulesLabel": "ルール："
       },
       "rule3": {
-        "title": "Specificity Beats Length",
-        "textBefore": "A 20-word hyper-specific task definition consistently outperforms a 200-word vague one. LLMs don't reward length — they reward ",
-        "textStrong": "signal density",
-        "textAfter": ". Padding your inputs with filler dilutes the domain-specific signals that make the generated instruction exceptional. When in doubt, cut the adjectives and keep the nouns and verbs.",
-        "comparisonTitle": "Signal Density Comparison",
-        "badLabel": "❌ 47 words, low density:",
-        "goodLabel": "✓ 21 words, high density:"
+        "title": "具体性は長さに勝る",
+        "textBefore": "20語の極めて具体的なタスク定義は、200語の曖昧な定義よりも常に優れた結果をもたらします。LLMは長さを評価するのではなく、",
+        "textStrong": "シグナル密度",
+        "textAfter": "を評価します。入力に無駄な言葉を詰め込むと、生成される指示を優れたものにするドメイン固有のシグナルが薄れてしまいます。迷った場合は、形容詞を削り、名詞と動詞を残してください。",
+        "comparisonTitle": "シグナル密度の比較",
+        "badLabel": "❌ 47語、低密度：",
+        "goodLabel": "✓ 21語、高密度："
       }
     },
     "toneStacking": {
-      "title": "Tone Stacking",
-      "textBefore": "Tone isn't a single dimension — it's a ",
-      "textStrong": "compound property",
-      "textAfter": ". Combining multiple tone chips creates a precise behavioral profile that no single chip can achieve alone. The tone field maps directly into Section 1 (Role & Identity) and Section 5 (Boundaries) of the generated instruction, influencing how the AI modulates everything from word choice to response length.",
+      "title": "トーンのスタッキング",
+      "textBefore": "トーンは単一の次元ではなく、",
+      "textStrong": "複合的な属性",
+      "textAfter": "です。複数のトーンチップを組み合わせることで、単一のチップでは達成できない正確な行動プロファイルを作成できます。トーンフィールドは生成される指示のセクション1（Role & Identity）およびセクション5（Boundaries）に直接マッピングされ、AIが言葉選びから回答の長さまでをどのように調整するかに影響を与えます。",
       "cards": [
         {
           "chips": [
@@ -65,7 +65,7 @@
             "Direct",
             "Terse"
           ],
-          "result": "A no-nonsense senior engineer who delivers the answer in 3 sentences and moves on. No fluff, no hedging, no social niceties."
+          "result": "答えを3文で伝え、すぐに次の話題に移る、無駄のないシニアエンジニア。前置きや社交辞令はありません。"
         },
         {
           "chips": [
@@ -73,7 +73,7 @@
             "Patient",
             "Encouraging"
           ],
-          "result": "A skilled instructor who explains the reasoning behind every decision, anticipates follow-up questions, and celebrates incremental progress."
+          "result": "すべての決定の背後にある理由を説明し、フォローアップの質問を予測し、少しの進歩でも称賛する熟練のインストラクター。"
         },
         {
           "chips": [
@@ -81,114 +81,114 @@
             "Critical",
             "Precise"
           ],
-          "result": "A rigorous code reviewer who finds every edge case, questions every assumption, and never approves anything that doesn't meet the standard."
+          "result": "すべてのエッジケースを見つけ、すべての前提を疑い、基準を満たさないものは決して承認しない厳格なコードレビューア。"
         }
       ],
-      "noteBefore": "The generator encodes tone chips into the Mission and Boundaries sections as behavioral directives — not just style suggestions. Each chip contributes a distinct constraint to the output distribution. Experiment with combinations that feel counterintuitive: ",
+      "noteBefore": "ウィザードは、単なるスタイルの提案ではなく、行動の指示としてトーンチップをMissionおよびBoundariesセクションにエンコードします。各チップは、出力分布に独自の制約を与えます。直感に反するように感じる組み合わせを試してみてください：",
       "noteQuote": "Analytical + Encouraging",
-      "noteAfter": " produces an unusually effective code mentor that finds all the bugs but never makes the user feel stupid."
+      "noteAfter": " を組み合わせると、すべてのバグを見つけながらも、ユーザーを決して不快にさせない、非常に効果的なコードメンターが生まれます。"
     },
     "personaMultiplier": {
-      "title": "The Persona Multiplier Effect",
-      "textBefore": "The persona field acts as a ",
-      "textStrong": "signal amplifier",
-      "textAfter": " for everything else. It's the first thing the AI reads, and it establishes the prior that all subsequent instructions are interpreted through. A weak persona is like a weak lens — it blurs everything that comes after it. A strong persona focuses the entire instruction into a sharp, high-resolution output profile.",
+      "title": "ペルソナの乗数効果",
+      "textBefore": "ペルソナフィールドは、他のすべての要素の",
+      "textStrong": "シグナル増幅器",
+      "textAfter": "として機能します。これはAIが最初に読むものであり、後続のすべての指示が解釈される前提条件を確立します。弱いペルソナは弱いレンズのようなもので、後に続くすべてをぼやけさせます。強いペルソナは、指示全体をシャープで高解像度の出力プロファイルに焦点づけます。",
       "table": {
-        "weak": "❌ Weak Persona",
-        "strong": "✓ Strong Persona",
-        "why": "Why It Matters",
+        "weak": "❌ 弱いペルソナ",
+        "strong": "✓ 強いペルソナ",
+        "why": "重要な理由",
         "rows": [
           {
             "weak": "An AI assistant",
             "strong": "Principal TypeScript Architect with 15 years building at scale",
-            "why": "Default behavior vs. expert-mode, decisive, high-authority output"
+            "why": "デフォルトの動作 vs. 専門家モード、決断力があり権威のある出力"
           },
           {
             "weak": "A Python developer",
             "strong": "Senior Backend Engineer specializing in async Python, FastAPI, and distributed systems",
-            "why": "Generic language knowledge vs. opinionated architecture guidance"
+            "why": "一般的な言語知識 vs. 意見を持ったアーキテクチャのガイダンス"
           },
           {
             "weak": "A writing assistant",
             "strong": "Technical Documentation Engineer with expertise in developer-facing API docs",
-            "why": "Generic prose improvement vs. structured, scannable, dev-optimized writing"
+            "why": "一般的な文章の改善 vs. 構造化され、スキャンしやすく、開発者向けに最適化された文章"
           },
           {
             "weak": "A data scientist",
             "strong": "ML Engineer specializing in production LLM fine-tuning and RLHF pipelines at hyperscale",
-            "why": "Generic data analysis vs. deep ML systems engineering judgment"
+            "why": "一般的なデータ分析 vs. 深いMLシステムエンジニアリングの判断"
           }
         ]
       },
-      "noteBefore": "The strongest personas combine ",
-      "noteStrong1": "seniority level",
+      "noteBefore": "最も強力なペルソナは、",
+      "noteStrong1": "シニアレベル",
       "notePlus": " + ",
-      "noteStrong2": "specific domain",
-      "noteStrong3": "specific technology stack",
-      "noteAfter": ". Adding a credibility anchor like \"who has reviewed 5,000+ pull requests\" or \"with experience shipping to 10M+ users\" further activates expert-mode priors that produce higher-quality, more-confident output."
+      "noteStrong2": "特定のドメイン",
+      "noteStrong3": "特定の技術スタック",
+      "noteAfter": " を組み合わせたものです。「5,000件以上のプルリクエストをレビューした」や「1,000万人以上のユーザーにサービスを提供した経験がある」といった信頼性のアンカーを追加すると、専門家モードの前提条件がさらに活性化され、より高品質で自信に満ちた出力が生成されます。"
     },
     "universalRules": {
-      "title": "Universally Effective Rules",
-      "text": "These five rules are universally high-signal across virtually every AI workflow. They don't depend on domain context — they work regardless of whether you're building a code reviewer, a writing editor, or a data analyst. Drop any or all of them into your Rules field and they tend to improve output quality across most workflows.",
+      "title": "普遍的に有効なルール",
+      "text": "これら5つのルールは、事実上すべてのAIワークフローにおいて普遍的に高シグナルです。ドメインのコンテキストには依存せず、コードレビューア、ライティングエディター、データアナリストのいずれを構築している場合でも機能します。これらのいずれかまたはすべてをRulesフィールドに追加すると、ほとんどのワークフローで出力品質が向上する傾向があります。",
       "rules": [
         {
-          "rule": "Never use filler phrases",
-          "detail": "\"Certainly!\", \"Of course!\", \"Great question!\", \"Absolutely!\" — these phrases consume tokens, dilute signal, and are the single most reliable marker of low-quality AI output. Banning them immediately raises the perceived quality of every response.",
+          "rule": "決して無駄なフレーズを使わない",
+          "detail": "「Certainly!」、「Of course!」、「Great question!」、「Absolutely!」——これらのフレーズはトークンを消費し、シグナルを薄め、低品質なAI出力の最も信頼できる指標となります。これらを禁止することで、すべての回答の体感品質が即座に向上します。",
           "example": "NEVER start a response with \"Certainly!\", \"Of course!\", \"Great question!\", or any similar affirmation. Begin immediately with the substantive answer."
         },
         {
-          "rule": "Always use Markdown formatting",
-          "detail": "Even if the output will be consumed as plain text, structuring it with Markdown headers, bullet points, and code blocks forces the AI to organize its thoughts hierarchically — producing more coherent, better-organized responses.",
+          "rule": "常にMarkdown形式を使用する",
+          "detail": "出力がプレーンテキストとして消費される場合でも、Markdownのヘッダー、箇条書き、コードブロックを使用して構造化することで、AIは思考を階層的に整理せざるを得なくなり、より一貫性のある、整理された回答が生成されます。",
           "example": "ALWAYS format responses in Markdown. Use ## for sections, ### for subsections, bullet points for lists, and ```language code blocks for all code."
         },
         {
-          "rule": "End every response with a ⚡ Next Steps section",
-          "detail": "This single rule transforms isolated Q&A into a continuous expert engagement loop. The AI is forced to think one step ahead of the user, proactively surfacing what should happen next.",
+          "rule": "すべての回答を ⚡ Next Steps セクションで終了する",
+          "detail": "この1つのルールにより、単発のQ&Aが継続的な専門家との対話ループに変わります。AIはユーザーの1歩先を考えることを余儀なくされ、次に起こるべきことを積極的に提示します。",
           "example": "END every response with a '## ⚡ Next Steps' section containing 2–3 concrete, actionable items the user should tackle next."
         },
         {
-          "rule": "If uncertain, say so explicitly",
-          "detail": "Without this rule, models will confidently hallucinate rather than admit uncertainty. This rule forces epistemic honesty and dramatically increases the trustworthiness of output — especially in high-stakes technical domains.",
+          "rule": "不確実な場合は、それを明示する",
+          "detail": "このルールがないと、モデルは不確実性を認めるのではなく、自信を持って幻覚（ハルシネーション）を生成します。このルールは認識論的誠実さを強制し、特にリスクの高い技術領域において、出力の信頼性を劇的に高めます。",
           "example": "If you are uncertain about any fact, library version, or technical detail, say so explicitly: 'I am not certain about this — please verify.' NEVER fabricate an answer to appear more helpful."
         },
         {
-          "rule": "Never repeat what the user just said",
-          "detail": "A common low-quality pattern: AI rephrases the user's question back to them before answering it. This wastes context and signals low confidence. Banning it forces the model to add value immediately in the first sentence.",
+          "rule": "ユーザーが言ったことを決して繰り返さない",
+          "detail": "よくある低品質なパターン：AIは回答する前にユーザーの質問を言い換えます。これはコンテキストを無駄にし、自信のなさを表します。これを禁止することで、モデルは最初の文からすぐに価値を提供するようになります。",
           "example": "NEVER restate or paraphrase the user's question or input before answering. Add value immediately. The first sentence of every response must be substantive."
         }
       ],
-      "copyReadyLabel": "Copy-ready rule:"
+      "copyReadyLabel": "コピペ用ルール："
     },
     "antiPatterns": {
-      "title": "Anti-Patterns to Avoid",
-      "text": "These are the five most common mistakes we see in user inputs. Each one predictably degrades the quality of the generated instruction. If your output feels generic or inconsistent, check your inputs against this list first.",
+      "title": "避けるべきアンチパターン",
+      "text": "これらは、ユーザーの入力で最もよく見られる5つの間違いです。それぞれが予測通りに生成される指示の品質を低下させます。出力が一般的であったり、一貫性がないと感じる場合は、まずこのリストと照らし合わせて入力を確認してください。",
       "patterns": [
         {
-          "title": "Vague persona: 'an AI assistant'",
-          "detail": "This is the model's default self-concept. You haven't changed anything — you've just confirmed the prior. If the persona field doesn't add new information the model wouldn't already assume, rewrite it. Minimum viable persona: a specific domain + a seniority level."
+          "title": "曖昧なペルソナ：「an AI assistant」",
+          "detail": "これはモデルのデフォルトの自己認識です。何も変えていません——単に前提を確認しただけです。ペルソナフィールドにモデルが仮定しないような新しい情報が追加されていない場合は、書き直してください。最小限の有効なペルソナ：特定のドメイン + シニアレベル。"
         },
         {
-          "title": "Contradictory tone + rules",
-          "detail": "If your tone says 'Concise' but your rules say 'Provide exhaustive explanations', the model will oscillate. Audit your inputs for coherence: every rule should amplify the tone, not contradict it."
+          "title": "矛盾するトーン + ルール",
+          "detail": "トーンが「簡潔」であるのに、ルールが「網羅的な説明を提供する」である場合、モデルは揺れ動きます。入力の一貫性を監査してください。すべてのルールはトーンを増幅するものであり、矛盾するものであってはなりません。"
         },
         {
-          "title": "Rules framed as requests, not directives",
-          "detail": "'Please be nice' is a request. 'Use professional language only — no colloquialisms, no slang' is a directive. Requests are processed as preferences and regularly ignored under other constraints. Directives are processed as hard constraints. Use the imperative mood."
+          "title": "指示ではなく、要求として構成されたルール",
+          "detail": "「Please be nice」は要求です。「Use professional language only — no colloquialisms, no slang」は指示です。要求は好みとして処理され、他の制約の下では定期的に無視されます。指示は厳密な制約として処理されます。命令法を使用してください。"
         },
         {
-          "title": "No output format specified",
-          "detail": "If you don't specify an output format, the model will use whatever format it calculates is most likely for the domain — which is usually inconsistent across conversations. Always define at minimum: 'Use Markdown formatting.' Ideally, also specify header levels, code block language tags, and list structure."
+          "title": "出力形式が指定されていない",
+          "detail": "出力形式を指定しない場合、モデルはそのドメインに最も適していると計算した形式を使用しますが、通常、会話全体で一貫性がありません。少なくとも「Use Markdown formatting.」と定義してください。理想的には、ヘッダーレベル、コードブロックの言語タグ、リスト構造も指定します。"
         },
         {
-          "title": "Missing domain context",
-          "detail": "The AI doesn't know what stack you use, what framework you're on, what version you're targeting, or what constraints your project has — unless you tell it. 'Review my code' produces generic advice. 'Review my Next.js 14 App Router code for performance regressions against React 18 Suspense semantics' produces expert-level, version-aware analysis."
+          "title": "ドメインコンテキストの欠落",
+          "detail": "AIは、あなたがどのスタックを使用し、どのフレームワークを使用し、どのバージョンをターゲットにし、プロジェクトにどのような制約があるかを知りません——あなたが伝えない限り。「Review my code」は一般的なアドバイスを生成します。「Review my Next.js 14 App Router code for performance regressions against React 18 Suspense semantics」は、専門家レベルの、バージョンを認識した分析を生成します。"
         }
       ],
-      "checklistFilename": "Quick Reference — Input Checklist"
+      "checklistFilename": "クイックリファレンス — 入力チェックリスト"
     },
     "bottomNav": {
-      "label": "You've reached the end of the docs",
-      "link": "Ready to generate your first instruction? →"
+      "label": "ドキュメントの最後まで到達しました",
+      "link": "最初の指示を生成する準備はできましたか？ →"
     }
   },
   "content": {

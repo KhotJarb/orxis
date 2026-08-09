@@ -8,56 +8,56 @@
     "intro1After": "— le dicen claramente a la IA qué hacer, cómo y cuándo",
     "intro2": "Usa estas listas de verificación antes de desplegar instrucciones para tareas importantes.",
     "compoundingEffect": {
-      "title": "The Compounding Effect",
-      "textBefore": "The wizard is designed to extract the maximum signal from your inputs. Each of the four fields feeds a different section of the 6-section framework, and they ",
-      "textEm": "compound",
-      "textAfter": " — a strong persona amplifies a strong task definition, which amplifies strong tone signals, which makes your rules more effective. Invest 3 extra minutes in your inputs and the output quality difference is significant."
+      "title": "El Efecto Compuesto",
+      "textBefore": "El asistente está diseñado para extraer la máxima señal de tus entradas. Cada uno de los cuatro campos alimenta una sección diferente del framework de 6 partes, y se ",
+      "textEm": "potencian entre sí",
+      "textAfter": " : una persona fuerte amplifica una definición de tarea fuerte, lo cual amplifica las señales de tono, haciendo tus reglas más efectivas. Invierte 3 minutos extra en tus entradas y la diferencia en la calidad del resultado será significativa."
     },
     "goldenRules": {
-      "title": "The 3 Golden Rules",
+      "title": "Las 3 Reglas de Oro",
       "rule1": {
-        "title": "Be Hyper-Specific With Your Task",
-        "text": "The task field is the most important of the four inputs. It feeds directly into Section 2 (Mission) and Section 3 (Cognitive Loop) of the generated instruction. Vague tasks produce vague missions. Domain-specific vocabulary in your task description activates domain-expert behavior in the output.",
+        "title": "Sé hiper-específico con tu tarea",
+        "text": "El campo de la tarea (Task) es el más importante de los cuatro. Alimenta directamente la Sección 2 (Misión) y la Sección 3 (Bucle Cognitivo) de la instrucción generada. Las tareas vagas producen misiones vagas. Usar vocabulario específico del dominio en la descripción de tu tarea activa el comportamiento de experto en el resultado.",
         "table": {
-          "weak": "❌ Weak Task",
-          "strong": "✓ Strong Task"
+          "weak": "❌ Tarea débil",
+          "strong": "✓ Tarea fuerte"
         },
-        "note": "Notice the pattern: strong tasks use specific library names, version numbers, architectural patterns, and measurable outcomes. The more domain-specific vocabulary you use, the more the generated instruction sounds like it was written by an expert in that exact domain — because the AI is conditioned on that signal."
+        "note": "Nota el patrón: las tareas fuertes usan nombres específicos de librerías, números de versión, patrones de arquitectura y resultados medibles. Entre más vocabulario de dominio uses, más sonará la instrucción generada como si fuera escrita por un experto en ese dominio exacto — porque la IA se condiciona con esa señal."
       },
       "rule2": {
-        "title": "Never Contradict Your Own Rules",
-        "textBefore": "When the persona, tone, and rules fields contain ",
-        "textStrong": "conflicting signals",
-        "textMid": ", the AI receives competing constraints simultaneously. It doesn't choose one — it ",
-        "textEm": "oscillates",
-        "textAfter": ", producing inconsistent output that satisfies neither constraint well. Coherence across all four fields is non-negotiable.",
+        "title": "Nunca contradigas tus propias reglas",
+        "textBefore": "Cuando los campos de persona, tono y reglas contienen ",
+        "textStrong": "señales contradictorias",
+        "textMid": ", la IA recibe restricciones que compiten al mismo tiempo. No escoge una — ",
+        "textEm": "oscila",
+        "textAfter": ", produciendo un resultado inconsistente que no satisface bien ninguna de las restricciones. La coherencia en los cuatro campos no es negociable.",
         "badSetup": {
-          "title": "❌ Contradictory Setup",
-          "result": "Result: The AI will alternate between terse and exhaustive within the same response."
+          "title": "❌ Configuración contradictoria",
+          "result": "Resultado: La IA alternará entre respuestas cortantes y exhaustivas en la misma conversación."
         },
         "goodSetup": {
-          "title": "✓ Coherent Setup",
-          "result": "Result: Every response is consistently tight and high-signal."
+          "title": "✓ Configuración coherente",
+          "result": "Resultado: Cada respuesta es consistentemente concisa y de alta señal."
         },
         "personaLabel": "Persona:",
-        "toneLabel": "Tone:",
-        "rulesLabel": "Rules:"
+        "toneLabel": "Tono:",
+        "rulesLabel": "Reglas:"
       },
       "rule3": {
-        "title": "Specificity Beats Length",
-        "textBefore": "A 20-word hyper-specific task definition consistently outperforms a 200-word vague one. LLMs don't reward length — they reward ",
-        "textStrong": "signal density",
-        "textAfter": ". Padding your inputs with filler dilutes the domain-specific signals that make the generated instruction exceptional. When in doubt, cut the adjectives and keep the nouns and verbs.",
-        "comparisonTitle": "Signal Density Comparison",
-        "badLabel": "❌ 47 words, low density:",
-        "goodLabel": "✓ 21 words, high density:"
+        "title": "La especificidad supera a la longitud",
+        "textBefore": "Una definición de tarea hiper-específica de 20 palabras siempre supera a una vaga de 200 palabras. Los LLM no premian la longitud — premian la ",
+        "textStrong": "densidad de la señal",
+        "textAfter": ". Llenar tus entradas con relleno diluye las señales específicas del dominio que hacen que la instrucción generada sea excepcional. Ante la duda, corta los adjetivos y quédate con los sustantivos y verbos.",
+        "comparisonTitle": "Comparación de Densidad de Señal",
+        "badLabel": "❌ 47 palabras, baja densidad:",
+        "goodLabel": "✓ 21 palabras, alta densidad:"
       }
     },
     "toneStacking": {
-      "title": "Tone Stacking",
-      "textBefore": "Tone isn't a single dimension — it's a ",
-      "textStrong": "compound property",
-      "textAfter": ". Combining multiple tone chips creates a precise behavioral profile that no single chip can achieve alone. The tone field maps directly into Section 1 (Role & Identity) and Section 5 (Boundaries) of the generated instruction, influencing how the AI modulates everything from word choice to response length.",
+      "title": "Apilamiento de Tonos",
+      "textBefore": "El tono no es una sola dimensión — es una ",
+      "textStrong": "propiedad compuesta",
+      "textAfter": ". Combinar múltiples chips de tono crea un perfil de comportamiento preciso que ningún chip individual puede lograr por sí solo. El campo de tono se mapea directamente a la Sección 1 (Rol e Identidad) y la Sección 5 (Límites) de la instrucción generada, influyendo en cómo la IA modula todo, desde la elección de palabras hasta la longitud de la respuesta.",
       "cards": [
         {
           "chips": [
@@ -65,7 +65,7 @@
             "Direct",
             "Terse"
           ],
-          "result": "A no-nonsense senior engineer who delivers the answer in 3 sentences and moves on. No fluff, no hedging, no social niceties."
+          "result": "Un ingeniero senior que va al grano y da la respuesta en 3 oraciones y sigue adelante. Sin relleno, sin evasivas, sin formalidades sociales."
         },
         {
           "chips": [
@@ -73,7 +73,7 @@
             "Patient",
             "Encouraging"
           ],
-          "result": "A skilled instructor who explains the reasoning behind every decision, anticipates follow-up questions, and celebrates incremental progress."
+          "result": "Un instructor hábil que explica el razonamiento detrás de cada decisión, anticipa preguntas de seguimiento y celebra el progreso incremental."
         },
         {
           "chips": [
@@ -81,114 +81,114 @@
             "Critical",
             "Precise"
           ],
-          "result": "A rigorous code reviewer who finds every edge case, questions every assumption, and never approves anything that doesn't meet the standard."
+          "result": "Un revisor de código riguroso que encuentra cada caso límite, cuestiona cada suposición y nunca aprueba nada que no cumpla con el estándar."
         }
       ],
-      "noteBefore": "The generator encodes tone chips into the Mission and Boundaries sections as behavioral directives — not just style suggestions. Each chip contributes a distinct constraint to the output distribution. Experiment with combinations that feel counterintuitive: ",
+      "noteBefore": "El asistente codifica los chips de tono en las secciones de Misión y Límites como directivas de comportamiento — no solo sugerencias de estilo. Cada chip aporta una restricción distinta a la distribución de la respuesta. Experimenta con combinaciones que parezcan contra-intuitivas: ",
       "noteQuote": "Analytical + Encouraging",
-      "noteAfter": " produces an unusually effective code mentor that finds all the bugs but never makes the user feel stupid."
+      "noteAfter": " produce un mentor de código inusualmente efectivo que encuentra todos los errores pero nunca hace que el usuario se sienta tonto."
     },
     "personaMultiplier": {
-      "title": "The Persona Multiplier Effect",
-      "textBefore": "The persona field acts as a ",
-      "textStrong": "signal amplifier",
-      "textAfter": " for everything else. It's the first thing the AI reads, and it establishes the prior that all subsequent instructions are interpreted through. A weak persona is like a weak lens — it blurs everything that comes after it. A strong persona focuses the entire instruction into a sharp, high-resolution output profile.",
+      "title": "El Efecto Multiplicador de la Persona",
+      "textBefore": "El campo de persona actúa como un ",
+      "textStrong": "amplificador de señal",
+      "textAfter": " para todo lo demás. Es lo primero que lee la IA, y establece la base a través de la cual se interpretan todas las instrucciones posteriores. Una persona débil es como un lente débil — desenfoca todo lo que viene después. Una persona fuerte enfoca toda la instrucción en un perfil de salida nítido y de alta resolución.",
       "table": {
-        "weak": "❌ Weak Persona",
-        "strong": "✓ Strong Persona",
-        "why": "Why It Matters",
+        "weak": "❌ Persona débil",
+        "strong": "✓ Persona fuerte",
+        "why": "Por qué importa",
         "rows": [
           {
             "weak": "An AI assistant",
             "strong": "Principal TypeScript Architect with 15 years building at scale",
-            "why": "Default behavior vs. expert-mode, decisive, high-authority output"
+            "why": "Comportamiento por defecto vs. modo experto, salida decisiva y de alta autoridad"
           },
           {
             "weak": "A Python developer",
             "strong": "Senior Backend Engineer specializing in async Python, FastAPI, and distributed systems",
-            "why": "Generic language knowledge vs. opinionated architecture guidance"
+            "why": "Conocimiento general del lenguaje vs. guía de arquitectura con opinión"
           },
           {
             "weak": "A writing assistant",
             "strong": "Technical Documentation Engineer with expertise in developer-facing API docs",
-            "why": "Generic prose improvement vs. structured, scannable, dev-optimized writing"
+            "why": "Mejora de prosa genérica vs. escritura estructurada, fácil de escanear y optimizada para desarrolladores"
           },
           {
             "weak": "A data scientist",
             "strong": "ML Engineer specializing in production LLM fine-tuning and RLHF pipelines at hyperscale",
-            "why": "Generic data analysis vs. deep ML systems engineering judgment"
+            "why": "Análisis de datos genérico vs. juicio profundo en ingeniería de sistemas de ML"
           }
         ]
       },
-      "noteBefore": "The strongest personas combine ",
-      "noteStrong1": "seniority level",
+      "noteBefore": "Las personas más fuertes combinan ",
+      "noteStrong1": "nivel de antigüedad",
       "notePlus": " + ",
-      "noteStrong2": "specific domain",
-      "noteStrong3": "specific technology stack",
-      "noteAfter": ". Adding a credibility anchor like \"who has reviewed 5,000+ pull requests\" or \"with experience shipping to 10M+ users\" further activates expert-mode priors that produce higher-quality, more-confident output."
+      "noteStrong2": "dominio específico",
+      "noteStrong3": "stack tecnológico específico",
+      "noteAfter": ". Agregar un ancla de credibilidad como 'que ha revisado más de 5,000 pull requests' o 'con experiencia enviando a más de 10M de usuarios' activa aún más el modo experto que produce un resultado de mayor calidad y confianza."
     },
     "universalRules": {
-      "title": "Universally Effective Rules",
-      "text": "These five rules are universally high-signal across virtually every AI workflow. They don't depend on domain context — they work regardless of whether you're building a code reviewer, a writing editor, or a data analyst. Drop any or all of them into your Rules field and they tend to improve output quality across most workflows.",
+      "title": "Reglas Universalmente Efectivas",
+      "text": "Estas cinco reglas dan una alta señal en casi todos los flujos de trabajo de IA. No dependen del contexto del dominio — funcionan ya sea que estés construyendo un revisor de código, un editor de redacción o un analista de datos. Pónlas todas o algunas en tu campo de Reglas y mejorarán la calidad de tus respuestas en la mayoría de los flujos de trabajo.",
       "rules": [
         {
-          "rule": "Never use filler phrases",
-          "detail": "\"Certainly!\", \"Of course!\", \"Great question!\", \"Absolutely!\" — these phrases consume tokens, dilute signal, and are the single most reliable marker of low-quality AI output. Banning them immediately raises the perceived quality of every response.",
+          "rule": "Nunca uses frases de relleno",
+          "detail": "'Certainly!', 'Of course!', 'Great question!', 'Absolutely!' — estas frases consumen tokens, diluyen la señal y son la marca más confiable de un resultado de IA de baja calidad. Prohibirlas eleva inmediatamente la calidad percibida de cada respuesta.",
           "example": "NEVER start a response with \"Certainly!\", \"Of course!\", \"Great question!\", or any similar affirmation. Begin immediately with the substantive answer."
         },
         {
-          "rule": "Always use Markdown formatting",
-          "detail": "Even if the output will be consumed as plain text, structuring it with Markdown headers, bullet points, and code blocks forces the AI to organize its thoughts hierarchically — producing more coherent, better-organized responses.",
+          "rule": "Usa siempre formato Markdown",
+          "detail": "Incluso si el resultado se consumirá como texto plano, estructurarlo con encabezados Markdown, viñetas y bloques de código obliga a la IA a organizar sus pensamientos jerárquicamente — produciendo respuestas más coherentes y mejor organizadas.",
           "example": "ALWAYS format responses in Markdown. Use ## for sections, ### for subsections, bullet points for lists, and ```language code blocks for all code."
         },
         {
-          "rule": "End every response with a ⚡ Next Steps section",
-          "detail": "This single rule transforms isolated Q&A into a continuous expert engagement loop. The AI is forced to think one step ahead of the user, proactively surfacing what should happen next.",
+          "rule": "Termina cada respuesta con una sección ⚡ Next Steps",
+          "detail": "Esta única regla transforma un Q&A aislado en un bucle continuo de compromiso con un experto. La IA se ve obligada a pensar un paso por delante del usuario, sugiriendo proactivamente lo que debería suceder a continuación.",
           "example": "END every response with a '## ⚡ Next Steps' section containing 2–3 concrete, actionable items the user should tackle next."
         },
         {
-          "rule": "If uncertain, say so explicitly",
-          "detail": "Without this rule, models will confidently hallucinate rather than admit uncertainty. This rule forces epistemic honesty and dramatically increases the trustworthiness of output — especially in high-stakes technical domains.",
+          "rule": "Si hay incertidumbre, dilo explícitamente",
+          "detail": "Sin esta regla, los modelos alucinarán con confianza en lugar de admitir la incertidumbre. Esta regla fuerza la honestidad epistémica y aumenta dramáticamente la confiabilidad del resultado — especialmente en dominios técnicos de alto riesgo.",
           "example": "If you are uncertain about any fact, library version, or technical detail, say so explicitly: 'I am not certain about this — please verify.' NEVER fabricate an answer to appear more helpful."
         },
         {
-          "rule": "Never repeat what the user just said",
-          "detail": "A common low-quality pattern: AI rephrases the user's question back to them before answering it. This wastes context and signals low confidence. Banning it forces the model to add value immediately in the first sentence.",
+          "rule": "Nunca repitas lo que el usuario acaba de decir",
+          "detail": "Un patrón común de baja calidad: la IA reformula la pregunta del usuario antes de responderla. Esto desperdicia contexto y señala baja confianza. Prohibirlo obliga al modelo a agregar valor inmediatamente en la primera oración.",
           "example": "NEVER restate or paraphrase the user's question or input before answering. Add value immediately. The first sentence of every response must be substantive."
         }
       ],
-      "copyReadyLabel": "Copy-ready rule:"
+      "copyReadyLabel": "Regla lista para copiar:"
     },
     "antiPatterns": {
-      "title": "Anti-Patterns to Avoid",
-      "text": "These are the five most common mistakes we see in user inputs. Each one predictably degrades the quality of the generated instruction. If your output feels generic or inconsistent, check your inputs against this list first.",
+      "title": "Anti-Patrones a Evitar",
+      "text": "Estos son los cinco errores más comunes que vemos en las entradas de los usuarios. Cada uno degrada predeciblemente la calidad de la instrucción generada. Si tu resultado se siente genérico o inconsistente, revisa tus entradas con esta lista primero.",
       "patterns": [
         {
-          "title": "Vague persona: 'an AI assistant'",
-          "detail": "This is the model's default self-concept. You haven't changed anything — you've just confirmed the prior. If the persona field doesn't add new information the model wouldn't already assume, rewrite it. Minimum viable persona: a specific domain + a seniority level."
+          "title": "Persona vaga: 'an AI assistant'",
+          "detail": "Este es el autoconcepto por defecto del modelo. No has cambiado nada — solo has confirmado su configuración inicial. Si el campo de persona no agrega información nueva que el modelo no asumiría por sí mismo, reescríbelo. Persona mínima viable: un dominio específico + un nivel de antigüedad."
         },
         {
-          "title": "Contradictory tone + rules",
-          "detail": "If your tone says 'Concise' but your rules say 'Provide exhaustive explanations', the model will oscillate. Audit your inputs for coherence: every rule should amplify the tone, not contradict it."
+          "title": "Tono + reglas contradictorias",
+          "detail": "Si tu tono dice 'Conciso' pero tus reglas dicen 'Proporciona explicaciones exhaustivas', el modelo oscilará. Audita tus entradas para que sean coherentes: cada regla debe amplificar el tono, no contradecirlo."
         },
         {
-          "title": "Rules framed as requests, not directives",
-          "detail": "'Please be nice' is a request. 'Use professional language only — no colloquialisms, no slang' is a directive. Requests are processed as preferences and regularly ignored under other constraints. Directives are processed as hard constraints. Use the imperative mood."
+          "title": "Reglas redactadas como peticiones, no directivas",
+          "detail": "'Please be nice' es una petición. 'Use professional language only — no colloquialisms, no slang' es una directiva. Las peticiones se procesan como preferencias y regularmente se ignoran bajo otras restricciones. Las directivas se procesan como restricciones estrictas. Usa el modo imperativo."
         },
         {
-          "title": "No output format specified",
-          "detail": "If you don't specify an output format, the model will use whatever format it calculates is most likely for the domain — which is usually inconsistent across conversations. Always define at minimum: 'Use Markdown formatting.' Ideally, also specify header levels, code block language tags, and list structure."
+          "title": "Sin formato de salida especificado",
+          "detail": "Si no especificas un formato de salida, el modelo usará cualquier formato que calcule que es más probable para el dominio — lo cual usualmente es inconsistente a través de las conversaciones. Siempre define como mínimo: 'Use Markdown formatting.' Idealmente, especifica también niveles de encabezado, etiquetas de lenguaje de bloques de código y estructura de listas."
         },
         {
-          "title": "Missing domain context",
-          "detail": "The AI doesn't know what stack you use, what framework you're on, what version you're targeting, or what constraints your project has — unless you tell it. 'Review my code' produces generic advice. 'Review my Next.js 14 App Router code for performance regressions against React 18 Suspense semantics' produces expert-level, version-aware analysis."
+          "title": "Falta de contexto de dominio",
+          "detail": "La IA no sabe qué stack usas, en qué framework estás, a qué versión apuntas o qué restricciones tiene tu proyecto — a menos que se lo digas. 'Review my code' produce consejos genéricos. 'Review my Next.js 14 App Router code' produce análisis a nivel experto consciente de la versión."
         }
       ],
-      "checklistFilename": "Quick Reference — Input Checklist"
+      "checklistFilename": "Referencia Rápida — Checklist de Entradas"
     },
     "bottomNav": {
-      "label": "You've reached the end of the docs",
-      "link": "Ready to generate your first instruction? →"
+      "label": "Has llegado al final de la documentación",
+      "link": "¿Listo para generar tu primera instrucción? →"
     }
   },
   "content": {

@@ -8,56 +8,56 @@
     "intro1After": "것에 그치지 않습니다 — AI에게 무엇을, 어떻게, 언제 해야 하는지 명확히 알려줍니다",
     "intro2": "중요한 작업에 지침을 배포하기 전에 이 체크리스트를 사용하세요.",
     "compoundingEffect": {
-      "title": "The Compounding Effect",
-      "textBefore": "The wizard is designed to extract the maximum signal from your inputs. Each of the four fields feeds a different section of the 6-section framework, and they ",
-      "textEm": "compound",
-      "textAfter": " — a strong persona amplifies a strong task definition, which amplifies strong tone signals, which makes your rules more effective. Invest 3 extra minutes in your inputs and the output quality difference is significant."
+      "title": "복리 효과",
+      "textBefore": "마법사는 입력에서 최대의 신호를 추출하도록 설계되었습니다. 네 개의 필드는 각각 6개 섹션 프레임워크의 다른 섹션으로 입력되며, 서로 ",
+      "textEm": "결합하여 증폭(compound)",
+      "textAfter": " 합니다. 강력한 페르소나는 강력한 작업 정의를 증폭시키고, 이는 다시 어조 신호를 증폭시켜 규칙을 더 효과적으로 만듭니다. 입력에 3분만 더 투자하면 출력 품질의 차이는 상당합니다."
     },
     "goldenRules": {
-      "title": "The 3 Golden Rules",
+      "title": "3가지 황금률",
       "rule1": {
-        "title": "Be Hyper-Specific With Your Task",
-        "text": "The task field is the most important of the four inputs. It feeds directly into Section 2 (Mission) and Section 3 (Cognitive Loop) of the generated instruction. Vague tasks produce vague missions. Domain-specific vocabulary in your task description activates domain-expert behavior in the output.",
+        "title": "작업을 매우 구체적으로 작성하십시오",
+        "text": "작업(Task) 필드는 네 개의 입력 중 가장 중요합니다. 이는 생성된 지침의 섹션 2(Mission)와 섹션 3(Cognitive Loop)으로 직접 입력됩니다. 모호한 작업은 모호한 임무를 만듭니다. 작업 설명에 도메인별 어휘를 사용하면 출력에서 도메인 전문가의 행동이 활성화됩니다.",
         "table": {
-          "weak": "❌ Weak Task",
-          "strong": "✓ Strong Task"
+          "weak": "❌ 모호한 작업",
+          "strong": "✓ 구체적인 작업"
         },
-        "note": "Notice the pattern: strong tasks use specific library names, version numbers, architectural patterns, and measurable outcomes. The more domain-specific vocabulary you use, the more the generated instruction sounds like it was written by an expert in that exact domain — because the AI is conditioned on that signal."
+        "note": "패턴을 주목하십시오. 구체적인 작업은 특정 라이브러리 이름, 버전 번호, 아키텍처 패턴 및 측정 가능한 결과를 사용합니다. 도메인별 어휘를 더 많이 사용할수록 AI가 해당 신호에 조건화되기 때문에 생성된 지침은 바로 그 도메인의 전문가가 작성한 것처럼 들립니다."
       },
       "rule2": {
-        "title": "Never Contradict Your Own Rules",
-        "textBefore": "When the persona, tone, and rules fields contain ",
-        "textStrong": "conflicting signals",
-        "textMid": ", the AI receives competing constraints simultaneously. It doesn't choose one — it ",
-        "textEm": "oscillates",
-        "textAfter": ", producing inconsistent output that satisfies neither constraint well. Coherence across all four fields is non-negotiable.",
+        "title": "규칙을 서로 모순되게 하지 마십시오",
+        "textBefore": "페르소나, 어조 및 규칙 필드에 ",
+        "textStrong": "충돌하는 신호",
+        "textMid": "가 포함되면 AI는 동시에 경쟁하는 제약을 받습니다. 어느 하나를 선택하지 못하고 ",
+        "textEm": "요동치며(oscillates)",
+        "textAfter": ", 어느 제약도 제대로 충족하지 못하는 일관성 없는 출력을 생성합니다. 네 가지 필드 모두에서 일관성을 유지하는 것은 타협할 수 없는 필수 사항입니다.",
         "badSetup": {
-          "title": "❌ Contradictory Setup",
-          "result": "Result: The AI will alternate between terse and exhaustive within the same response."
+          "title": "❌ 모순된 설정",
+          "result": "결과: AI가 동일한 응답 내에서 간결한 설명과 장황한 설명을 번갈아 가며 사용합니다."
         },
         "goodSetup": {
-          "title": "✓ Coherent Setup",
-          "result": "Result: Every response is consistently tight and high-signal."
+          "title": "✓ 일관된 설정",
+          "result": "결과: 모든 응답이 일관되게 간결하고 신호 밀도가 높습니다."
         },
-        "personaLabel": "Persona:",
-        "toneLabel": "Tone:",
-        "rulesLabel": "Rules:"
+        "personaLabel": "페르소나:",
+        "toneLabel": "어조:",
+        "rulesLabel": "규칙:"
       },
       "rule3": {
-        "title": "Specificity Beats Length",
-        "textBefore": "A 20-word hyper-specific task definition consistently outperforms a 200-word vague one. LLMs don't reward length — they reward ",
-        "textStrong": "signal density",
-        "textAfter": ". Padding your inputs with filler dilutes the domain-specific signals that make the generated instruction exceptional. When in doubt, cut the adjectives and keep the nouns and verbs.",
-        "comparisonTitle": "Signal Density Comparison",
-        "badLabel": "❌ 47 words, low density:",
-        "goodLabel": "✓ 21 words, high density:"
+        "title": "구체성이 길이보다 중요합니다",
+        "textBefore": "20단어의 매우 구체적인 작업 정의는 200단어의 모호한 정의보다 항상 더 나은 성능을 발휘합니다. LLM은 길이에 대해 보상하지 않으며, ",
+        "textStrong": "신호 밀도(signal density)",
+        "textAfter": "에 대해 보상합니다. 입력값을 불필요한 말로 채우면 생성된 지침을 탁월하게 만드는 도메인별 신호가 희석됩니다. 확신이 서지 않을 때는 형용사를 줄이고 명사와 동사를 유지하십시오.",
+        "comparisonTitle": "신호 밀도 비교",
+        "badLabel": "❌ 47단어, 낮은 밀도:",
+        "goodLabel": "✓ 21단어, 높은 밀도:"
       }
     },
     "toneStacking": {
-      "title": "Tone Stacking",
-      "textBefore": "Tone isn't a single dimension — it's a ",
-      "textStrong": "compound property",
-      "textAfter": ". Combining multiple tone chips creates a precise behavioral profile that no single chip can achieve alone. The tone field maps directly into Section 1 (Role & Identity) and Section 5 (Boundaries) of the generated instruction, influencing how the AI modulates everything from word choice to response length.",
+      "title": "어조 중첩 (Tone Stacking)",
+      "textBefore": "어조는 단일한 차원이 아닙니다. 이는 ",
+      "textStrong": "복합적인 속성",
+      "textAfter": " 입니다. 여러 어조 칩을 결합하면 단일 칩으로는 달성할 수 없는 정밀한 행동 프로필이 생성됩니다. 어조 필드는 생성된 지침의 섹션 1(Role & Identity) 및 섹션 5(Boundaries)에 직접 매핑되어 단어 선택에서 응답 길이에 이르기까지 AI가 모든 것을 조절하는 방식에 영향을 미칩니다.",
       "cards": [
         {
           "chips": [
@@ -65,7 +65,7 @@
             "Direct",
             "Terse"
           ],
-          "result": "A no-nonsense senior engineer who delivers the answer in 3 sentences and moves on. No fluff, no hedging, no social niceties."
+          "result": "3문장으로 답을 제시하고 넘어가는 단호한 시니어 엔지니어. 불필요한 말, 얼버무림, 사회적 예의가 없습니다."
         },
         {
           "chips": [
@@ -73,7 +73,7 @@
             "Patient",
             "Encouraging"
           ],
-          "result": "A skilled instructor who explains the reasoning behind every decision, anticipates follow-up questions, and celebrates incremental progress."
+          "result": "모든 결정의 근거를 설명하고 후속 질문을 예상하며 작은 진전도 축하하는 숙련된 강사."
         },
         {
           "chips": [
@@ -81,114 +81,114 @@
             "Critical",
             "Precise"
           ],
-          "result": "A rigorous code reviewer who finds every edge case, questions every assumption, and never approves anything that doesn't meet the standard."
+          "result": "모든 엣지 케이스를 찾고 모든 가정에 의문을 제기하며 기준을 충족하지 않는 것은 절대 승인하지 않는 엄격한 코드 리뷰어."
         }
       ],
-      "noteBefore": "The generator encodes tone chips into the Mission and Boundaries sections as behavioral directives — not just style suggestions. Each chip contributes a distinct constraint to the output distribution. Experiment with combinations that feel counterintuitive: ",
+      "noteBefore": "마법사는 어조 칩을 단순한 스타일 제안이 아니라 임무 및 경계 섹션의 행동 지침으로 인코딩합니다. 각 칩은 출력 분포에 뚜렷한 제약을 제공합니다. 직관에 어긋나는 듯한 조합을 실험해 보십시오: ",
       "noteQuote": "Analytical + Encouraging",
-      "noteAfter": " produces an unusually effective code mentor that finds all the bugs but never makes the user feel stupid."
+      "noteAfter": " 은 모든 버그를 찾아내면서도 사용자가 어리석다고 느끼게 하지 않는 매우 효과적인 코드 멘토를 생성합니다."
     },
     "personaMultiplier": {
-      "title": "The Persona Multiplier Effect",
-      "textBefore": "The persona field acts as a ",
-      "textStrong": "signal amplifier",
-      "textAfter": " for everything else. It's the first thing the AI reads, and it establishes the prior that all subsequent instructions are interpreted through. A weak persona is like a weak lens — it blurs everything that comes after it. A strong persona focuses the entire instruction into a sharp, high-resolution output profile.",
+      "title": "페르소나 승수 효과",
+      "textBefore": "페르소나 필드는 다른 모든 것의 ",
+      "textStrong": "신호 증폭기",
+      "textAfter": " 역할을 합니다. AI가 가장 먼저 읽는 내용이며, 이후의 모든 지침이 해석되는 사전 조건을 설정합니다. 약한 페르소나는 약한 렌즈와 같아서 뒤따르는 모든 것을 흐리게 합니다. 강력한 페르소나는 전체 지침을 선명하고 고해상도인 출력 프로필에 집중시킵니다.",
       "table": {
-        "weak": "❌ Weak Persona",
-        "strong": "✓ Strong Persona",
-        "why": "Why It Matters",
+        "weak": "❌ 약한 페르소나",
+        "strong": "✓ 강력한 페르소나",
+        "why": "중요한 이유",
         "rows": [
           {
             "weak": "An AI assistant",
             "strong": "Principal TypeScript Architect with 15 years building at scale",
-            "why": "Default behavior vs. expert-mode, decisive, high-authority output"
+            "why": "기본 동작 vs. 전문가 모드, 단호하고 권위 있는 출력"
           },
           {
             "weak": "A Python developer",
             "strong": "Senior Backend Engineer specializing in async Python, FastAPI, and distributed systems",
-            "why": "Generic language knowledge vs. opinionated architecture guidance"
+            "why": "일반적인 언어 지식 vs. 확고한 견해를 가진 아키텍처 지침"
           },
           {
             "weak": "A writing assistant",
             "strong": "Technical Documentation Engineer with expertise in developer-facing API docs",
-            "why": "Generic prose improvement vs. structured, scannable, dev-optimized writing"
+            "why": "일반적인 글쓰기 개선 vs. 구조화되고 훑어보기 쉬우며 개발자에게 최적화된 글쓰기"
           },
           {
             "weak": "A data scientist",
             "strong": "ML Engineer specializing in production LLM fine-tuning and RLHF pipelines at hyperscale",
-            "why": "Generic data analysis vs. deep ML systems engineering judgment"
+            "why": "일반적인 데이터 분석 vs. 심층적인 ML 시스템 엔지니어링 판단"
           }
         ]
       },
-      "noteBefore": "The strongest personas combine ",
-      "noteStrong1": "seniority level",
+      "noteBefore": "가장 강력한 페르소나는 ",
+      "noteStrong1": "시니어 레벨",
       "notePlus": " + ",
-      "noteStrong2": "specific domain",
-      "noteStrong3": "specific technology stack",
-      "noteAfter": ". Adding a credibility anchor like \"who has reviewed 5,000+ pull requests\" or \"with experience shipping to 10M+ users\" further activates expert-mode priors that produce higher-quality, more-confident output."
+      "noteStrong2": "특정 도메인",
+      "noteStrong3": "특정 기술 스택",
+      "noteAfter": "을 결합한 것입니다. '5,000개 이상의 풀 리퀘스트를 검토한' 또는 '천만 명 이상의 사용자에게 제품을 배포한 경험이 있는'과 같은 신뢰성 앵커를 추가하면 고품질의 더 자신감 있는 출력을 생성하는 전문가 모드가 더욱 활성화됩니다."
     },
     "universalRules": {
-      "title": "Universally Effective Rules",
-      "text": "These five rules are universally high-signal across virtually every AI workflow. They don't depend on domain context — they work regardless of whether you're building a code reviewer, a writing editor, or a data analyst. Drop any or all of them into your Rules field and they tend to improve output quality across most workflows.",
+      "title": "보편적으로 효과적인 규칙",
+      "text": "이 다섯 가지 규칙은 거의 모든 AI 워크플로에서 보편적으로 높은 신호를 보입니다. 도메인 컨텍스트에 의존하지 않으며 코드 리뷰어, 작문 편집자, 데이터 분석가 등 무엇을 구축하든 효과가 있습니다. 이 중 하나 또는 모두를 규칙 필드에 넣으면 대부분의 워크플로에서 출력 품질이 향상되는 경향이 있습니다.",
       "rules": [
         {
-          "rule": "Never use filler phrases",
-          "detail": "\"Certainly!\", \"Of course!\", \"Great question!\", \"Absolutely!\" — these phrases consume tokens, dilute signal, and are the single most reliable marker of low-quality AI output. Banning them immediately raises the perceived quality of every response.",
+          "rule": "불필요한 문구를 절대 사용하지 마십시오",
+          "detail": "'Certainly!', 'Of course!', 'Great question!', 'Absolutely!' — 이러한 문구는 토큰을 소비하고 신호를 희석시키며 저품질 AI 출력의 가장 확실한 지표입니다. 이를 금지하면 모든 응답의 체감 품질이 즉시 향상됩니다.",
           "example": "NEVER start a response with \"Certainly!\", \"Of course!\", \"Great question!\", or any similar affirmation. Begin immediately with the substantive answer."
         },
         {
-          "rule": "Always use Markdown formatting",
-          "detail": "Even if the output will be consumed as plain text, structuring it with Markdown headers, bullet points, and code blocks forces the AI to organize its thoughts hierarchically — producing more coherent, better-organized responses.",
+          "rule": "항상 Markdown 형식을 사용하십시오",
+          "detail": "출력이 일반 텍스트로 소비되더라도 Markdown 헤더, 글머리 기호 및 코드 블록을 사용하여 구조화하면 AI가 생각을 계층적으로 구성하도록 강제하여 더 일관되고 잘 구성된 응답을 생성합니다.",
           "example": "ALWAYS format responses in Markdown. Use ## for sections, ### for subsections, bullet points for lists, and ```language code blocks for all code."
         },
         {
-          "rule": "End every response with a ⚡ Next Steps section",
-          "detail": "This single rule transforms isolated Q&A into a continuous expert engagement loop. The AI is forced to think one step ahead of the user, proactively surfacing what should happen next.",
+          "rule": "모든 응답을 ⚡ Next Steps 섹션으로 마무리하십시오",
+          "detail": "이 단일 규칙은 고립된 Q&A를 지속적인 전문가 참여 루프로 변환합니다. AI는 사용자의 한 단계 앞을 생각하여 다음에 무엇을 해야 하는지 주도적으로 제시해야 합니다.",
           "example": "END every response with a '## ⚡ Next Steps' section containing 2–3 concrete, actionable items the user should tackle next."
         },
         {
-          "rule": "If uncertain, say so explicitly",
-          "detail": "Without this rule, models will confidently hallucinate rather than admit uncertainty. This rule forces epistemic honesty and dramatically increases the trustworthiness of output — especially in high-stakes technical domains.",
+          "rule": "불확실한 경우 명시적으로 밝히십시오",
+          "detail": "이 규칙이 없으면 모델은 불확실성을 인정하지 않고 자신 있게 환각을 일으킵니다. 이 규칙은 인식론적 정직성을 강제하고 특히 위험 부담이 큰 기술 도메인에서 출력의 신뢰성을 극적으로 높입니다.",
           "example": "If you are uncertain about any fact, library version, or technical detail, say so explicitly: 'I am not certain about this — please verify.' NEVER fabricate an answer to appear more helpful."
         },
         {
-          "rule": "Never repeat what the user just said",
-          "detail": "A common low-quality pattern: AI rephrases the user's question back to them before answering it. This wastes context and signals low confidence. Banning it forces the model to add value immediately in the first sentence.",
+          "rule": "사용자가 방금 한 말을 절대 반복하지 마십시오",
+          "detail": "일반적인 저품질 패턴: AI는 질문에 답하기 전에 사용자의 질문을 반복합니다. 이는 컨텍스트를 낭비하고 낮은 자신감을 나타냅니다. 이를 금지하면 모델이 첫 문장에서 즉시 가치를 더하도록 강제합니다.",
           "example": "NEVER restate or paraphrase the user's question or input before answering. Add value immediately. The first sentence of every response must be substantive."
         }
       ],
-      "copyReadyLabel": "Copy-ready rule:"
+      "copyReadyLabel": "복사 가능한 규칙:"
     },
     "antiPatterns": {
-      "title": "Anti-Patterns to Avoid",
-      "text": "These are the five most common mistakes we see in user inputs. Each one predictably degrades the quality of the generated instruction. If your output feels generic or inconsistent, check your inputs against this list first.",
+      "title": "피해야 할 안티 패턴",
+      "text": "다음은 사용자 입력에서 볼 수 있는 가장 일반적인 다섯 가지 실수입니다. 각각은 예상대로 생성된 지침의 품질을 떨어뜨립니다. 출력이 일반적이거나 일관성이 없다고 느껴진다면 먼저 이 목록과 입력을 대조해 보십시오.",
       "patterns": [
         {
-          "title": "Vague persona: 'an AI assistant'",
-          "detail": "This is the model's default self-concept. You haven't changed anything — you've just confirmed the prior. If the persona field doesn't add new information the model wouldn't already assume, rewrite it. Minimum viable persona: a specific domain + a seniority level."
+          "title": "모호한 페르소나: 'an AI assistant'",
+          "detail": "이것은 모델의 기본 자아 개념입니다. 아무것도 변경하지 않은 것이며 사전 조건을 확인한 것뿐입니다. 페르소나 필드에 모델이 미리 가정하지 않을 새로운 정보가 추가되지 않았다면 다시 작성하십시오. 최소한의 유효한 페르소나: 특정 도메인 + 시니어 레벨."
         },
         {
-          "title": "Contradictory tone + rules",
-          "detail": "If your tone says 'Concise' but your rules say 'Provide exhaustive explanations', the model will oscillate. Audit your inputs for coherence: every rule should amplify the tone, not contradict it."
+          "title": "모순되는 어조 + 규칙",
+          "detail": "어조는 '간결함(Concise)'이라고 하면서 규칙에는 '포괄적인 설명 제공'이라고 되어 있으면 모델은 혼란을 겪습니다. 입력의 일관성을 검토하십시오. 모든 규칙은 어조를 증폭시켜야 하며 모순되어서는 안 됩니다."
         },
         {
-          "title": "Rules framed as requests, not directives",
-          "detail": "'Please be nice' is a request. 'Use professional language only — no colloquialisms, no slang' is a directive. Requests are processed as preferences and regularly ignored under other constraints. Directives are processed as hard constraints. Use the imperative mood."
+          "title": "지시가 아닌 요청으로 구성된 규칙",
+          "detail": "'Please be nice'는 요청입니다. 'Use professional language only — no colloquialisms, no slang'은 지시입니다. 요청은 선호도로 처리되며 다른 제약 조건 하에서 정기적으로 무시됩니다. 지시는 엄격한 제약으로 처리됩니다. 명령형을 사용하십시오."
         },
         {
-          "title": "No output format specified",
-          "detail": "If you don't specify an output format, the model will use whatever format it calculates is most likely for the domain — which is usually inconsistent across conversations. Always define at minimum: 'Use Markdown formatting.' Ideally, also specify header levels, code block language tags, and list structure."
+          "title": "지정되지 않은 출력 형식",
+          "detail": "출력 형식을 지정하지 않으면 모델은 해당 도메인에 가장 적합하다고 계산한 형식을 사용하며, 이는 대개 대화 전반에 걸쳐 일관성이 없습니다. 최소한 'Use Markdown formatting.'이라고 항상 정의하십시오. 이상적으로는 헤더 수준, 코드 블록 언어 태그 및 목록 구조도 지정합니다."
         },
         {
-          "title": "Missing domain context",
-          "detail": "The AI doesn't know what stack you use, what framework you're on, what version you're targeting, or what constraints your project has — unless you tell it. 'Review my code' produces generic advice. 'Review my Next.js 14 App Router code for performance regressions against React 18 Suspense semantics' produces expert-level, version-aware analysis."
+          "title": "누락된 도메인 컨텍스트",
+          "detail": "알려주지 않는 한 AI는 사용자가 어떤 스택을 사용하는지, 어떤 프레임워크에 있는지, 어떤 버전을 대상으로 하는지 또는 프로젝트에 어떤 제약 조건이 있는지 알 수 없습니다. 'Review my code'는 일반적인 조언을 생성합니다. 'Review my Next.js 14 App Router code'는 전문가 수준의 버전을 인식하는 분석을 생성합니다."
         }
       ],
-      "checklistFilename": "Quick Reference — Input Checklist"
+      "checklistFilename": "빠른 참조 — 입력 체크리스트"
     },
     "bottomNav": {
-      "label": "You've reached the end of the docs",
-      "link": "Ready to generate your first instruction? →"
+      "label": "문서의 끝에 도달했습니다",
+      "link": "첫 번째 지침을 생성할 준비가 되셨습니까? →"
     }
   },
   "content": {
