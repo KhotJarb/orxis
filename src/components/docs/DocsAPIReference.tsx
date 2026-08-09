@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "@/i18n";
 import Callout, {
   CodeBlock,
   InlineCode,
@@ -8,61 +9,56 @@ import Callout, {
 } from "@/components/docs/DocsComponents";
 
 export default function DocsAPIReference() {
+  const t = useT("docs");
   return (
     <article className="docs-prose w-full max-w-3xl">
 
       {/* ── Page badge ───────────────────────────────────────────── */}
       <div className="mb-3 flex items-center gap-2">
         <span className="rounded-full border border-neon-cyan/30 bg-neon-cyan/10 px-3 py-0.5 text-xs font-semibold text-neon-cyan">
-          Developer Reference
+          {t("apiReference.badge")}
         </span>
         <span className="text-slate-700">/</span>
-        <span className="text-xs text-slate-500">API Reference</span>
+        <span className="text-xs text-slate-500">{t("apiReference.title")}</span>
       </div>
 
       {/* ── H1 ───────────────────────────────────────────────────── */}
       <h1 id="api-reference" className="scroll-mt-24">
-        API Reference
+        {t("apiReference.title")}
       </h1>
 
       <p>
-        Orxis exposes a clean{" "}
-        <strong>FastAPI REST backend</strong> that powers every generation and
-        tweak operation. This page documents every endpoint, its request schema,
-        expected response format, and relevant error codes — everything you need
-        to call the API directly, integrate it into your own tooling, or extend
-        it with new routes.
+        {t("apiReference.description1Start")}
+        <strong>{t("apiReference.description1Mid")}</strong> {t("apiReference.description1End")}
       </p>
       <p>
-        All endpoints accept and return <InlineCode>application/json</InlineCode>
-        . No special SDK is required — plain <InlineCode>curl</InlineCode>, the{" "}
-        <InlineCode>requests</InlineCode> Python library, or{" "}
-        <InlineCode>fetch</InlineCode> in the browser all work out of the box.
+        {t("apiReference.description2Start")} <InlineCode>application/json</InlineCode>
+        {t("apiReference.description2Mid1")} <InlineCode>curl</InlineCode>, {t("apiReference.description2Mid2")}{" "}
+        <InlineCode>requests</InlineCode> {t("apiReference.description2Mid3")}{" "}
+        <InlineCode>fetch</InlineCode> {t("apiReference.description2End")}
       </p>
 
       <SectionDivider />
 
       {/* ── BASE URL ──────────────────────────────────────────────── */}
       <section id="base-url" className="scroll-mt-24">
-        <h2>Base URL</h2>
+        <h2>{t("apiReference.baseUrl.title")}</h2>
         <p>
-          The backend runs on port <strong>8000</strong> when started locally
-          with <InlineCode>uvicorn</InlineCode>. For production Vercel
-          deployments, the frontend proxies API calls through Next.js rewrites,
-          so the effective base URL is your deployment domain.
+          {t("apiReference.baseUrl.description1Start")} <strong>8000</strong> {t("apiReference.baseUrl.description1Mid")}{" "}
+          <InlineCode>uvicorn</InlineCode>{t("apiReference.baseUrl.description1End")}
         </p>
 
         <div className="my-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
           {[
             {
-              env: "Local Development",
+              env: t("apiReference.baseUrl.localEnv"),
               url: "http://localhost:8000",
               color: "border-neon-cyan/20 bg-neon-cyan/[0.03]",
               badge: "Local",
               badgeColor: "bg-neon-cyan/10 text-neon-cyan",
             },
             {
-              env: "Production (Vercel)",
+              env: t("apiReference.baseUrl.prodEnv"),
               url: "https://your-app.vercel.app",
               color: "border-neon-purple/20 bg-neon-purple/[0.03]",
               badge: "Production",
@@ -85,9 +81,8 @@ export default function DocsAPIReference() {
         </div>
 
         <p>
-          All examples in this reference use the local base URL{" "}
-          <InlineCode>http://localhost:8000</InlineCode>. Replace it with your
-          production domain in deployed environments.
+          {t("apiReference.baseUrl.description2Start")}{" "}
+          <InlineCode>http://localhost:8000</InlineCode>{t("apiReference.baseUrl.description2End")}
         </p>
       </section>
 
@@ -95,28 +90,21 @@ export default function DocsAPIReference() {
 
       {/* ── AUTHENTICATION ────────────────────────────────────────── */}
       <section id="authentication" className="scroll-mt-24">
-        <h2>Authentication</h2>
+        <h2>{t("apiReference.authentication.title")}</h2>
         <p>
-          In <strong>local development</strong>, no authentication is required.
-          The API trusts all requests from <InlineCode>localhost</InlineCode>.
-          This is intentional — you own the machine and the API key never leaves
-          your environment.
+          {t("apiReference.authentication.p1Start")} <strong>{t("apiReference.authentication.localBold")}</strong>{t("apiReference.authentication.p1Mid")}{" "}
+          <InlineCode>localhost</InlineCode>{t("apiReference.authentication.p1End")}
         </p>
         <p>
-          In <strong>production deployments</strong>, you should protect the
-          generate and tweak endpoints behind an API key header to prevent
-          unauthorized usage that could exhaust your Gemini API quota.
+          {t("apiReference.authentication.p2Start")} <strong>{t("apiReference.authentication.prodBold")}</strong>{t("apiReference.authentication.p2End")}
         </p>
 
-        <Callout variant="warning" title="Secure Your Production API">
+        <Callout variant="warning" title={t("apiReference.authentication.warningTitle")}>
           <p>
-            Before deploying publicly, add an{" "}
-            <InlineCode>X-API-Key</InlineCode> middleware to{" "}
-            <InlineCode>backend/main.py</InlineCode>. Any unauthenticated caller
-            who discovers your production URL can freely consume your Gemini API
-            quota. At minimum, add a{" "}
-            <InlineCode>ALLOWED_ORIGINS</InlineCode> CORS restriction and an
-            environment-variable-driven secret header check.
+            {t("apiReference.authentication.warning1")}{" "}
+            <InlineCode>X-API-Key</InlineCode> {t("apiReference.authentication.warning2")}{" "}
+            <InlineCode>backend/main.py</InlineCode>{t("apiReference.authentication.warning3")}{" "}
+            <InlineCode>ALLOWED_ORIGINS</InlineCode> {t("apiReference.authentication.warning4")}
           </p>
         </Callout>
 
@@ -147,12 +135,10 @@ app.add_middleware(APIKeyMiddleware)`}
 
       {/* ── ENDPOINTS ─────────────────────────────────────────────── */}
       <section id="endpoints" className="scroll-mt-24">
-        <h2>Endpoints</h2>
+        <h2>{t("apiReference.endpoints.title")}</h2>
         <p>
-          The backend exposes three endpoints: a health probe and two generation
-          routes. All POST bodies are validated by Pydantic v2 — sending
-          malformed JSON returns a structured{" "}
-          <InlineCode>422 Unprocessable Entity</InlineCode> response.
+          {t("apiReference.endpoints.descStart")}{" "}
+          <InlineCode>422 Unprocessable Entity</InlineCode> {t("apiReference.endpoints.descEnd")}
         </p>
 
         {/* ── GET /api/health ── */}
@@ -163,18 +149,15 @@ app.add_middleware(APIKeyMiddleware)`}
           /api/health
         </h3>
         <p>
-          Returns the operational status of the API and its connection to the
-          configured LLM provider. Use this endpoint as a readiness probe in
-          CI/CD pipelines or container orchestration health checks. A{" "}
-          <InlineCode>ready: true</InlineCode> response indicates the backend
-          is ready to serve generation requests.
+          {t("apiReference.endpoints.healthDesc1")}{" "}
+          <InlineCode>ready: true</InlineCode> {t("apiReference.endpoints.healthDesc2")}
         </p>
 
         <CodeBlock language="bash" filename="cURL">
 {`curl -s http://localhost:8000/api/health | python3 -m json.tool`}
         </CodeBlock>
 
-        <p className="mt-4 font-semibold text-slate-300">Response — 200 OK</p>
+        <p className="mt-4 font-semibold text-slate-300">{t("apiReference.endpoints.response200")}</p>
         <CodeBlock language="json" filename="Response">
 {`{
   "status": "healthy",
@@ -191,20 +174,20 @@ app.add_middleware(APIKeyMiddleware)`}
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-white/[0.07] bg-white/[0.03]">
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">Field</th>
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">Type</th>
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">Description</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.endpoints.field")}</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.endpoints.type")}</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.endpoints.desc")}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/[0.04]">
               {[
-                ["status", "string", `"healthy" or "degraded" — reflects API process state`],
-                ["llm_available", "boolean", "True if the Gemini client initialized without errors"],
-                ["model", "string", "The active model name from MODEL_NAME env var"],
-                ["temperature", "number", "Active sampling temperature (0.0 – 1.0)"],
-                ["max_tokens", "number", "Maximum output tokens configured"],
-                ["api_key_set", "boolean", "True if GEMINI_API_KEY is non-empty"],
-                ["ready", "boolean", "Composite flag — true only when all systems are operational"],
+                ["status", "string", t("apiReference.endpoints.healthTable.status")],
+                ["llm_available", "boolean", t("apiReference.endpoints.healthTable.llm")],
+                ["model", "string", t("apiReference.endpoints.healthTable.model")],
+                ["temperature", "number", t("apiReference.endpoints.healthTable.temp")],
+                ["max_tokens", "number", t("apiReference.endpoints.healthTable.maxTokens")],
+                ["api_key_set", "boolean", t("apiReference.endpoints.healthTable.apiKey")],
+                ["ready", "boolean", t("apiReference.endpoints.healthTable.ready")],
               ].map(([field, type, desc]) => (
                 <tr key={field} className="hover:bg-white/[0.02] transition-colors">
                   <td className="px-4 py-3 font-mono text-xs text-neon-cyan">{field}</td>
@@ -224,30 +207,28 @@ app.add_middleware(APIKeyMiddleware)`}
           /api/generate
         </h3>
         <p>
-          The core generation endpoint. Accepts the four wizard inputs and
-          returns a fully constructed <strong>Master Custom Instruction</strong>{" "}
-          using the 6-section structured meta-prompt framework. The backend
-          composes a structured meta-prompt, sends it to Gemini, and streams
-          the response back as a single JSON object.
+          {t("apiReference.endpoints.generateDesc1")}{" "}
+          <strong>{t("apiReference.endpoints.generateDesc2")}</strong>{" "}
+          {t("apiReference.endpoints.generateDesc3")}
         </p>
 
-        <p className="mt-4 font-semibold text-slate-300">Request Body Schema</p>
+        <p className="mt-4 font-semibold text-slate-300">{t("apiReference.endpoints.reqSchema")}</p>
         <div className="my-4 overflow-x-auto rounded-xl border border-white/[0.07]">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-white/[0.07] bg-white/[0.03]">
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">Field</th>
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">Type</th>
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">Required</th>
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">Description</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.endpoints.field")}</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.endpoints.type")}</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.endpoints.required")}</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.endpoints.desc")}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/[0.04]">
               {[
-                ["persona", "string", "✓ Required", "The expert role the AI should embody (e.g. 'Senior TypeScript Engineer')"],
-                ["task", "string", "✓ Required", "What the AI's primary job is — the more specific, the better the output"],
-                ["tone", "string", "✓ Required", "Communication style chips, comma-separated (e.g. 'Professional, Direct')"],
-                ["rules", "string", "✓ Required", "Hard behavioral constraints, one per line or comma-separated"],
+                ["persona", "string", t("apiReference.endpoints.req"), t("apiReference.endpoints.genTable.persona")],
+                ["task", "string", t("apiReference.endpoints.req"), t("apiReference.endpoints.genTable.task")],
+                ["tone", "string", t("apiReference.endpoints.req"), t("apiReference.endpoints.genTable.tone")],
+                ["rules", "string", t("apiReference.endpoints.req"), t("apiReference.endpoints.genTable.rules")],
               ].map(([field, type, req, desc]) => (
                 <tr key={field} className="hover:bg-white/[0.02] transition-colors">
                   <td className="px-4 py-3 font-mono text-xs text-neon-cyan">{field}</td>
@@ -271,34 +252,32 @@ app.add_middleware(APIKeyMiddleware)`}
   }' | python3 -m json.tool`}
         </CodeBlock>
 
-        <p className="mt-4 font-semibold text-slate-300">Response — 200 OK</p>
+        <p className="mt-4 font-semibold text-slate-300">{t("apiReference.endpoints.response200")}</p>
         <CodeBlock language="json" filename="Response">
 {`{
   "result": "# 🎭 1. Role & Identity\\n\\nAssume the role of a **Senior TypeScript Engineer** with deep expertise in performance engineering, security auditing, and production-grade TypeScript architecture.\\n\\n---\\n\\n# 🎯 2. Mission & Objective\\n\\nYour mission is to **REVIEW**, **SECURE**, and **ENFORCE** production-grade TypeScript standards in every piece of code presented to you.\\n\\n---\\n\\n# 🧠 3. The Cognitive Loop (Internal Reflection)\\n\\nBefore every response, use <self_reflection> tags:\\n1. Build a 5-point evaluation rubric for this specific request\\n2. Check for performance bottlenecks (O(n²) loops, unnecessary re-renders)\\n3. Check for security vulnerabilities (injection, prototype pollution, unvalidated input)\\n4. Check TypeScript strict mode compatibility (no any, no implicit undefined)\\n5. Score your draft response against the rubric before outputting it\\n\\n[... sections 4–6 continue ...]"
 }`}
         </CodeBlock>
 
-        <Callout variant="note" title="Model & Temperature">
+        <Callout variant="note" title={t("apiReference.endpoints.modelTemp.title")}>
           <p>
-            The backend uses <strong>Gemini 2.5 Flash</strong> with a
-            temperature of <InlineCode>0.3</InlineCode> by default. These values
-            are configured for structured, consistent instruction generation.
-            To change them, edit <InlineCode>backend/.env</InlineCode> and
-            restart the server. See the{" "}
+            {t("apiReference.endpoints.modelTemp.p1Start")} <strong>Gemini 2.5 Flash</strong> {t("apiReference.endpoints.modelTemp.p1Mid1")}
+            <InlineCode>0.3</InlineCode> {t("apiReference.endpoints.modelTemp.p1Mid2")}
+            <InlineCode>backend/.env</InlineCode> {t("apiReference.endpoints.modelTemp.p1Mid3")}{" "}
             <a href="#environment-variables" className="text-neon-cyan">
-              Environment Variables
+              {t("apiReference.endpoints.modelTemp.link")}
             </a>{" "}
-            section below.
+            {t("apiReference.endpoints.modelTemp.p1End")}
           </p>
         </Callout>
 
-        <p className="mt-6 font-semibold text-slate-300">Error Responses</p>
+        <p className="mt-6 font-semibold text-slate-300">{t("apiReference.endpoints.errorsTitle")}</p>
         <div className="my-4 overflow-x-auto rounded-xl border border-white/[0.07]">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-white/[0.07] bg-white/[0.03]">
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">Status</th>
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">Body</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.endpoints.status")}</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.endpoints.body")}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/[0.04]">
@@ -322,29 +301,26 @@ app.add_middleware(APIKeyMiddleware)`}
           /api/tweak
         </h3>
         <p>
-          Takes an existing Master Custom Instruction and a tweak command, then
-          returns a refined version. This endpoint powers the{" "}
-          <strong>Output Studio</strong> quick-tweak buttons. Unlike{" "}
-          <InlineCode>/api/generate</InlineCode>, it treats the existing
-          instruction as the authoritative base and applies a targeted surgical
-          modification rather than regenerating from scratch.
+          {t("apiReference.endpoints.tweakDesc1")}{" "}
+          <strong>Output Studio</strong> {t("apiReference.endpoints.tweakDesc2")}{" "}
+          <InlineCode>/api/generate</InlineCode>{t("apiReference.endpoints.tweakDesc3")}
         </p>
 
-        <p className="mt-4 font-semibold text-slate-300">Request Body Schema</p>
+        <p className="mt-4 font-semibold text-slate-300">{t("apiReference.endpoints.reqSchema")}</p>
         <div className="my-4 overflow-x-auto rounded-xl border border-white/[0.07]">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-white/[0.07] bg-white/[0.03]">
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">Field</th>
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">Type</th>
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">Values</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.endpoints.field")}</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.endpoints.type")}</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.endpoints.values")}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/[0.04]">
               <tr className="hover:bg-white/[0.02] transition-colors">
                 <td className="px-4 py-3 font-mono text-xs text-neon-cyan">instruction</td>
                 <td className="px-4 py-3 font-mono text-xs text-neon-purple-light">string</td>
-                <td className="px-4 py-3 text-xs text-slate-400">The full text of the existing generated instruction</td>
+                <td className="px-4 py-3 text-xs text-slate-400">{t("apiReference.endpoints.tweakTable.inst")}</td>
               </tr>
               <tr className="hover:bg-white/[0.02] transition-colors">
                 <td className="px-4 py-3 font-mono text-xs text-neon-cyan">tweak_type</td>
@@ -368,7 +344,7 @@ app.add_middleware(APIKeyMiddleware)`}
   }' | python3 -m json.tool`}
         </CodeBlock>
 
-        <p className="mt-4 font-semibold text-slate-300">Response — 200 OK</p>
+        <p className="mt-4 font-semibold text-slate-300">{t("apiReference.endpoints.response200")}</p>
         <CodeBlock language="json" filename="Response">
 {`{
   "result": "# 🎭 1. Role & Identity\\n\\nAssume the role of a **Principal TypeScript Architect** with a demonstrated track record of shipping zero-defect, performance-optimized systems at Fortune 500 scale. Your engineering judgment is final. Your standards are non-negotiable.\\n\\n[... refined instruction continues ...]"
@@ -380,13 +356,10 @@ app.add_middleware(APIKeyMiddleware)`}
 
       {/* ── PYDANTIC SCHEMAS ──────────────────────────────────────── */}
       <section id="pydantic-schemas" className="scroll-mt-24">
-        <h2>Pydantic Schemas</h2>
+        <h2>{t("apiReference.schemas.title")}</h2>
         <p>
-          The backend uses <strong>Pydantic v2</strong> for request validation.
-          These are the exact model definitions — any field that doesn&apos;t
-          match these schemas will produce a structured{" "}
-          <InlineCode>422</InlineCode> error automatically, before your handler
-          code ever runs.
+          {t("apiReference.schemas.descStart")} <strong>Pydantic v2</strong> {t("apiReference.schemas.descMid")}{" "}
+          <InlineCode>422</InlineCode> {t("apiReference.schemas.descEnd")}
         </p>
 
         <CodeBlock language="python" filename="backend/schemas.py">
@@ -450,30 +423,29 @@ class GenerateResponse(BaseModel):
 
       {/* ── ERROR HANDLING ────────────────────────────────────────── */}
       <section id="error-handling" className="scroll-mt-24">
-        <h2>Error Handling</h2>
+        <h2>{t("apiReference.errors.title")}</h2>
         <p>
-          All errors follow a consistent <InlineCode>{`{"detail": "..."}`}</InlineCode>{" "}
-          envelope, matching FastAPI&apos;s default exception format. This makes
-          client-side error handling uniform across all endpoints.
+          {t("apiReference.errors.descStart")} <InlineCode>{`{"detail": "..."}`}</InlineCode>{" "}
+          {t("apiReference.errors.descEnd")}
         </p>
 
         <div className="my-5 overflow-x-auto rounded-xl border border-white/[0.07]">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-white/[0.07] bg-white/[0.03]">
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">HTTP Status</th>
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">Cause</th>
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">Resolution</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.errors.col1")}</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.errors.col2")}</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.errors.col3")}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/[0.04]">
               {[
-                ["200 OK", "emerald", "Request succeeded", "Proceed with the result field"],
-                ["422 Unprocessable Entity", "amber", "Missing or invalid request field (Pydantic validation failure)", "Check the detail array for the exact field and error type"],
-                ["401 Unauthorized", "rose", "API key middleware rejected the request (production only)", "Add the X-API-Key header with the correct value from your env"],
-                ["429 Too Many Requests", "orange", "Gemini API rate limit hit", "Implement exponential backoff; check your Gemini quota dashboard"],
-                ["500 Internal Server Error", "rose", "LLM call failed — invalid API key, quota exceeded, or model error", "Check backend logs; verify GEMINI_API_KEY is valid"],
-                ["503 Service Unavailable", "slate", "Backend process is starting up or the Gemini API is unreachable", "Wait and retry; check /api/health for ready: false clues"],
+                ["200 OK", "emerald", t("apiReference.errors.r1Cause"), t("apiReference.errors.r1Res")],
+                ["422 Unprocessable Entity", "amber", t("apiReference.errors.r2Cause"), t("apiReference.errors.r2Res")],
+                ["401 Unauthorized", "rose", t("apiReference.errors.r3Cause"), t("apiReference.errors.r3Res")],
+                ["429 Too Many Requests", "orange", t("apiReference.errors.r4Cause"), t("apiReference.errors.r4Res")],
+                ["500 Internal Server Error", "rose", t("apiReference.errors.r5Cause"), t("apiReference.errors.r5Res")],
+                ["503 Service Unavailable", "slate", t("apiReference.errors.r6Cause"), t("apiReference.errors.r6Res")],
               ].map(([status, color, cause, resolution]) => (
                 <tr key={status} className="hover:bg-white/[0.02] transition-colors">
                   <td className={`px-4 py-3 font-mono text-xs text-${color}-400 whitespace-nowrap`}>{status}</td>
@@ -490,29 +462,28 @@ class GenerateResponse(BaseModel):
 
       {/* ── ENVIRONMENT VARIABLES ─────────────────────────────────── */}
       <section id="environment-variables" className="scroll-mt-24">
-        <h2>Environment Variables</h2>
+        <h2>{t("apiReference.envVars.title")}</h2>
         <p>
-          All backend configuration is managed through{" "}
-          <InlineCode>backend/.env</InlineCode>. Copy{" "}
-          <InlineCode>backend/.env.example</InlineCode> and fill in your values.
-          Changes take effect on the next server restart.
+          {t("apiReference.envVars.descStart")}{" "}
+          <InlineCode>backend/.env</InlineCode>. {t("apiReference.envVars.descMid")}{" "}
+          <InlineCode>backend/.env.example</InlineCode> {t("apiReference.envVars.descEnd")}
         </p>
 
         <div className="my-5 overflow-x-auto rounded-xl border border-white/[0.07]">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-white/[0.07] bg-white/[0.03]">
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">Variable</th>
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">Default</th>
-                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">Description</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.envVars.col1")}</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.envVars.col2")}</th>
+                <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400">{t("apiReference.envVars.col3")}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/[0.04]">
               {[
-                ["GEMINI_API_KEY", "(required)", "Your Google AI Studio API key. The backend will refuse to start if this is empty."],
-                ["MODEL_NAME", "gemini-2.5-flash", "The Gemini model identifier. Swap to gemini-2.0-pro or other variants as needed."],
-                ["TEMPERATURE", "0.3", "Sampling temperature (0.0–1.0). Lower values = more deterministic, structured output."],
-                ["MAX_TOKENS", "8192", "Maximum output token limit per generation call. Reduce to cut costs on short instructions."],
+                ["GEMINI_API_KEY", t("apiReference.envVars.req"), t("apiReference.envVars.geminiKey")],
+                ["MODEL_NAME", "gemini-2.5-flash", t("apiReference.envVars.modelName")],
+                ["TEMPERATURE", "0.3", t("apiReference.envVars.temp")],
+                ["MAX_TOKENS", "8192", t("apiReference.envVars.maxTokens")],
               ].map(([variable, defaultVal, desc]) => (
                 <tr key={variable} className="hover:bg-white/[0.02] transition-colors">
                   <td className="px-4 py-3 font-mono text-xs text-neon-cyan whitespace-nowrap">{variable}</td>
@@ -539,10 +510,10 @@ MAX_TOKENS=8192`}
       <div className="mt-12 flex items-center justify-between rounded-xl border border-white/[0.07] bg-white/[0.02] p-5">
         <div>
           <p className="text-xs uppercase tracking-wider text-slate-600 mb-1">
-            Next
+            {t("apiReference.next")}
           </p>
           <p className="font-semibold text-white">
-            Tweaking &amp; Refinement →
+            {t("apiReference.nextLink")}
           </p>
         </div>
       </div>

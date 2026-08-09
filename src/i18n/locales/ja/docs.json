@@ -15,9 +15,194 @@
   },
   "bestPractices": {
     "badge": "戦略ガイド",
-    "title": "生の入力のためのベストプラクティス",
+    "breadcrumb": "ベストプラクティス",
+    "title": "生の入力のベストプラクティス",
+    "intro1Before": "優れたインストラクションは単に",
+    "intro1Strong": "機能する",
+    "intro1After": "だけでなく、AIが何を、どのように、いつ行うべきかを明確に伝えます",
+    "intro2": "重要なタスクにインストラクションをデプロイする前に、このチェックリストを使用してください。",
+    "compoundingEffect": {
+      "title": "The Compounding Effect",
+      "textBefore": "The wizard is designed to extract the maximum signal from your inputs. Each of the four fields feeds a different section of the 6-section framework, and they ",
+      "textEm": "compound",
+      "textAfter": " — a strong persona amplifies a strong task definition, which amplifies strong tone signals, which makes your rules more effective. Invest 3 extra minutes in your inputs and the output quality difference is significant."
+    },
     "goldenRules": {
-      "title": "3つの黄金律"
+      "title": "The 3 Golden Rules",
+      "rule1": {
+        "title": "Be Hyper-Specific With Your Task",
+        "text": "The task field is the most important of the four inputs. It feeds directly into Section 2 (Mission) and Section 3 (Cognitive Loop) of the generated instruction. Vague tasks produce vague missions. Domain-specific vocabulary in your task description activates domain-expert behavior in the output.",
+        "table": {
+          "weak": "❌ Weak Task",
+          "strong": "✓ Strong Task"
+        },
+        "note": "Notice the pattern: strong tasks use specific library names, version numbers, architectural patterns, and measurable outcomes. The more domain-specific vocabulary you use, the more the generated instruction sounds like it was written by an expert in that exact domain — because the AI is conditioned on that signal."
+      },
+      "rule2": {
+        "title": "Never Contradict Your Own Rules",
+        "textBefore": "When the persona, tone, and rules fields contain ",
+        "textStrong": "conflicting signals",
+        "textMid": ", the AI receives competing constraints simultaneously. It doesn't choose one — it ",
+        "textEm": "oscillates",
+        "textAfter": ", producing inconsistent output that satisfies neither constraint well. Coherence across all four fields is non-negotiable.",
+        "badSetup": {
+          "title": "❌ Contradictory Setup",
+          "result": "Result: The AI will alternate between terse and exhaustive within the same response."
+        },
+        "goodSetup": {
+          "title": "✓ Coherent Setup",
+          "result": "Result: Every response is consistently tight and high-signal."
+        },
+        "personaLabel": "Persona:",
+        "toneLabel": "Tone:",
+        "rulesLabel": "Rules:"
+      },
+      "rule3": {
+        "title": "Specificity Beats Length",
+        "textBefore": "A 20-word hyper-specific task definition consistently outperforms a 200-word vague one. LLMs don't reward length — they reward ",
+        "textStrong": "signal density",
+        "textAfter": ". Padding your inputs with filler dilutes the domain-specific signals that make the generated instruction exceptional. When in doubt, cut the adjectives and keep the nouns and verbs.",
+        "comparisonTitle": "Signal Density Comparison",
+        "badLabel": "❌ 47 words, low density:",
+        "goodLabel": "✓ 21 words, high density:"
+      }
+    },
+    "toneStacking": {
+      "title": "Tone Stacking",
+      "textBefore": "Tone isn't a single dimension — it's a ",
+      "textStrong": "compound property",
+      "textAfter": ". Combining multiple tone chips creates a precise behavioral profile that no single chip can achieve alone. The tone field maps directly into Section 1 (Role & Identity) and Section 5 (Boundaries) of the generated instruction, influencing how the AI modulates everything from word choice to response length.",
+      "cards": [
+        {
+          "chips": [
+            "Professional",
+            "Direct",
+            "Terse"
+          ],
+          "result": "A no-nonsense senior engineer who delivers the answer in 3 sentences and moves on. No fluff, no hedging, no social niceties."
+        },
+        {
+          "chips": [
+            "Pedagogical",
+            "Patient",
+            "Encouraging"
+          ],
+          "result": "A skilled instructor who explains the reasoning behind every decision, anticipates follow-up questions, and celebrates incremental progress."
+        },
+        {
+          "chips": [
+            "Analytical",
+            "Critical",
+            "Precise"
+          ],
+          "result": "A rigorous code reviewer who finds every edge case, questions every assumption, and never approves anything that doesn't meet the standard."
+        }
+      ],
+      "noteBefore": "The generator encodes tone chips into the Mission and Boundaries sections as behavioral directives — not just style suggestions. Each chip contributes a distinct constraint to the output distribution. Experiment with combinations that feel counterintuitive: ",
+      "noteQuote": "Analytical + Encouraging",
+      "noteAfter": " produces an unusually effective code mentor that finds all the bugs but never makes the user feel stupid."
+    },
+    "personaMultiplier": {
+      "title": "The Persona Multiplier Effect",
+      "textBefore": "The persona field acts as a ",
+      "textStrong": "signal amplifier",
+      "textAfter": " for everything else. It's the first thing the AI reads, and it establishes the prior that all subsequent instructions are interpreted through. A weak persona is like a weak lens — it blurs everything that comes after it. A strong persona focuses the entire instruction into a sharp, high-resolution output profile.",
+      "table": {
+        "weak": "❌ Weak Persona",
+        "strong": "✓ Strong Persona",
+        "why": "Why It Matters",
+        "rows": [
+          {
+            "weak": "An AI assistant",
+            "strong": "Principal TypeScript Architect with 15 years building at scale",
+            "why": "Default behavior vs. expert-mode, decisive, high-authority output"
+          },
+          {
+            "weak": "A Python developer",
+            "strong": "Senior Backend Engineer specializing in async Python, FastAPI, and distributed systems",
+            "why": "Generic language knowledge vs. opinionated architecture guidance"
+          },
+          {
+            "weak": "A writing assistant",
+            "strong": "Technical Documentation Engineer with expertise in developer-facing API docs",
+            "why": "Generic prose improvement vs. structured, scannable, dev-optimized writing"
+          },
+          {
+            "weak": "A data scientist",
+            "strong": "ML Engineer specializing in production LLM fine-tuning and RLHF pipelines at hyperscale",
+            "why": "Generic data analysis vs. deep ML systems engineering judgment"
+          }
+        ]
+      },
+      "noteBefore": "The strongest personas combine ",
+      "noteStrong1": "seniority level",
+      "notePlus": " + ",
+      "noteStrong2": "specific domain",
+      "noteStrong3": "specific technology stack",
+      "noteAfter": ". Adding a credibility anchor like \"who has reviewed 5,000+ pull requests\" or \"with experience shipping to 10M+ users\" further activates expert-mode priors that produce higher-quality, more-confident output."
+    },
+    "universalRules": {
+      "title": "Universally Effective Rules",
+      "text": "These five rules are universally high-signal across virtually every AI workflow. They don't depend on domain context — they work regardless of whether you're building a code reviewer, a writing editor, or a data analyst. Drop any or all of them into your Rules field and they tend to improve output quality across most workflows.",
+      "rules": [
+        {
+          "rule": "Never use filler phrases",
+          "detail": "\"Certainly!\", \"Of course!\", \"Great question!\", \"Absolutely!\" — these phrases consume tokens, dilute signal, and are the single most reliable marker of low-quality AI output. Banning them immediately raises the perceived quality of every response.",
+          "example": "NEVER start a response with \"Certainly!\", \"Of course!\", \"Great question!\", or any similar affirmation. Begin immediately with the substantive answer."
+        },
+        {
+          "rule": "Always use Markdown formatting",
+          "detail": "Even if the output will be consumed as plain text, structuring it with Markdown headers, bullet points, and code blocks forces the AI to organize its thoughts hierarchically — producing more coherent, better-organized responses.",
+          "example": "ALWAYS format responses in Markdown. Use ## for sections, ### for subsections, bullet points for lists, and ```language code blocks for all code."
+        },
+        {
+          "rule": "End every response with a ⚡ Next Steps section",
+          "detail": "This single rule transforms isolated Q&A into a continuous expert engagement loop. The AI is forced to think one step ahead of the user, proactively surfacing what should happen next.",
+          "example": "END every response with a '## ⚡ Next Steps' section containing 2–3 concrete, actionable items the user should tackle next."
+        },
+        {
+          "rule": "If uncertain, say so explicitly",
+          "detail": "Without this rule, models will confidently hallucinate rather than admit uncertainty. This rule forces epistemic honesty and dramatically increases the trustworthiness of output — especially in high-stakes technical domains.",
+          "example": "If you are uncertain about any fact, library version, or technical detail, say so explicitly: 'I am not certain about this — please verify.' NEVER fabricate an answer to appear more helpful."
+        },
+        {
+          "rule": "Never repeat what the user just said",
+          "detail": "A common low-quality pattern: AI rephrases the user's question back to them before answering it. This wastes context and signals low confidence. Banning it forces the model to add value immediately in the first sentence.",
+          "example": "NEVER restate or paraphrase the user's question or input before answering. Add value immediately. The first sentence of every response must be substantive."
+        }
+      ],
+      "copyReadyLabel": "Copy-ready rule:"
+    },
+    "antiPatterns": {
+      "title": "Anti-Patterns to Avoid",
+      "text": "These are the five most common mistakes we see in user inputs. Each one predictably degrades the quality of the generated instruction. If your output feels generic or inconsistent, check your inputs against this list first.",
+      "patterns": [
+        {
+          "title": "Vague persona: 'an AI assistant'",
+          "detail": "This is the model's default self-concept. You haven't changed anything — you've just confirmed the prior. If the persona field doesn't add new information the model wouldn't already assume, rewrite it. Minimum viable persona: a specific domain + a seniority level."
+        },
+        {
+          "title": "Contradictory tone + rules",
+          "detail": "If your tone says 'Concise' but your rules say 'Provide exhaustive explanations', the model will oscillate. Audit your inputs for coherence: every rule should amplify the tone, not contradict it."
+        },
+        {
+          "title": "Rules framed as requests, not directives",
+          "detail": "'Please be nice' is a request. 'Use professional language only — no colloquialisms, no slang' is a directive. Requests are processed as preferences and regularly ignored under other constraints. Directives are processed as hard constraints. Use the imperative mood."
+        },
+        {
+          "title": "No output format specified",
+          "detail": "If you don't specify an output format, the model will use whatever format it calculates is most likely for the domain — which is usually inconsistent across conversations. Always define at minimum: 'Use Markdown formatting.' Ideally, also specify header levels, code block language tags, and list structure."
+        },
+        {
+          "title": "Missing domain context",
+          "detail": "The AI doesn't know what stack you use, what framework you're on, what version you're targeting, or what constraints your project has — unless you tell it. 'Review my code' produces generic advice. 'Review my Next.js 14 App Router code for performance regressions against React 18 Suspense semantics' produces expert-level, version-aware analysis."
+        }
+      ],
+      "checklistFilename": "Quick Reference — Input Checklist"
+    },
+    "bottomNav": {
+      "label": "You've reached the end of the docs",
+      "link": "Ready to generate your first instruction? →"
     }
   },
   "content": {
@@ -140,5 +325,141 @@
     "title": "ChatGPT での指示の使用",
     "introPara1": "ChatGPT、特に <strong>GPT-4o</strong> は、深いペルソナの採用を目的として構築されています。OpenAI の RLHF (人間からのフィードバックによる強化学習) 微調整プロセスは、<strong>長い会話</strong>全体であっても、割り当てられた役割を強力な一貫性で保持するようにモデルをトレーニングします。よく練られたマスター指示を注入すると、GPT-4o はペルソナに密接に従います。生成された指示の <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> セクション (セクション 1) は、ChatGPT が最も価値を引き出す場所です。",
     "introPara2": "このガイドでは、ChatGPT でカスタム指示を展開するために利用できるすべての方法 (ネイティブのカスタム指示 UI、プロジェクト、および OpenAI API) について説明します。そのため、ユースケースに最も適したワークフローを選択できます。"
+  },
+  "contextInjection": {
+    "badge": "上級",
+    "breadcrumb": "コンテキストインジェクション",
+    "title": "動的コンテキストインジェクション",
+    "intro1Before": "AIインストラクションに",
+    "intro1Em1": "動的コンテキスト",
+    "intro1Mid1": " the AI is and ",
+    "intro1Em2": "リアルタイムでコンテンツに応答する",
+    "intro1Mid2": " it thinks. Context Injection is the technique of telling it ",
+    "intro1Em3": "what",
+    "intro1Mid3": " to work with — feeding it your proprietary data, documents, codebases, or domain knowledge so it can apply its expert persona to ",
+    "intro1Em4": "your specific world",
+    "intro1After": "アシスタントを作成しましょう。",
+    "intro2Before": "This is the manual, no-infrastructure equivalent of ",
+    "intro2Strong": "Retrieval-Augmented Generation (RAG)",
+    "intro2After": ". Instead of building a vector database and a retrieval pipeline, you curate the most relevant context and inject it directly into the conversation alongside your Master Instruction. For most use cases, this approach is faster, cheaper, and more controllable than a full RAG system.",
+    "principle": {
+      "title": "The Injection Principle",
+      "text": "The AI has no memory of your world — your codebase, your company's terminology, your document standards, your team conventions. Context Injection is the act of bridging that gap. A Master Instruction without context is an expert working blind. An expert with the right context is far more effective."
+    },
+    "whatToInject": {
+      "title": "What to Inject",
+      "text": "Not all context is equal. Injecting the right information is as important as injecting any information at all. Here is a taxonomy of high-value context types, ranked by impact:",
+      "list": [
+        {
+          "rank": "01",
+          "type": "Codebase Snapshots",
+          "desc": "Paste the most relevant files or modules. Include the file path as a comment at the top of each snippet so the AI can reason about project structure. Ideal for code review, refactoring, and architecture analysis."
+        },
+        {
+          "rank": "02",
+          "type": "Specification Documents",
+          "desc": "PRDs, API specs, design documents, or RFC drafts. The AI will use these as ground truth when generating any output, preventing hallucination of requirements."
+        },
+        {
+          "rank": "03",
+          "type": "CSV / Structured Data",
+          "desc": "Sales data, user analytics, database schemas, experiment results. Paste directly or upload via file attachment. The AI can perform analysis, generate insights, or draft data-driven documents."
+        },
+        {
+          "rank": "04",
+          "type": "PDF Documents",
+          "desc": "Research papers, compliance documents, contracts, style guides. Use file upload in ChatGPT, Claude, or Gemini. Explicitly command the AI to apply its defined role when analyzing the document."
+        },
+        {
+          "rank": "05",
+          "type": "Previous Outputs / Conversation History",
+          "desc": "Paste the output from a prior chain session to continue work with full continuity. Prefix with 'Here is what we produced in the previous session:' for maximum clarity."
+        }
+      ]
+    },
+    "howToInject": {
+      "title": "How to Inject Context by Platform",
+      "chatgpt": {
+        "title": "ChatGPT",
+        "text": "ChatGPT supports both direct text injection and file uploads (PDF, DOCX, CSV, images, and code files). The recommended pattern is to inject your Master Instruction first, then present the external context in a structured format.",
+        "step1Title": "Open a new chat or Project",
+        "step1Text": "If using Custom Instructions, your Master Instruction is already active. If not, paste it as the first message. Navigate to a new conversation or inside a Project that has your instruction pre-loaded.",
+        "step2Title": "Upload or paste your document",
+        "step2Text": "Click the paperclip icon to upload a PDF, CSV, or code file. For shorter content (<10,000 tokens), pasting directly into the message box gives the AI more precise control over the raw text.",
+        "step3Title": "Issue an explicit injection command",
+        "step3Text": "Do not simply drop the document and hope for the best. Issue a precise command that bridges the document to the persona:",
+        "calloutTitle": "The Pro Injection Command",
+        "calloutTextBefore": "When providing external documents, always use this exact command pattern to activate the full power of the persona:",
+        "calloutFilename": "Injection Command Template",
+        "calloutNoteBefore": "The phrase ",
+        "calloutNoteEm": "\"using your predefined role and strict rules\"",
+        "calloutNoteAfter": " is a deliberate callback that re-activates the persona, preventing the AI from slipping into a generic assistant mode when handling external data."
+      },
+      "claude": {
+        "title": "Claude",
+        "text": "Claude's 200K token context window makes it the best platform for large document injection — full codebases, lengthy research papers, or multiple files at once. Claude can hold and reason over vastly more context than other models without degrading.",
+        "step1Title": "Set up a Project with your Master Instruction",
+        "step1Text": "Create a Claude Project and add your Master Instruction to the Project Instructions. This persists across sessions — you never need to re-paste it.",
+        "step2Title": "Upload files or paste content in the conversation",
+        "step2Text": "Claude supports file uploads (PDF, TXT, CSV, code files) and direct text paste. For maximum precision, paste code files with file path headers:",
+        "step2Filename": "File Context Format",
+        "step3Title": "Give the structured injection command",
+        "step3Text": "Reference the files explicitly in your command so Claude's attention is anchored to the right context:",
+        "step3Filename": "Claude Injection Command"
+      },
+      "gemini": {
+        "title": "Google AI Studio / Gemini",
+        "text1": "Google AI Studio's grounding feature allows connecting Gemini to Google Search or Google Drive — enabling semi-automated context retrieval. For manual injection, AI Studio also supports file uploads directly in the prompt interface.",
+        "text2": "For CSV and structured data analysis, Gemini 2.5 Pro with the \"Data Analysis\" capability enabled produces the most reliable results. Set your Master Instruction as the System Instruction and upload the CSV as a file attachment."
+      }
+    },
+    "manualRag": {
+      "title": "Manual RAG — The Expert's Technique",
+      "text": "Full RAG systems (vector databases, embedding models, retrieval pipelines) are powerful but heavyweight. For most knowledge-work tasks, you can achieve 80% of the benefit with a disciplined manual approach.",
+      "step1Title": "Step 1 — Curate, Don't Dump",
+      "step1Text": "The most common mistake is injecting an entire document and expecting the AI to find the relevant parts. Instead, curate: extract only the sections that are directly relevant to the task. A focused 500-word excerpt outperforms a 50,000-word raw document for precision tasks.",
+      "warningBefore": "Injecting too much context triggers the ",
+      "warningStrong": "\"Lost in the Middle\"",
+      "warningAfter": " problem — a well-documented phenomenon where LLMs pay disproportionate attention to the beginning and end of a long context, underweighting content in the middle. For documents >50 pages, manually extract the relevant sections rather than injecting the full document.",
+      "step2Title": "Step 2 — Label Every Context Block",
+      "step2Text": "Always label injected context with a clear header. This anchors the AI's attention and allows it to reason about the source explicitly in its output.",
+      "step2Filename": "Labeled Context Block Format",
+      "step3Title": "Step 3 — Demand Source Attribution",
+      "step3Text": "Instruct the AI to cite its context sources in the output. This prevents hallucination and makes the output auditable.",
+      "step3Filename": "Source Attribution Command",
+      "tipTitle": "The Attribution Trick",
+      "tipText": "Requiring source citations dramatically reduces hallucination because it forces the model to consciously trace each claim to a specific source. When a model cannot find a source, it is more likely to say \"I don't have information on this\" rather than fabricate one — especially in Claude and GPT-4o."
+    },
+    "codebaseInjection": {
+      "title": "Codebase Injection — The Developer's Use Case",
+      "text": "For software engineers, Context Injection transforms the AI from a general-purpose code assistant into a teammate who understands your specific project. The Master Instruction defines the engineering standards; the codebase injection gives it the project knowledge.",
+      "filename": "Full Codebase Injection Template"
+    },
+    "bottomNav": {
+      "label": "Next",
+      "link": "Advanced — Best Practices →"
+    },
+    "intro1Mid": "を注入して",
+    "intro2": "コンテキストインジェクションにより、会話中にAIへ特定情報を渡せます。"
+  },
+  "gemini": {
+    "badge": "統合ガイド",
+    "title": "GeminiでOrxisを使用する",
+    "intro1Before": "このガイドでは",
+    "intro1And": "および",
+    "intro1Mid": "Gemini Advanced",
+    "intro1And2": "と",
+    "intro1End": "Google AI StudioのSystem Instructionオプション",
+    "intro2": "GeminiはロングコンテキストInstruction遵守とマルチモーダル使用に優れています。"
+  },
+  "otherLLMs": {
+    "badge": "統合ガイド",
+    "title": "その他のLLM — Copilot、Mistral、Llamaなど",
+    "intro1Before": "OrxisのインストラクションはあらゆるLLM向けに設計されています。プラットフォーム固有の機能はありますが、",
+    "intro1Strong1": "すべてのLLM",
+    "intro1Mid": "に対して",
+    "intro1Strong2": "6セクション",
+    "intro1After": "フレームワークが適用されます。",
+    "intro2": "本記事ではChatGPT、Claude、Gemini以外のAIプラットフォームでのOrxisの使用方法を説明します。"
   }
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Callout, {
   CodeBlock,
   InlineCode,
@@ -8,46 +9,58 @@ import Callout, {
 } from "@/components/docs/DocsComponents";
 import Link from "next/link";
 
+import { useT, useLanguage } from "@/i18n";
+
 export default function DocsContextInjection() {
+  const t = useT("docs");
+  const { locale } = useLanguage();
+  const [localeData, setLocaleData] = useState<any>(null);
+
+  useEffect(() => {
+    import(`@/i18n/locales/${locale}/docs.json`)
+      .catch(() => import("@/i18n/locales/en/docs.json"))
+      .then((m) => setLocaleData(m.default ?? m));
+  }, [locale]);
+
+  type InjectItem = { rank: string; type: string; desc: string };
+  const whatToInjectList: InjectItem[] = localeData?.contextInjection?.whatToInject?.list ?? [];
+
   return (
     <article className="docs-prose w-full max-w-3xl">
 
       {/* Badge */}
       <div className="mb-3 flex items-center gap-2">
         <span className="rounded-full border border-neon-purple/30 bg-neon-purple/10 px-3 py-0.5 text-xs font-semibold text-neon-purple-light">
-          Advanced
+          {t("contextInjection.badge")}
         </span>
         <span className="text-slate-700">/</span>
-        <span className="text-xs text-slate-500">Context Injection</span>
+        <span className="text-xs text-slate-500">{t("contextInjection.breadcrumb")}</span>
       </div>
 
       <h1 id="context-injection" className="scroll-mt-24">
-        Context &amp; Knowledge Injection
+        {t("contextInjection.title")}
       </h1>
 
       <p>
-        Your Master Custom Instruction defines <em>who</em> the AI is and{" "}
-        <em>how</em> it thinks. Context Injection is the technique of telling
-        it <em>what</em> to work with — feeding it your proprietary data,
-        documents, codebases, or domain knowledge so it can apply its expert
-        persona to <em>your specific world</em>, not a generic one.
+        {t("contextInjection.intro1Before")}
+        <em>{t("contextInjection.intro1Em1")}</em>
+        {t("contextInjection.intro1Mid1")}
+        <em>{t("contextInjection.intro1Em2")}</em>
+        {t("contextInjection.intro1Mid2")}
+        <em>{t("contextInjection.intro1Em3")}</em>
+        {t("contextInjection.intro1Mid3")}
+        <em>{t("contextInjection.intro1Em4")}</em>
+        {t("contextInjection.intro1After")}
       </p>
       <p>
-        This is the manual, no-infrastructure equivalent of{" "}
-        <strong>Retrieval-Augmented Generation (RAG)</strong>. Instead of
-        building a vector database and a retrieval pipeline, you curate the
-        most relevant context and inject it directly into the conversation
-        alongside your Master Instruction. For most use cases, this approach
-        is faster, cheaper, and more controllable than a full RAG system.
+        {t("contextInjection.intro2Before")}
+        <strong>{t("contextInjection.intro2Strong")}</strong>
+        {t("contextInjection.intro2After")}
       </p>
 
-      <Callout variant="important" title="The Injection Principle">
+      <Callout variant="important" title={t("contextInjection.principle.title")}>
         <p>
-          The AI has no memory of your world — your codebase, your company&apos;s
-          terminology, your document standards, your team conventions. Context
-          Injection is the act of bridging that gap. A Master Instruction without
-          context is an expert working blind. An expert with the right context is
-          far more effective.
+          {t("contextInjection.principle.text")}
         </p>
       </Callout>
 
@@ -55,54 +68,33 @@ export default function DocsContextInjection() {
 
       {/* WHAT TO INJECT */}
       <section id="what-to-inject" className="scroll-mt-24">
-        <h2>What to Inject</h2>
+        <h2>{t("contextInjection.whatToInject.title")}</h2>
         <p>
-          Not all context is equal. Injecting the right information is as
-          important as injecting any information at all. Here is a taxonomy of
-          high-value context types, ranked by impact:
+          {t("contextInjection.whatToInject.text")}
         </p>
 
         <div className="my-5 space-y-3">
-          {[
-            {
-              rank: "01",
-              type: "Codebase Snapshots",
-              desc: "Paste the most relevant files or modules. Include the file path as a comment at the top of each snippet so the AI can reason about project structure. Ideal for code review, refactoring, and architecture analysis.",
-              color: "border-neon-cyan/20 bg-neon-cyan/[0.03] text-neon-cyan",
-            },
-            {
-              rank: "02",
-              type: "Specification Documents",
-              desc: "PRDs, API specs, design documents, or RFC drafts. The AI will use these as ground truth when generating any output, preventing hallucination of requirements.",
-              color: "border-neon-purple/20 bg-neon-purple/[0.03] text-neon-purple-light",
-            },
-            {
-              rank: "03",
-              type: "CSV / Structured Data",
-              desc: "Sales data, user analytics, database schemas, experiment results. Paste directly or upload via file attachment. The AI can perform analysis, generate insights, or draft data-driven documents.",
-              color: "border-emerald-500/20 bg-emerald-500/[0.03] text-emerald-400",
-            },
-            {
-              rank: "04",
-              type: "PDF Documents",
-              desc: "Research papers, compliance documents, contracts, style guides. Use file upload in ChatGPT, Claude, or Gemini. Explicitly command the AI to apply its defined role when analyzing the document.",
-              color: "border-amber-500/20 bg-amber-500/[0.03] text-amber-400",
-            },
-            {
-              rank: "05",
-              type: "Previous Outputs / Conversation History",
-              desc: "Paste the output from a prior chain session to continue work with full continuity. Prefix with 'Here is what we produced in the previous session:' for maximum clarity.",
-              color: "border-rose-500/20 bg-rose-500/[0.03] text-rose-400",
-            },
-          ].map((item) => (
+          {whatToInjectList.map((item, idx) => (
             <div
-              key={item.rank}
+              key={idx}
               className="flex gap-4 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4"
             >
-              <span className={`mt-0.5 text-lg font-black tabular-nums ${item.color.split(" ")[2]}`}>
+              <span className={`mt-0.5 text-lg font-black tabular-nums ${
+                idx === 0 ? "text-neon-cyan" :
+                idx === 1 ? "text-neon-purple-light" :
+                idx === 2 ? "text-emerald-400" :
+                idx === 3 ? "text-amber-400" :
+                "text-rose-400"
+              }`}>
                 {item.rank}
               </span>
-              <div className={`flex-1 rounded-lg border p-3 ${item.color.split(" ")[0]} ${item.color.split(" ")[1]}`}>
+              <div className={`flex-1 rounded-lg border p-3 ${
+                idx === 0 ? "border-neon-cyan/20 bg-neon-cyan/[0.03]" :
+                idx === 1 ? "border-neon-purple/20 bg-neon-purple/[0.03]" :
+                idx === 2 ? "border-emerald-500/20 bg-emerald-500/[0.03]" :
+                idx === 3 ? "border-amber-500/20 bg-amber-500/[0.03]" :
+                "border-rose-500/20 bg-rose-500/[0.03]"
+              }`}>
                 <p className="font-semibold text-slate-200 mb-1">{item.type}</p>
                 <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
               </div>
@@ -115,42 +107,32 @@ export default function DocsContextInjection() {
 
       {/* HOW TO INJECT */}
       <section id="how-to-inject" className="scroll-mt-24">
-        <h2>How to Inject Context by Platform</h2>
+        <h2>{t("contextInjection.howToInject.title")}</h2>
 
-        <h3 id="inject-chatgpt" className="scroll-mt-24">ChatGPT</h3>
+        <h3 id="inject-chatgpt" className="scroll-mt-24">{t("contextInjection.howToInject.chatgpt.title")}</h3>
         <p>
-          ChatGPT supports both direct text injection and file uploads (PDF,
-          DOCX, CSV, images, and code files). The recommended pattern is to
-          inject your Master Instruction first, then present the external
-          context in a structured format.
+          {t("contextInjection.howToInject.chatgpt.text")}
         </p>
 
         <div className="my-4 space-y-3">
-          <Step number={1} title="Open a new chat or Project">
-            If using Custom Instructions, your Master Instruction is already
-            active. If not, paste it as the first message. Navigate to a new
-            conversation or inside a Project that has your instruction
-            pre-loaded.
+          <Step number={1} title={t("contextInjection.howToInject.chatgpt.step1Title")}>
+            {t("contextInjection.howToInject.chatgpt.step1Text")}
           </Step>
-          <Step number={2} title="Upload or paste your document">
-            Click the paperclip icon to upload a PDF, CSV, or code file. For
-            shorter content (&lt;10,000 tokens), pasting directly into the
-            message box gives the AI more precise control over the raw text.
+          <Step number={2} title={t("contextInjection.howToInject.chatgpt.step2Title")}>
+            {t("contextInjection.howToInject.chatgpt.step2Text")}
           </Step>
-          <Step number={3} title="Issue an explicit injection command">
+          <Step number={3} title={t("contextInjection.howToInject.chatgpt.step3Title")}>
             <span>
-              Do not simply drop the document and hope for the best. Issue a
-              precise command that bridges the document to the persona:
+              {t("contextInjection.howToInject.chatgpt.step3Text")}
             </span>
           </Step>
         </div>
 
-        <Callout variant="tip" title="The Pro Injection Command">
+        <Callout variant="tip" title={t("contextInjection.howToInject.chatgpt.calloutTitle")}>
           <p>
-            When providing external documents, always use this exact command
-            pattern to activate the full power of the persona:
+            {t("contextInjection.howToInject.chatgpt.calloutTextBefore")}
           </p>
-          <CodeBlock language="text" filename="Injection Command Template">
+          <CodeBlock language="text" filename={t("contextInjection.howToInject.chatgpt.calloutFilename")}>
 {`Analyze the attached document using your predefined role and strict rules.
 
 Apply your full cognitive loop: begin with internal self-reflection before 
@@ -161,32 +143,24 @@ evaluation rubric.
 Specifically, I need you to: [YOUR SPECIFIC TASK]`}
           </CodeBlock>
           <p>
-            The phrase <em>&ldquo;using your predefined role and strict rules&rdquo;</em>{" "}
-            is a deliberate callback that re-activates the persona, preventing
-            the AI from slipping into a generic assistant mode when handling
-            external data.
+            {t("contextInjection.howToInject.chatgpt.calloutNoteBefore")}
+            <em>{t("contextInjection.howToInject.chatgpt.calloutNoteEm")}</em>{" "}
+            {t("contextInjection.howToInject.chatgpt.calloutNoteAfter")}
           </p>
         </Callout>
 
-        <h3 id="inject-claude" className="scroll-mt-24 mt-8">Claude</h3>
+        <h3 id="inject-claude" className="scroll-mt-24 mt-8">{t("contextInjection.howToInject.claude.title")}</h3>
         <p>
-          Claude&apos;s 200K token context window makes it the best platform for
-          large document injection — full codebases, lengthy research papers, or
-          multiple files at once. Claude can hold and reason over vastly more
-          context than other models without degrading.
+          {t("contextInjection.howToInject.claude.text")}
         </p>
 
         <div className="my-4 space-y-3">
-          <Step number={1} title="Set up a Project with your Master Instruction">
-            Create a Claude Project and add your Master Instruction to the
-            Project Instructions. This persists across sessions — you never need
-            to re-paste it.
+          <Step number={1} title={t("contextInjection.howToInject.claude.step1Title")}>
+            {t("contextInjection.howToInject.claude.step1Text")}
           </Step>
-          <Step number={2} title="Upload files or paste content in the conversation">
-            Claude supports file uploads (PDF, TXT, CSV, code files) and direct
-            text paste. For maximum precision, paste code files with file path
-            headers:
-            <CodeBlock language="text" filename="File Context Format">
+          <Step number={2} title={t("contextInjection.howToInject.claude.step2Title")}>
+            {t("contextInjection.howToInject.claude.step2Text")}
+            <CodeBlock language="text" filename={t("contextInjection.howToInject.claude.step2Filename")}>
 {`## FILE: src/services/auth.service.ts
 [paste file content here]
 
@@ -197,10 +171,9 @@ Specifically, I need you to: [YOUR SPECIFIC TASK]`}
 [paste file content here]`}
             </CodeBlock>
           </Step>
-          <Step number={3} title="Give the structured injection command">
-            Reference the files explicitly in your command so Claude&apos;s
-            attention is anchored to the right context:
-            <CodeBlock language="text" filename="Claude Injection Command">
+          <Step number={3} title={t("contextInjection.howToInject.claude.step3Title")}>
+            {t("contextInjection.howToInject.claude.step3Text")}
+            <CodeBlock language="text" filename={t("contextInjection.howToInject.claude.step3Filename")}>
 {`Using your predefined role and applying your evaluation rubric, 
 perform a comprehensive security audit of the three files above.
 
@@ -216,18 +189,12 @@ root cause, and a concrete remediation with code example.`}
           </Step>
         </div>
 
-        <h3 id="inject-gemini" className="scroll-mt-24 mt-8">Google AI Studio / Gemini</h3>
+        <h3 id="inject-gemini" className="scroll-mt-24 mt-8">{t("contextInjection.howToInject.gemini.title")}</h3>
         <p>
-          Google AI Studio&apos;s grounding feature allows connecting Gemini to
-          Google Search or Google Drive — enabling semi-automated context
-          retrieval. For manual injection, AI Studio also supports file uploads
-          directly in the prompt interface.
+          {t("contextInjection.howToInject.gemini.text1")}
         </p>
         <p>
-          For CSV and structured data analysis, Gemini 2.5 Pro with the
-          &ldquo;Data Analysis&rdquo; capability enabled produces the most reliable
-          results. Set your Master Instruction as the System Instruction and
-          upload the CSV as a file attachment.
+          {t("contextInjection.howToInject.gemini.text2")}
         </p>
       </section>
 
@@ -235,40 +202,30 @@ root cause, and a concrete remediation with code example.`}
 
       {/* MANUAL RAG */}
       <section id="manual-rag" className="scroll-mt-24">
-        <h2>Manual RAG — The Expert&apos;s Technique</h2>
+        <h2>{t("contextInjection.manualRag.title")}</h2>
         <p>
-          Full RAG systems (vector databases, embedding models, retrieval
-          pipelines) are powerful but heavyweight. For most knowledge-work tasks,
-          you can achieve 80% of the benefit with a disciplined manual approach.
+          {t("contextInjection.manualRag.text")}
         </p>
 
-        <h3 id="rag-chunking" className="scroll-mt-24">Step 1 — Curate, Don&apos;t Dump</h3>
+        <h3 id="rag-chunking" className="scroll-mt-24">{t("contextInjection.manualRag.step1Title")}</h3>
         <p>
-          The most common mistake is injecting an entire document and expecting
-          the AI to find the relevant parts. Instead, curate: extract only the
-          sections that are directly relevant to the task. A focused 500-word
-          excerpt outperforms a 50,000-word raw document for precision tasks.
+          {t("contextInjection.manualRag.step1Text")}
         </p>
 
         <Callout variant="warning">
           <p>
-            Injecting too much context triggers the{" "}
-            <strong>&ldquo;Lost in the Middle&rdquo;</strong> problem — a
-            well-documented phenomenon where LLMs pay disproportionate attention
-            to the beginning and end of a long context, underweighting content
-            in the middle. For documents &gt;50 pages, manually extract the
-            relevant sections rather than injecting the full document.
+            {t("contextInjection.manualRag.warningBefore")}
+            <strong>{t("contextInjection.manualRag.warningStrong")}</strong>
+            {t("contextInjection.manualRag.warningAfter")}
           </p>
         </Callout>
 
-        <h3 id="rag-labeling" className="scroll-mt-24 mt-6">Step 2 — Label Every Context Block</h3>
+        <h3 id="rag-labeling" className="scroll-mt-24 mt-6">{t("contextInjection.manualRag.step2Title")}</h3>
         <p>
-          Always label injected context with a clear header. This anchors the
-          AI&apos;s attention and allows it to reason about the source explicitly
-          in its output.
+          {t("contextInjection.manualRag.step2Text")}
         </p>
 
-        <CodeBlock language="text" filename="Labeled Context Block Format">
+        <CodeBlock language="text" filename={t("contextInjection.manualRag.step2Filename")}>
 {`## CONTEXT BLOCK: Company Style Guide (v2.3, Q4 2024)
 [Relevant excerpt from style guide]
 
@@ -284,13 +241,12 @@ Now, using your predefined role and the context blocks above,
 produce: [YOUR TASK]`}
         </CodeBlock>
 
-        <h3 id="rag-verification" className="scroll-mt-24 mt-6">Step 3 — Demand Source Attribution</h3>
+        <h3 id="rag-verification" className="scroll-mt-24 mt-6">{t("contextInjection.manualRag.step3Title")}</h3>
         <p>
-          Instruct the AI to cite its context sources in the output. This
-          prevents hallucination and makes the output auditable.
+          {t("contextInjection.manualRag.step3Text")}
         </p>
 
-        <CodeBlock language="text" filename="Source Attribution Command">
+        <CodeBlock language="text" filename={t("contextInjection.manualRag.step3Filename")}>
 {`For every factual claim or design decision in your output, cite which 
 Context Block it is derived from, using inline references like 
 [Style Guide], [PRD], or [Previous Draft].
@@ -299,13 +255,9 @@ If you make an inference not directly supported by the provided context,
 mark it explicitly with [INFERENCE] so I can review it.`}
         </CodeBlock>
 
-        <Callout variant="tip" title="The Attribution Trick">
+        <Callout variant="tip" title={t("contextInjection.manualRag.tipTitle")}>
           <p>
-            Requiring source citations dramatically reduces hallucination because
-            it forces the model to consciously trace each claim to a specific
-            source. When a model cannot find a source, it is more likely to say
-            &ldquo;I don&apos;t have information on this&rdquo; rather than fabricate one — 
-            especially in Claude and GPT-4o.
+            {t("contextInjection.manualRag.tipText")}
           </p>
         </Callout>
       </section>
@@ -314,15 +266,12 @@ mark it explicitly with [INFERENCE] so I can review it.`}
 
       {/* CODEBASE INJECTION */}
       <section id="codebase-injection" className="scroll-mt-24">
-        <h2>Codebase Injection — The Developer&apos;s Use Case</h2>
+        <h2>{t("contextInjection.codebaseInjection.title")}</h2>
         <p>
-          For software engineers, Context Injection transforms the AI from a
-          general-purpose code assistant into a teammate who understands your
-          specific project. The Master Instruction defines the engineering
-          standards; the codebase injection gives it the project knowledge.
+          {t("contextInjection.codebaseInjection.text")}
         </p>
 
-        <CodeBlock language="text" filename="Full Codebase Injection Template">
+        <CodeBlock language="text" filename={t("contextInjection.codebaseInjection.filename")}>
 {`[Master Custom Instruction — paste in full]
 
 ---
@@ -361,12 +310,12 @@ to use optimistic locking and add idempotency key support."]`}
 
         {/* Bottom nav */}
         <div className="mt-12 rounded-xl border border-white/[0.07] bg-white/[0.02] p-5">
-          <p className="text-xs uppercase tracking-wider text-slate-600 mb-1">Next</p>
+          <p className="text-xs uppercase tracking-wider text-slate-600 mb-1">{t("contextInjection.bottomNav.label")}</p>
           <Link
             href="/docs?page=best-practices"
             className="font-semibold text-white hover:text-neon-cyan transition-colors"
           >
-            Advanced — Best Practices →
+            {t("contextInjection.bottomNav.link")}
           </Link>
         </div>
       </section>

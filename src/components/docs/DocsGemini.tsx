@@ -7,91 +7,85 @@ import Callout, {
   Step,
 } from "@/components/docs/DocsComponents";
 import Link from "next/link";
+import { useT } from "@/i18n";
 
 export default function DocsGemini() {
+  const t = useT("docs");
   return (
     <article className="docs-prose w-full max-w-3xl">
 
       {/* Badge */}
       <div className="mb-3 flex items-center gap-2">
         <span className="rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-0.5 text-xs font-semibold text-blue-400">
-          Platform Guides
+          {t("gemini.badge")}
         </span>
         <span className="text-slate-700">/</span>
         <span className="text-xs text-slate-500">Gemini</span>
       </div>
 
       <h1 id="gemini" className="scroll-mt-24">
-        Using Instructions with Gemini
+        {t("gemini.title")}
       </h1>
 
       <p>
-        Google&apos;s Gemini models — particularly{" "}
-        <strong>Gemini 2.5 Flash</strong> and{" "}
-        <strong>Gemini 2.5 Pro</strong> — are architecturally exceptional at
-        rigidly enforcing the rules defined in{" "}
-        <strong>Section 5 (Strict Boundaries &amp; Execution Rules)</strong> and{" "}
-        <strong>Section 6 (Output Formatting)</strong> of your Master Custom
-        Instruction. Where other models occasionally drift from formatting
-        constraints mid-conversation, Gemini maintains them with strong
-        consistency across multi-turn sessions.
+        {t("gemini.intro1Before")}{" "}
+        <strong>Gemini 2.5 Flash</strong> {t("gemini.intro1And")}{" "}
+        <strong>Gemini 2.5 Pro</strong> {t("gemini.intro1Mid")}{" "}
+        <strong>{t("gemini.intro1Section5")}</strong> {t("gemini.intro1And")}{" "}
+        <strong>{t("gemini.intro1Section6")}</strong>{" "}
+        {t("gemini.intro1After")}
       </p>
       <p>
-        This is a direct consequence of Google&apos;s instruction-tuning
-        methodology, which places a heavy emphasis on rule-following and
-        structured output compliance. If your workflow demands strict output
-        formatting — numbered sections, specific Markdown templates, or
-        constrained response lengths — Gemini is the ideal host for your
-        generated instruction.
+        {t("gemini.intro2")}
       </p>
 
       <SectionDivider />
 
       {/* WHY GEMINI EXCELS */}
       <section id="why-gemini-excels" className="scroll-mt-24">
-        <h2>Why Gemini Excels at Structured Instructions</h2>
+        <h2>{t("gemini.whyExcelsTitle")}</h2>
         <p>
-          Gemini was built with Google&apos;s RLHF pipeline on top of a
-          massive corpus of structured documents — technical manuals,
-          specification sheets, API references, and code documentation. This
-          gives it a native affinity for instruction-following patterns that
-          mirror the 6-section structure of your Master Custom Instruction.
+          {t("gemini.whyExcelsPara")}
         </p>
 
         <div className="my-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {[
             {
-              section: "Section 5 — Boundaries",
-              strength: "Gemini generally respects negative rules. \"NEVER do X\" constraints are honored in most cases.",
+              section: t("gemini.cards.boundariesTitle"),
+              strength: t("gemini.cards.boundariesDesc"),
               color: "border-blue-500/20 bg-blue-500/[0.04]",
-              badge: "Very Strong",
+              badge: t("gemini.cards.boundariesBadge"),
+              originalBadge: "Very Strong"
             },
             {
-              section: "Section 6 — Output Format",
-              strength: "Gemini follows structured output templates reliably, including Markdown headers and table schemas.",
+              section: t("gemini.cards.formatTitle"),
+              strength: t("gemini.cards.formatDesc"),
               color: "border-sky-500/20 bg-sky-500/[0.04]",
-              badge: "Very Strong",
+              badge: t("gemini.cards.formatBadge"),
+              originalBadge: "Very Strong"
             },
             {
-              section: "Section 2 — Mission",
-              strength: "Gemini stays on-task with goal-oriented directives and resists topic drift better than most models.",
+              section: t("gemini.cards.missionTitle"),
+              strength: t("gemini.cards.missionDesc"),
               color: "border-indigo-500/20 bg-indigo-500/[0.04]",
-              badge: "Strong",
+              badge: t("gemini.cards.missionBadge"),
+              originalBadge: "Strong"
             },
             {
-              section: "Section 1 — Role & Identity",
-              strength: "Persona adoption is solid, though not as deeply committed as GPT-4o for extended roleplay.",
+              section: t("gemini.cards.roleTitle"),
+              strength: t("gemini.cards.roleDesc"),
               color: "border-slate-500/20 bg-slate-500/[0.04]",
-              badge: "Good",
+              badge: t("gemini.cards.roleBadge"),
+              originalBadge: "Good"
             },
           ].map((item) => (
             <div key={item.section} className={`rounded-lg border p-4 ${item.color}`}>
               <div className="flex items-start justify-between gap-2 mb-2">
                 <p className="text-sm font-semibold text-slate-200">{item.section}</p>
                 <span className={`flex-shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${
-                  item.badge === "Very Strong"
+                  item.originalBadge === "Very Strong"
                     ? "bg-blue-500/20 text-blue-400"
-                    : item.badge === "Strong"
+                    : item.originalBadge === "Strong"
                     ? "bg-indigo-500/20 text-indigo-400"
                     : "bg-slate-500/20 text-slate-400"
                 }`}>
@@ -103,14 +97,12 @@ export default function DocsGemini() {
           ))}
         </div>
 
-        <Callout variant="tip" title="Temperature Recommendation">
+        <Callout variant="tip" title={t("gemini.tempRecTitle")}>
           <p>
-            Set temperature to <InlineCode>0.2</InlineCode>–
-            <InlineCode>0.3</InlineCode> when using structured Custom
-            Instructions with Gemini. Lower temperatures maximize constraint
-            adherence and output consistency. Gemini 2.5 Flash at{" "}
-            <InlineCode>temperature=0.3</InlineCode> is the recommended default
-            — it&apos;s the configuration our backend uses.
+            {t("gemini.tempRecBefore")} <InlineCode>0.2</InlineCode>
+            {t("gemini.tempRecMid1")}
+            <InlineCode>0.3</InlineCode> {t("gemini.tempRecMid2")} Gemini 2.5 Flash at{" "}
+            <InlineCode>temperature=0.3</InlineCode> {t("gemini.tempRecAfter")}
           </p>
         </Callout>
       </section>
@@ -119,8 +111,9 @@ export default function DocsGemini() {
 
       {/* AI STUDIO */}
       <section id="ai-studio" className="scroll-mt-24">
-        <h2>Google AI Studio (Recommended for Developers)</h2>
+        <h2>{t("gemini.aiStudioTitle")}</h2>
         <p>
+          {t("gemini.aiStudioBefore")}
           <a
             href="https://aistudio.google.com"
             target="_blank"
@@ -129,52 +122,37 @@ export default function DocsGemini() {
           >
             Google AI Studio
           </a>{" "}
-          is the fastest way to test and deploy your Master Instruction with
-          Gemini. It&apos;s free to use, supports all Gemini models, and
-          crucially exposes a dedicated{" "}
-          <strong>System Instructions</strong> field — exactly the right place
-          to inject your generated instruction.
+          {t("gemini.aiStudioMid")}{" "}
+          <strong>{t("gemini.aiStudioStrong")}</strong> {t("gemini.aiStudioAfter")}
         </p>
 
         <div className="my-5 space-y-3">
-          <Step number={1} title='Go to aistudio.google.com and create a new prompt'>
-            Navigate to{" "}
+          <Step number={1} title={t("gemini.aiStudioSteps.step1Title")}>
+            {t("gemini.aiStudioSteps.step1Before")}{" "}
             <a href="https://aistudio.google.com" target="_blank" rel="noopener noreferrer" className="text-neon-cyan">
               aistudio.google.com
             </a>
-            . Click <InlineCode>Create new</InlineCode> →{" "}
-            <InlineCode>New prompt</InlineCode>. You&apos;ll be taken to the
-            prompt editor workspace.
+            {t("gemini.aiStudioSteps.step1Mid1")} <InlineCode>Create new</InlineCode> {t("gemini.aiStudioSteps.step1Mid2")}{" "}
+            <InlineCode>New prompt</InlineCode>{t("gemini.aiStudioSteps.step1After")}
           </Step>
-          <Step number={2} title='Expand the "System Instructions" panel'>
-            In the left configuration panel, look for{" "}
-            <InlineCode>System instructions</InlineCode> near the top. Click it
-            to expand the text area. This is where your Master Custom
-            Instruction lives — it is injected before every message in the
-            conversation.
+          <Step number={2} title={t("gemini.aiStudioSteps.step2Title")}>
+            {t("gemini.aiStudioSteps.step2Before")}{" "}
+            <InlineCode>System instructions</InlineCode> {t("gemini.aiStudioSteps.step2After")}
           </Step>
-          <Step number={3} title="Paste your Master Instruction">
-            Copy your generated instruction from the Output Studio and paste it
-            directly into the System Instructions field. No formatting changes
-            needed — the Markdown and XML tags are preserved exactly as-is.
+          <Step number={3} title={t("gemini.aiStudioSteps.step3Title")}>
+            {t("gemini.aiStudioSteps.step3Desc")}
           </Step>
-          <Step number={4} title="Configure the model and save as a preset">
-            In the right panel, set the model to{" "}
-            <strong>Gemini 2.5 Flash</strong> and temperature to{" "}
-            <InlineCode>0.3</InlineCode>. Click{" "}
-            <InlineCode>Save</InlineCode> → <InlineCode>Save as</InlineCode> to
-            create a reusable preset. You can return to this preset at any time
-            without re-pasting your instruction.
+          <Step number={4} title={t("gemini.aiStudioSteps.step4Title")}>
+            {t("gemini.aiStudioSteps.step4Before")}{" "}
+            <strong>Gemini 2.5 Flash</strong> {t("gemini.aiStudioSteps.step4Mid1")}{" "}
+            <InlineCode>0.3</InlineCode>{t("gemini.aiStudioSteps.step4Mid2")}{" "}
+            <InlineCode>Save</InlineCode> {t("gemini.aiStudioSteps.step4Mid3")} <InlineCode>Save as</InlineCode> {t("gemini.aiStudioSteps.step4After")}
           </Step>
         </div>
 
-        <Callout variant="note" title="Free Export to SDK Code">
+        <Callout variant="note" title={t("gemini.freeExportTitle")}>
           <p>
-            AI Studio has a <strong>&ldquo;Get code&rdquo;</strong> button
-            that exports your entire configured prompt — including system
-            instructions, model, and temperature — as ready-to-run Python or
-            JavaScript code. This is the fastest path from prompt to
-            production.
+            {t("gemini.freeExportBefore")} <strong>{t("gemini.freeExportStrong")}</strong> {t("gemini.freeExportAfter")}
           </p>
         </Callout>
       </section>
@@ -183,16 +161,15 @@ export default function DocsGemini() {
 
       {/* GEMINI ADVANCED */}
       <section id="gemini-advanced" className="scroll-mt-24">
-        <h2>Gemini Advanced (No-Code Method)</h2>
+        <h2>{t("gemini.advancedTitle")}</h2>
         <p>
-          For users who prefer a chat-first interface over a developer console,{" "}
-          <strong>Gemini Advanced</strong> (available with Google One AI
-          Premium) supports two methods for using your Master Instruction.
+          {t("gemini.advancedBefore")}{" "}
+          <strong>{t("gemini.advancedStrong")}</strong> {t("gemini.advancedAfter")}
         </p>
 
-        <h3 className="scroll-mt-24">Method 1 — Direct Paste</h3>
+        <h3 className="scroll-mt-24">{t("gemini.method1Title")}</h3>
         <p>
-          Open a new conversation at{" "}
+          {t("gemini.method1Before")}{" "}
           <a
             href="https://gemini.google.com"
             target="_blank"
@@ -201,42 +178,33 @@ export default function DocsGemini() {
           >
             gemini.google.com
           </a>
-          . On the very first message, paste your entire Master Custom
-          Instruction, then press <kbd className="rounded border border-white/10 bg-white/[0.05] px-1.5 py-0.5 text-xs">Enter</kbd>.
-          Gemini will acknowledge it and remain in the defined persona for the
-          rest of the conversation.
+          {t("gemini.method1Mid")} <kbd className="rounded border border-white/10 bg-white/[0.05] px-1.5 py-0.5 text-xs">Enter</kbd>
+          {t("gemini.method1After")}
         </p>
 
         <Callout variant="warning">
           <p>
-            Direct pasting works for the current session only. When you start a
-            new conversation, you&apos;ll need to paste the instruction again.
-            Use <strong>Gems</strong> (below) for a permanent configuration.
+            {t("gemini.method1WarningBefore")} <strong>{t("gemini.method1WarningStrong")}</strong> {t("gemini.method1WarningAfter")}
           </p>
         </Callout>
 
-        <h3 className="scroll-mt-24 mt-6">Method 2 — Create a Gem (Permanent)</h3>
+        <h3 className="scroll-mt-24 mt-6">{t("gemini.method2Title")}</h3>
         <p>
-          Gems are Gemini&apos;s version of custom AI personas with persistent
-          system instructions. A Gem built with your Master Instruction behaves
-          like a dedicated expert assistant you can access anytime.
+          {t("gemini.method2Desc")}
         </p>
         <div className="my-5 space-y-3">
-          <Step number={1} title='Navigate to "Gems"'>
-            In the Gemini Advanced sidebar, click{" "}
-            <InlineCode>Gem manager</InlineCode> → then{" "}
+          <Step number={1} title={t("gemini.method2Steps.step1Title")}>
+            {t("gemini.method2Steps.step1Before")}{" "}
+            <InlineCode>Gem manager</InlineCode> {t("gemini.method2Steps.step1Mid")}{" "}
             <InlineCode>New gem</InlineCode>.
           </Step>
-          <Step number={2} title="Name your Gem and paste instructions">
-            Give the Gem a descriptive name (e.g.,{" "}
-            <em>&ldquo;Senior TypeScript Engineer&rdquo;</em>). Paste your full
-            Master Instruction into the{" "}
-            <InlineCode>Instructions</InlineCode> field.
+          <Step number={2} title={t("gemini.method2Steps.step2Title")}>
+            {t("gemini.method2Steps.step2Before")}{" "}
+            <em>{t("gemini.method2Steps.step2Em")}</em>{t("gemini.method2Steps.step2Mid")}{" "}
+            <InlineCode>Instructions</InlineCode> {t("gemini.method2Steps.step2After")}
           </Step>
-          <Step number={3} title="Save and use">
-            Click <InlineCode>Save</InlineCode>. Your Gem now appears in the
-            sidebar and can be launched instantly for any new task, with the
-            full instruction pre-loaded.
+          <Step number={3} title={t("gemini.method2Steps.step3Title")}>
+            {t("gemini.method2Steps.step3Before")} <InlineCode>Save</InlineCode>{t("gemini.method2Steps.step3After")}
           </Step>
         </div>
       </section>
@@ -245,24 +213,16 @@ export default function DocsGemini() {
 
       {/* WORKSPACE INTEGRATION */}
       <section id="gemini-workspace" className="scroll-mt-24">
-        <h2>Google Workspace Integration</h2>
+        <h2>{t("gemini.workspaceTitle")}</h2>
         <p>
-          For enterprise and team deployments, <strong>Gemini for Google Workspace</strong>{" "}
-          supports system-level instruction configuration through the Google Admin
-          Console. This allows an organization to deploy a single Master Custom
-          Instruction across all users — ensuring every team member gets a
-          consistent, expert-level AI experience without individual setup.
+          {t("gemini.workspaceBefore")} <strong>{t("gemini.workspaceStrong")}</strong>{" "}
+          {t("gemini.workspaceAfter")}
         </p>
 
         <div className="my-5 rounded-xl border border-white/[0.07] bg-white/[0.02] p-5">
-          <p className="text-sm font-semibold text-slate-200 mb-3">Deployment Path</p>
+          <p className="text-sm font-semibold text-slate-200 mb-3">{t("gemini.deploymentPath")}</p>
           <div className="space-y-2 text-sm text-slate-400">
-            {[
-              "Admin Console → Apps → Google Workspace → Gemini",
-              "Navigate to Settings → AI Features → System Instructions",
-              "Paste the Master Instruction and apply to target organizational units (OUs)",
-              "Changes propagate to all users in the OU within 24 hours",
-            ].map((step, i) => (
+            {t.array("gemini.deploymentSteps").map((step, i) => (
               <div key={i} className="flex items-start gap-3">
                 <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-[10px] font-bold text-blue-400">
                   {i + 1}
@@ -275,10 +235,11 @@ export default function DocsGemini() {
 
         <Callout variant="note">
           <p>
-            Workspace system instructions are only available on{" "}
-            <strong>Business Standard, Business Plus</strong>, and{" "}
-            <strong>Enterprise</strong> plans. Consult your Google Workspace
-            administrator for access.
+            {t("gemini.workspaceNoteBefore")}{" "}
+            <strong>{t("gemini.workspaceNoteStrong1")}</strong>{", "}
+            {t("gemini.workspaceNoteAnd")}{" "}
+            <strong>{t("gemini.workspaceNoteStrong2")}</strong>{" "}
+            {t("gemini.workspaceNoteAfter")}
           </p>
         </Callout>
       </section>
@@ -287,13 +248,11 @@ export default function DocsGemini() {
 
       {/* API INTEGRATION */}
       <section id="gemini-api" className="scroll-mt-24">
-        <h2>API Integration</h2>
+        <h2>{t("gemini.apiIntegrationTitle")}</h2>
         <p>
-          The Google GenAI Python SDK (<InlineCode>google-genai</InlineCode>)
-          exposes a <InlineCode>system_instruction</InlineCode> parameter on
-          every <InlineCode>generate_content</InlineCode> call. This is the
-          programmatic equivalent of pasting into AI Studio&apos;s System
-          Instructions field.
+          {t("gemini.apiIntegrationBefore")}<InlineCode>google-genai</InlineCode>
+          {t("gemini.apiIntegrationMid1")} <InlineCode>system_instruction</InlineCode> {t("gemini.apiIntegrationMid2")}
+          <InlineCode>generate_content</InlineCode> {t("gemini.apiIntegrationAfter")}
         </p>
 
         <CodeBlock language="python" filename="gemini_integration.py">
@@ -329,13 +288,11 @@ response = client.models.generate_content(
 print(response.text)`}
         </CodeBlock>
 
-        <Callout variant="tip" title="Streaming Support">
+        <Callout variant="tip" title={t("gemini.streamingSupportTitle")}>
           <p>
-            For long-form outputs, use{" "}
+            {t("gemini.streamingSupportBefore")}{" "}
             <InlineCode>client.models.generate_content_stream()</InlineCode>{" "}
-            with the same config. Streaming is especially useful when the
-            Cognitive Loop produces extended self-reflection before the final
-            answer.
+            {t("gemini.streamingSupportAfter")}
           </p>
         </Callout>
 
@@ -366,12 +323,12 @@ print(result)`}
 
         {/* Bottom nav */}
         <div className="mt-12 rounded-xl border border-white/[0.07] bg-white/[0.02] p-5">
-          <p className="text-xs uppercase tracking-wider text-slate-600 mb-1">Next</p>
+          <p className="text-xs uppercase tracking-wider text-slate-600 mb-1">{t("gemini.next")}</p>
           <Link
             href="/docs?page=other-llms"
             className="font-semibold text-white hover:text-neon-cyan transition-colors"
           >
-            Platform Guides — Other LLMs →
+            {t("gemini.nextLink")}
           </Link>
         </div>
       </section>

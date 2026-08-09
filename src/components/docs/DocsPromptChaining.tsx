@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "@/i18n";
 import Callout, {
   CodeBlock,
   InlineCode,
@@ -9,46 +10,36 @@ import Callout, {
 import Link from "next/link";
 
 export default function DocsPromptChaining() {
+  const t = useT("docs");
   return (
     <article className="docs-prose w-full max-w-3xl">
 
       {/* Badge */}
       <div className="mb-3 flex items-center gap-2">
         <span className="rounded-full border border-neon-purple/30 bg-neon-purple/10 px-3 py-0.5 text-xs font-semibold text-neon-purple-light">
-          Advanced
+          {t("promptChaining.badge")}
         </span>
         <span className="text-slate-700">/</span>
-        <span className="text-xs text-slate-500">Prompt Chaining</span>
+        <span className="text-xs text-slate-500">{t("promptChaining.badgeLabel")}</span>
       </div>
 
       <h1 id="prompt-chaining" className="scroll-mt-24">
-        Prompt Chaining Strategies
+        {t("promptChaining.title")}
       </h1>
 
       <p>
-        Your Master Custom Instruction sets an immovable foundation — a
-        precisely-defined expert persona with a cognitive framework and strict
-        rules. But even a highly capable expert becomes less effective when
-        handed an entire project and asked to complete it in a single breath.
-        <strong> Prompt Chaining</strong> is the discipline of breaking complex
-        tasks into a deliberate sequence of focused conversations, each building
-        on the last.
+        {t("promptChaining.intro1")}
+        <strong> {t("promptChaining.intro2")}</strong> {t("promptChaining.intro3")}
       </p>
       <p>
-        The result is qualitatively different from a single-prompt approach.
-        Instead of one sprawling, mediocre output, you get a series of
-        deeply-considered, high-quality outputs — each produced by an AI that
-        is fully focused on exactly one thing at a time.
+        {t("promptChaining.intro4")}
       </p>
 
-      <Callout variant="important" title="Why Chaining Works">
+      <Callout variant="important" title={t("promptChaining.whyWorks.title")}>
         <p>
-          Large Language Models are probabilistic. When asked to do{" "}
-          <em>everything at once</em>, they allocate attention across the entire
-          task space — producing a shallow pass over all of it. When asked to do{" "}
-          <em>one thing precisely</em>, they concentrate their full generative
-          capacity on that single deliverable. Chaining exploits this
-          architecture by design.
+          {t("promptChaining.whyWorks.p1Start")}
+          <em>{t("promptChaining.whyWorks.p1Mid1")}</em>{t("promptChaining.whyWorks.p1Mid2")}
+          <em>{t("promptChaining.whyWorks.p1Mid3")}</em>{t("promptChaining.whyWorks.p1End")}
         </p>
       </Callout>
 
@@ -56,22 +47,17 @@ export default function DocsPromptChaining() {
 
       {/* THE CORE CHAIN */}
       <section id="the-core-chain" className="scroll-mt-24">
-        <h2>The Three-Phase Master Chain</h2>
+        <h2>{t("promptChaining.coreChain.title")}</h2>
         <p>
-          This is the foundational chaining pattern. It works for any complex
-          deliverable — technical documents, code architectures, research
-          reports, marketing strategies, or creative projects.
+          {t("promptChaining.coreChain.desc")}
         </p>
 
         <div className="my-6 space-y-4">
-          <Step number={1} title="Lock the Persona — Inject the Master Instruction">
+          <Step number={1} title={t("promptChaining.coreChain.step1.title")}>
             <span>
-              Start a fresh conversation. Paste your complete Master Custom
-              Instruction as the very first message (or inject it as the system
-              prompt via API). Do{" "}
-              <strong>not</strong> include any task yet. Simply let the AI
-              acknowledge the persona and confirm it has internalized the role,
-              mission, and rules.
+              {t("promptChaining.coreChain.step1.desc1")}
+              <strong>{t("promptChaining.coreChain.step1.desc2")}</strong>
+              {t("promptChaining.coreChain.step1.desc3")}
             </span>
             <div className="mt-3">
               <CodeBlock language="text" filename="Message 1 — Persona Lock">
@@ -87,13 +73,11 @@ Do not perform any task yet. Simply confirm.`}
             </div>
           </Step>
 
-          <Step number={2} title="Generate the Blueprint — Ask for a Plan Only">
+          <Step number={2} title={t("promptChaining.coreChain.step2.title")}>
             <span>
-              Once the persona is locked, give the AI your full task — but ask
-              for a <strong>plan or outline only</strong>. No execution yet.
-              This forces the AI to think architecturally before writing a
-              single word of output. The plan becomes a contract that all future
-              messages must honor.
+              {t("promptChaining.coreChain.step2.desc1")}
+              <strong>{t("promptChaining.coreChain.step2.desc2")}</strong>
+              {t("promptChaining.coreChain.step2.desc3")}
             </span>
             <div className="mt-3">
               <CodeBlock language="text" filename="Message 2 — Blueprint Generation">
@@ -114,12 +98,9 @@ I will approve this outline before you begin writing.`}
             </div>
           </Step>
 
-          <Step number={3} title="Execute Section by Section — One at a Time">
+          <Step number={3} title={t("promptChaining.coreChain.step3.title")}>
             <span>
-              Review the outline. Once approved, execute one section per
-              message. Reference the section number explicitly. This keeps each
-              response fully focused and allows you to redirect or refine
-              between sections without losing the overall structure.
+              {t("promptChaining.coreChain.step3.desc1")}
             </span>
             <div className="mt-3">
               <CodeBlock language="text" filename="Messages 3, 4, 5... — Sequential Execution">
@@ -130,7 +111,7 @@ This section only — do not continue to Section 2.`}
               </CodeBlock>
             </div>
             <p className="mt-3 text-sm text-slate-400">
-              Then for each subsequent section:
+              {t("promptChaining.coreChain.step3.desc2")}
             </p>
             <CodeBlock language="text" filename="Continuing the chain">
 {`Excellent. Now write Section 2: [Section Title].
@@ -139,13 +120,10 @@ Maintain consistency with Section 1 in tone, vocabulary, and depth.`}
           </Step>
         </div>
 
-        <Callout variant="tip" title="The Approval Gate">
+        <Callout variant="tip" title={t("promptChaining.coreChain.approvalGate.title")}>
           <p>
-            The phrase <InlineCode>I will approve this outline before you begin</InlineCode>{" "}
-            is not just courtesy — it&apos;s a constraint. It forces the AI into
-            an explicit planning state and prevents it from &ldquo;guessing&rdquo; at
-            your intent and producing unrevisable output. Always gate on the
-            plan before execution.
+            {t("promptChaining.coreChain.approvalGate.desc1")}<InlineCode>I will approve this outline before you begin writing</InlineCode>{" "}
+            {t("promptChaining.coreChain.approvalGate.desc2")}
           </p>
         </Callout>
       </section>
@@ -154,14 +132,11 @@ Maintain consistency with Section 1 in tone, vocabulary, and depth.`}
 
       {/* ADVANCED PATTERNS */}
       <section id="advanced-chain-patterns" className="scroll-mt-24">
-        <h2>Advanced Chaining Patterns</h2>
+        <h2>{t("promptChaining.advanced.title")}</h2>
 
-        <h3 id="critique-chain" className="scroll-mt-24">The Critique-Revise Chain</h3>
+        <h3 id="critique-chain" className="scroll-mt-24">{t("promptChaining.advanced.critique.title")}</h3>
         <p>
-          For any output that demands precision — code, legal analysis, medical
-          documentation — add a critique round between generation and finalization.
-          After the AI produces a section, ask it to critique its own work as a
-          separate, adversarial agent before you accept it.
+          {t("promptChaining.advanced.critique.desc")}
         </p>
 
         <CodeBlock language="text" filename="Critique-Revise Pattern">
@@ -176,22 +151,20 @@ no tolerance for vagueness. Critique Section 2 using these criteria:
 List all issues found. Then, produce a revised Section 2 that addresses them.`}
         </CodeBlock>
 
-        <h3 id="parallel-chain" className="scroll-mt-24 mt-8">The Parallel Synthesis Chain</h3>
+        <h3 id="parallel-chain" className="scroll-mt-24 mt-8">{t("promptChaining.advanced.parallel.title")}</h3>
         <p>
-          When you need multiple independent perspectives synthesized into one
-          document, run parallel chains and then feed their outputs back into a
-          final synthesis prompt.
+          {t("promptChaining.advanced.parallel.desc")}
         </p>
 
         <div className="my-5 rounded-xl border border-white/[0.07] bg-white/[0.02] p-5">
           <p className="text-xs font-bold uppercase tracking-widest text-slate-600 mb-4">
-            Parallel Synthesis Flow
+            {t("promptChaining.advanced.parallel.flowTitle")}
           </p>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             {[
-              { label: "Chain A", desc: "Technical Analysis\n(Architecture, performance, scalability)", color: "border-neon-cyan/20 bg-neon-cyan/[0.03]" },
-              { label: "Chain B", desc: "Risk Analysis\n(Security, failure modes, edge cases)", color: "border-neon-purple/20 bg-neon-purple/[0.03]" },
-              { label: "Chain C", desc: "Business Analysis\n(Cost, timeline, stakeholder impact)", color: "border-amber-500/20 bg-amber-500/[0.03]" },
+              { label: "Chain A", desc: t("promptChaining.advanced.parallel.chainADesc"), color: "border-neon-cyan/20 bg-neon-cyan/[0.03]" },
+              { label: "Chain B", desc: t("promptChaining.advanced.parallel.chainBDesc"), color: "border-neon-purple/20 bg-neon-purple/[0.03]" },
+              { label: "Chain C", desc: t("promptChaining.advanced.parallel.chainCDesc"), color: "border-amber-500/20 bg-amber-500/[0.03]" },
             ].map((c) => (
               <div key={c.label} className={`rounded-lg border p-3 ${c.color}`}>
                 <p className="text-xs font-bold text-slate-300 mb-1">{c.label}</p>
@@ -200,20 +173,16 @@ List all issues found. Then, produce a revised Section 2 that addresses them.`}
             ))}
           </div>
           <div className="mt-4 rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
-            <p className="text-xs font-bold text-slate-300 mb-1">Final Synthesis</p>
+            <p className="text-xs font-bold text-slate-300 mb-1">{t("promptChaining.advanced.parallel.synthesisTitle")}</p>
             <p className="text-xs text-slate-500">
-              Feed all three outputs into a new session: &ldquo;Synthesize these three
-              analyses into a single executive decision document. Resolve any
-              contradictions. Prioritize by impact.&rdquo;
+              {t("promptChaining.advanced.parallel.synthesisDesc")}
             </p>
           </div>
         </div>
 
-        <h3 id="refinement-chain" className="scroll-mt-24 mt-8">The Iterative Refinement Chain</h3>
+        <h3 id="refinement-chain" className="scroll-mt-24 mt-8">{t("promptChaining.advanced.refine.title")}</h3>
         <p>
-          For creative or nuanced work, use explicit refinement passes. Each pass
-          has a single, focused directive — compressing, sharpening, or elevating a
-          specific dimension of the output.
+          {t("promptChaining.advanced.refine.desc")}
         </p>
 
         <CodeBlock language="text" filename="Refinement Pass Pattern">
@@ -237,28 +206,27 @@ Adjust any sentence that sounds generic or AI-generated.`}
 
       {/* BEST CHAINS BY MODEL */}
       <section id="chain-by-model" className="scroll-mt-24">
-        <h2>Which Model to Chain With</h2>
+        <h2>{t("promptChaining.model.title")}</h2>
         <p>
-          Different models have different strengths in a chaining context. Here
-          is how they perform across the key chain phases:
+          {t("promptChaining.model.desc")}
         </p>
 
         <div className="my-5 overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-white/[0.07]">
-                <th className="pb-3 text-left font-semibold text-slate-300">Phase</th>
-                <th className="pb-3 text-left font-semibold text-slate-300">Best Model</th>
-                <th className="pb-3 text-left font-semibold text-slate-300">Reason</th>
+                <th className="pb-3 text-left font-semibold text-slate-300">{t("promptChaining.model.col1")}</th>
+                <th className="pb-3 text-left font-semibold text-slate-300">{t("promptChaining.model.col2")}</th>
+                <th className="pb-3 text-left font-semibold text-slate-300">{t("promptChaining.model.col3")}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/[0.04]">
               {[
-                ["Persona Lock", "Claude 3.5 Sonnet", "Deepest system prompt adherence"],
-                ["Blueprint / Outline", "GPT-4o", "Best structural reasoning and planning"],
-                ["Sequential Execution", "Gemini 2.5 Flash", "Fastest, maintains format rules best"],
-                ["Critique Round", "Claude 3.5 Sonnet", "XML tags enable structured self-critique"],
-                ["Final Synthesis", "GPT-4o / Gemini 2.5 Pro", "Strongest at coherent long-form synthesis"],
+                [t("promptChaining.model.phase1"), "Claude 3.5 Sonnet", t("promptChaining.model.reason1")],
+                [t("promptChaining.model.phase2"), "GPT-4o", t("promptChaining.model.reason2")],
+                [t("promptChaining.model.phase3"), "Gemini 2.5 Flash", t("promptChaining.model.reason3")],
+                [t("promptChaining.model.phase4"), "Claude 3.5 Sonnet", t("promptChaining.model.reason4")],
+                [t("promptChaining.model.phase5"), "GPT-4o / Gemini 2.5 Pro", t("promptChaining.model.reason5")],
               ].map(([phase, model, reason]) => (
                 <tr key={phase}>
                   <td className="py-3 text-slate-400 font-medium">{phase}</td>
@@ -272,21 +240,18 @@ Adjust any sentence that sounds generic or AI-generated.`}
 
         <Callout variant="note">
           <p>
-            You don&apos;t need to use different models for each phase — this table
-            shows theoretical optima. In practice, a single model running the
-            Three-Phase Master Chain produces dramatically better results than any
-            single-prompt approach, regardless of model choice.
+            {t("promptChaining.model.note")}
           </p>
         </Callout>
 
         {/* Bottom nav */}
         <div className="mt-12 rounded-xl border border-white/[0.07] bg-white/[0.02] p-5">
-          <p className="text-xs uppercase tracking-wider text-slate-600 mb-1">Next</p>
+          <p className="text-xs uppercase tracking-wider text-slate-600 mb-1">{t("promptChaining.next")}</p>
           <Link
             href="/docs?page=context-injection"
             className="font-semibold text-white hover:text-neon-cyan transition-colors"
           >
-            Advanced — Context Injection →
+            {t("promptChaining.nextLink")}
           </Link>
         </div>
       </section>
