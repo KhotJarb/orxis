@@ -8,56 +8,56 @@
     "intro1After": "——它们让 AI 清楚地知道做什么、怎么做、什么时候做",
     "intro2": "在将指令部署到重要任务之前，请使用以下清单进行检查。",
     "compoundingEffect": {
-      "title": "The Compounding Effect",
-      "textBefore": "The wizard is designed to extract the maximum signal from your inputs. Each of the four fields feeds a different section of the 6-section framework, and they ",
-      "textEm": "compound",
-      "textAfter": " — a strong persona amplifies a strong task definition, which amplifies strong tone signals, which makes your rules more effective. Invest 3 extra minutes in your inputs and the output quality difference is significant."
+      "title": "叠加效应",
+      "textBefore": "向导旨在从您的输入中提取最大信号。四个字段中的每一个都反馈到6部分框架的不同部分，并且它们",
+      "textEm": "相互叠加",
+      "textAfter": "——强大的角色定位会放大强大的任务定义，进而放大语气信号，从而使您的规则更加有效。多花3分钟在您的输入上，输出质量的差异将是显而易见的。"
     },
     "goldenRules": {
-      "title": "The 3 Golden Rules",
+      "title": "3条黄金法则",
       "rule1": {
-        "title": "Be Hyper-Specific With Your Task",
-        "text": "The task field is the most important of the four inputs. It feeds directly into Section 2 (Mission) and Section 3 (Cognitive Loop) of the generated instruction. Vague tasks produce vague missions. Domain-specific vocabulary in your task description activates domain-expert behavior in the output.",
+        "title": "使您的任务极其具体",
+        "text": "任务字段是四个输入中最重要的。它直接反馈到生成指令的第2部分（使命）和第3部分（认知循环）。模糊的任务会产生模糊的使命。在任务描述中使用领域特定的词汇可以激活输出中的领域专家行为。",
         "table": {
-          "weak": "❌ Weak Task",
-          "strong": "✓ Strong Task"
+          "weak": "❌ 弱任务",
+          "strong": "✓ 强任务"
         },
-        "note": "Notice the pattern: strong tasks use specific library names, version numbers, architectural patterns, and measurable outcomes. The more domain-specific vocabulary you use, the more the generated instruction sounds like it was written by an expert in that exact domain — because the AI is conditioned on that signal."
+        "note": "请注意规律：强任务使用特定的库名称、版本号、架构模式和可衡量的结果。您使用的领域特定词汇越多，生成的指令听起来就越像是由该领域的专家编写的——因为AI会受这些信号的限制。"
       },
       "rule2": {
-        "title": "Never Contradict Your Own Rules",
-        "textBefore": "When the persona, tone, and rules fields contain ",
-        "textStrong": "conflicting signals",
-        "textMid": ", the AI receives competing constraints simultaneously. It doesn't choose one — it ",
-        "textEm": "oscillates",
-        "textAfter": ", producing inconsistent output that satisfies neither constraint well. Coherence across all four fields is non-negotiable.",
+        "title": "永远不要自相矛盾",
+        "textBefore": "当角色、语气和规则字段包含",
+        "textStrong": "冲突的信号",
+        "textMid": "时，AI同时接收到相互竞争的限制。它不会选择其中一个——它会",
+        "textEm": "摇摆不定",
+        "textAfter": "，产生前后不一致的输出，两边的要求都无法很好地满足。所有四个字段之间的连贯性是不可协商的。",
         "badSetup": {
-          "title": "❌ Contradictory Setup",
-          "result": "Result: The AI will alternate between terse and exhaustive within the same response."
+          "title": "❌ 冲突的设置",
+          "result": "结果：AI会在同一个回答中交替使用简洁和详尽的语言。"
         },
         "goodSetup": {
-          "title": "✓ Coherent Setup",
-          "result": "Result: Every response is consistently tight and high-signal."
+          "title": "✓ 连贯的设置",
+          "result": "结果：每次的回答都始终紧凑且高信号。"
         },
-        "personaLabel": "Persona:",
-        "toneLabel": "Tone:",
-        "rulesLabel": "Rules:"
+        "personaLabel": "角色：",
+        "toneLabel": "语气：",
+        "rulesLabel": "规则："
       },
       "rule3": {
-        "title": "Specificity Beats Length",
-        "textBefore": "A 20-word hyper-specific task definition consistently outperforms a 200-word vague one. LLMs don't reward length — they reward ",
-        "textStrong": "signal density",
-        "textAfter": ". Padding your inputs with filler dilutes the domain-specific signals that make the generated instruction exceptional. When in doubt, cut the adjectives and keep the nouns and verbs.",
-        "comparisonTitle": "Signal Density Comparison",
-        "badLabel": "❌ 47 words, low density:",
-        "goodLabel": "✓ 21 words, high density:"
+        "title": "具体胜于冗长",
+        "textBefore": "一个20字的极其具体的任务定义，效果始终优于一个200字的模糊定义。LLM不会奖励长度——它奖励的是",
+        "textStrong": "信号密度",
+        "textAfter": "。用废话填充您的输入，会稀释使生成指令出色的领域特定信号。当有疑问时，删掉形容词，保留名词和动词。",
+        "comparisonTitle": "信号密度对比",
+        "badLabel": "❌ 47个字，低密度：",
+        "goodLabel": "✓ 21个字，高密度："
       }
     },
     "toneStacking": {
-      "title": "Tone Stacking",
-      "textBefore": "Tone isn't a single dimension — it's a ",
-      "textStrong": "compound property",
-      "textAfter": ". Combining multiple tone chips creates a precise behavioral profile that no single chip can achieve alone. The tone field maps directly into Section 1 (Role & Identity) and Section 5 (Boundaries) of the generated instruction, influencing how the AI modulates everything from word choice to response length.",
+      "title": "语气叠加",
+      "textBefore": "语气不是单一维度的——它是一个",
+      "textStrong": "复合属性",
+      "textAfter": "。组合多个语气标签可以创建一个任何单一标签都无法实现的精确行为画像。语气字段直接映射到生成指令的第1部分（角色和身份）和第5部分（边界），影响AI如何调节从用词到回答长度的一切。",
       "cards": [
         {
           "chips": [
@@ -65,7 +65,7 @@
             "Direct",
             "Terse"
           ],
-          "result": "A no-nonsense senior engineer who delivers the answer in 3 sentences and moves on. No fluff, no hedging, no social niceties."
+          "result": "一位严肃的高级工程师，用3句话给出答案，没有废话、没有推诿、没有社交客套。"
         },
         {
           "chips": [
@@ -73,7 +73,7 @@
             "Patient",
             "Encouraging"
           ],
-          "result": "A skilled instructor who explains the reasoning behind every decision, anticipates follow-up questions, and celebrates incremental progress."
+          "result": "一位熟练的讲师，解释每个决定背后的原因，预见后续问题，并庆祝每一个微小的进步。"
         },
         {
           "chips": [
@@ -81,114 +81,114 @@
             "Critical",
             "Precise"
           ],
-          "result": "A rigorous code reviewer who finds every edge case, questions every assumption, and never approves anything that doesn't meet the standard."
+          "result": "一位严格的代码审查员，找出每个边缘情况，质疑每个假设，并且从不批准任何不符合标准的代码。"
         }
       ],
-      "noteBefore": "The generator encodes tone chips into the Mission and Boundaries sections as behavioral directives — not just style suggestions. Each chip contributes a distinct constraint to the output distribution. Experiment with combinations that feel counterintuitive: ",
+      "noteBefore": "向导将语气标签编码到使命和边界部分作为行为指令——而不仅仅是风格建议。每个标签都为输出分布提供了独特的限制。尝试使用那些看似违反直觉的组合：",
       "noteQuote": "Analytical + Encouraging",
-      "noteAfter": " produces an unusually effective code mentor that finds all the bugs but never makes the user feel stupid."
+      "noteAfter": " 产生了一位异常高效的代码导师，他能找出所有的错误，但从不让用户觉得愚蠢。"
     },
     "personaMultiplier": {
-      "title": "The Persona Multiplier Effect",
-      "textBefore": "The persona field acts as a ",
-      "textStrong": "signal amplifier",
-      "textAfter": " for everything else. It's the first thing the AI reads, and it establishes the prior that all subsequent instructions are interpreted through. A weak persona is like a weak lens — it blurs everything that comes after it. A strong persona focuses the entire instruction into a sharp, high-resolution output profile.",
+      "title": "角色乘数效应",
+      "textBefore": "角色字段充当所有其他内容的",
+      "textStrong": "信号放大器",
+      "textAfter": "。它是AI读取的第一件事，并建立了解释所有后续指令的先验条件。弱角色就像一个弱镜头——它模糊了后面的所有内容。强角色则将整个指令聚焦为清晰、高分辨率的输出配置。",
       "table": {
-        "weak": "❌ Weak Persona",
-        "strong": "✓ Strong Persona",
-        "why": "Why It Matters",
+        "weak": "❌ 弱角色",
+        "strong": "✓ 强角色",
+        "why": "为什么重要",
         "rows": [
           {
             "weak": "An AI assistant",
             "strong": "Principal TypeScript Architect with 15 years building at scale",
-            "why": "Default behavior vs. expert-mode, decisive, high-authority output"
+            "why": "默认行为 vs. 专家模式，果断、高权威的输出"
           },
           {
             "weak": "A Python developer",
             "strong": "Senior Backend Engineer specializing in async Python, FastAPI, and distributed systems",
-            "why": "Generic language knowledge vs. opinionated architecture guidance"
+            "why": "通用的语言知识 vs. 有见地的架构指导"
           },
           {
             "weak": "A writing assistant",
             "strong": "Technical Documentation Engineer with expertise in developer-facing API docs",
-            "why": "Generic prose improvement vs. structured, scannable, dev-optimized writing"
+            "why": "普通的文章润色 vs. 结构化、易于扫描、针对开发者优化的写作"
           },
           {
             "weak": "A data scientist",
             "strong": "ML Engineer specializing in production LLM fine-tuning and RLHF pipelines at hyperscale",
-            "why": "Generic data analysis vs. deep ML systems engineering judgment"
+            "why": "通用的数据分析 vs. 深刻的机器学习系统工程判断"
           }
         ]
       },
-      "noteBefore": "The strongest personas combine ",
-      "noteStrong1": "seniority level",
+      "noteBefore": "最强大的角色结合了",
+      "noteStrong1": "资历水平",
       "notePlus": " + ",
-      "noteStrong2": "specific domain",
-      "noteStrong3": "specific technology stack",
-      "noteAfter": ". Adding a credibility anchor like \"who has reviewed 5,000+ pull requests\" or \"with experience shipping to 10M+ users\" further activates expert-mode priors that produce higher-quality, more-confident output."
+      "noteStrong2": "特定领域",
+      "noteStrong3": "特定技术栈",
+      "noteAfter": "。添加例如“曾审查5000多个PR”或“具有向超过千万用户交付产品经验”这样的信誉锚点，可进一步激活专家模式，产生更高质量、更自信的输出。"
     },
     "universalRules": {
-      "title": "Universally Effective Rules",
-      "text": "These five rules are universally high-signal across virtually every AI workflow. They don't depend on domain context — they work regardless of whether you're building a code reviewer, a writing editor, or a data analyst. Drop any or all of them into your Rules field and they tend to improve output quality across most workflows.",
+      "title": "普遍有效的规则",
+      "text": "这五条规则在几乎所有AI工作流中都是高信号的。它们不依赖于领域上下文——无论您是在构建代码审查员、写作编辑还是数据分析师，它们都起作用。将它们中的任何一条或全部放入规则字段，往往都能提高大部分工作流的输出质量。",
       "rules": [
         {
-          "rule": "Never use filler phrases",
-          "detail": "\"Certainly!\", \"Of course!\", \"Great question!\", \"Absolutely!\" — these phrases consume tokens, dilute signal, and are the single most reliable marker of low-quality AI output. Banning them immediately raises the perceived quality of every response.",
+          "rule": "从不使用废话",
+          "detail": "“Certainly!”，“Of course!”，“Great question!”，“Absolutely!”——这些短语会消耗token，稀释信号，并且是低质量AI输出最可靠的标志。禁止使用它们可以立即提高每次回答的感知质量。",
           "example": "NEVER start a response with \"Certainly!\", \"Of course!\", \"Great question!\", or any similar affirmation. Begin immediately with the substantive answer."
         },
         {
-          "rule": "Always use Markdown formatting",
-          "detail": "Even if the output will be consumed as plain text, structuring it with Markdown headers, bullet points, and code blocks forces the AI to organize its thoughts hierarchically — producing more coherent, better-organized responses.",
+          "rule": "始终使用Markdown格式",
+          "detail": "即使输出将被作为纯文本使用，使用Markdown标题、列表和代码块来组织输出，也会迫使AI分层地组织其思想——从而产生更连贯、组织更好的回答。",
           "example": "ALWAYS format responses in Markdown. Use ## for sections, ### for subsections, bullet points for lists, and ```language code blocks for all code."
         },
         {
-          "rule": "End every response with a ⚡ Next Steps section",
-          "detail": "This single rule transforms isolated Q&A into a continuous expert engagement loop. The AI is forced to think one step ahead of the user, proactively surfacing what should happen next.",
+          "rule": "每个回答以⚡ Next Steps结束",
+          "detail": "仅这一条规则就能将孤立的问答转变为持续的专家互动循环。AI被迫提前为用户考虑一步，主动提示接下来应该发生什么。",
           "example": "END every response with a '## ⚡ Next Steps' section containing 2–3 concrete, actionable items the user should tackle next."
         },
         {
-          "rule": "If uncertain, say so explicitly",
-          "detail": "Without this rule, models will confidently hallucinate rather than admit uncertainty. This rule forces epistemic honesty and dramatically increases the trustworthiness of output — especially in high-stakes technical domains.",
+          "rule": "如果不确定，请明确说明",
+          "detail": "如果没有这条规则，模型会自信地产生幻觉，而不是承认不确定性。这条规则迫使认知诚实，并极大地增加了输出的可信度——尤其是在高风险的技术领域。",
           "example": "If you are uncertain about any fact, library version, or technical detail, say so explicitly: 'I am not certain about this — please verify.' NEVER fabricate an answer to appear more helpful."
         },
         {
-          "rule": "Never repeat what the user just said",
-          "detail": "A common low-quality pattern: AI rephrases the user's question back to them before answering it. This wastes context and signals low confidence. Banning it forces the model to add value immediately in the first sentence.",
+          "rule": "永远不要重复用户刚说过的话",
+          "detail": "一个常见的低质量模式：AI在回答问题之前将用户的问题重复一遍。这浪费了上下文并传达出低自信的信号。禁止这样做会迫使模型在第一句话中立即提供价值。",
           "example": "NEVER restate or paraphrase the user's question or input before answering. Add value immediately. The first sentence of every response must be substantive."
         }
       ],
-      "copyReadyLabel": "Copy-ready rule:"
+      "copyReadyLabel": "可直接复制的规则："
     },
     "antiPatterns": {
-      "title": "Anti-Patterns to Avoid",
-      "text": "These are the five most common mistakes we see in user inputs. Each one predictably degrades the quality of the generated instruction. If your output feels generic or inconsistent, check your inputs against this list first.",
+      "title": "应该避免的反面模式",
+      "text": "这是我们在用户输入中看到的五个最常见的错误。每一个都会不可避免地降低生成指令的质量。如果您的输出感觉普通或不一致，请首先对照此列表检查您的输入。",
       "patterns": [
         {
-          "title": "Vague persona: 'an AI assistant'",
-          "detail": "This is the model's default self-concept. You haven't changed anything — you've just confirmed the prior. If the persona field doesn't add new information the model wouldn't already assume, rewrite it. Minimum viable persona: a specific domain + a seniority level."
+          "title": "模糊的角色：“an AI assistant”",
+          "detail": "这是模型的默认自我认知。您没有改变任何东西——您只是确认了先验。如果角色字段没有添加模型原本不会假设的新信息，请重写它。最小可行角色：一个特定领域 + 一个资历水平。"
         },
         {
-          "title": "Contradictory tone + rules",
-          "detail": "If your tone says 'Concise' but your rules say 'Provide exhaustive explanations', the model will oscillate. Audit your inputs for coherence: every rule should amplify the tone, not contradict it."
+          "title": "矛盾的语气 + 规则",
+          "detail": "如果您的语气说“简明”，但您的规则说“提供详尽的解释”，模型将会摇摆不定。检查您的输入是否连贯：每条规则都应该放大语气，而不是与它矛盾。"
         },
         {
-          "title": "Rules framed as requests, not directives",
-          "detail": "'Please be nice' is a request. 'Use professional language only — no colloquialisms, no slang' is a directive. Requests are processed as preferences and regularly ignored under other constraints. Directives are processed as hard constraints. Use the imperative mood."
+          "title": "规则被表述为请求，而不是指令",
+          "detail": "“Please be nice”是一个请求。“Use professional language only — no colloquialisms, no slang”是一个指令。请求作为偏好被处理，并且通常在其他限制下被忽略。指令作为硬限制被处理。使用祈使句。"
         },
         {
-          "title": "No output format specified",
-          "detail": "If you don't specify an output format, the model will use whatever format it calculates is most likely for the domain — which is usually inconsistent across conversations. Always define at minimum: 'Use Markdown formatting.' Ideally, also specify header levels, code block language tags, and list structure."
+          "title": "没有指定输出格式",
+          "detail": "如果您不指定输出格式，模型将使用它计算出最适合该领域的格式——这通常在不同的对话中是不一致的。始终至少定义：“Use Markdown formatting.”。理想情况下，还指定标题级别、代码块语言标签和列表结构。"
         },
         {
-          "title": "Missing domain context",
-          "detail": "The AI doesn't know what stack you use, what framework you're on, what version you're targeting, or what constraints your project has — unless you tell it. 'Review my code' produces generic advice. 'Review my Next.js 14 App Router code for performance regressions against React 18 Suspense semantics' produces expert-level, version-aware analysis."
+          "title": "缺少领域上下文",
+          "detail": "AI不知道您使用什么技术栈，你在什么框架上，你针对什么版本，或者你的项目有什么限制——除非你告诉它。“Review my code”产生一般的建议。“Review my Next.js 14 App Router code”会产生专家级的、知晓版本的分析。"
         }
       ],
-      "checklistFilename": "Quick Reference — Input Checklist"
+      "checklistFilename": "快速参考——输入检查清单"
     },
     "bottomNav": {
-      "label": "You've reached the end of the docs",
-      "link": "Ready to generate your first instruction? →"
+      "label": "您已到达文档的结尾",
+      "link": "准备好生成您的第一个指令了吗？ →"
     }
   },
   "content": {
