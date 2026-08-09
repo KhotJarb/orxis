@@ -218,9 +218,9 @@
     "proTip": "Kiat Pro",
     "next": "Selanjutnya",
     "nextPlatformGuides": "Panduan Platform — ChatGPT →",
-    "introPara1": "<strong className=\"text-slate-200\">Orxis</strong> adalah alat presisi tinggi yang mengubah interaksi AI yang samar menjadi sistem pakar khusus domain. Daripada memulai setiap percakapan dari awal, Anda mendefinisikan identitas, misi, dan batasan AI — sekali saja — dan setiap respons setelahnya akan dibentuk oleh dasar tersebut.",
+    "introPara1": "Orxis adalah alat presisi tinggi yang mengubah interaksi AI yang samar menjadi sistem pakar khusus domain. Daripada memulai setiap percakapan dari awal, Anda mendefinisikan identitas, misi, dan batasan AI — sekali saja — dan setiap respons setelahnya akan dibentuk oleh dasar tersebut.",
     "beforeYouBeginText": "Dokumentasi ini mengasumsikan Anda memiliki pemahaman dasar tentang Large Language Models (LLMs) seperti ChatGPT, Claude, atau Gemini. Jika Anda benar-benar baru menggunakan alat AI, mulailah dengan ",
-    "whatAreCIsPara1": "Custom Instructions (CIs) adalah arahan tingkat sistem yang persisten yang Anda suntikkan ke dalam LLM <em>sebelum</em> percakapan apa pun dimulai. Anggap saja sebagai deskripsi pekerjaan, manual operasi, dan profil kepribadian AI — semuanya dalam satu dokumen.",
+    "whatAreCIsPara1": "Custom Instructions (CIs) adalah arahan tingkat sistem yang persisten yang Anda suntikkan ke dalam LLM sebelum percakapan apa pun dimulai. Anggap saja sebagai deskripsi pekerjaan, manual operasi, dan profil kepribadian AI — semuanya dalam satu dokumen.",
     "whatAreCIsPara2": "Tanpa CI, LLM seperti ChatGPT bertindak sebagai asisten generik — membantu namun tidak fokus. Dengan CI yang dirancang dengan baik, model yang sama tersebut berubah menjadi pakar berdedikasi yang:"
   },
   "components": {
@@ -260,7 +260,7 @@
   "chatgpt": {
     "badge": "Panduan Platform",
     "title": "Menggunakan dengan ChatGPT",
-    "introPara1": "ChatGPT — khususnya <strong>GPT-4o</strong> — dibuat khusus untuk adopsi persona yang mendalam. Proses penyempurnaan RLHF (Reinforcement Learning from Human Feedback) dari OpenAI melatih model untuk memegang peran yang ditugaskan dengan konsistensi yang kuat, bahkan di seluruh <strong>percakapan yang lebih lama</strong>. Saat Anda memasukkan Master Instruction yang dirancang dengan baik, GPT-4o akan mengikuti persona tersebut dengan cermat. Bagian <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> (Bagian 1) dari instruksi yang Anda hasilkan adalah tempat ChatGPT memperoleh nilai paling banyak.",
+    "introPara1": "ChatGPT — khususnya GPT-4o — dibuat khusus untuk adopsi persona yang mendalam. Proses penyempurnaan RLHF (Reinforcement Learning from Human Feedback) dari OpenAI melatih model untuk memegang peran yang ditugaskan dengan konsistensi yang kuat, bahkan di seluruh percakapan yang lebih lama. Saat Anda memasukkan Master Instruction yang dirancang dengan baik, GPT-4o akan mengikuti persona tersebut dengan cermat. Bagian Role &amp; Identity (Bagian 1) dari instruksi yang Anda hasilkan adalah tempat ChatGPT memperoleh nilai paling banyak.",
     "introPara2": "Panduan ini mencakup setiap metode yang tersedia untuk menerapkan instruksi khusus Anda di ChatGPT: UI Instruksi Khusus asli, Proyek, dan API OpenAI — sehingga Anda dapat memilih alur kerja yang paling sesuai dengan kasus penggunaan Anda."
   },
   "contextInjection": {
@@ -402,5 +402,89 @@
   "claude": {
     "badge": "Panduan Platform",
     "title": "Menggunakan dengan Claude"
+  },
+  "promptChaining": {
+    "badge": "Lanjutan",
+    "badgeLabel": "Chaining Prompt",
+    "title": "Strategi Chaining Prompt",
+    "intro1": "Sebagian besar LLM bekerja paling baik ketika diberi",
+    "intro2": "satu tugas yang jelas dalam satu waktu.",
+    "intro3": "Chaining prompt memecah hasil yang kompleks menjadi urutan pesan yang terfokus — setiap pesan membangun di atas yang sebelumnya — sehingga model tetap tajam dan konsisten sepanjang proses.",
+    "intro4": "Halaman ini mencakup rantai tiga fase inti, pola lanjutan (kritik-revisi, paralel, penyempurnaan), dan model mana yang unggul di setiap tahap.",
+    "whyWorks": {
+      "title": "Mengapa Chaining Efektif",
+      "p1Start": "Setiap respons LLM pada dasarnya adalah",
+      "p1Mid1": "jendela konteks baru",
+      "p1Mid2": ". Dengan secara eksplisit mengankar pesan berikutnya ke output sebelumnya, Anda memaksa model untuk",
+      "p1Mid3": "membawa konteksnya ke depan",
+      "p1End": " — mencegah penyimpangan, kelalaian, dan pengisi umum yang merayap masuk pada tugas prompt panjang tunggal."
+    },
+    "coreChain": {
+      "title": "Rantai Master Tiga Fase",
+      "desc": "Ini adalah pola dasar. Gunakan untuk hasil apa pun yang lebih panjang dari ~800 kata atau dengan lebih dari 3 bagian berbeda.",
+      "step1": {
+        "title": "Kunci Persona",
+        "desc1": "Tempelkan Instruksi Master lengkap Anda dan minta model untuk",
+        "desc2": "mengkonfirmasi perannya",
+        "desc3": " sebelum memulai. Ini mengankar persona untuk semua pesan berikutnya."
+      },
+      "step2": {
+        "title": "Pembuatan Cetak Biru",
+        "desc1": "Deskripsikan hasil lengkap dan minta hanya",
+        "desc2": "garis besar per bagian",
+        "desc3": ". Tinjau dan setujui sebelum mulai menulis."
+      },
+      "step3": {
+        "title": "Eksekusi Berurutan",
+        "desc1": "Jalankan satu bagian per pesan. Setiap pesan mereferensikan garis besar yang disetujui dan bagian sebelumnya.",
+        "desc2": "Untuk melanjutkan rantai ke bagian berikutnya:"
+      },
+      "approvalGate": {
+        "title": "Gerbang Persetujuan",
+        "desc1": "Frasa",
+        "desc2": "adalah alat terpenting Anda. Ini mencegah model melompat ke depan dan menghasilkan output yang terburu-buru dan umum."
+      }
+    },
+    "advanced": {
+      "title": "Pola Chaining Lanjutan",
+      "critique": {
+        "title": "Rantai Kritik-Revisi",
+        "desc": "Setelah menghasilkan sebuah bagian, minta model untuk berganti persona dan mengkritik outputnya sendiri — kemudian merevisinya. Ini menghasilkan kualitas yang jauh lebih tinggi daripada meminta output yang baik dalam satu putaran."
+      },
+      "parallel": {
+        "title": "Rantai Paralel (Multi-Perspektif)",
+        "desc": "Jalankan tiga rantai independen secara bersamaan, masing-masing dari perspektif ahli yang berbeda. Kemudian sintesis output dalam pesan akhir.",
+        "flowTitle": "ALUR EKSEKUSI PARALEL",
+        "chainADesc": "Arsitek Teknis\nFokus: kelayakan, desain sistem, kasus tepi",
+        "chainBDesc": "Product Manager\nFokus: nilai pengguna, ruang lingkup, trade-off",
+        "chainCDesc": "Developer Senior\nFokus: implementasi, pengujian, pemeliharaan",
+        "synthesisTitle": "Pesan Sintesis",
+        "synthesisDesc": "Sintesis Rantai A, B, dan C menjadi satu spesifikasi terpadu. Selesaikan konflik dengan memprioritaskan kelayakan teknis."
+      },
+      "refine": {
+        "title": "Rantai Penyempurnaan Iteratif",
+        "desc": "Setelah draf lengkap dihasilkan, jalankan tiga fase penyempurnaan sistematis: kompresi (kurangi 20%), peningkatan (ganti kalimat pasif), dan penyelarasan suara (cocokkan nada persona dengan tepat)."
+      }
+    },
+    "model": {
+      "title": "Model Mana yang Digunakan untuk Chaining",
+      "desc": "Model yang berbeda unggul di fase rantai yang berbeda. Untuk kualitas maksimal, campurkan model di seluruh fase rantai yang sama.",
+      "col1": "Fase Rantai",
+      "col2": "Model yang Direkomendasikan",
+      "col3": "Alasan",
+      "phase1": "Kunci Persona",
+      "phase2": "Pembuatan Cetak Biru",
+      "phase3": "Penulisan Berurutan",
+      "phase4": "Kritik-Revisi",
+      "phase5": "Sintesis Akhir",
+      "reason1": "Kepatuhan persona tertinggi, recall instruksi yang kuat",
+      "reason2": "Output terstruktur terbaik, format garis besar yang kuat",
+      "reason3": "Cepat, murah, konsisten untuk tugas berurutan panjang",
+      "reason4": "Pelatihan Constitutional AI menjadikannya kritikus diri yang ketat",
+      "reason5": "Terbaik dalam mensintesis beberapa input menjadi output yang koheren",
+      "note": "Anda dapat menggunakan Orxis untuk menghasilkan satu Instruksi Master dan menerapkannya di semua model dalam rantai — struktur 6 bagian dikenali oleh semua LLM utama."
+    },
+    "next": "SELANJUTNYA DI DOCS",
+    "nextLink": "Injeksi Konteks →"
   }
 }

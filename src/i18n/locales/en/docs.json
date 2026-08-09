@@ -664,5 +664,89 @@
       "label": "Next",
       "link": "Advanced — Best Practices →"
     }
+  },
+  "promptChaining": {
+    "badge": "Advanced",
+    "badgeLabel": "Prompt Chaining",
+    "title": "Prompt Chaining Strategies",
+    "intro1": "Most LLMs perform best when given",
+    "intro2": "one clear task at a time.",
+    "intro3": "Prompt chaining breaks complex deliverables into a sequence of focused messages — each building on the last — so the model stays sharp and consistent throughout.",
+    "intro4": "This page covers the core three-phase chain, advanced patterns (critique-revise, parallel, refinement), and which models excel at each stage.",
+    "whyWorks": {
+      "title": "Why Chaining Works",
+      "p1Start": "Each LLM response is essentially a",
+      "p1Mid1": "new context window",
+      "p1Mid2": ". By explicitly anchoring the next message to the previous output, you force the model to",
+      "p1Mid3": "carry its context forward",
+      "p1End": " — preventing drift, omissions, and generic filler that creeps in during long single-prompt tasks."
+    },
+    "coreChain": {
+      "title": "The Three-Phase Master Chain",
+      "desc": "This is the foundational pattern. Use it for any deliverable longer than ~800 words or with more than 3 distinct sections.",
+      "step1": {
+        "title": "Persona Lock",
+        "desc1": "Paste your complete Master Custom Instruction and ask the model to",
+        "desc2": "confirm its role",
+        "desc3": " before starting. This anchors the persona for all subsequent messages."
+      },
+      "step2": {
+        "title": "Blueprint Generation",
+        "desc1": "Describe the full deliverable and ask for a",
+        "desc2": "section-by-section outline only",
+        "desc3": ". Review and approve before any writing begins."
+      },
+      "step3": {
+        "title": "Sequential Execution",
+        "desc1": "Execute one section per message. Each message references the approved outline and the previous section.",
+        "desc2": "To continue the chain to the next section:"
+      },
+      "approvalGate": {
+        "title": "The Approval Gate",
+        "desc1": "The phrase",
+        "desc2": "is your most important tool. It prevents the model from skipping ahead and producing a rushed, generic output."
+      }
+    },
+    "advanced": {
+      "title": "Advanced Chaining Patterns",
+      "critique": {
+        "title": "Critique-Revise Chain",
+        "desc": "After producing a section, ask the model to switch persona and critique its own output — then revise it. This produces significantly higher-quality results than asking for a 'good' output in one pass."
+      },
+      "parallel": {
+        "title": "Parallel Chain (Multi-Perspective)",
+        "desc": "Run three independent chains simultaneously, each from a different expert perspective. Then synthesize the outputs in a final message.",
+        "flowTitle": "PARALLEL EXECUTION FLOW",
+        "chainADesc": "Technical Architect\nFocus: feasibility, system design, edge cases",
+        "chainBDesc": "Product Manager\nFocus: user value, scope, trade-offs",
+        "chainCDesc": "Senior Developer\nFocus: implementation, testing, maintenance",
+        "synthesisTitle": "Synthesis Message",
+        "synthesisDesc": "Now synthesize Chains A, B, and C into a single unified specification. Resolve any conflicts by prioritizing technical feasibility over scope."
+      },
+      "refine": {
+        "title": "Iterative Refinement Chain",
+        "desc": "After the full draft is produced, run three systematic refinement passes: compression (cut 20%), elevation (replace passive voice and generic nouns), and voice alignment (match the persona tone exactly)."
+      }
+    },
+    "model": {
+      "title": "Which Model to Chain With",
+      "desc": "Different models excel at different chain phases. For maximum quality, mix models across phases of the same chain.",
+      "col1": "Chain Phase",
+      "col2": "Recommended Model",
+      "col3": "Reason",
+      "phase1": "Persona Lock",
+      "phase2": "Blueprint Generation",
+      "phase3": "Sequential Writing",
+      "phase4": "Critique-Revise",
+      "phase5": "Final Synthesis",
+      "reason1": "Highest persona adherence, strong instruction recall",
+      "reason2": "Best structured output, strong outline formatting",
+      "reason3": "Fast, cheap, consistent for long-form sequential tasks",
+      "reason4": "Constitutional AI training makes it a rigorous self-critic",
+      "reason5": "Best at synthesizing multiple inputs into coherent output",
+      "note": "You can use Orxis to generate a single Master Custom Instruction and deploy it across all models in a chain — the 6-section structure is recognized by every major LLM."
+    },
+    "next": "NEXT IN DOCS",
+    "nextLink": "Context Injection →"
   }
 }

@@ -218,9 +218,9 @@
     "proTip": "Consejo pro",
     "next": "Siguiente",
     "nextPlatformGuides": "Guías de Plataforma — ChatGPT →",
-    "introPara1": "<strong className=\"text-slate-200\">Orxis</strong> es una herramienta de precisión que transforma interacciones vagas con IA en sistemas expertos de dominios específicos. En lugar de comenzar cada conversación desde cero, defines la identidad, la misión y las limitaciones de la IA una sola vez, y cada respuesta a partir de entonces es moldeada por esa base.",
+    "introPara1": "Orxis es una herramienta de precisión que transforma interacciones vagas con IA en sistemas expertos de dominios específicos. En lugar de comenzar cada conversación desde cero, defines la identidad, la misión y las limitaciones de la IA una sola vez, y cada respuesta a partir de entonces es moldeada por esa base.",
     "beforeYouBeginText": "Esta documentación asume que tienes un conocimiento básico de los Modelos de Lenguaje Grande (LLMs) como ChatGPT, Claude o Gemini. Si eres completamente nuevo en las herramientas de IA, comienza con nuestro ",
-    "whatAreCIsPara1": "Las Instrucciones Personalizadas (CIs) son directivas persistentes a nivel de sistema que inyectas en un LLM <em>antes</em> de que comience cualquier conversación. Piensa en ellas como la descripción del trabajo, el manual de operaciones y el perfil de personalidad de la IA, todo en un solo documento.",
+    "whatAreCIsPara1": "Las Instrucciones Personalizadas (CIs) son directivas persistentes a nivel de sistema que inyectas en un LLM antes de que comience cualquier conversación. Piensa en ellas como la descripción del trabajo, el manual de operaciones y el perfil de personalidad de la IA, todo en un solo documento.",
     "whatAreCIsPara2": "Sin una CI, un LLM como ChatGPT actúa como un asistente genérico: útil pero sin enfoque. Con una CI bien diseñada, ese mismo modelo se transforma en un experto dedicado que:"
   },
   "components": {
@@ -260,7 +260,7 @@
   "chatgpt": {
     "badge": "Guías de plataforma",
     "title": "Uso con ChatGPT",
-    "introPara1": "ChatGPT, especialmente <strong>GPT-4o</strong>, está diseñado específicamente para una adopción profunda de personajes. El proceso de ajuste fino RLHF (Aprendizaje por refuerzo a partir de retroalimentación humana) de OpenAI entrena al modelo para mantener su papel asignado con gran consistencia, incluso en <strong>conversaciones más largas</strong>. Cuando inyectas una Instrucción Maestra bien elaborada, GPT-4o sigue de cerca al personaje. La sección <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> (Sección 1) de la instrucción generada es de donde ChatGPT obtiene el mayor valor.",
+    "introPara1": "ChatGPT, especialmente GPT-4o, está diseñado específicamente para una adopción profunda de personajes. El proceso de ajuste fino RLHF (Aprendizaje por refuerzo a partir de retroalimentación humana) de OpenAI entrena al modelo para mantener su papel asignado con gran consistencia, incluso en conversaciones más largas. Cuando inyectas una Instrucción Maestra bien elaborada, GPT-4o sigue de cerca al personaje. La sección Role &amp; Identity (Sección 1) de la instrucción generada es de donde ChatGPT obtiene el mayor valor.",
     "introPara2": "Esta guía cubre todos los métodos disponibles para implementar su instrucción personalizada en ChatGPT: la interfaz de usuario nativa de Instrucciones personalizadas, Proyectos y la API de OpenAI, para que pueda elegir el flujo de trabajo que mejor se adapte a su caso de uso."
   },
   "contextInjection": {
@@ -402,5 +402,89 @@
   "claude": {
     "badge": "Guías de plataforma",
     "title": "Uso con Claude"
+  },
+  "promptChaining": {
+    "badge": "Avanzado",
+    "badgeLabel": "Encadenamiento de Prompts",
+    "title": "Estrategias de Encadenamiento de Prompts",
+    "intro1": "La mayoría de los LLM funcionan mejor cuando reciben",
+    "intro2": "una tarea clara a la vez.",
+    "intro3": "El encadenamiento de prompts divide entregables complejos en una secuencia de mensajes enfocados — cada uno construyendo sobre el anterior — para que el modelo se mantenga preciso y consistente a lo largo del proceso.",
+    "intro4": "Esta página cubre la cadena principal de tres fases, patrones avanzados (crítica-revisión, paralelo, refinamiento) y qué modelos destacan en cada etapa.",
+    "whyWorks": {
+      "title": "Por Qué Funciona el Encadenamiento",
+      "p1Start": "Cada respuesta de un LLM es esencialmente una",
+      "p1Mid1": "nueva ventana de contexto",
+      "p1Mid2": ". Al anclar explícitamente el siguiente mensaje a la salida anterior, fuerzas al modelo a",
+      "p1Mid3": "llevar su contexto hacia adelante",
+      "p1End": " — previniendo la deriva, omisiones y el relleno genérico que se cuela en tareas largas de prompt único."
+    },
+    "coreChain": {
+      "title": "La Cadena Principal de Tres Fases",
+      "desc": "Este es el patrón fundamental. Úsalo para cualquier entregable de más de ~800 palabras o con más de 3 secciones distintas.",
+      "step1": {
+        "title": "Bloqueo de Persona",
+        "desc1": "Pega tu Instrucción Maestra completa y pide al modelo que",
+        "desc2": "confirme su rol",
+        "desc3": " antes de comenzar. Esto ancla la persona para todos los mensajes posteriores."
+      },
+      "step2": {
+        "title": "Generación de Plano",
+        "desc1": "Describe el entregable completo y pide solo un",
+        "desc2": "esquema sección por sección",
+        "desc3": ". Revisa y aprueba antes de comenzar a escribir."
+      },
+      "step3": {
+        "title": "Ejecución Secuencial",
+        "desc1": "Ejecuta una sección por mensaje. Cada mensaje referencia el esquema aprobado y la sección anterior.",
+        "desc2": "Para continuar la cadena a la siguiente sección:"
+      },
+      "approvalGate": {
+        "title": "La Puerta de Aprobación",
+        "desc1": "La frase",
+        "desc2": "es tu herramienta más importante. Evita que el modelo avance y produzca un resultado apresurado y genérico."
+      }
+    },
+    "advanced": {
+      "title": "Patrones de Encadenamiento Avanzados",
+      "critique": {
+        "title": "Cadena Crítica-Revisión",
+        "desc": "Después de producir una sección, pide al modelo que cambie de persona y critique su propio output — luego revísalo. Esto produce resultados de calidad significativamente más alta que pedir un buen output en una sola pasada."
+      },
+      "parallel": {
+        "title": "Cadena Paralela (Multi-Perspectiva)",
+        "desc": "Ejecuta tres cadenas independientes simultáneamente, cada una desde una perspectiva de experto diferente. Luego sintetiza los outputs en un mensaje final.",
+        "flowTitle": "FLUJO DE EJECUCIÓN PARALELA",
+        "chainADesc": "Arquitecto Técnico\nEnfoque: viabilidad, diseño de sistemas, casos límite",
+        "chainBDesc": "Product Manager\nEnfoque: valor del usuario, alcance, compromisos",
+        "chainCDesc": "Desarrollador Senior\nEnfoque: implementación, pruebas, mantenimiento",
+        "synthesisTitle": "Mensaje de Síntesis",
+        "synthesisDesc": "Sintetiza las Cadenas A, B y C en una única especificación unificada. Resuelve conflictos priorizando la viabilidad técnica sobre el alcance."
+      },
+      "refine": {
+        "title": "Cadena de Refinamiento Iterativo",
+        "desc": "Después de producir el borrador completo, ejecuta tres pasadas de refinamiento sistemáticas: compresión (reducir 20%), elevación (reemplazar voz pasiva) y alineación de voz (coincidir con el tono de la persona exactamente)."
+      }
+    },
+    "model": {
+      "title": "Qué Modelo Usar para Encadenar",
+      "desc": "Diferentes modelos destacan en diferentes fases de la cadena. Para máxima calidad, mezcla modelos en las fases de la misma cadena.",
+      "col1": "Fase de Cadena",
+      "col2": "Modelo Recomendado",
+      "col3": "Razón",
+      "phase1": "Bloqueo de Persona",
+      "phase2": "Generación de Plano",
+      "phase3": "Escritura Secuencial",
+      "phase4": "Crítica-Revisión",
+      "phase5": "Síntesis Final",
+      "reason1": "Mayor adherencia a la persona, fuerte recall de instrucciones",
+      "reason2": "Mejor output estructurado, fuerte formato de esquema",
+      "reason3": "Rápido, económico, consistente para tareas secuenciales largas",
+      "reason4": "El entrenamiento con Constitutional AI lo hace un autocrítico riguroso",
+      "reason5": "El mejor sintetizando múltiples inputs en un output coherente",
+      "note": "Puedes usar Orxis para generar una única Instrucción Maestra y desplegarla en todos los modelos de una cadena — la estructura de 6 secciones es reconocida por todos los principales LLM."
+    },
+    "next": "SIGUIENTE EN DOCS",
+    "nextLink": "Inyección de Contexto →"
   }
 }
