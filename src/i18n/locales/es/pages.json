@@ -256,6 +256,62 @@
     },
     "releases": [
       {
+        "version": "v0.1.1",
+        "date": "August 10, 2026",
+        "tag": "Internacionalización y Quick Mode",
+        "overview": "Esta versión presenta el Quick Mode para generar prompts al instante, un sistema de internacionalización integral en 7 idiomas y mejoras importantes en el generador de instrucciones y la documentación.",
+        "categories": [
+          {
+            "labelKey": "Features",
+            "label": "Funcionalidades",
+            "items": [
+              "Se añadió el Quick Mode — una interfaz conversacional de un solo prompt para generar perfiles completos de un AI assistant al instante. El sistema te hará preguntas de seguimiento inteligentes si necesita más contexto y luego producirá la instrucción completa de 7 secciones.",
+              "Introducimos los Quick Shortcuts (Section 7) — cada instrucción generada incluye ahora plantillas de prompt listas para usar con placeholders {{variable}}. Solo copia cualquier atajo, reemplaza las variables con tus propios valores y pégalo como mensaje.",
+              "Las instrucciones generadas por IA siempre se producen en inglés (Section 1–6) sin importar el idioma de la interfaz, optimizando la eficiencia de los token cuando se utilizan en ChatGPT, Claude o Gemini. La Section 7 (Quick Shortcuts) se mantiene en el idioma del usuario para que sea fácil de leer.",
+              "Los iniciadores de conversación (Conversation starters) ahora se muestran en todas las pestañas de plataforma en el Output Studio, no solo en la primera.",
+              "El botón Generate en la pantalla de Quick Mode ahora tiene un estilo interactivo y animado que coincide con el modo Step-by-Step."
+            ]
+          },
+          {
+            "labelKey": "Features",
+            "label": "Internacionalización",
+            "items": [
+              "Lanzamos el soporte completo de internacionalización en 7 idiomas: inglés (por defecto), tailandés, chino simplificado, japonés, coreano, español e indonesio.",
+              "Se tradujeron todas las páginas por completo — incluyendo la página de inicio, el asistente de generación, Output Studio, el centro de documentación, prompt gallery, registro de cambios, ajustes, precios, soporte, página acerca de y todas las páginas legales (Privacy Policy, Terms of Service, License).",
+              "Añadimos un selector de idioma en la barra de navegación, accesible tanto en la versión de escritorio como en la móvil. El idioma seleccionado se guarda entre sesiones mediante local storage.",
+              "El centro de documentación completo — que cubre todas las guías de plataforma (ChatGPT, Claude, Gemini, Other LLMs), temas avanzados (Prompt Chaining, Context Injection, Best Practices) y la guía de Primeros Pasos — está traducido completamente en los 7 idiomas."
+            ]
+          },
+          {
+            "labelKey": "Design",
+            "label": "Diseño",
+            "items": [
+              "Mejoramos el área de entrada de texto con un efecto de borde degradado brillante que se activa al seleccionarlo, dándole un toque premium y pulido a la experiencia de escritura.",
+              "Rediseñamos la experiencia inicial (onboarding) como un modal interactivo con ilustraciones paso a paso, reemplazando el antiguo recorrido basado en tooltips.",
+              "Mejoramos la capacidad de respuesta móvil: las sugerencias de ejemplo de \"Try these\" ahora se ajustan correctamente y ya no se cortan en el borde de la pantalla."
+            ]
+          },
+          {
+            "labelKey": "Platform",
+            "label": "Plataforma",
+            "items": [
+              "Migramos la generación por IA del backend externo a Next.js API routes, haciendo que la arquitectura sea completamente nativa de Vercel sin dependencias de servicios externos.",
+              "Resolvimos un problema donde la tubería de generación de IA estaba utilizando un modelo incorrecto en entornos de producción."
+            ]
+          },
+          {
+            "labelKey": "Documentation",
+            "label": "Documentación",
+            "items": [
+              "Añadimos una guía de integración para Other LLMs, que abarca entornos locales (LM Studio, Ollama), integración de API y proveedores compatibles como Meta Llama, Mistral, Qwen y DeepSeek.",
+              "Publicamos una guía avanzada sobre Prompt Chaining — cómo vincular múltiples AI assistants en secuencia para flujos de trabajo complejos de varios pasos.",
+              "Publicamos una guía sobre Context Injection explicando técnicas manuales de RAG para introducir datos propietarios en tu AI assistant sin necesidad de construir infraestructura.",
+              "Publicamos una guía de Best Practices que cubre las 3 reglas de oro para las entradas en bruto, tone stacking, persona multiplier, reglas que siempre funcionan y los antipatrones más comunes que debes evitar."
+            ]
+          }
+        ]
+      },
+      {
         "version": "v0.1.0",
         "date": "July 13, 2026",
         "tag": "Initial Release",

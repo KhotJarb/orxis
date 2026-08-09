@@ -256,6 +256,62 @@
     },
     "releases": [
       {
+        "version": "v0.1.1",
+        "date": "August 10, 2026",
+        "tag": "다국어 지원 및 Quick Mode",
+        "overview": "이번 릴리스에서는 한 번의 프롬프트로 즉시 생성할 수 있는 Quick Mode와 7개 언어를 지원하는 포괄적인 다국어 시스템을 도입했으며, 인스트럭션 빌더 및 문서화 범위를 크게 개선했습니다.",
+        "categories": [
+          {
+            "labelKey": "Features",
+            "label": "기능",
+            "items": [
+              "Quick Mode 추가 — 대화형 단일 프롬프트 인터페이스로 완벽한 AI assistant 프로필을 즉시 생성합니다. 더 많은 컨텍스트가 필요한 경우 시스템이 스마트 후속 질문을 한 다음 7개 섹션으로 구성된 전체 인스트럭션을 생성합니다.",
+              "Quick Shortcuts (Section 7) 도입 — 생성된 각 인스트럭션에는 {{variable}} 자리 표시자가 있는 즉시 사용 가능한 프롬프트 템플릿이 포함됩니다. 숏컷을 복사하고 변수를 원하는 값으로 바꾼 다음 메시지로 붙여넣기만 하면 됩니다.",
+              "ChatGPT, Claude 또는 Gemini에 배포할 때 token 효율성을 최적화하기 위해 인터페이스 언어에 관계없이 AI가 생성하는 인스트럭션(Section 1–6)은 항상 영어로 생성됩니다. Section 7 (Quick Shortcuts)은 가독성을 위해 사용자의 언어로 유지됩니다.",
+              "이제 대화 시작용 문구(Conversation starters)가 첫 번째 탭만이 아니라 Output Studio의 모든 플랫폼 탭에 표시됩니다.",
+              "Quick Mode 화면의 Generate 버튼 디자인이 Step-by-Step 모드와 일관된 애니메이션 및 인터랙티브 스타일로 변경되었습니다."
+            ]
+          },
+          {
+            "labelKey": "Features",
+            "label": "다국어 지원",
+            "items": [
+              "7개 언어(영어(기본), 태국어, 중국어 간체, 일본어, 한국어, 스페인어, 인도네시아어)에 대한 완전한 다국어 지원을 시작했습니다.",
+              "홈페이지, 생성기 마법사, Output Studio, 문서 허브, prompt gallery, 변경 내역, 설정, 가격, 지원, 소개 페이지 및 모든 법률 페이지(Privacy Policy, Terms of Service, License)를 포함한 모든 페이지가 완벽하게 번역되었습니다.",
+              "데스크톱과 모바일 모두에서 액세스할 수 있는 언어 전환기를 내비게이션 바에 추가했습니다. 선택한 언어는 local storage를 통해 세션 간에 유지됩니다.",
+              "모든 플랫폼 가이드(ChatGPT, Claude, Gemini, Other LLMs), 고급 주제(Prompt Chaining, Context Injection, Best Practices) 및 시작하기 가이드를 포함하는 전체 문서 허브가 7개 언어로 완벽하게 번역되었습니다."
+            ]
+          },
+          {
+            "labelKey": "Design",
+            "label": "디자인",
+            "items": [
+              "포커스 시 활성화되는 그라데이션 테두리 발광 효과를 텍스트 입력 영역에 추가하여 입력 경험에 고급스럽고 세련된 느낌을 줍니다.",
+              "기존 툴팁 기반 투어를 단계별 일러스트레이션이 포함된 시각적 워크스루 모달로 변경하여 온보딩 경험을 새롭게 디자인했습니다.",
+              "모바일 반응형 개선: \"Try these\" 예제 제안이 이제 올바르게 줄 바꿈되며 더 이상 화면 가장자리에서 잘리지 않습니다."
+            ]
+          },
+          {
+            "labelKey": "Platform",
+            "label": "플랫폼",
+            "items": [
+              "AI 생성을 외부 백엔드에서 Next.js API routes로 마이그레이션하여 외부 서비스 종속성 없이 완전히 Vercel 네이티브인 아키텍처를 만들었습니다.",
+              "프로덕션 환경에서 AI 생성 파이프라인이 잘못된 모델을 사용하던 문제를 해결했습니다."
+            ]
+          },
+          {
+            "labelKey": "Documentation",
+            "label": "문서",
+            "items": [
+              "로컬 환경(LM Studio, Ollama), API 통합 및 Meta Llama, Mistral, Qwen, DeepSeek을 포함한 호환 가능한 제공업체를 다루는 Other LLMs용 통합 가이드를 추가했습니다.",
+              "Prompt Chaining에 대한 고급 가이드 발행 — 복잡한 다단계 워크플로를 위해 여러 AI assistant를 순서대로 연결하는 방법을 설명합니다.",
+              "인프라를 구축하지 않고도 독점 데이터를 AI assistant에 주입하기 위한 수동 RAG 기술을 설명하는 Context Injection 가이드를 발행했습니다.",
+              "원시 입력을 위한 3가지 황금률, tone stacking, persona multiplier, 보편적으로 효과적인 규칙, 피해야 할 일반적인 안티 패턴을 다루는 Best Practices 가이드를 발행했습니다."
+            ]
+          }
+        ]
+      },
+      {
         "version": "v0.1.0",
         "date": "July 13, 2026",
         "tag": "Initial Release",

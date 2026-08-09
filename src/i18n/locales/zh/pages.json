@@ -256,6 +256,62 @@
     },
     "releases": [
       {
+        "version": "v0.1.1",
+        "date": "August 10, 2026",
+        "tag": "国际化与 Quick Mode",
+        "overview": "本次更新推出了支持一键生成的 Quick Mode，全面的 7 种语言国际化系统，并对指令生成器和文档进行了大幅优化。",
+        "categories": [
+          {
+            "labelKey": "Features",
+            "label": "功能",
+            "items": [
+              "新增 Quick Mode — 一种对话式的单提示词界面，可瞬间生成完整的 AI assistant 配置文件。如果需要更多上下文，系统会智能追问，然后生成完整的 7 节指令。",
+              "引入 Quick Shortcuts (Section 7) — 每次生成的指令现在都包含带有 {{variable}} 占位符的即用型提示词模板。只需复制任意 shortcut，将变量替换为您自己的值，然后直接发送即可。",
+              "无论使用何种界面语言，AI 生成的指令 (Section 1–6) 始终为英语，以优化在 ChatGPT、Claude 或 Gemini 中使用时的 token 效率。Section 7 (Quick Shortcuts) 则保留用户的语言，方便阅读。",
+              "现在 Output Studio 的所有平台选项卡中都会显示对话开场白，不再仅限于第一个选项卡。",
+              "Quick Mode 界面的 Generate 按钮现在具备了与 Step-by-Step 模式一致的动态交互设计。"
+            ]
+          },
+          {
+            "labelKey": "Features",
+            "label": "国际化",
+            "items": [
+              "全面支持 7 种语言：英语（默认）、泰语、简体中文、日语、韩语、西班牙语和印尼语。",
+              "完成全站页面翻译 — 包括首页、生成器向导、Output Studio、文档中心、prompt gallery、更新日志、设置、定价、支持、关于页面以及所有法律页面（Privacy Policy, Terms of Service, License）。",
+              "在导航栏中新增了语言切换器，支持桌面和移动端。所选语言将通过 local storage 在不同会话中保持不变。",
+              "完整的文档中心 — 涵盖所有平台指南（ChatGPT, Claude, Gemini, Other LLMs）、进阶主题（Prompt Chaining, Context Injection, Best Practices）和入门指南 — 现已全部提供 7 种语言版本。"
+            ]
+          },
+          {
+            "labelKey": "Design",
+            "label": "设计",
+            "items": [
+              "优化了文本输入区，在聚焦时会出现渐变边框发光效果，提升了输入的质感和高级感。",
+              "重新设计了新手引导体验，将之前的基于工具提示的导览替换为带有分步插图的视觉引导弹窗。",
+              "提升了移动端响应能力：“Try these” 示例建议现在可以正确换行，不再超出屏幕边缘。"
+            ]
+          },
+          {
+            "labelKey": "Platform",
+            "label": "平台",
+            "items": [
+              "将 AI 生成从外部后端迁移至 Next.js API routes，使架构完全基于 Vercel，去除了对外部服务的依赖。",
+              "修复了在生产环境中 AI 生成管线使用错误模型的问题。"
+            ]
+          },
+          {
+            "labelKey": "Documentation",
+            "label": "文档",
+            "items": [
+              "新增 Other LLMs 集成指南，涵盖本地环境 (LM Studio, Ollama)、API 集成以及兼容的提供商，包括 Meta Llama, Mistral, Qwen 和 DeepSeek。",
+              "发布关于 Prompt Chaining 的进阶指南 — 如何将多个 AI assistant 串联起来，处理复杂的多步工作流。",
+              "发布 Context Injection 指南，解释了如何使用手动 RAG 技术将专有数据喂给您的 AI assistant，而无需搭建基础设施。",
+              "发布 Best Practices 指南，涵盖原始输入的 3 条黄金法则、tone stacking、persona multiplier、通用有效规则，以及应避免的常见反模式。"
+            ]
+          }
+        ]
+      },
+      {
         "version": "v0.1.0",
         "date": "July 13, 2026",
         "tag": "Initial Release",

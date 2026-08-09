@@ -256,6 +256,62 @@
     },
     "releases": [
       {
+        "version": "v0.1.1",
+        "date": "August 10, 2026",
+        "tag": "Internasionalisasi & Quick Mode",
+        "overview": "Rilis ini menghadirkan Quick Mode untuk pembuatan instan dengan satu prompt, sistem internasionalisasi komprehensif 7 bahasa, dan peningkatan signifikan pada pembuat instruksi serta cakupan dokumentasi.",
+        "categories": [
+          {
+            "labelKey": "Features",
+            "label": "Fitur",
+            "items": [
+              "Menambahkan Quick Mode — antarmuka percakapan prompt tunggal untuk menghasilkan profil AI assistant lengkap secara instan. Sistem akan mengajukan pertanyaan lanjutan yang cerdas jika membutuhkan lebih banyak konteks, lalu menghasilkan instruksi penuh 7 bagian.",
+              "Memperkenalkan Quick Shortcuts (Section 7) — setiap instruksi yang dihasilkan kini dilengkapi dengan templat prompt siap pakai dengan placeholder {{variable}}. Anda cukup menyalin pintasan apa pun, mengganti variabel dengan nilai Anda sendiri, lalu menempelkannya sebagai pesan.",
+              "Instruksi yang dihasilkan oleh AI kini selalu disajikan dalam bahasa Inggris (Section 1–6) terlepas dari bahasa antarmuka, guna mengoptimalkan efisiensi token saat diterapkan ke ChatGPT, Claude, atau Gemini. Section 7 (Quick Shortcuts) tetap dalam bahasa pengguna agar lebih mudah dibaca.",
+              "Pemantik percakapan (Conversation starters) kini ditampilkan di seluruh tab platform di Output Studio, tidak hanya di tab pertama.",
+              "Tombol Generate di layar Quick Mode kini dilengkapi dengan gaya interaktif animasi yang selaras dengan mode Step-by-Step."
+            ]
+          },
+          {
+            "labelKey": "Features",
+            "label": "Internasionalisasi",
+            "items": [
+              "Meluncurkan dukungan internasionalisasi penuh dalam 7 bahasa: Inggris (default), Thailand, Mandarin Sederhana, Jepang, Korea, Spanyol, dan Bahasa Indonesia.",
+              "Semua halaman telah diterjemahkan sepenuhnya — mencakup halaman beranda, generator wizard, Output Studio, hub dokumentasi, prompt gallery, log perubahan, pengaturan, harga, dukungan, halaman tentang, dan semua halaman hukum (Privacy Policy, Terms of Service, License).",
+              "Menambahkan pengalih bahasa di bilah navigasi yang dapat diakses baik melalui desktop maupun ponsel. Bahasa yang dipilih akan disimpan untuk sesi berikutnya melalui local storage.",
+              "Hub dokumentasi yang lengkap — mencakup semua panduan platform (ChatGPT, Claude, Gemini, Other LLMs), topik lanjutan (Prompt Chaining, Context Injection, Best Practices), dan panduan Memulai — sepenuhnya diterjemahkan ke 7 bahasa tersebut."
+            ]
+          },
+          {
+            "labelKey": "Design",
+            "label": "Desain",
+            "items": [
+              "Meningkatkan area input teks dengan efek pendaran gradien pada tepi kotak yang aktif saat difokuskan, memberikan kesan premium dan elegan pada pengalaman mengetik.",
+              "Mendesain ulang pengalaman orientasi (onboarding) menjadi modal penelusuran visual dengan ilustrasi langkah-demi-langkah, menggantikan tur berbasis keterangan alat (tooltip) sebelumnya.",
+              "Peningkatan daya tanggap perangkat seluler: saran contoh \"Try these\" kini terbungkus dengan rapi dan tidak lagi terpotong di tepi layar."
+            ]
+          },
+          {
+            "labelKey": "Platform",
+            "label": "Platform",
+            "items": [
+              "Memigrasikan pembuatan AI dari backend eksternal ke Next.js API routes, membuat arsitektur sepenuhnya bersifat Vercel-native tanpa ketergantungan layanan eksternal.",
+              "Menyelesaikan masalah di mana proses pembuatan AI menggunakan model yang salah di lingkungan produksi."
+            ]
+          },
+          {
+            "labelKey": "Documentation",
+            "label": "Dokumentasi",
+            "items": [
+              "Menambahkan panduan integrasi untuk Other LLMs, yang mencakup lingkungan lokal (LM Studio, Ollama), integrasi API, dan penyedia kompatibel termasuk Meta Llama, Mistral, Qwen, dan DeepSeek.",
+              "Menerbitkan panduan lanjutan tentang Prompt Chaining — cara menghubungkan beberapa AI assistant secara berurutan untuk alur kerja multi-langkah yang kompleks.",
+              "Menerbitkan panduan Context Injection yang menjelaskan teknik manual RAG untuk memasukkan data milik Anda sendiri ke dalam AI assistant Anda tanpa perlu membangun infrastruktur.",
+              "Menerbitkan panduan Best Practices yang mencakup 3 Aturan Emas untuk input mentah, tone stacking, persona multiplier, aturan universal yang efektif, dan pola kesalahan umum (anti-patterns) yang harus dihindari."
+            ]
+          }
+        ]
+      },
+      {
         "version": "v0.1.0",
         "date": "July 13, 2026",
         "tag": "Initial Release",
