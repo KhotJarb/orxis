@@ -7,15 +7,17 @@ import Callout, {
   Step,
 } from "@/components/docs/DocsComponents";
 import Link from "next/link";
+import { useT } from "@/i18n";
 
 export default function DocsClaude() {
+  const t = useT("docs");
   return (
     <article className="docs-prose w-full max-w-3xl">
 
       {/* ── Page badge ───────────────────────────────────────────── */}
       <div className="mb-3 flex items-center gap-2">
         <span className="rounded-full border border-neon-purple/30 bg-neon-purple/10 px-3 py-0.5 text-xs font-semibold text-neon-purple-light">
-          Platform Guides
+          {t("claude.badge")}
         </span>
         <span className="text-slate-700">/</span>
         <span className="text-xs text-slate-500">Claude</span>
@@ -23,25 +25,18 @@ export default function DocsClaude() {
 
       {/* ── H1 ───────────────────────────────────────────────────── */}
       <h1 id="claude" className="scroll-mt-24">
-        Using Instructions with Claude
+        {t("claude.title")}
       </h1>
 
       <p>
-        Claude (Anthropic) is particularly well-suited for processing the{" "}
-        <InlineCode>{"<self_reflection>"}</InlineCode> XML tags in Section 3
-        (The Cognitive Loop). Claude was trained using Constitutional AI with{" "}
-        <strong>XML-annotated reasoning traces</strong> — meaning it was taught
-        to reason by reading and producing structured XML internally. When your
-        Master Instruction contains{" "}
-        <InlineCode>{"<self_reflection>"}</InlineCode> tags, Claude doesn&apos;t
-        merely see them as formatting — it uses them as{" "}
-        <strong>architectural scaffolding for its reasoning chain</strong>,
-        producing deeper, more structured analysis than many other models.
+        {t("claude.introPara1Before")}{" "}
+        <InlineCode>{"<self_reflection>"}</InlineCode> {t("claude.introPara1Mid1")}{" "}
+        <strong>{t("claude.introPara1Strong1")}</strong> {t("claude.introPara1Mid2")}{" "}
+        <InlineCode>{"<self_reflection>"}</InlineCode> {t("claude.introPara1Mid3")}{" "}
+        <strong>{t("claude.introPara1Strong2")}</strong>{t("claude.introPara1After")}
       </p>
       <p>
-        Claude 3.5 Sonnet and Claude 3.7 Sonnet (with extended thinking) take
-        this further — combining the Cognitive Loop with native reasoning
-        transparency produces highly auditable, structured outputs.
+        {t("claude.introPara2")}
       </p>
 
       <SectionDivider />

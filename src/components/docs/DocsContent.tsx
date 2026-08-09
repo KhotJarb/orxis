@@ -69,12 +69,7 @@ export default function DocsContent({
           {t("content.whatAreCIsPara2")}
         </p>
         <ul className="mb-6 space-y-2 pl-1">
-          {[
-            "Stays in role across the entire conversation",
-            "Applies domain-specific knowledge and terminology automatically",
-            "Follows your formatting and tone preferences by default",
-            "Executes a self-reflection quality check before every response",
-          ].map((item) => (
+          {t.array("content.whatAreCIsList").map((item) => (
             <li key={item} className="flex items-start gap-3 text-sm text-slate-400">
               <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-neon-cyan" />
               {item}
@@ -86,27 +81,22 @@ export default function DocsContent({
           {t("content.whyItMatters")}
         </h2>
         <p className="mb-4 text-slate-400 leading-relaxed">
-          Evidence suggests that prompting strategy can be as important as model
-          size for output quality in professional tasks. A 70B-parameter model
-          with well-crafted prompting can outperform a much larger model with
-          generic instructions.
+          {t("content.whyItMattersPara1")}
         </p>
 
         <Callout variant="tip">
           <p>
-            The difference between a <strong>good</strong> AI response and a{" "}
-            <strong>great</strong> one is almost always in how the AI was
-            instructed, not which AI you used.
+            {t("content.goodVsGreatBefore")} <strong>{t("content.goodVsGreatGood")}</strong> {t("content.goodVsGreatMiddle")}{" "}
+            <strong>{t("content.goodVsGreatGreat")}</strong> {t("content.goodVsGreatAfter")}
           </p>
         </Callout>
 
         <blockquote className="my-6 border-l-2 border-neon-purple/60 pl-5">
           <p className="text-slate-300 italic leading-relaxed">
-            &ldquo;Give me six hours to chop down a tree and I will spend the
-            first four sharpening the axe.&rdquo;
+            {t("content.lincolnQuote")}
           </p>
           <cite className="mt-2 block text-xs text-slate-500">
-            — Abraham Lincoln (adapted for prompt engineering)
+            {t("content.lincolnCite")}
           </cite>
         </blockquote>
       </section>
@@ -119,15 +109,12 @@ export default function DocsContent({
           {t("content.quickStart")}
         </h1>
         <p className="mb-6 text-lg leading-relaxed text-slate-400">
-          Go from zero to a production-ready Custom Instruction in under 5 minutes.
-          The wizard walks you through four focused questions — no prompt engineering
-          experience required.
+          {t("content.quickStartPara")}
         </p>
 
         <Callout variant="note">
           <p>
-            The generator runs fully in your browser. Your inputs are only sent to
-            the backend when you click <strong>Generate</strong>. Nothing is stored.
+            {t("content.quickStartNoteBefore")} <strong>{t("content.quickStartNoteGenerate")}</strong>{t("content.quickStartNoteAfter")}
           </p>
         </Callout>
 
@@ -135,22 +122,20 @@ export default function DocsContent({
           {t("content.step1")}
         </h2>
         <p className="mb-4 text-slate-400 leading-relaxed">
-          The persona defines <em>who</em> the AI pretends to be. The more specific
-          you are, the better the output. Use the preset chips for common roles or
-          type your own in the free-text field.
+          {t("content.step1Para")}
         </p>
 
         <div className="my-5 space-y-3">
           <Step number={1} title={t("content.step1Title")}>
-            Click one of the preset roles like{" "}
+            {t("content.step1Inst1Before")}{" "}
             <InlineCode>Software Engineer</InlineCode>,{" "}
-            <InlineCode>Data Scientist</InlineCode>, or{" "}
+            <InlineCode>Data Scientist</InlineCode>, {t("content.step1Inst1Or")}{" "}
             <InlineCode>Marketing Strategist</InlineCode>.
           </Step>
           <Step number={2} title={t("content.step2")}>
-            Add specific detail in the input field. For example, typing{" "}
+            {t("content.step1Inst2Before")}{" "}
             <InlineCode>Senior TypeScript engineer specializing in distributed systems</InlineCode>{" "}
-            creates a more targeted persona than just{" "}
+            {t("content.step1Inst2Mid")}{" "}
             <InlineCode>Software Engineer</InlineCode>.
           </Step>
         </div>
@@ -159,9 +144,8 @@ export default function DocsContent({
           {t("content.step2Heading")}
         </h2>
         <p className="mb-4 text-slate-400 leading-relaxed">
-          The task is the AI&apos;s <strong className="text-slate-200">primary objective</strong> —
-          what it was built to do in every interaction. Frame it as an outcome,
-          not a process.
+          {t("content.step2ParaBefore")} <strong className="text-slate-200">{t("content.step2ParaPrimaryObj")}</strong> —
+          {t("content.step2ParaAfter")}
         </p>
 
         <CodeBlock language="example" filename="Good vs. Bad Task Definitions">
@@ -178,18 +162,15 @@ Always propose a refactored version with explanations."`}
           {t("content.step3Heading")}
         </h2>
         <p className="mb-4 text-slate-400 leading-relaxed">
-          Tone controls the AI&apos;s communication style. You can combine multiple
-          tone presets — for example, <InlineCode>Professional</InlineCode> +{" "}
-          <InlineCode>Direct</InlineCode> + <InlineCode>Technical</InlineCode> is a
-          popular combination for engineering-focused workflows.
+          {t("content.step3ParaBefore")} <InlineCode>Professional</InlineCode> +{" "}
+          <InlineCode>Direct</InlineCode> + <InlineCode>Technical</InlineCode> {t("content.step3ParaAfter")}
         </p>
 
         <Callout variant="warning">
           <p>
-            Avoid combining contradictory tones like{" "}
-            <InlineCode>Humorous</InlineCode> and{" "}
-            <InlineCode>Strict</InlineCode>. The AI will attempt to satisfy both and
-            may produce inconsistent results.
+            {t("content.step3WarningBefore")}{" "}
+            <InlineCode>Humorous</InlineCode> {t("content.step3WarningAnd")}{" "}
+            <InlineCode>Strict</InlineCode>. {t("content.step3WarningAfter")}
           </p>
         </Callout>
 
@@ -197,10 +178,8 @@ Always propose a refactored version with explanations."`}
           {t("content.step4Heading")}
         </h2>
         <p className="mb-4 text-slate-400 leading-relaxed">
-          Rules are hard constraints and output formatting requirements. These map
-          directly to the <strong className="text-slate-200">Boundaries</strong> and{" "}
-          <strong className="text-slate-200">Output Architecture</strong> sections of
-          your final instruction. Examples:
+          {t("content.step4ParaBefore")} <strong className="text-slate-200">{t("content.step4ParaBoundaries")}</strong> {t("content.step4ParaAnd")}{" "}
+          <strong className="text-slate-200">{t("content.step4ParaOutputFormat")}</strong> {t("content.step4ParaAfter")}
         </p>
 
         <CodeBlock language="rules" filename="Example Rules">
@@ -220,9 +199,7 @@ Always propose a refactored version with explanations."`}
           {t("content.coreConcepts")}
         </h1>
         <p className="mb-6 text-lg leading-relaxed text-slate-400">
-          Every Custom Instruction generated by this tool follows a rigid 6-section
-          architecture. Understanding each section helps you get the most out of
-          tweaking and refinement.
+          {t("content.coreConceptsPara")}
         </p>
 
         <h2 id="the-six-sections" className="scroll-mt-24 mt-8 mb-5 text-2xl font-bold text-white border-b border-glass-border pb-3">
@@ -235,7 +212,7 @@ Always propose a refactored version with explanations."`}
               emoji: "🎭",
               num: "1",
               title: t("content.sections.role", { num: "1" }),
-              desc: "Establishes WHO the AI is — a precisely defined persona that shapes the model's behaviour as a domain expert.",
+              desc: t("content.sectionsDesc.1"),
               color: "border-neon-cyan/20 bg-neon-cyan/[0.03]",
               accent: "text-neon-cyan",
             },
@@ -243,7 +220,7 @@ Always propose a refactored version with explanations."`}
               emoji: "🎯",
               num: "2",
               title: t("content.sections.mission", { num: "2" }),
-              desc: "Defines WHAT success looks like. A clear north star that every response is measured against.",
+              desc: t("content.sectionsDesc.2"),
               color: "border-neon-purple/20 bg-neon-purple/[0.03]",
               accent: "text-neon-purple-light",
             },
@@ -251,7 +228,7 @@ Always propose a refactored version with explanations."`}
               emoji: "🧠",
               num: "3",
               title: t("content.sections.cognitive", { num: "3" }),
-              desc: "Forces the AI to self-reflect before responding. Creates a pre/mid/post quality-check loop invisible to the user.",
+              desc: t("content.sectionsDesc.3"),
               color: "border-emerald-500/20 bg-emerald-500/[0.03]",
               accent: "text-emerald-400",
             },
@@ -259,7 +236,7 @@ Always propose a refactored version with explanations."`}
               emoji: "📥",
               num: "4",
               title: t("content.sections.context", { num: "4" }),
-              desc: "Defines what kind of inputs the AI should anticipate and how to handle edge cases or ambiguous requests.",
+              desc: t("content.sectionsDesc.4"),
               color: "border-amber-500/20 bg-amber-500/[0.03]",
               accent: "text-amber-400",
             },
@@ -267,7 +244,7 @@ Always propose a refactored version with explanations."`}
               emoji: "⚙️",
               num: "5",
               title: t("content.sections.boundaries", { num: "5" }),
-              desc: "Hard constraints that the AI must obey. Anti-hallucination directives, scope limits, and ethical guardrails.",
+              desc: t("content.sectionsDesc.5"),
               color: "border-rose-500/20 bg-rose-500/[0.03]",
               accent: "text-rose-400",
             },
@@ -275,7 +252,7 @@ Always propose a refactored version with explanations."`}
               emoji: "📝",
               num: "6",
               title: t("content.sections.formatting", { num: "6" }),
-              desc: "The blueprint for every response: headers, lists, code blocks, tables, length, and sign-off protocol.",
+              desc: t("content.sectionsDesc.6"),
               color: "border-sky-500/20 bg-sky-500/[0.03]",
               accent: "text-sky-400",
             },
@@ -303,10 +280,8 @@ Always propose a refactored version with explanations."`}
           {t("content.cognitiveLoop")}
         </h2>
         <p className="mb-4 text-slate-400 leading-relaxed">
-          The Cognitive Loop is a key differentiator in this framework.
-          It forces the LLM to run an <strong className="text-slate-200">internal quality assurance process</strong>{" "}
-          before surfacing any response to the user. The AI creates its own evaluation
-          rubric, drafts a response, scores it, and iterates — all invisibly.
+          {t("content.cognitiveLoopParaBefore")} <strong className="text-slate-200">{t("content.cognitiveLoopParaInternal")}</strong>{" "}
+          {t("content.cognitiveLoopParaAfter")}
         </p>
 
         <CodeBlock language="prompt" filename="Cognitive Loop Directive (injected into every CI)">
@@ -322,10 +297,7 @@ Always propose a refactored version with explanations."`}
 
         <Callout variant="tip" title={t("content.proTip")}>
           <p>
-            The Cognitive Loop dramatically reduces hallucinations on factual topics
-            and eliminates &quot;first-draft&quot; quality responses. LLMs that are
-            explicitly instructed to self-critique produce measurably better outputs
-            than those that aren&apos;t.
+            {t("content.cognitiveLoopTip")}
           </p>
         </Callout>
 

@@ -1,46 +1,46 @@
 {
   "terms": {
-    "title": "Ketentuan Layanan",
-    "lastUpdated": "12 Juli 2026",
-    "intro": "Dengan mengakses atau menggunakan Orxis, kamu menyetujui ketentuan ini. Jika kamu tidak setuju, harap jangan gunakan layanan ini. Ketentuan ini ditulis agar jelas dan praktis.",
+    "title": "Syarat dan Ketentuan",
+    "lastUpdated": "July 12, 2026",
+    "intro": "Dengan mengakses atau menggunakan Orxis, Anda menyetujui persyaratan ini. Jika Anda tidak setuju, mohon untuk tidak menggunakan layanan ini. Persyaratan ini ditulis agar jelas dan praktis.",
     "sections": [
       {
         "heading": "1. Layanan",
         "paragraphs": [
-          "Orxis menyediakan generator instruksi kustom AI yang terstruktur. Kamu memberikan informasi tentang persona AI yang diinginkan, tugas, nada, dan batasan; layanan ini mengembalikan prompt instruksi terstruktur yang dirancang untuk meningkatkan konsistensi dan kepatuhan AI.",
+          "Orxis menyediakan generator instruksi kustom AI yang terstruktur. Anda memberikan informasi tentang persona AI, tugas, nada, dan batasan yang Anda inginkan; layanan ini akan mengembalikan perintah instruksi terstruktur yang dirancang untuk meningkatkan konsistensi dan kepatuhan AI.",
           "Model AI yang mendasarinya disediakan oleh API pihak ketiga (saat ini Google Gemini). Kualitas, keakuratan, dan perilaku model tersebut di luar kendali kami. Kami tidak bertanggung jawab atas hasil yang diproduksi oleh model yang mendasarinya."
         ]
       },
       {
-        "heading": "2. Tanggung Jawabmu",
+        "heading": "2. Tanggung Jawab Anda",
         "paragraphs": [
-          "Kamu bertanggung jawab atas bagaimana kamu menggunakan hasil yang dihasilkan oleh Orxis. Prompt yang diproduksi oleh layanan ini adalah alat — kesesuaiannya untuk tugas tertentu, dan konsekuensi penerapannya, adalah keputusanmu untuk dibuat.",
-          "Kamu setuju untuk tidak menggunakan Orxis guna menghasilkan instruksi untuk:"
+          "Anda bertanggung jawab atas bagaimana Anda menggunakan hasil yang dibuat oleh Orxis. Perintah yang diproduksi oleh layanan ini adalah alat — kesesuaiannya untuk tugas tertentu, dan konsekuensi dari penerapannya, adalah keputusan Anda sendiri.",
+          "Anda setuju untuk tidak menggunakan Orxis guna menghasilkan instruksi untuk:"
         ],
         "list": [
           "Perilaku AI yang berbahaya, menipu, atau ilegal",
-          "Peniruan individu atau entitas nyata",
-          "Menghasilkan konten yang melanggar hukum yang berlaku di yurisdiksimu",
-          "Menghindari langkah-langkah keamanan dalam sistem AI"
+          "Peniruan identitas individu atau entitas nyata",
+          "Pembuatan konten yang melanggar hukum yang berlaku di yurisdiksi Anda",
+          "Penghindaran langkah-langkah keamanan dalam sistem AI"
         ]
       },
       {
         "heading": "3. Penggunaan yang Dapat Diterima",
         "paragraphs": [
-          "Orxis adalah layanan gratis yang didukung oleh komunitas. Untuk memastikan akses yang adil bagi semua orang, kamu setuju untuk tidak:"
+          "Orxis adalah layanan gratis yang didukung oleh komunitas. Untuk memastikan akses yang adil bagi semua orang, Anda setuju untuk tidak:"
         ],
         "list": [
           "Mengotomatiskan atau membuat skrip permintaan massal ke titik akhir pembuatan",
-          "Berusaha menghindari, merekayasa balik, atau mengeksploitasi infrastruktur API",
-          "Menggunakan layanan dengan cara apa pun yang menurunkan kinerja untuk pengguna lain",
-          "Mengirimkan konten ke Galeri Komunitas yang melanggar hak pihak ketiga atau melanggar hukum yang berlaku"
+          "Mencoba untuk menghindari, merekayasa balik, atau mengeksploitasi infrastruktur API",
+          "Menggunakan layanan dengan cara apa pun yang menurunkan kinerja bagi pengguna lain",
+          "Mengirimkan konten ke Community Gallery yang melanggar hak pihak ketiga atau melanggar hukum yang berlaku"
         ],
-        "afterList": "Kami berhak untuk memblokir akses bagi pengguna atau alamat IP yang melanggar ketentuan ini, tanpa pemberitahuan sebelumnya."
+        "afterList": "Kami berhak memblokir akses bagi pengguna atau alamat IP yang melanggar persyaratan ini, tanpa pemberitahuan sebelumnya."
       },
       {
         "heading": "4. Ketersediaan Layanan",
         "paragraphs": [
-          "Orxis di-host di Vercel dan bergantung pada infrastruktur pihak ketiga termasuk layanan database dan API AI. Kami menargetkan ketersediaan tinggi dan melakukan upaya wajar untuk menjaga waktu operasional. Namun, kami tidak dapat menjamin layanan tanpa gangguan. Waktu henti dapat terjadi karena:"
+          "Orxis dihosting di Vercel dan bergantung pada infrastruktur pihak ketiga termasuk basis data dan layanan API AI. Kami menargetkan ketersediaan tinggi dan melakukan upaya wajar untuk menjaga waktu operasional. Namun, kami tidak dapat menjamin layanan tanpa gangguan. Waktu henti (downtime) dapat terjadi karena:"
         ],
         "list": [
           "Pemeliharaan terjadwal",
@@ -52,31 +52,31 @@
       {
         "heading": "5. Kekayaan Intelektual",
         "paragraphs": [
-          "Aplikasi Orxis — termasuk desain UI-nya, kode sumber, kerangka pembuatan prompt, dan semua kekayaan intelektual terkait — adalah milik eksklusif. Teks prompt yang kamu hasilkan adalah milikmu. Lihat <1>halaman Lisensi</1> kami untuk rincian selengkapnya."
+          "Aplikasi Orxis — termasuk desain antarmuka pengguna, kode sumber, kerangka kerja pembuatan perintah, dan semua kekayaan intelektual yang terkait — adalah hak milik Orxis. Teks perintah yang dihasilkan yang Anda produksi adalah milik Anda. Lihat <1>halaman Lisensi</1> kami untuk rincian selengkapnya."
         ]
       },
       {
         "heading": "6. Penafian Jaminan",
         "paragraphs": [
-          "Orxis disediakan \"apa adanya\" dan \"sebagaimana tersedia\" tanpa jaminan dalam bentuk apa pun, tersurat maupun tersirat, termasuk namun tidak terbatas pada jaminan kelayakan untuk diperdagangkan, kesesuaian untuk tujuan tertentu, atau non-pelanggaran. Kami tidak menjamin bahwa layanan akan bebas kesalahan, tidak terganggu, atau bahwa hasilnya akan memenuhi harapanmu."
+          "Orxis disediakan \"sebagaimana adanya\" dan \"sebagaimana tersedia\" tanpa jaminan apa pun, baik tersurat maupun tersirat, termasuk namun tidak terbatas pada jaminan kelayakan untuk diperdagangkan, kesesuaian untuk tujuan tertentu, atau non-pelanggaran. Kami tidak menjamin bahwa layanan ini akan bebas kesalahan, tidak terganggu, atau bahwa hasilnya akan memenuhi harapan Anda."
         ]
       },
       {
         "heading": "7. Batasan Tanggung Jawab",
         "paragraphs": [
-          "Sejauh yang diizinkan oleh hukum yang berlaku, Orxis dan operatornya tidak bertanggung jawab atas kerugian tidak langsung, insidental, khusus, konsekuensial, atau hukuman yang timbul dari penggunaanmu atas — atau ketidakmampuan untuk menggunakan — layanan, bahkan jika kami telah diberi tahu tentang kemungkinan kerugian tersebut."
+          "Sejauh diizinkan oleh hukum yang berlaku, Orxis dan operatornya tidak bertanggung jawab atas kerusakan tidak langsung, insidental, khusus, konsekuensial, atau hukuman yang timbul dari penggunaan Anda — atau ketidakmampuan untuk menggunakan — layanan ini, bahkan jika kami telah diberi tahu tentang kemungkinan kerusakan tersebut."
         ]
       },
       {
-        "heading": "8. Hukum yang Berlaku",
+        "heading": "8. Hukum yang Mengatur",
         "paragraphs": [
-          "Ketentuan ini diatur oleh dan ditafsirkan sesuai dengan hukum Thailand, tanpa memperhatikan ketentuan pertentangan hukumnya. Setiap perselisihan yang timbul dari ketentuan ini harus tunduk pada yurisdiksi eksklusif pengadilan Thailand."
+          "Persyaratan ini diatur dan ditafsirkan sesuai dengan hukum Thailand, tanpa memperhatikan pertentangan ketentuan hukum. Setiap perselisihan yang timbul dari persyaratan ini akan tunduk pada yurisdiksi eksklusif pengadilan Thailand."
         ]
       },
       {
-        "heading": "9. Perubahan pada Ketentuan Ini",
+        "heading": "9. Perubahan pada Persyaratan Ini",
         "paragraphs": [
-          "Kami dapat memperbarui ketentuan ini dari waktu ke waktu. Perubahan akan tercermin dalam tanggal \"Pembaruan Terakhir\" di bagian atas halaman ini. Terus menggunakan Orxis setelah perubahan dipublikasikan merupakan bentuk persetujuanmu atas ketentuan yang direvisi. Untuk perubahan signifikan, kami akan melakukan upaya wajar untuk memberi tahu pengguna melalui aplikasi."
+          "Kami dapat memperbarui persyaratan ini dari waktu ke waktu. Perubahan akan tercermin dalam tanggal \"Terakhir Diperbarui\" di bagian atas halaman ini. Dengan terus menggunakan Orxis setelah perubahan diposting merupakan persetujuan Anda terhadap persyaratan yang direvisi. Untuk perubahan yang signifikan, kami akan melakukan upaya wajar untuk memberi tahu pengguna melalui aplikasi."
         ]
       },
       {
@@ -86,25 +86,25 @@
         ]
       }
     ],
-    "footerNote": "Diatur oleh hukum Thailand. Ketentuan ini bukan merupakan nasihat hukum. Konsultasikan dengan ahli hukum yang berkualifikasi untuk mendapatkan nasihat khusus terkait situasimu."
+    "footerNote": "Diatur oleh hukum Thailand. Persyaratan ini bukan merupakan nasihat hukum. Konsultasikan dengan profesional hukum yang berkualifikasi untuk mendapatkan nasihat spesifik sesuai situasi Anda."
   },
   "privacy": {
     "title": "Kebijakan Privasi",
-    "lastUpdated": "12 Juli 2026",
-    "intro": "Orxis adalah generator instruksi AI berbasis browser. Kebijakan ini menjelaskan informasi apa yang kami tangani, bagaimana kami menanganinya, dan alasannya. Ini ditulis agar mudah dibaca, bukan untuk membebanimu. Jika kamu memiliki pertanyaan, hubungi kami di <1>orxis.app@gmail.com</1>.",
+    "lastUpdated": "July 12, 2026",
+    "intro": "Orxis adalah generator instruksi AI berbasis peramban. Kebijakan ini menjelaskan informasi apa yang kami tangani, bagaimana kami menanganinya, dan alasannya. Kebijakan ini ditulis agar mudah dibaca, tidak untuk membebani Anda. Jika Anda memiliki pertanyaan, hubungi kami di <1>orxis.app@gmail.com</1>.",
     "sections": [
       {
         "heading": "1. Apa yang Kami Kumpulkan",
         "paragraphs": [
-          "Secara default, Orxis beroperasi di sisi klien. Saat kamu menggunakan generator, masukanmu — persona, tugas, nada, dan aturan — diproses di browsermu atau dikirim langsung ke API model bahasa yang mendasarinya. Kami tidak mencatat, menyimpan, atau mengirimkan masukan mentahmu ke server kami sendiri.",
-          "Satu pengecualian: jika kamu memilih untuk mengirimkan prompt yang dihasilkan ke Galeri Komunitas, konten pengiriman (judul, kategori, tag, deskripsi, dan teks prompt) disimpan di database kami. Ini adalah tindakan yang disengaja dan sukarela dari pihakmu."
+          "Secara default, Orxis beroperasi di sisi klien (browser). Saat Anda menggunakan generator, masukan Anda — persona, tugas, nada, dan aturan — diproses di browser Anda atau dikirim langsung ke API model bahasa yang mendasarinya. Kami tidak mencatat, menyimpan, atau mentransmisikan masukan mentah Anda ke server kami sendiri.",
+          "Satu pengecualian: jika Anda memilih untuk mengirimkan perintah yang dihasilkan ke Community Gallery, konten pengiriman (judul, kategori, tag, deskripsi, dan teks perintah) disimpan dalam basis data kami. Ini adalah tindakan yang disengaja dan sukarela dari pihak Anda."
         ]
       },
       {
         "heading": "2. Apa yang Tidak Kami Kumpulkan",
         "list": [
-          "Teks instruksi yang kamu hasilkan, kecuali jika kamu mengirimkannya secara eksplisit ke Galeri",
-          "Informasi akun atau profil — kami tidak mewajibkan pendaftaran untuk menggunakan generator",
+          "Teks instruksi yang Anda hasilkan, kecuali jika Anda secara eksplisit mengirimkannya ke Gallery",
+          "Informasi akun atau profil — kami tidak mengharuskan pendaftaran untuk menggunakan generator",
           "Data pembayaran atau keuangan dalam bentuk apa pun",
           "Sidik jari perangkat atau pengidentifikasi pelacakan persisten"
         ]
@@ -112,48 +112,48 @@
       {
         "heading": "3. Analitik",
         "paragraphs": [
-          "Kami mungkin menggunakan alat analitik anonim dan standar untuk memahami bagaimana aplikasi digunakan pada tingkat fungsional — misalnya, halaman mana yang dikunjungi dan pola penggunaan umum. Data ini diagregasikan dan tidak termasuk konten prompt atau informasi identitas pribadi milikmu.",
-          "[Placeholder: Perbarui bagian ini dengan alat analitik spesifikmu, mis., Plausible, Vercel Analytics, atau hapus jika tidak berlaku.]"
+          "Kami dapat menggunakan alat analitik standar yang dianonimkan untuk memahami bagaimana aplikasi digunakan pada tingkat fungsional — misalnya, halaman mana yang dikunjungi dan pola penggunaan umum. Data ini diagregasi dan tidak menyertakan konten perintah Anda atau informasi identitas pribadi Anda.",
+          "[Placeholder: Update this section with your specific analytics tool, e.g., Plausible, Vercel Analytics, or remove if not applicable.]"
         ]
       },
       {
         "heading": "4. Tidak Ada Penjualan Data Pihak Ketiga",
         "paragraphs": [
-          "Kami tidak menjual, memperdagangkan, atau menyewakan data pengguna apa pun kepada pihak ketiga. Ini berlaku terlepas dari apakah data tersebut dikumpulkan melalui generator atau melalui Galeri Komunitas."
+          "Kami tidak menjual, memperdagangkan, atau menyewakan data pengguna apa pun kepada pihak ketiga. Ini berlaku terlepas dari apakah data tersebut dikumpulkan melalui generator atau melalui Community Gallery."
         ]
       },
       {
-        "heading": "5. Kiriman Galeri Komunitas",
+        "heading": "5. Pengiriman ke Community Gallery",
         "paragraphs": [
-          "Jika kamu mengirimkan prompt ke Galeri Komunitas, prompt tersebut dapat dilihat secara publik oleh pengguna aplikasi lainnya. Kamu tidak boleh menyertakan informasi identitas pribadi, konten rahasia, atau data eksklusif dalam kiriman Galeri mana pun. Kami dapat meninjau kiriman untuk tujuan moderasi."
+          "Jika Anda mengirimkan perintah ke Community Gallery, perintah tersebut akan terlihat oleh pengguna aplikasi lainnya. Anda tidak boleh menyertakan informasi identitas pribadi, konten rahasia, atau data milik sendiri dalam pengiriman apa pun ke Gallery. Kami dapat meninjau kiriman untuk tujuan moderasi."
         ]
       },
       {
         "heading": "6. Layanan Pihak Ketiga",
         "paragraphs": [
-          "Orxis disebarkan di Vercel dan menggunakan Airtable untuk menyimpan kiriman Galeri Komunitas. Setiap layanan beroperasi berdasarkan kebijakan privasi dan praktik penanganan datanya masing-masing. Kami menyarankan untuk meninjaunya secara independen:"
+          "Orxis di-deploy di Vercel dan menggunakan Airtable untuk menyimpan pengiriman Community Gallery. Setiap layanan beroperasi berdasarkan kebijakan privasi dan praktik penanganan datanya masing-masing. Kami sarankan Anda meninjaunya secara independen:"
         ],
         "list": [
-          "Kebijakan Privasi Vercel — vercel.com/legal/privacy-policy",
-          "Kebijakan Privasi Airtable — airtable.com/privacy"
+          "Vercel Privacy Policy — vercel.com/legal/privacy-policy",
+          "Airtable Privacy Policy — airtable.com/privacy"
         ]
       },
       {
         "heading": "7. Keamanan Data",
         "paragraphs": [
-          "Kami mengikuti praktik standar untuk mengamankan data yang kami tangani. Namun demikian, tidak ada sistem yang terhubung ke internet yang dapat dijamin aman sepenuhnya. Kami menyarankan untuk tidak mengirimkan apa pun yang sensitif atau rahasia ke Galeri Komunitas."
+          "Kami mengikuti praktik standar untuk mengamankan data yang kami tangani. Namun demikian, tidak ada sistem yang terhubung ke internet yang dapat dijamin sepenuhnya aman. Kami menyarankan untuk tidak mengirimkan apa pun yang sensitif atau rahasia ke Community Gallery."
         ]
       },
       {
         "heading": "8. Perubahan pada Kebijakan Ini",
         "paragraphs": [
-          "Kami dapat memperbarui kebijakan ini seiring berkembangnya aplikasi. Perubahan signifikan akan tercermin dalam tanggal \"Pembaruan Terakhir\" di bagian atas halaman ini. Terus menggunakan Orxis setelah perubahan dipublikasikan merupakan bentuk penerimaan atas kebijakan yang direvisi."
+          "Kami dapat memperbarui kebijakan ini seiring berkembangnya aplikasi. Perubahan yang signifikan akan tercermin dalam tanggal \"Terakhir Diperbarui\" di bagian atas halaman ini. Penggunaan Orxis yang berkelanjutan setelah perubahan diposting merupakan persetujuan Anda terhadap kebijakan yang direvisi."
         ]
       },
       {
         "heading": "9. Kontak",
         "paragraphs": [
-          "Untuk pertanyaan atau masalah terkait kebijakan ini, hubungi kami di <1>orxis.app@gmail.com</1>."
+          "Untuk pertanyaan atau kekhawatiran mengenai kebijakan ini, hubungi kami di <1>orxis.app@gmail.com</1>."
         ]
       }
     ],
@@ -161,90 +161,90 @@
   },
   "license": {
     "title": "Lisensi & Hak Cipta",
-    "lastUpdated": "13 Juli 2026",
+    "lastUpdated": "July 13, 2026",
     "intro": [
-      "Halaman ini mengklarifikasi apa yang menjadi milik kami, apa yang menjadi milikmu, dan apa yang tercakup oleh lisensi sumber terbuka dari pustaka yang kami gunakan untuk membangun. Versi singkatnya: aplikasi ini milik Orxis; prompt yang kamu hasilkan sepenuhnya milikmu.",
-      "Orxis dirilis di bawah <1>Lisensi Non-Komersial Eksklusif</1> kustom. Kamu dipersilakan untuk mengkloning dan menjalankannya secara lokal untuk tujuan pribadi atau pendidikan, tetapi penggunaan komersial, redistribusi, dan pelabelan putih dilarang keras tanpa izin tertulis sebelumnya."
+      "Halaman ini mengklarifikasi apa yang menjadi milik kami, apa yang menjadi milik Anda, dan apa yang dicakup oleh lisensi sumber terbuka dari pustaka yang kami gunakan. Singkatnya: aplikasi ini milik Orxis; perintah yang Anda hasilkan sepenuhnya milik Anda.",
+      "Orxis dirilis di bawah <1>Lisensi Non-Komersial Eksklusif</1> khusus. Anda dipersilakan untuk menggandakan (clone) dan menjalankannya secara lokal untuk tujuan pribadi atau pendidikan, namun penggunaan komersial, redistribusi, dan pelabelan putih sangat dilarang tanpa izin tertulis sebelumnya."
     ],
     "sections": [
       {
-        "heading": "1. Lisensi Aplikasi (Eksklusif)",
+        "heading": "1. Lisensi Aplikasi (Hak Milik)",
         "paragraphs": [
-          "Aplikasi Orxis — termasuk kode sumber, komponen UI, sistem desain, kerangka pembuatan prompt enam bagian, aset merek, dan semua kekayaan intelektual terkait — adalah eksklusif dan dimiliki oleh Orxis.",
-          "Tidak ada bagian dari aplikasi yang boleh disalin, direproduksi, didistribusikan, dimodifikasi, disebarkan secara komersial, atau digunakan sebagai dasar untuk layanan turunan atau pesaing tanpa izin tertulis sebelumnya dari Orxis. Syarat lengkapnya ditetapkan dalam file <1>LICENSE</1> di repositori."
+          "Aplikasi Orxis — termasuk kode sumbernya, komponen UI, sistem desain, kerangka kerja pembuatan perintah enam bagian, aset merek, dan semua kekayaan intelektual yang terkait — adalah hak milik dan dimiliki oleh Orxis.",
+          "Tidak ada bagian dari aplikasi yang boleh disalin, direproduksi, didistribusikan, dimodifikasi, disebarkan secara komersial, atau digunakan sebagai dasar untuk layanan turunan atau layanan pesaing tanpa izin tertulis sebelumnya dari Orxis. Ketentuan lengkap ditetapkan dalam file <1>LICENSE</1> di repositori."
         ]
       },
       {
-        "heading": "2. Apa yang Boleh Kamu Lakukan",
+        "heading": "2. Apa yang Boleh Anda Lakukan",
         "paragraphs": [
-          "Penggunaan berikut secara eksplisit diizinkan di bawah lisensi ini, tanpa biaya dan tanpa memerlukan izin sebelumnya:"
+          "Penggunaan berikut ini secara tegas diizinkan berdasarkan lisensi ini, bebas biaya dan tanpa memerlukan izin sebelumnya:"
         ],
         "list": [
-          "Mengkloning atau mengunduh repositori untuk penggunaan lokal dan pribadi",
-          "Membaca dan mempelajari kode sumber untuk tujuan pendidikan atau tinjauan portofolio",
-          "Menjalankan aplikasi secara lokal di perangkat kerasmu sendiri untuk eksperimen pribadi",
-          "Menggunakan, menjual, atau menerbitkan prompt dan instruksi apa pun yang kamu hasilkan dengan Orxis — dengan bebas, tanpa memerlukan atribusi"
+          "Menggandakan atau mengunduh repositori untuk penggunaan pribadi secara lokal",
+          "Membaca dan mempelajari kode sumber untuk tujuan pendidikan atau peninjauan portofolio",
+          "Menjalankan aplikasi secara lokal di perangkat keras Anda sendiri untuk eksperimen pribadi",
+          "Menggunakan, menjual, atau menerbitkan perintah dan instruksi apa pun yang Anda hasilkan dengan Orxis — secara bebas, tanpa memerlukan atribusi"
         ]
       },
       {
-        "heading": "3. Apa yang Tidak Boleh Kamu Lakukan",
+        "heading": "3. Apa yang Tidak Boleh Anda Lakukan",
         "paragraphs": [
-          "Penggunaan berikut dilarang keras tanpa izin tertulis sebelumnya dari Orxis:"
+          "Penggunaan berikut ini sangat dilarang tanpa izin tertulis sebelumnya dari Orxis:"
         ],
         "list": [
-          "Menyebarkan, meng-host, atau mengoperasikan aplikasi — atau versi apa pun darinya — sebagai layanan publik atau komersial (SaaS, freemium, atau lainnya)",
-          "Melabeli putih, mengubah merek, atau menjual kembali aplikasi atau bagian substansial apa pun dari desain dan fungsinya sebagai produkmu sendiri",
-          "Mereproduksi atau mereplikasi secara substansial desain UI/UX aplikasi, arsitektur komponen, atau sistem desain visual dalam produk pesaing atau komersial",
-          "Mendistribusikan, mensublisensikan, atau menjual kode sumber aplikasi atau turunan apa pun darinya kepada pihak ketiga mana pun",
-          "Memodifikasi atau membuat karya turunan untuk penyebaran publik atau keuntungan komersial",
-          "Mendekompilasi, merekayasa balik, atau membongkar bagian mana pun dari aplikasi melebihi apa yang diizinkan secara tegas oleh hukum yang berlaku",
-          "Menghapus atau mengubah pemberitahuan kepemilikan, tanda hak cipta, atau merek",
-          "Menggunakan nama, logo, atau identitas merek Orxis dalam produk atau pemasaranmu sendiri tanpa izin tertulis",
-          "Mewakili prompt yang kamu hasilkan sebagai bersertifikat resmi, didukung, atau dijamin oleh Orxis"
+          "Mendeploy, meng-host, atau mengoperasikan aplikasi — atau versi apa pun darinya — sebagai layanan publik atau komersial (SaaS, freemium, atau lainnya)",
+          "Melabeli putih, mengubah citra merek (rebrand), atau menjual kembali aplikasi atau sebagian besar desain dan fungsinya sebagai produk Anda sendiri",
+          "Mereproduksi atau secara substansial mereplikasi desain UI/UX, arsitektur komponen, atau sistem desain visual aplikasi dalam produk pesaing atau produk komersial",
+          "Mendistribusikan, mensublisensikan, atau menjual kode sumber aplikasi atau turunannya kepada pihak ketiga mana pun",
+          "Memodifikasi atau membuat karya turunan untuk penerapan publik atau keuntungan komersial",
+          "Mendekompilasi, merekayasa balik, atau membongkar bagian mana pun dari aplikasi melebihi apa yang secara tegas diizinkan oleh hukum yang berlaku",
+          "Menghapus atau mengubah pemberitahuan hak kepemilikan, tanda hak cipta, atau merek",
+          "Menggunakan nama, logo, atau identitas merek Orxis dalam produk atau pemasaran Anda sendiri tanpa izin tertulis",
+          "Mewakilkan perintah yang Anda hasilkan seolah-olah disertifikasi, didukung, atau dijamin secara resmi oleh Orxis"
         ]
       },
       {
-        "heading": "4. Prompt yang Kamu Hasilkan",
+        "heading": "4. Perintah yang Anda Hasilkan",
         "paragraphs": [
-          "Prompt instruksi yang kamu buat menggunakan Orxis adalah milikmu — sepenuhnya dan tanpa batasan. Kami tidak mengajukan klaim kepemilikan atas konten yang kamu produksi. Kamu bebas menggunakan prompt yang dihasilkan dalam konteks apa pun — pribadi, profesional, atau komersial — tanpa memerlukan atribusi kepada Orxis.",
-          "Kebebasan ini berlaku terlepas dari apakah kamu menggunakan prompt dalam produk berbayar, hasil kerja klien, atau konten yang dimonetisasi. Satu-satunya batasan eksternal adalah kebijakan penggunaan dari penyedia model AI yang mendasarinya (mis., kebijakan OpenAI untuk GPT-4, kebijakan Google untuk Gemini).",
-          "Orxis menyediakan kerangka kerja pembuatan dan perkakas; hasil akhirnya adalah produk kerjamu."
+          "Perintah instruksi yang Anda buat menggunakan Orxis adalah milik Anda — sepenuhnya dan tanpa batasan. Kami tidak mengklaim kepemilikan atas konten yang Anda hasilkan. Anda bebas menggunakan perintah yang Anda hasilkan dalam konteks apa pun — pribadi, profesional, atau komersial — tanpa perlu memberikan atribusi kepada Orxis.",
+          "Kebebasan ini berlaku terlepas dari apakah Anda menggunakan perintah tersebut dalam produk berbayar, hasil kerja untuk klien, atau konten yang dimonetisasi. Satu-satunya batasan eksternal adalah kebijakan penggunaan penyedia model AI yang Anda gunakan bersamanya (misalnya, kebijakan OpenAI untuk GPT-4, kebijakan Google untuk Gemini).",
+          "Orxis menyediakan kerangka kerja dan perkakas untuk generasi perintah; hasil akhirnya adalah produk kerja Anda."
         ]
       },
       {
-        "heading": "5. Kiriman Galeri Komunitas",
+        "heading": "5. Pengiriman ke Community Gallery",
         "paragraphs": [
-          "Dengan secara sukarela mengirimkan prompt ke Galeri Komunitas, kamu memberi Orxis lisensi non-eksklusif, bebas royalti, dan di seluruh dunia untuk menampilkan dan mendistribusikan konten tersebut di dalam aplikasi dan materi promosi terkait. Kamu memegang kepenulisan penuh dan kepemilikan konten yang dikirimkan.",
-          "Kamu dapat meminta penghapusan kirimanmu dengan menghubungi kami di <1>orxis.app@gmail.com</1>. Kami akan memproses permintaan penghapusan dalam jangka waktu yang wajar."
+          "Dengan secara sukarela mengirimkan perintah ke Community Gallery, Anda memberi Orxis lisensi non-eksklusif, bebas royalti, dan mendunia untuk menampilkan dan mendistribusikan konten tersebut di dalam aplikasi dan materi promosi terkait. Anda memegang penuh hak cipta dan kepemilikan atas konten yang dikirimkan.",
+          "Anda dapat meminta penghapusan kiriman Anda dengan menghubungi kami di <1>orxis.app@gmail.com</1>. Kami akan memproses permintaan penghapusan dalam jangka waktu yang wajar."
         ]
       },
       {
-        "heading": "6. Ketergantungan Sumber Terbuka",
+        "heading": "6. Ketergantungan Sumber Terbuka (Open-Source)",
         "paragraphs": [
           "Orxis dibangun menggunakan perangkat lunak sumber terbuka. Setiap pustaka digunakan sesuai dengan lisensinya masing-masing. Ketergantungan utama kami meliputi:"
         ],
         "list": [
-          "Next.js — Lisensi MIT (Vercel, Inc.)",
-          "Tailwind CSS — Lisensi MIT (Tailwind Labs, Inc.)",
-          "Framer Motion — Lisensi MIT (Framer B.V.)",
-          "Lucide Icons — Lisensi ISC (Kontributor Lucide)",
-          "React — Lisensi MIT (Meta Platforms, Inc.)"
+          "Next.js — MIT License (Vercel, Inc.)",
+          "Tailwind CSS — MIT License (Tailwind Labs, Inc.)",
+          "Framer Motion — MIT License (Framer B.V.)",
+          "Lucide Icons — ISC License (Lucide Contributors)",
+          "React — MIT License (Meta Platforms, Inc.)"
         ],
-        "afterList": "Penggunaan pustaka ini di dalam Orxis tidak memperluas hak lisensi sumber terbuka apa pun ke aplikasi Orxis itu sendiri. Lisensi MIT atau lisensi lainnya hanya berlaku untuk pustaka masing-masing, bukan untuk kode aplikasi kami."
+        "afterList": "Penggunaan pustaka ini dalam Orxis tidak memperluas hak lisensi sumber terbuka ke aplikasi Orxis itu sendiri. Lisensi MIT atau lisensi lainnya hanya berlaku untuk masing-masing pustaka, bukan untuk kode aplikasi kami."
       },
       {
         "heading": "7. Pemberitahuan Hak Cipta",
         "paragraphs": [
-          "© 2026 Orxis. Hak cipta dilindungi undang-undang. Reproduksi atau distribusi yang tidak sah dari aplikasi ini atau sebagian darinya dapat mengakibatkan hukuman perdata dan pidana, dan akan dituntut sejauh diizinkan oleh hukum."
+          "© 2026 Orxis. Hak Cipta Dilindungi Undang-Undang. Reproduksi atau distribusi yang tidak sah dari aplikasi ini atau bagian mana pun darinya dapat mengakibatkan hukuman perdata dan pidana, dan akan dituntut sejauh yang diizinkan oleh hukum."
         ]
       },
       {
         "heading": "8. Kontak",
         "paragraphs": [
-          "Untuk pertanyaan tentang lisensi, permintaan kemitraan, atau untuk melaporkan dugaan pelanggaran, hubungi kami di <1>orxis.app@gmail.com</1>."
+          "Untuk pertanyaan mengenai lisensi, permintaan kemitraan, atau melaporkan dugaan pelanggaran, hubungi kami di <1>orxis.app@gmail.com</1>."
         ]
       }
     ],
-    "footerNote": "Diatur oleh hukum Thailand. Halaman ini bukan merupakan nasihat hukum. Konsultasikan dengan ahli hukum yang berkualifikasi untuk mendapatkan nasihat khusus terkait situasimu."
+    "footerNote": "Diatur oleh hukum Thailand. Halaman ini bukan merupakan nasihat hukum. Konsultasikan dengan profesional hukum yang berkualifikasi untuk mendapatkan nasihat spesifik sesuai situasi Anda."
   }
 }
