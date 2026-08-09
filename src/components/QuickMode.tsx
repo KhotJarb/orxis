@@ -392,21 +392,26 @@ export default function QuickMode({ onGenerate }: QuickModeProps) {
               variants={itemVariants}
               className="flex items-center justify-between mt-6"
             >
-              <button
+              <motion.button
                 onClick={handleSubmitAnswers}
-                className="px-6 py-3 rounded-xl text-white/70 hover:text-white hover:bg-white/[0.05] transition-all text-sm font-medium border border-white/10 hover:border-white/20"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-slate-400 hover:text-white border border-glass-border hover:bg-white/5 transition-all duration-300 cursor-pointer"
               >
                 Generate anyway
-              </button>
+              </motion.button>
               
-              <button
+              <motion.button
                 onClick={handleSubmitAnswers}
-                className="glow-btn px-6 py-3 rounded-xl text-white font-medium flex items-center gap-2 bg-gradient-to-r from-[#8A2BE2] to-[#00F0FF] shadow-[0_0_20px_rgba(138,43,226,0.4)]"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className="glow-btn group inline-flex items-center gap-2.5 rounded-full px-8 py-3 text-sm font-semibold text-white cursor-pointer transition-all duration-300"
               >
-                <Sparkles size={18} />
-                <span>Generate</span>
-              </button>
+                <Sparkles size={18} className="transition-transform duration-300 group-hover:rotate-12" />
+                Generate
+              </motion.button>
             </motion.div>
+
           </motion.div>
         )}
       </AnimatePresence>
