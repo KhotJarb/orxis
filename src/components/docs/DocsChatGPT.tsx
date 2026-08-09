@@ -8,14 +8,17 @@ import Callout, {
 } from "@/components/docs/DocsComponents";
 import Link from "next/link";
 
+import { useT } from "@/i18n";
+
 export default function DocsChatGPT() {
+  const t = useT("docs");
   return (
     <article className="docs-prose w-full max-w-3xl">
 
       {/* ── Page badge ───────────────────────────────────────────── */}
       <div className="mb-3 flex items-center gap-2">
         <span className="rounded-full border border-neon-purple/30 bg-neon-purple/10 px-3 py-0.5 text-xs font-semibold text-neon-purple-light">
-          Platform Guides
+          {t("chatgpt.badge")}
         </span>
         <span className="text-slate-700">/</span>
         <span className="text-xs text-slate-500">ChatGPT</span>
@@ -23,24 +26,12 @@ export default function DocsChatGPT() {
 
       {/* ── H1 ───────────────────────────────────────────────────── */}
       <h1 id="chatgpt" className="scroll-mt-24">
-        Using Instructions with ChatGPT
+        {t("chatgpt.title")}
       </h1>
 
+      <p>{t("chatgpt.introPara1")}</p>
       <p>
-        ChatGPT — especially <strong>GPT-4o</strong> — is purpose-built for
-        deep persona adoption. OpenAI&apos;s RLHF (Reinforcement Learning from
-        Human Feedback) fine-tuning process trains the model to hold its
-        assigned role with strong consistency, even across{" "}
-        <strong>longer conversations</strong>. When you inject a well-crafted
-        Master Instruction, GPT-4o follows the persona closely. The{" "}
-        <InlineCode>Role &amp; Identity</InlineCode> section (Section 1) of your
-        generated instruction is where ChatGPT derives the most value.
-      </p>
-      <p>
-        This guide covers every method available for deploying your custom
-        instruction in ChatGPT: the native Custom Instructions UI, Projects, and
-        the OpenAI API — so you can choose the workflow that best fits your use
-        case.
+        {t("chatgpt.introPara2")}
       </p>
 
       <SectionDivider />

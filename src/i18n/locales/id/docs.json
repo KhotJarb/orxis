@@ -85,5 +85,11 @@
     "title": "Di halaman ini",
     "helpful": "Apakah ini membantu?",
     "improve": "Bantu kami meningkatkan dokumen."
+  },
+  "chatgpt": {
+    "badge": "Panduan Platform",
+    "title": "Menggunakan Instruksi dengan ChatGPT",
+    "introPara1": "ChatGPT — khususnya <strong>GPT-4o</strong> — dibuat khusus untuk adopsi persona yang mendalam. Proses penyempurnaan RLHF (Reinforcement Learning from Human Feedback) dari OpenAI melatih model untuk memegang peran yang ditugaskan dengan konsistensi yang kuat, bahkan di seluruh <strong>percakapan yang lebih lama</strong>. Saat Anda memasukkan Master Instruction yang dirancang dengan baik, GPT-4o akan mengikuti persona tersebut dengan cermat. Bagian <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> (Bagian 1) dari instruksi yang Anda hasilkan adalah tempat ChatGPT memperoleh nilai paling banyak.",
+    "introPara2": "Panduan ini mencakup setiap metode yang tersedia untuk menerapkan instruksi khusus Anda di ChatGPT: UI Instruksi Khusus asli, Proyek, dan API OpenAI — sehingga Anda dapat memilih alur kerja yang paling sesuai dengan kasus penggunaan Anda."
   }
 }

@@ -85,5 +85,11 @@
     "title": "이 페이지 내용",
     "helpful": "도움이 되셨나요?",
     "improve": "문서 개선에 도움을 주세요."
+  },
+  "chatgpt": {
+    "badge": "플랫폼 가이드",
+    "title": "ChatGPT와 함께 지침 사용",
+    "introPara1": "ChatGPT — 특히 <strong>GPT-4o</strong> —는 깊은 페르소나 채택을 목적으로 구축되었습니다. OpenAI의 RLHF(인간 피드백을 통한 강화 학습) 미세 조정 프로세스는 <strong>더 긴 대화</strong>에서도 지정된 역할을 강력한 일관성으로 유지하도록 모델을 훈련시킵니다. 잘 만들어진 마스터 지침을 주입하면 GPT-4o는 페르소나를 밀접하게 따릅니다. 생성된 지침의 <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> 섹션(섹션 1)은 ChatGPT가 가장 많은 가치를 도출하는 곳입니다.",
+    "introPara2": "이 가이드는 기본 사용자 지정 지침 UI, 프로젝트 및 OpenAI API와 같이 ChatGPT에서 사용자 지정 지침을 배포하는 데 사용할 수 있는 모든 방법을 다루므로 사용 사례에 가장 적합한 워크플로를 선택할 수 있습니다."
   }
 }

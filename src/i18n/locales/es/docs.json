@@ -85,5 +85,11 @@
     "title": "En esta página",
     "helpful": "¿Fue útil esto?",
     "improve": "Ayúdanos a mejorar la documentación."
+  },
+  "chatgpt": {
+    "badge": "Guías de plataforma",
+    "title": "Uso de instrucciones con ChatGPT",
+    "introPara1": "ChatGPT, especialmente <strong>GPT-4o</strong>, está diseñado específicamente para una adopción profunda de personajes. El proceso de ajuste fino RLHF (Aprendizaje por refuerzo a partir de retroalimentación humana) de OpenAI entrena al modelo para mantener su papel asignado con gran consistencia, incluso en <strong>conversaciones más largas</strong>. Cuando inyectas una Instrucción Maestra bien elaborada, GPT-4o sigue de cerca al personaje. La sección <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> (Sección 1) de la instrucción generada es de donde ChatGPT obtiene el mayor valor.",
+    "introPara2": "Esta guía cubre todos los métodos disponibles para implementar su instrucción personalizada en ChatGPT: la interfaz de usuario nativa de Instrucciones personalizadas, Proyectos y la API de OpenAI, para que pueda elegir el flujo de trabajo que mejor se adapte a su caso de uso."
   }
 }

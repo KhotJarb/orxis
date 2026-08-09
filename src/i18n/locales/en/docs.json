@@ -47,9 +47,9 @@
     "proTip": "Pro Tip",
     "next": "Next",
     "nextPlatformGuides": "Platform Guides — ChatGPT →",
-    "introPara1": "<strong className=\"text-slate-200\">Orxis</strong> is a precision-engineered tool that transforms vague AI interactions into domain-specific expert systems. Instead of starting every conversation from scratch, you define the AI's identity, mission, and constraints — once — and every response thereafter is shaped by that foundation.",
+    "introPara1": "Orxis is a precision-engineered tool that transforms vague AI interactions into domain-specific expert systems. Instead of starting every conversation from scratch, you define the AI’s identity, mission, and constraints — once — and every response thereafter is shaped by that foundation.",
     "beforeYouBeginText": "This documentation assumes you have a basic understanding of Large Language Models (LLMs) such as ChatGPT, Claude, or Gemini. If you're new to AI tools entirely, start with our ",
-    "whatAreCIsPara1": "Custom Instructions (CIs) are persistent system-level directives that you inject into an LLM <em>before</em> any conversation begins. Think of them as the AI's job description, operating manual, and personality profile — all in one document.",
+    "whatAreCIsPara1": "Custom Instructions (CIs) are persistent system-level directives that you inject into an LLM before any conversation begins. Think of them as the AI’s job description, operating manual, and personality profile — all in one document.",
     "whatAreCIsPara2": "Without a CI, an LLM like ChatGPT behaves as a generic assistant — helpful but unfocused. With a well-crafted CI, that same model transforms into a dedicated expert that:"
   },
   "components": {
@@ -85,5 +85,11 @@
     "title": "On this page",
     "helpful": "Was this helpful?",
     "improve": "Help us improve the docs."
+  },
+  "chatgpt": {
+    "badge": "Platform Guides",
+    "title": "Using Instructions with ChatGPT",
+    "introPara1": "This guide covers setting up your Orxis-generated instruction in ChatGPT, including both the System Prompt method (via API or the Playground) and the Custom Instructions feature available to ChatGPT Plus subscribers.",
+    "introPara2": "This guide covers every method available for deploying your custom instruction in ChatGPT: the native Custom Instructions UI, Projects, and the OpenAI API — so you can choose the workflow that best fits your use case."
   }
 }

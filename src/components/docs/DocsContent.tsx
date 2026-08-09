@@ -46,10 +46,9 @@ export default function DocsContent({
         <h1 className="mb-4 text-4xl font-bold tracking-tight text-white">
           {t("content.title")}
         </h1>
-        <p
-          className="mb-6 text-lg leading-relaxed text-slate-400"
-          dangerouslySetInnerHTML={{ __html: t("content.introPara1") }}
-        />
+        <p className="mb-6 text-lg leading-relaxed text-slate-400">
+          {t("content.introPara1")}
+        </p>
 
         <Callout variant="important" title={t("content.beforeYouBegin")}>
           {t("content.beforeYouBeginText")}
@@ -63,10 +62,9 @@ export default function DocsContent({
         <h2 id="what-are-custom-instructions" className="scroll-mt-24 mt-10 mb-4 text-2xl font-bold text-white border-b border-glass-border pb-3">
           {t("content.whatAreCIs")}
         </h2>
-        <p
-          className="mb-4 text-slate-400 leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: t("content.whatAreCIsPara1") }}
-        />
+        <p className="mb-4 text-slate-400 leading-relaxed">
+          {t("content.whatAreCIsPara1")}
+        </p>
         <p className="mb-4 text-slate-400 leading-relaxed">
           {t("content.whatAreCIsPara2")}
         </p>

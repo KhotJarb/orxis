@@ -28,7 +28,7 @@ def update_json(locale, new_data):
         f.write('\n')
 
 if __name__ == '__main__':
-    with open('scratch/updates.json', 'r', encoding='utf-8') as f:
+    with open('scratch/updates_chatgpt.json', 'r', encoding='utf-8') as f:
         updates = json.load(f)
     for loc, data in updates.items():
         update_json(loc, data)

@@ -85,5 +85,11 @@
     "title": "本页内容",
     "helpful": "这对您有帮助吗？",
     "improve": "帮助我们改进文档。"
+  },
+  "chatgpt": {
+    "badge": "平台指南",
+    "title": "在 ChatGPT 中使用指令",
+    "introPara1": "ChatGPT —— 尤其是 <strong>GPT-4o</strong> —— 是专门为深度角色采纳而构建的。OpenAI 的 RLHF（基于人类反馈的强化学习）微调过程训练该模型以高度一致性保持其分配的角色，即使在<strong>较长的对话</strong>中也是如此。当您注入精心设计的 Master Instruction 时，GPT-4o 会紧密地遵循该角色。您生成的指令中的 <code class=\"rounded bg-slate-800 px-1.5 py-0.5 font-mono text-[0.85em]\">Role &amp; Identity</code> 部分（第 1 部分）是 ChatGPT 获取最大价值的地方。",
+    "introPara2": "本指南涵盖了在 ChatGPT 中部署自定义指令的所有可用方法：原生的自定义指令 UI、项目（Projects）和 OpenAI API —— 这样您就可以选择最适合您的用例的工作流程。"
   }
 }
