@@ -224,38 +224,61 @@
       "legal": "Legal & Transparency",
       "documentation": "Documentation"
     },
-    "releases": {
-      "v0.1.0": {
+    "releases": [
+      {
+        "version": "v0.1.0",
+        "date": "July 13, 2026",
+        "tag": "Initial Release",
         "overview": "This release establishes the foundational platform architecture, design system, and all core user-facing features. Orxis operates entirely in the browser — no accounts, no API keys, and no data leaves the device.",
-        "items": {
-          "features": [
-            "Launched the core Orxis instruction generator. The entire generation pipeline runs client-side — no server processes your input, and no credentials are required to use the tool.",
-            "Introduced a six-section instruction architecture — Role & Identity, Mission, Cognitive Loop, Context & Input, Boundaries & Execution Rules, and Output Formatting — that produces structured, paste-ready system prompts.",
-            "Built the Output Studio: a dedicated interface for reviewing, copying, and inspecting the generated instruction by section. Includes a live character count.",
-            "Added a Before/After comparison on the landing page, demonstrating the practical difference between an unstructured and a structured AI response to the same prompt.",
-            "Added a Prompt Gallery at /gallery for browsing and referencing instruction templates contributed by the community.",
-            "Published a Use Cases section covering practical workflows for software developers, content creators, and prompt engineers."
-          ],
-          "design": [
-            "Introduced the Orxis visual identity: a custom logo mark, a Periwinkle-to-Violet gradient accent system, and a dark-first interface designed for extended use sessions.",
-            "Applied a consistent theming system across every page, ensuring coherent colour, spacing, and typography throughout the product.",
-            "Card and surface elements use a glassmorphism treatment — frosted depth layers, subtle borders, and neon accent highlights on interaction states — to maintain clear visual hierarchy."
-          ],
-          "platform": [
-            "The app is installable directly from your browser as a Progressive Web App on supported desktop and mobile devices — no app store required.",
-            "Added a Settings page with a structured layout, ready to expand as new configuration options are introduced in future updates."
-          ],
-          "legal": [
-            "Published Privacy Policy, Terms of Service, and License pages — each accessible from the site footer.",
-            "The Privacy Policy documents our local-first data model: your inputs are processed entirely within the browser session and are never transmitted to or stored on external servers.",
-            "The Terms of Service defines acceptable use in plain, specific language. The License page clarifies usage rights for the platform and for prompts you generate."
-          ],
-          "documentation": [
-            "Launched the Orxis documentation hub at /docs, covering a quick-start guide and a detailed reference for each of the six instruction sections.",
-            "Published per-model integration guides for ChatGPT, Claude, and Gemini, covering recommended setup methods and platform-specific behaviours relevant to structured instruction use."
-          ]
-        }
+        "categories": [
+          {
+            "labelKey": "Features",
+            "label": "Features",
+            "items": [
+              "Launched the core Orxis instruction generator. The entire generation pipeline runs client-side — no server processes your input, and no credentials are required to use the tool.",
+              "Introduced a six-section instruction architecture — Role & Identity, Mission, Cognitive Loop, Context & Input, Boundaries & Execution Rules, and Output Formatting — that produces structured, paste-ready system prompts.",
+              "Built the Output Studio: a dedicated interface for reviewing, copying, and inspecting the generated instruction by section. Includes a live character count.",
+              "Added a Before/After comparison on the landing page, demonstrating the practical difference between an unstructured and a structured AI response to the same prompt.",
+              "Added a Prompt Gallery at /gallery for browsing and referencing instruction templates contributed by the community.",
+              "Published a Use Cases section covering practical workflows for software developers, content creators, and prompt engineers."
+            ]
+          },
+          {
+            "labelKey": "Design",
+            "label": "Design",
+            "items": [
+              "Introduced the Orxis visual identity: a custom logo mark, a Periwinkle-to-Violet gradient accent system, and a dark-first interface designed for extended use sessions.",
+              "Applied a consistent theming system across every page, ensuring coherent colour, spacing, and typography throughout the product.",
+              "Card and surface elements use a glassmorphism treatment — frosted depth layers, subtle borders, and neon accent highlights on interaction states — to maintain clear visual hierarchy."
+            ]
+          },
+          {
+            "labelKey": "Platform",
+            "label": "Platform",
+            "items": [
+              "The app is installable directly from your browser as a Progressive Web App on supported desktop and mobile devices — no app store required.",
+              "Added a Settings page with a structured layout, ready to expand as new configuration options are introduced in future updates."
+            ]
+          },
+          {
+            "labelKey": "Legal & Transparency",
+            "label": "Legal & Transparency",
+            "items": [
+              "Published Privacy Policy, Terms of Service, and License pages — each accessible from the site footer.",
+              "The Privacy Policy documents our local-first data model: your inputs are processed entirely within the browser session and are never transmitted to or stored on external servers.",
+              "The Terms of Service defines acceptable use in plain, specific language. The License page clarifies usage rights for the platform and for prompts you generate."
+            ]
+          },
+          {
+            "labelKey": "Documentation",
+            "label": "Documentation",
+            "items": [
+              "Launched the Orxis documentation hub at /docs, covering a quick-start guide and a detailed reference for each of the six instruction sections.",
+              "Published per-model integration guides for ChatGPT, Claude, and Gemini, covering recommended setup methods and platform-specific behaviours relevant to structured instruction use."
+            ]
+          }
+        ]
       }
-    }
+    ]
   }
 }

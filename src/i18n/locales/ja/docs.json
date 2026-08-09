@@ -46,7 +46,11 @@
     "cognitiveLoop": "認知ループ",
     "proTip": "プロのヒント",
     "next": "次へ",
-    "nextPlatformGuides": "プラットフォームガイド — ChatGPT →"
+    "nextPlatformGuides": "プラットフォームガイド — ChatGPT →",
+    "introPara1": "<strong className=\"text-slate-200\">Orxis</strong> は、曖昧な AI との対話を特定分野のエキスパートシステムへと変換する、精密に設計されたツールです。毎回の会話をゼロから始める代わりに、AI のアイデンティティ、ミッション、および制約を一度定義するだけで、その後のすべての応答がその基盤によって形成されます。",
+    "beforeYouBeginText": "このドキュメントは、ChatGPT、Claude、Gemini などの大規模言語モデル (LLM) についての基本的な理解があることを前提としています。AI ツールを初めて使用する場合は、次のセクションから始めてください ",
+    "whatAreCIsPara1": "カスタム指示 (CI) は、会話が始まる <em>前</em> に LLM に注入する、永続的なシステムレベルのディレクティブです。AI の職務記述書、操作マニュアル、および性格プロファイルを 1 つのドキュメントにまとめたものだと考えてください。",
+    "whatAreCIsPara2": "CI がなければ、ChatGPT のような LLM は一般的なアシスタントとして機能します。役に立ちますが、焦点が絞られていません。よく練られた CI を使用すると、同じモデルが次のような専任のエキスパートに変わります："
   },
   "components": {
     "callout": {

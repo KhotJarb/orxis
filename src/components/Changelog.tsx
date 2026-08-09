@@ -1,14 +1,37 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useT } from "@/i18n";
+import { useT, useLanguage } from "@/i18n";
 
-type CategoryEntry = { label: string; accent: string; dot: string; items: string[] };
+const CATEGORY_STYLES: Record<string, { accent: string; dot: string }> = {
+  Features: { accent: "text-neon-cyan bg-neon-cyan/10 border border-neon-cyan/20", dot: "bg-neon-cyan/60" },
+  Design: { accent: "text-neon-purple bg-neon-purple/10 border border-neon-purple/20", dot: "bg-neon-purple/60" },
+  Platform: { accent: "text-emerald-400 bg-emerald-500/10 border border-emerald-500/20", dot: "bg-emerald-400/60" },
+  "Legal & Transparency": { accent: "text-amber-400 bg-amber-500/10 border border-amber-500/20", dot: "bg-amber-400/60" },
+  Documentation: { accent: "text-blue-400 bg-blue-500/10 border border-blue-500/20", dot: "bg-blue-400/60" },
+};
+
+type CategoryEntry = { labelKey: string; label: string; items: string[] };
 type Release = { version: string; date: string; tag: string; overview: string; categories: CategoryEntry[] };
 
-export default function Changelog({ releases }: { releases: Release[] }) {
+export default function Changelog() {
   const t = useT("pages");
+  const { locale } = useLanguage();
+  const [releases, setReleases] = useState<Release[]>([]);
+
+  useEffect(() => {
+    import(`@/i18n/locales/${locale}/pages.json`)
+      .then((mod) => {
+        setReleases(mod.default?.changelog?.releases || mod.changelog?.releases || []);
+      })
+      .catch(() => {
+        import(`@/i18n/locales/en/pages.json`).then((mod) => {
+          setReleases(mod.default?.changelog?.releases || mod.changelog?.releases || []);
+        });
+      });
+  }, [locale]);
 
   return (
     <main className="relative min-h-screen bg-[#030014]">
@@ -49,24 +72,19 @@ export default function Changelog({ releases }: { releases: Release[] }) {
                 </p>
                 <div className="space-y-9">
                   {release.categories.map((cat) => {
-                    const catKey = cat.label === "Features" ? "features" :
-                                   cat.label === "Design" ? "design" :
-                                   cat.label === "Platform" ? "platform" :
-                                   cat.label === "Legal & Transparency" ? "legal" :
-                                   cat.label === "Documentation" ? "documentation" : cat.label;
-                    const translatedLabel = t(`changelog.categories.${catKey}`) || cat.label;
+                    const styles = CATEGORY_STYLES[cat.labelKey] || CATEGORY_STYLES["Features"];
 
                     return (
-                    <section key={cat.label}>
+                    <section key={cat.labelKey}>
                       <div className="mb-4">
-                        <span className={`inline-flex items-center rounded-md px-2.5 py-[3px] text-[10.5px] font-semibold uppercase tracking-[0.1em] ${cat.accent}`}>
-                          {translatedLabel}
+                        <span className={`inline-flex items-center rounded-md px-2.5 py-[3px] text-[10.5px] font-semibold uppercase tracking-[0.1em] ${styles.accent}`}>
+                          {cat.label}
                         </span>
                       </div>
                       <ul className="space-y-[11px]">
                         {cat.items.map((item, i) => (
                           <li key={i} className="flex gap-[11px] text-[13.5px] leading-relaxed text-[var(--text-muted)]">
-                            <span className={`mt-[7px] h-[5px] w-[5px] shrink-0 rounded-full ${cat.dot}`} />
+                            <span className={`mt-[7px] h-[5px] w-[5px] shrink-0 rounded-full ${styles.dot}`} />
                             <span>{item}</span>
                           </li>
                         ))}

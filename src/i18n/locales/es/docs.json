@@ -46,7 +46,11 @@
     "cognitiveLoop": "El bucle cognitivo",
     "proTip": "Consejo pro",
     "next": "Siguiente",
-    "nextPlatformGuides": "Guías de Plataforma — ChatGPT →"
+    "nextPlatformGuides": "Guías de Plataforma — ChatGPT →",
+    "introPara1": "<strong className=\"text-slate-200\">Orxis</strong> es una herramienta de precisión que transforma interacciones vagas con IA en sistemas expertos de dominios específicos. En lugar de comenzar cada conversación desde cero, defines la identidad, la misión y las limitaciones de la IA una sola vez, y cada respuesta a partir de entonces es moldeada por esa base.",
+    "beforeYouBeginText": "Esta documentación asume que tienes un conocimiento básico de los Modelos de Lenguaje Grande (LLMs) como ChatGPT, Claude o Gemini. Si eres completamente nuevo en las herramientas de IA, comienza con nuestro ",
+    "whatAreCIsPara1": "Las Instrucciones Personalizadas (CIs) son directivas persistentes a nivel de sistema que inyectas en un LLM <em>antes</em> de que comience cualquier conversación. Piensa en ellas como la descripción del trabajo, el manual de operaciones y el perfil de personalidad de la IA, todo en un solo documento.",
+    "whatAreCIsPara2": "Sin una CI, un LLM como ChatGPT actúa como un asistente genérico: útil pero sin enfoque. Con una CI bien diseñada, ese mismo modelo se transforma en un experto dedicado que:"
   },
   "components": {
     "callout": {

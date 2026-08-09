@@ -46,7 +46,11 @@
     "cognitiveLoop": "Siklus Kognitif",
     "proTip": "Kiat Pro",
     "next": "Selanjutnya",
-    "nextPlatformGuides": "Panduan Platform — ChatGPT →"
+    "nextPlatformGuides": "Panduan Platform — ChatGPT →",
+    "introPara1": "<strong className=\"text-slate-200\">Orxis</strong> adalah alat presisi tinggi yang mengubah interaksi AI yang samar menjadi sistem pakar khusus domain. Daripada memulai setiap percakapan dari awal, Anda mendefinisikan identitas, misi, dan batasan AI — sekali saja — dan setiap respons setelahnya akan dibentuk oleh dasar tersebut.",
+    "beforeYouBeginText": "Dokumentasi ini mengasumsikan Anda memiliki pemahaman dasar tentang Large Language Models (LLMs) seperti ChatGPT, Claude, atau Gemini. Jika Anda benar-benar baru menggunakan alat AI, mulailah dengan ",
+    "whatAreCIsPara1": "Custom Instructions (CIs) adalah arahan tingkat sistem yang persisten yang Anda suntikkan ke dalam LLM <em>sebelum</em> percakapan apa pun dimulai. Anggap saja sebagai deskripsi pekerjaan, manual operasi, dan profil kepribadian AI — semuanya dalam satu dokumen.",
+    "whatAreCIsPara2": "Tanpa CI, LLM seperti ChatGPT bertindak sebagai asisten generik — membantu namun tidak fokus. Dengan CI yang dirancang dengan baik, model yang sama tersebut berubah menjadi pakar berdedikasi yang:"
   },
   "components": {
     "callout": {

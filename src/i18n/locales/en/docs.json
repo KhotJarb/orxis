@@ -46,7 +46,11 @@
     "cognitiveLoop": "The Cognitive Loop",
     "proTip": "Pro Tip",
     "next": "Next",
-    "nextPlatformGuides": "Platform Guides — ChatGPT →"
+    "nextPlatformGuides": "Platform Guides — ChatGPT →",
+    "introPara1": "<strong className=\"text-slate-200\">Orxis</strong> is a precision-engineered tool that transforms vague AI interactions into domain-specific expert systems. Instead of starting every conversation from scratch, you define the AI's identity, mission, and constraints — once — and every response thereafter is shaped by that foundation.",
+    "beforeYouBeginText": "This documentation assumes you have a basic understanding of Large Language Models (LLMs) such as ChatGPT, Claude, or Gemini. If you're new to AI tools entirely, start with our ",
+    "whatAreCIsPara1": "Custom Instructions (CIs) are persistent system-level directives that you inject into an LLM <em>before</em> any conversation begins. Think of them as the AI's job description, operating manual, and personality profile — all in one document.",
+    "whatAreCIsPara2": "Without a CI, an LLM like ChatGPT behaves as a generic assistant — helpful but unfocused. With a well-crafted CI, that same model transforms into a dedicated expert that:"
   },
   "components": {
     "callout": {

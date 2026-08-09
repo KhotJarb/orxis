@@ -46,7 +46,11 @@
     "cognitiveLoop": "认知循环",
     "proTip": "专家提示",
     "next": "下一步",
-    "nextPlatformGuides": "平台指南 — ChatGPT →"
+    "nextPlatformGuides": "平台指南 — ChatGPT →",
+    "introPara1": "<strong className=\"text-slate-200\">Orxis</strong> 是一款精密设计的工具，它能将模糊的 AI 交互转化为特定领域的专家系统。您无需在每次对话时从头开始，只需定义一次 AI 的身份、任务和约束条件，此后的每一次回答都将基于这一基础。",
+    "beforeYouBeginText": "本说明文档假定您对大语言模型（如 ChatGPT、Claude 或 Gemini）有基本的了解。如果您完全是 AI 工具的新手，请从我们的 ",
+    "whatAreCIsPara1": "自定义指令（CIs）是持久的系统级指令，您可以在任何对话开始 <em>之前</em> 将其注入到 LLM 中。可以将它们视为 AI 的工作描述、操作手册和个性资料的集合体。",
+    "whatAreCIsPara2": "如果没有 CI，像 ChatGPT 这样的 LLM 的行为就像一个普通的助手——有帮助但不专注。而有了精心设计的 CI，同一个模型就会转变为一个专注的专家："
   },
   "components": {
     "callout": {

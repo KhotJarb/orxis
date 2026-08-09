@@ -46,18 +46,13 @@ export default function DocsContent({
         <h1 className="mb-4 text-4xl font-bold tracking-tight text-white">
           {t("content.title")}
         </h1>
-        <p className="mb-6 text-lg leading-relaxed text-slate-400">
-          <strong className="text-slate-200">Orxis</strong> is a
-          precision-engineered tool that transforms vague AI interactions into
-          domain-specific expert systems. Instead of starting every conversation from
-          scratch, you define the AI&apos;s identity, mission, and constraints — once —
-          and every response thereafter is shaped by that foundation.
-        </p>
+        <p
+          className="mb-6 text-lg leading-relaxed text-slate-400"
+          dangerouslySetInnerHTML={{ __html: t("content.introPara1") }}
+        />
 
         <Callout variant="important" title={t("content.beforeYouBegin")}>
-          This documentation assumes you have a basic understanding of Large Language
-          Models (LLMs) such as ChatGPT, Claude, or Gemini. If you&apos;re new to AI
-          tools entirely, start with our{" "}
+          {t("content.beforeYouBeginText")}
           <a href="#what-are-custom-instructions" className="text-neon-cyan underline underline-offset-4 hover:text-neon-cyan-light transition-colors">
             {t("content.whatAreCIs")}
           </a>{" "}
@@ -68,16 +63,12 @@ export default function DocsContent({
         <h2 id="what-are-custom-instructions" className="scroll-mt-24 mt-10 mb-4 text-2xl font-bold text-white border-b border-glass-border pb-3">
           {t("content.whatAreCIs")}
         </h2>
+        <p
+          className="mb-4 text-slate-400 leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: t("content.whatAreCIsPara1") }}
+        />
         <p className="mb-4 text-slate-400 leading-relaxed">
-          Custom Instructions (CIs) are persistent system-level directives that you
-          inject into an LLM <em>before</em> any conversation begins. Think of them
-          as the AI&apos;s job description, operating manual, and personality profile
-          — all in one document.
-        </p>
-        <p className="mb-4 text-slate-400 leading-relaxed">
-          Without a CI, an LLM like ChatGPT behaves as a generic assistant — helpful
-          but unfocused. With a well-crafted CI, that same model transforms into a
-          dedicated expert that:
+          {t("content.whatAreCIsPara2")}
         </p>
         <ul className="mb-6 space-y-2 pl-1">
           {[

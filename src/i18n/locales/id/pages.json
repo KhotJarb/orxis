@@ -126,12 +126,22 @@
         "problem": {
           "heading": "Masalahnya",
           "body": "LLM kehilangan jejak logika state game yang kompleks, arsitektur API, dan aturan pengetikan yang ketat di sepanjang sesi panjang. Setiap obrolan baru mengatur ulang konteks sepenuhnya — kamu akhirnya menjelaskan kembali stack-mu, konvensimu, dan batasanmu alih-alih benar-benar membangun. Hasilnya adalah kode yang tidak konsisten, antarmuka yang terlupakan, dan AI yang dengan percaya diri bertentangan dengan arsitektur yang kamu definisikan dua pesan yang lalu.",
-          "tags": ["Penyimpangan Konteks", "Tanpa Keamanan Tipe", "Logika State Hilang", "Amnesia Konvensi"]
+          "tags": [
+            "Penyimpangan Konteks",
+            "Tanpa Keamanan Tipe",
+            "Logika State Hilang",
+            "Amnesia Konvensi"
+          ]
         },
         "solution": {
           "heading": "Solusinya",
           "body": "Instruksi yang dihasilkan mengunci AI ke dalam stack-mu, pola desain, dan standar kualitasmu. Ini diarahkan untuk memetakan semua pohon logika, transisi state, dan hierarki tipe sebelum menulis satu baris kode. Hasilnya bukan hanya kode — melainkan kode yang sesuai dengan arsitekturmu seolah-olah ditulis oleh insinyur senior yang telah berada di timmu selama berbulan-bulan.",
-          "tags": ["Presisi FastAPI", "Persistensi State Game", "TypeScript Ketat", "Kesadaran Arsitektural"]
+          "tags": [
+            "Presisi FastAPI",
+            "Persistensi State Game",
+            "TypeScript Ketat",
+            "Kesadaran Arsitektural"
+          ]
         },
         "benefits": [
           "Secara signifikan mengurangi penyimpangan arsitektur di seluruh sesi",
@@ -147,12 +157,22 @@
         "problem": {
           "heading": "Masalahnya",
           "body": "AI menghasilkan naskah robotik dan monoton yang gagal menarik perhatian dalam 3 detik pertama — jendela kritis untuk video bentuk pendek. Ini mengabaikan tempo spesifik platform, struktur kait psikologis, dan aturan algoritmik tak tertulis yang membedakan konten viral dari konten yang terkubur. Hasilnya terdengar seperti AI yang menulisnya, karena memang begitu.",
-          "tags": ["Nada Robotik", "Tanpa Struktur Kait", "Ketidaktahuan Platform", "Kebutaan Algoritmik"]
+          "tags": [
+            "Nada Robotik",
+            "Tanpa Struktur Kait",
+            "Ketidaktahuan Platform",
+            "Kebutaan Algoritmik"
+          ]
         },
         "solution": {
           "heading": "Solusinya",
           "body": "Kerangka kerja ini mengubah AI menjadi ahli strategi konten dengan kesadaran platform yang kuat. Ini diarahkan untuk merekayasa kaitan psikologis, menyusun alur ketegangan-imbalan, dan mengevaluasi setiap output terhadap prinsip tempo platform dan praktik terbaik retensi sebelum menghasilkan satu kata pun. Skripmu akan terasa buatan tangan — karena AI dipertahankan pada standar yang sama dengan penulis bayangan tingkat atas.",
-          "tags": ["Arsitektur Kait", "Kepatuhan Platform", "Psikologi Penonton", "Rekayasa Retensi"]
+          "tags": [
+            "Arsitektur Kait",
+            "Kepatuhan Platform",
+            "Psikologi Penonton",
+            "Rekayasa Retensi"
+          ]
         },
         "benefits": [
           "Kait yang direkayasa untuk berhasil dalam 3 detik pertama",
@@ -168,12 +188,22 @@
         "problem": {
           "heading": "Masalahnya",
           "body": "Midjourney dan AI gambar menghasilkan hasil yang tidak konsisten secara visual di seluruh proyek. Desain karakter bergeser antargenerasi, pencahayaan sewenang-wenang, dan estetika yang kamu buat dengan cermat diatur ulang dengan setiap prompt baru. Kamu akhirnya menghabiskan lebih banyak waktu untuk memperbaiki ketidakkonsistenan daripada benar-benar membuat — dan saat kamu memberikan prompt kepada klien atau anggota tim, identitas visualnya runtuh sepenuhnya.",
-          "tags": ["Penyimpangan Karakter", "Gaya Tidak Konsisten", "Tanpa Sistem Visual", "Keruntuhan Estetika"]
+          "tags": [
+            "Penyimpangan Karakter",
+            "Gaya Tidak Konsisten",
+            "Tanpa Sistem Visual",
+            "Keruntuhan Estetika"
+          ]
         },
         "solution": {
           "heading": "Solusinya",
           "body": "Instruksi menyusun arsitektur prompt visual multi-lapis yang berfungsi seperti panduan gaya untuk AI-mu. Ini mendorong kepatuhan yang konsisten pada estetika pilihanmu — rasio pencahayaan sinematik, bayangan bergaya Pixar, pengetahuan karakter tertentu, atau aturan komposisi seni rupa — di seluruh generasi. Identitas visualmu menjadi sistem yang terstruktur dan dapat ditransfer, bukan kebetulan yang beruntung.",
-          "tags": ["Penguncian Gaya", "Konsistensi Karakter", "Pemformatan Sinematik", "Sistem Dapat Ditransfer"]
+          "tags": [
+            "Penguncian Gaya",
+            "Konsistensi Karakter",
+            "Pemformatan Sinematik",
+            "Sistem Dapat Ditransfer"
+          ]
         },
         "benefits": [
           "Identitas visual terkunci di semua generasi",
@@ -224,38 +254,61 @@
       "legal": "Legal & Transparansi",
       "documentation": "Dokumentasi"
     },
-    "releases": {
-      "v0.1.0": {
-        "overview": "Rilis ini menetapkan arsitektur platform dasar, sistem desain, dan semua fitur inti yang menghadap pengguna. Orxis beroperasi sepenuhnya di browser — tanpa akun, tanpa kunci API, dan tidak ada data yang meninggalkan perangkat.",
-        "items": {
-          "features": [
-            "Meluncurkan generator instruksi Orxis inti. Seluruh alur pembuatan berjalan di sisi klien — tidak ada server yang memproses inputmu, dan tidak ada kredensial yang diperlukan untuk menggunakan alat ini.",
-            "Memperkenalkan arsitektur instruksi enam bagian — Peran & Identitas, Misi, Putaran Kognitif, Konteks & Input, Batas & Aturan Eksekusi, dan Pemformatan Output — yang menghasilkan prompt sistem terstruktur dan siap ditempel.",
-            "Membangun Output Studio: antarmuka khusus untuk meninjau, menyalin, dan memeriksa instruksi yang dihasilkan per bagian. Termasuk penghitungan karakter langsung.",
-            "Menambahkan perbandingan Sebelum/Sesudah di halaman arahan, yang menunjukkan perbedaan praktis antara respons AI yang tidak terstruktur dan terstruktur terhadap prompt yang sama.",
-            "Menambahkan Galeri Prompt di /gallery untuk menelusuri dan mereferensikan templat instruksi yang disumbangkan oleh komunitas.",
-            "Menerbitkan bagian Kasus Penggunaan yang mencakup alur kerja praktis untuk pengembang perangkat lunak, kreator konten, dan insinyur prompt."
-          ],
-          "design": [
-            "Memperkenalkan identitas visual Orxis: tanda logo kustom, sistem aksen gradien Periwinkle-ke-Violet, dan antarmuka gelap pertama yang dirancang untuk sesi penggunaan yang diperpanjang.",
-            "Menerapkan sistem tema yang konsisten di setiap halaman, memastikan warna, spasi, dan tipografi yang koheren di seluruh produk.",
-            "Elemen kartu dan permukaan menggunakan perlakuan glassmorphism — lapisan kedalaman buram, batas halus, dan sorotan aksen neon pada status interaksi — untuk mempertahankan hierarki visual yang jelas."
-          ],
-          "platform": [
-            "Aplikasi dapat dipasang langsung dari browsermu sebagai Progressive Web App di perangkat desktop dan seluler yang didukung — tidak perlu app store.",
-            "Menambahkan halaman Pengaturan dengan tata letak terstruktur, siap diperluas seiring dengan diperkenalkannya opsi konfigurasi baru di pembaruan mendatang."
-          ],
-          "legal": [
-            "Menerbitkan halaman Kebijakan Privasi, Ketentuan Layanan, dan Lisensi — masing-masing dapat diakses dari footer situs.",
-            "Kebijakan Privasi mendokumentasikan model data lokal-pertama kami: masukanmu diproses sepenuhnya dalam sesi browser dan tidak pernah dikirim ke atau disimpan di server eksternal.",
-            "Ketentuan Layanan mendefinisikan penggunaan yang dapat diterima dalam bahasa yang jelas dan spesifik. Halaman Lisensi mengklarifikasi hak penggunaan platform dan prompt yang kamu hasilkan."
-          ],
-          "documentation": [
-            "Meluncurkan pusat dokumentasi Orxis di /docs, mencakup panduan mulai cepat dan referensi mendetail untuk masing-masing dari enam bagian instruksi.",
-            "Menerbitkan panduan integrasi per model untuk ChatGPT, Claude, dan Gemini, mencakup metode penyiapan yang disarankan dan perilaku khusus platform yang relevan dengan penggunaan instruksi terstruktur."
-          ]
-        }
+    "releases": [
+      {
+        "version": "v0.1.0",
+        "date": "July 13, 2026",
+        "tag": "Initial Release",
+        "overview": "Rilis ini menetapkan arsitektur platform dasar, sistem desain, dan semua fitur inti yang berhadapan dengan pengguna. Orxis beroperasi sepenuhnya di dalam browser — tanpa akun, tanpa kunci API, dan tidak ada data yang keluar dari perangkat.",
+        "categories": [
+          {
+            "labelKey": "Features",
+            "label": "Fitur",
+            "items": [
+              "Meluncurkan generator instruksi inti Orxis. Seluruh proses pembuatan berjalan di sisi klien — tidak ada server yang memproses masukan Anda, dan kredensial tidak diperlukan untuk menggunakan alat ini.",
+              "Memperkenalkan arsitektur instruksi enam bagian — Peran & Identitas, Misi, Lingkaran Kognitif, Konteks & Masukan, Batasan & Aturan Eksekusi, dan Pemformatan Keluaran — yang menghasilkan prompt sistem terstruktur yang siap tempel.",
+              "Membangun Studio Keluaran: antarmuka khusus untuk meninjau, menyalin, dan memeriksa instruksi yang dihasilkan berdasarkan bagian. Termasuk penghitungan karakter langsung.",
+              "Menambahkan perbandingan Sebelum/Sesudah di beranda, menunjukkan perbedaan praktis antara respons AI yang tidak terstruktur dan terstruktur terhadap prompt yang sama.",
+              "Menambahkan Galeri Prompt di /gallery untuk menjelajahi dan merujuk templat instruksi yang disumbangkan oleh komunitas.",
+              "Menerbitkan bagian Kasus Penggunaan yang mencakup alur kerja praktis untuk pengembang perangkat lunak, pembuat konten, dan insinyur prompt."
+            ]
+          },
+          {
+            "labelKey": "Design",
+            "label": "Desain",
+            "items": [
+              "Memperkenalkan identitas visual Orxis: tanda logo kustom, sistem aksen gradien Periwinkle ke Violet, dan antarmuka dark-first yang dirancang untuk sesi penggunaan yang lebih lama.",
+              "Menerapkan sistem tema yang konsisten di setiap halaman, memastikan warna, jarak, dan tipografi yang koheren di seluruh produk.",
+              "Elemen kartu dan permukaan menggunakan perawatan glassmorphism — lapisan kedalaman buram, bingkai halus, dan sorotan aksen neon pada status interaksi — untuk mempertahankan hierarki visual yang jelas."
+            ]
+          },
+          {
+            "labelKey": "Platform",
+            "label": "Platform",
+            "items": [
+              "Aplikasi ini dapat diinstal langsung dari browser Anda sebagai Progressive Web App (PWA) di desktop dan perangkat seluler yang didukung — tidak perlu toko aplikasi.",
+              "Menambahkan halaman Pengaturan dengan tata letak terstruktur, siap diperluas saat opsi konfigurasi baru diperkenalkan di pembaruan mendatang."
+            ]
+          },
+          {
+            "labelKey": "Legal & Transparency",
+            "label": "Hukum & Transparansi",
+            "items": [
+              "Menerbitkan halaman Kebijakan Privasi, Ketentuan Layanan, dan Lisensi — masing-masing dapat diakses dari catatan kaki situs.",
+              "Kebijakan Privasi mendokumentasikan model data local-first kami: masukan Anda diproses sepenuhnya dalam sesi browser dan tidak pernah dikirimkan ke atau disimpan di server eksternal.",
+              "Ketentuan Layanan mendefinisikan penggunaan yang dapat diterima dalam bahasa yang jelas dan spesifik. Halaman Lisensi mengklarifikasi hak penggunaan untuk platform dan untuk prompt yang Anda hasilkan."
+            ]
+          },
+          {
+            "labelKey": "Documentation",
+            "label": "Dokumentasi",
+            "items": [
+              "Meluncurkan hub dokumentasi Orxis di /docs, mencakup panduan memulai cepat dan referensi terperinci untuk masing-masing dari enam bagian instruksi.",
+              "Menerbitkan panduan integrasi per-model untuk ChatGPT, Claude, dan Gemini, mencakup metode pengaturan yang disarankan dan perilaku spesifik platform yang relevan dengan penggunaan instruksi terstruktur."
+            ]
+          }
+        ]
       }
-    }
+    ]
   }
 }

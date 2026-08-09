@@ -126,12 +126,22 @@
         "problem": {
           "heading": "El Problema",
           "body": "Los LLMs pierden el rastro de la lógica de estado de juegos complejos, arquitecturas de API y reglas de tipado estrictas a lo largo de largas sesiones. Cada nuevo chat restablece el contexto por completo; terminas volviendo a explicar tu stack, tus convenciones y tus restricciones en lugar de construir realmente. El resultado es código inconsistente, interfaces olvidadas y una IA que contradice con confianza la arquitectura que definiste hace dos mensajes.",
-          "tags": ["Deriva del Contexto", "Sin Seguridad de Tipos", "Lógica de Estado Perdida", "Amnesia de Convenciones"]
+          "tags": [
+            "Deriva del Contexto",
+            "Sin Seguridad de Tipos",
+            "Lógica de Estado Perdida",
+            "Amnesia de Convenciones"
+          ]
         },
         "solution": {
           "heading": "La Solución",
           "body": "Tu instrucción generada encierra a la IA en tu stack, patrones de diseño y estándares de calidad. Se le indica mapear todos los árboles lógicos, transiciones de estado y jerarquías de tipos antes de escribir una sola línea. El resultado no es solo código — es código que se ajusta a tu arquitectura como si lo hubiera escrito un ingeniero senior que ha estado en tu equipo durante meses.",
-          "tags": ["Precisión FastAPI", "Persistencia de Estado del Juego", "TypeScript Estricto", "Conciencia Arquitectónica"]
+          "tags": [
+            "Precisión FastAPI",
+            "Persistencia de Estado del Juego",
+            "TypeScript Estricto",
+            "Conciencia Arquitectónica"
+          ]
         },
         "benefits": [
           "Desviación arquitectónica significativamente reducida entre sesiones",
@@ -147,12 +157,22 @@
         "problem": {
           "heading": "El Problema",
           "body": "La IA genera guiones robóticos y monótonos que no logran captar la atención en los primeros 3 segundos — la ventana crítica para el video en formato corto. Ignora el ritmo específico de la plataforma, las estructuras de ganchos psicológicos y las reglas algorítmicas no escritas que separan el contenido viral del contenido que queda enterrado. El resultado suena como si lo hubiera escrito una IA, porque así fue.",
-          "tags": ["Tono Robótico", "Sin Estructura de Gancho", "Ignorancia de Plataforma", "Ceguera Algorítmica"]
+          "tags": [
+            "Tono Robótico",
+            "Sin Estructura de Gancho",
+            "Ignorancia de Plataforma",
+            "Ceguera Algorítmica"
+          ]
         },
         "solution": {
           "heading": "La Solución",
           "body": "El marco transforma a la IA en un estratega de contenido con gran conciencia de la plataforma. Se le indica diseñar el gancho psicológico, estructurar el arco de tensión-recompensa y evaluar cada salida contra los principios de ritmo de la plataforma y las mejores prácticas de retención antes de producir una sola palabra. Tus guiones se sentirán elaborados a mano, porque la IA se somete a los mismos estándares a los que estaría sujeto un escritor fantasma de primer nivel.",
-          "tags": ["Arquitectura de Gancho", "Cumplimiento de Plataforma", "Psicología del Espectador", "Ingeniería de Retención"]
+          "tags": [
+            "Arquitectura de Gancho",
+            "Cumplimiento de Plataforma",
+            "Psicología del Espectador",
+            "Ingeniería de Retención"
+          ]
         },
         "benefits": [
           "Ganchos diseñados para atrapar en los primeros 3 segundos",
@@ -168,12 +188,22 @@
         "problem": {
           "heading": "El Problema",
           "body": "Midjourney y la IA de imágenes producen resultados visualmente inconsistentes a lo largo de un proyecto. El diseño de personajes se desvía entre generaciones, la iluminación es arbitraria y tu estética cuidadosamente establecida se reinicia con cada nuevo prompt. Terminas pasando más tiempo arreglando inconsistencias que creando realmente — y en el momento en que pasas los prompts a un cliente o miembro del equipo, la identidad visual colapsa por completo.",
-          "tags": ["Deriva del Personaje", "Estilo Inconsistente", "Sin Sistema Visual", "Colapso Estético"]
+          "tags": [
+            "Deriva del Personaje",
+            "Estilo Inconsistente",
+            "Sin Sistema Visual",
+            "Colapso Estético"
+          ]
         },
         "solution": {
           "heading": "La Solución",
           "body": "La instrucción estructura una arquitectura de prompt visual multicapa que funciona como una guía de estilo para tu IA. Promueve el cumplimiento constante de la estética elegida (proporciones de iluminación cinematográfica, sombreado estilo Pixar, historia específica de personajes o reglas compositivas de bellas artes) en todas las generaciones. Tu identidad visual se convierte en un sistema estructurado y transferible, no en un accidente afortunado.",
-          "tags": ["Bloqueo de Estilo", "Consistencia de Personaje", "Formato Cinematográfico", "Sistema Transferible"]
+          "tags": [
+            "Bloqueo de Estilo",
+            "Consistencia de Personaje",
+            "Formato Cinematográfico",
+            "Sistema Transferible"
+          ]
         },
         "benefits": [
           "Identidad visual bloqueada en todas las generaciones",
@@ -224,38 +254,61 @@
       "legal": "Legal y Transparencia",
       "documentation": "Documentación"
     },
-    "releases": {
-      "v0.1.0": {
-        "overview": "Esta versión establece la arquitectura fundamental de la plataforma, el sistema de diseño y todas las funciones principales orientadas al usuario. Orxis opera completamente en el navegador: sin cuentas, sin claves API y ningún dato sale del dispositivo.",
-        "items": {
-          "features": [
-            "Lanzamiento del generador principal de instrucciones Orxis. Toda la canalización de generación se ejecuta en el lado del cliente; ningún servidor procesa su entrada y no se requieren credenciales para usar la herramienta.",
-            "Se introdujo una arquitectura de instrucciones de seis secciones — Rol e Identidad, Misión, Bucle Cognitivo, Contexto y Entrada, Límites y Reglas de Ejecución, y Formato de Salida — que produce prompts de sistema estructurados listos para pegar.",
-            "Construcción del Output Studio: una interfaz dedicada para revisar, copiar e inspeccionar la instrucción generada por sección. Incluye un recuento de caracteres en vivo.",
-            "Se agregó una comparación de Antes/Después en la página de inicio, demostrando la diferencia práctica entre una respuesta de IA no estructurada y una estructurada al mismo prompt.",
-            "Se agregó una Galería de Prompts en /gallery para buscar y referenciar plantillas de instrucciones aportadas por la comunidad.",
-            "Se publicó una sección de Casos de Uso que cubre flujos de trabajo prácticos para desarrolladores de software, creadores de contenido e ingenieros de prompts."
-          ],
-          "design": [
-            "Se introdujo la identidad visual de Orxis: una marca de logotipo personalizada, un sistema de acento degradado de Pervinca a Violeta y una interfaz principalmente oscura diseñada para sesiones de uso prolongado.",
-            "Se aplicó un sistema de temas consistente en cada página, asegurando un color, espaciado y tipografía coherentes en todo el producto.",
-            "Los elementos de tarjeta y superficie utilizan un tratamiento de glassmorfismo — capas de profundidad esmeriladas, bordes sutiles y reflejos de acento de neón en los estados de interacción — para mantener una jerarquía visual clara."
-          ],
-          "platform": [
-            "La aplicación se puede instalar directamente desde su navegador como una Aplicación Web Progresiva en dispositivos de escritorio y móviles compatibles, sin necesidad de una tienda de aplicaciones.",
-            "Se agregó una página de Configuración con un diseño estructurado, lista para expandirse a medida que se introducen nuevas opciones de configuración en futuras actualizaciones."
-          ],
-          "legal": [
-            "Se publicaron las páginas de Política de Privacidad, Términos de Servicio y Licencia, cada una accesible desde el pie de página del sitio.",
-            "La Política de Privacidad documenta nuestro modelo de datos basado en lo local: sus entradas se procesan completamente dentro de la sesión del navegador y nunca se transmiten ni almacenan en servidores externos.",
-            "Los Términos de Servicio definen el uso aceptable en un lenguaje sencillo y específico. La página de Licencia aclara los derechos de uso para la plataforma y para los prompts que genera."
-          ],
-          "documentation": [
-            "Se lanzó el centro de documentación de Orxis en /docs, que cubre una guía de inicio rápido y una referencia detallada para cada una de las seis secciones de instrucciones.",
-            "Se publicaron guías de integración por modelo para ChatGPT, Claude y Gemini, que cubren los métodos de configuración recomendados y los comportamientos específicos de la plataforma relevantes para el uso de instrucciones estructuradas."
-          ]
-        }
+    "releases": [
+      {
+        "version": "v0.1.0",
+        "date": "July 13, 2026",
+        "tag": "Initial Release",
+        "overview": "Esta versión establece la arquitectura fundamental de la plataforma, el sistema de diseño y todas las funciones principales de cara al usuario. Orxis funciona completamente en el navegador — sin cuentas, sin claves API y los datos no salen del dispositivo.",
+        "categories": [
+          {
+            "labelKey": "Features",
+            "label": "Características",
+            "items": [
+              "Se lanzó el generador de instrucciones central de Orxis. Todo el proceso de generación se ejecuta en el lado del cliente — ningún servidor procesa sus datos de entrada, y no se requieren credenciales para utilizar la herramienta.",
+              "Se introdujo una arquitectura de instrucciones de seis secciones — Rol e Identidad, Misión, Bucle Cognitivo, Contexto y Entrada, Límites y Reglas de Ejecución, y Formato de Salida — que produce indicaciones de sistema estructuradas y listas para pegar.",
+              "Se creó el Output Studio: una interfaz dedicada para revisar, copiar e inspeccionar la instrucción generada sección por sección. Incluye un recuento de caracteres en vivo.",
+              "Se agregó una comparación de Antes/Después en la página de inicio, demostrando la diferencia práctica entre una respuesta de IA no estructurada y una estructurada al mismo mensaje.",
+              "Se agregó una Galería de Prompts en /gallery para explorar y hacer referencia a plantillas de instrucciones aportadas por la comunidad.",
+              "Se publicó una sección de Casos de Uso que cubre flujos de trabajo prácticos para desarrolladores de software, creadores de contenido e ingenieros de prompts."
+            ]
+          },
+          {
+            "labelKey": "Design",
+            "label": "Diseño",
+            "items": [
+              "Se introdujo la identidad visual de Orxis: un logotipo personalizado, un sistema de acento degradado de Pervinca a Violeta y una interfaz de tonos oscuros diseñada para sesiones de uso prolongadas.",
+              "Se aplicó un sistema de tematización consistente en cada página, asegurando la coherencia en el color, el espaciado y la tipografía en todo el producto.",
+              "Los elementos de tarjetas y superficies utilizan un tratamiento de glassmorfismo — capas de profundidad esmeriladas, bordes sutiles y reflejos de acento de neón en los estados de interacción — para mantener una jerarquía visual clara."
+            ]
+          },
+          {
+            "labelKey": "Platform",
+            "label": "Plataforma",
+            "items": [
+              "La aplicación se puede instalar directamente desde su navegador como una Aplicación Web Progresiva (PWA) en dispositivos de escritorio y móviles compatibles — no se requiere una tienda de aplicaciones.",
+              "Se agregó una página de Configuración con un diseño estructurado, lista para expandirse a medida que se introduzcan nuevas opciones de configuración en futuras actualizaciones."
+            ]
+          },
+          {
+            "labelKey": "Legal & Transparency",
+            "label": "Legal y Transparencia",
+            "items": [
+              "Se publicaron las páginas de Política de Privacidad, Términos de Servicio y Licencia — cada una accesible desde el pie de página del sitio.",
+              "La Política de Privacidad documenta nuestro modelo de datos basado en lo local: sus entradas se procesan completamente dentro de la sesión del navegador y nunca se transmiten ni almacenan en servidores externos.",
+              "Los Términos de Servicio definen el uso aceptable en un lenguaje sencillo y específico. La página de Licencia aclara los derechos de uso para la plataforma y para los prompts que usted genere."
+            ]
+          },
+          {
+            "labelKey": "Documentation",
+            "label": "Documentación",
+            "items": [
+              "Se lanzó el centro de documentación de Orxis en /docs, que cubre una guía de inicio rápido y una referencia detallada para cada una de las seis secciones de instrucciones.",
+              "Se publicaron guías de integración por modelo para ChatGPT, Claude y Gemini, que cubren los métodos de configuración recomendados y los comportamientos específicos de la plataforma relevantes para el uso de instrucciones estructuradas."
+            ]
+          }
+        ]
       }
-    }
+    ]
   }
 }
