@@ -1,1 +1,55 @@
-{}
+{
+  "apiReference": {
+    "badge": "개발자 참조",
+    "title": "API 참조",
+    "description1": "Orxis는 모든 생성 및 조정 작업을 지원하는 깔끔한 FastAPI REST 백엔드를 공개합니다. 이 페이지에서는 모든 엔드포인트, 해당 요청 스키마, 예상 응답 형식 및 관련 오류 코드 등 API를 직접 호출하거나 자체 도구에 통합하거나 새로운 경로로 확장하는 데 필요한 모든 것을 문서화합니다.",
+    "description2": "모든 엔드포인트는 application/json을 수락하고 반환합니다. 특별한 SDK가 필요하지 않으며 일반적인 curl, Python의 requests 라이브러리 또는 브라우저의 fetch 모두 즉시 작동합니다.",
+    "baseUrl": {
+      "title": "기본 URL",
+      "description1": "백엔드는 uvicorn을 사용하여 로컬에서 시작할 때 포트 8000에서 실행됩니다. 프로덕션 Vercel 배포의 경우 프론트엔드가 Next.js 재작성(rewrites)을 통해 API 호출을 프록시하므로 유효한 기본 URL은 배포 도메인이 됩니다.",
+      "description2": "이 참조의 모든 예제는 로컬 기본 URL인 http://localhost:8000을 사용합니다. 배포된 환경에서는 이를 프로덕션 도메인으로 바꾸십시오."
+    },
+    "authentication": {
+      "title": "인증"
+    }
+  },
+  "bestPractices": {
+    "badge": "전략 가이드",
+    "title": "원시 입력을 위한 모범 사례",
+    "goldenRules": {
+      "title": "3가지 황금률"
+    }
+  },
+  "content": {
+    "badge": "시작하기",
+    "title": "소개",
+    "whatAreCIs": "사용자 지정 인스트럭션이란?",
+    "whyItMatters": "이것이 왜 중요한가"
+  },
+  "sidebar": {
+    "searchPlaceholder": "문서 검색...",
+    "noResults": "다음 항목에 대한 결과가 없습니다:",
+    "categories": {
+      "gettingStarted": "시작하기",
+      "platformGuides": "플랫폼 가이드",
+      "advanced": "고급"
+    },
+    "items": {
+      "introduction": "소개",
+      "quickStart": "빠른 시작",
+      "coreConcepts": "핵심 개념",
+      "chatgpt": "ChatGPT",
+      "claude": "Claude",
+      "gemini": "Gemini",
+      "otherLlms": "기타 LLM",
+      "promptChaining": "프롬프트 체이닝",
+      "contextInjection": "컨텍스트 주입",
+      "bestPractices": "모범 사례"
+    }
+  },
+  "tableOfContents": {
+    "title": "이 페이지 내용",
+    "helpful": "도움이 되셨나요?",
+    "improve": "문서 개선에 도움을 주세요."
+  }
+}

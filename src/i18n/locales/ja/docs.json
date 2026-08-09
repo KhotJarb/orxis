@@ -1,1 +1,55 @@
-{}
+{
+  "apiReference": {
+    "badge": "開発者向けリファレンス",
+    "title": "API リファレンス",
+    "description1": "Orxisは、すべての生成と微調整の操作を動かすクリーンなFastAPI RESTバックエンドを公開しています。このページでは、各エンドポイント、そのリクエストスキーマ、予想されるレスポンス形式、および関連するエラーコードなど、APIを直接呼び出したり、独自のツールに統合したり、新しいルートで拡張したりするために必要なすべてのことをドキュメント化しています。",
+    "description2": "すべてのエンドポイントは application/json を受け入れ、返します。特別な SDK は必要ありません — プレーンな curl、Python の requests ライブラリ、またはブラウザの fetch のすべてが箱から出してすぐに機能します。",
+    "baseUrl": {
+      "title": "ベース URL",
+      "description1": "バックエンドは、uvicornでローカルに起動された場合、ポート 8000 で実行されます。本番環境の Vercel デプロイメントの場合、フロントエンドは Next.js のリライトを通じて API 呼び出しをプロキシするため、実際のベース URL はデプロイメントのドメインになります。",
+      "description2": "このリファレンスのすべての例では、ローカルベース URL の http://localhost:8000 を使用しています。デプロイされた環境では、これを本番環境のドメインに置き換えてください。"
+    },
+    "authentication": {
+      "title": "認証"
+    }
+  },
+  "bestPractices": {
+    "badge": "戦略ガイド",
+    "title": "生の入力のためのベストプラクティス",
+    "goldenRules": {
+      "title": "3つの黄金律"
+    }
+  },
+  "content": {
+    "badge": "はじめに",
+    "title": "イントロダクション",
+    "whatAreCIs": "カスタムインストラクションとは？",
+    "whyItMatters": "なぜそれが重要なのか"
+  },
+  "sidebar": {
+    "searchPlaceholder": "ドキュメントを検索...",
+    "noResults": "結果が見つかりません:",
+    "categories": {
+      "gettingStarted": "はじめに",
+      "platformGuides": "プラットフォームガイド",
+      "advanced": "高度な機能"
+    },
+    "items": {
+      "introduction": "イントロダクション",
+      "quickStart": "クイックスタート",
+      "coreConcepts": "コアコンセプト",
+      "chatgpt": "ChatGPT",
+      "claude": "Claude",
+      "gemini": "Gemini",
+      "otherLlms": "その他のLLM",
+      "promptChaining": "プロンプトチェーン",
+      "contextInjection": "コンテキストの注入",
+      "bestPractices": "ベストプラクティス"
+    }
+  },
+  "tableOfContents": {
+    "title": "このページの内容",
+    "helpful": "これは役に立ちましたか？",
+    "improve": "ドキュメントの改善にご協力ください。"
+  }
+}
