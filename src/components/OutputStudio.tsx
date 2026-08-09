@@ -186,6 +186,31 @@ export default function OutputStudio({
                 </ul>
               </div>
             )}
+            {result.conversationStarters.length > 0 && (
+              <div className="rounded-xl bg-white/[0.02] border border-glass-border p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <MessageCircle className="h-3.5 w-3.5 text-slate-500" />
+                  <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                    Conversation Starters
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  {result.conversationStarters.map((starter, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center justify-between rounded-lg bg-white/[0.03] border border-glass-border px-3 py-2"
+                    >
+                      <span className="text-sm text-slate-300">{starter}</span>
+                      <CopyButton
+                        text={starter}
+                        fieldId={`gems-starter-${i}`}
+                        size="xs"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
             <PlatformGuide platform="gems" />
           </div>
         );
@@ -253,6 +278,31 @@ export default function OutputStudio({
               fieldId="proj-inst"
               mono
             />
+            {result.conversationStarters.length > 0 && (
+              <div className="rounded-xl bg-white/[0.02] border border-glass-border p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <MessageCircle className="h-3.5 w-3.5 text-slate-500" />
+                  <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                    Conversation Starters
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  {result.conversationStarters.map((starter, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center justify-between rounded-lg bg-white/[0.03] border border-glass-border px-3 py-2"
+                    >
+                      <span className="text-sm text-slate-300">{starter}</span>
+                      <CopyButton
+                        text={starter}
+                        fieldId={`proj-starter-${i}`}
+                        size="xs"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
             <PlatformGuide platform="projects" />
           </div>
         );
