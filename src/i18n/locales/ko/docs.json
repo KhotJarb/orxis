@@ -24,7 +24,37 @@
     "badge": "시작하기",
     "title": "소개",
     "whatAreCIs": "사용자 지정 인스트럭션이란?",
-    "whyItMatters": "이것이 왜 중요한가"
+    "whyItMatters": "이것이 왜 중요한가",
+    "beforeYouBegin": "시작하기 전에",
+    "quickStart": "빠른 시작",
+    "step1": "1단계 — 페르소나 설명하기",
+    "step1Title": "프리셋 칩을 선택합니다",
+    "step2": "(선택 사항) 사용자 지정 텍스트로 다듬습니다",
+    "step2Heading": "2단계 — 작업 정의하기",
+    "step3Heading": "3단계 — 어조 설정하기",
+    "step4Heading": "4단계 — 규칙 추가하기",
+    "coreConcepts": "핵심 개념",
+    "theSixSections": "6가지 섹션",
+    "sections": {
+      "role": "섹션 {{num}} — 역할 및 정체성",
+      "mission": "섹션 {{num}} — 임무 및 목표",
+      "cognitive": "섹션 {{num}} — 인지 루프",
+      "context": "섹션 {{num}} — 컨텍스트 및 입력",
+      "boundaries": "섹션 {{num}} — 경계 및 규칙",
+      "formatting": "섹션 {{num}} — 출력 형식"
+    },
+    "cognitiveLoop": "인지 루프",
+    "proTip": "전문가 팁",
+    "next": "다음",
+    "nextPlatformGuides": "플랫폼 가이드 — ChatGPT →"
+  },
+  "components": {
+    "callout": {
+      "note": "참고",
+      "tip": "팁",
+      "warning": "경고",
+      "important": "중요"
+    }
   },
   "sidebar": {
     "searchPlaceholder": "문서 검색...",

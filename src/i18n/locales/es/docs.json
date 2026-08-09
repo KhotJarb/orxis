@@ -24,7 +24,37 @@
     "badge": "Empezando",
     "title": "Introducción",
     "whatAreCIs": "¿Qué Son las Instrucciones Personalizadas?",
-    "whyItMatters": "Por Qué Importa"
+    "whyItMatters": "Por Qué Importa",
+    "beforeYouBegin": "Antes de empezar",
+    "quickStart": "Inicio rápido",
+    "step1": "Paso 1 — Describe tu Persona",
+    "step1Title": "Elige un chip predeterminado",
+    "step2": "Opcionalmente, refina con texto personalizado",
+    "step2Heading": "Paso 2 — Define tu tarea",
+    "step3Heading": "Paso 3 — Establece el tono",
+    "step4Heading": "Paso 4 — Añade reglas",
+    "coreConcepts": "Conceptos clave",
+    "theSixSections": "Las seis secciones",
+    "sections": {
+      "role": "Sección {{num}} — Rol e identidad",
+      "mission": "Sección {{num}} — Misión y objetivo",
+      "cognitive": "Sección {{num}} — El bucle cognitivo",
+      "context": "Sección {{num}} — Contexto y entrada",
+      "boundaries": "Sección {{num}} — Límites y reglas",
+      "formatting": "Sección {{num}} — Formato de salida"
+    },
+    "cognitiveLoop": "El bucle cognitivo",
+    "proTip": "Consejo pro",
+    "next": "Siguiente",
+    "nextPlatformGuides": "Guías de Plataforma — ChatGPT →"
+  },
+  "components": {
+    "callout": {
+      "note": "Nota",
+      "tip": "Consejo",
+      "warning": "Advertencia",
+      "important": "Importante"
+    }
   },
   "sidebar": {
     "searchPlaceholder": "Buscar documentos...",

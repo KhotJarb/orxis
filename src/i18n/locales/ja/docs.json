@@ -24,7 +24,37 @@
     "badge": "はじめに",
     "title": "イントロダクション",
     "whatAreCIs": "カスタムインストラクションとは？",
-    "whyItMatters": "なぜそれが重要なのか"
+    "whyItMatters": "なぜそれが重要なのか",
+    "beforeYouBegin": "始める前に",
+    "quickStart": "クイックスタート",
+    "step1": "ステップ 1 — ペルソナを説明する",
+    "step1Title": "プリセットチップを選択します",
+    "step2": "（オプション）カスタムテキストで調整します",
+    "step2Heading": "ステップ 2 — タスクを定義する",
+    "step3Heading": "ステップ 3 — トーンを設定する",
+    "step4Heading": "ステップ 4 — ルールを追加する",
+    "coreConcepts": "コアコンセプト",
+    "theSixSections": "6つのセクション",
+    "sections": {
+      "role": "セクション {{num}} — 役割とアイデンティティ",
+      "mission": "セクション {{num}} — ミッションと目的",
+      "cognitive": "セクション {{num}} — 認知ループ",
+      "context": "セクション {{num}} — コンテキストと入力",
+      "boundaries": "セクション {{num}} — 境界とルール",
+      "formatting": "セクション {{num}} — 出力フォーマット"
+    },
+    "cognitiveLoop": "認知ループ",
+    "proTip": "プロのヒント",
+    "next": "次へ",
+    "nextPlatformGuides": "プラットフォームガイド — ChatGPT →"
+  },
+  "components": {
+    "callout": {
+      "note": "ノート",
+      "tip": "ヒント",
+      "warning": "警告",
+      "important": "重要"
+    }
   },
   "sidebar": {
     "searchPlaceholder": "ドキュメントを検索...",

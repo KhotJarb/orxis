@@ -24,7 +24,37 @@
     "badge": "Memulai",
     "title": "Pengantar",
     "whatAreCIs": "Apa itu Instruksi Kustom?",
-    "whyItMatters": "Mengapa Ini Penting"
+    "whyItMatters": "Mengapa Ini Penting",
+    "beforeYouBegin": "Sebelum Kamu Memulai",
+    "quickStart": "Mulai Cepat",
+    "step1": "Langkah 1 — Jelaskan Persona-mu",
+    "step1Title": "Pilih preset chip",
+    "step2": "Secara opsional, saring dengan teks kustom",
+    "step2Heading": "Langkah 2 — Tentukan Tugasmu",
+    "step3Heading": "Langkah 3 — Atur Nada Bahasa",
+    "step4Heading": "Langkah 4 — Tambahkan Aturan",
+    "coreConcepts": "Konsep Inti",
+    "theSixSections": "Enam Bagian",
+    "sections": {
+      "role": "Bagian {{num}} — Peran & Identitas",
+      "mission": "Bagian {{num}} — Misi & Tujuan",
+      "cognitive": "Bagian {{num}} — Siklus Kognitif",
+      "context": "Bagian {{num}} — Konteks & Masukan",
+      "boundaries": "Bagian {{num}} — Batasan & Aturan",
+      "formatting": "Bagian {{num}} — Format Keluaran"
+    },
+    "cognitiveLoop": "Siklus Kognitif",
+    "proTip": "Kiat Pro",
+    "next": "Selanjutnya",
+    "nextPlatformGuides": "Panduan Platform — ChatGPT →"
+  },
+  "components": {
+    "callout": {
+      "note": "Catatan",
+      "tip": "Kiat",
+      "warning": "Peringatan",
+      "important": "Penting"
+    }
   },
   "sidebar": {
     "searchPlaceholder": "Cari dokumen...",

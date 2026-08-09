@@ -24,7 +24,37 @@
     "badge": "快速入门",
     "title": "简介",
     "whatAreCIs": "什么是自定义指令 (Custom Instructions)？",
-    "whyItMatters": "为什么它很重要"
+    "whyItMatters": "为什么它很重要",
+    "beforeYouBegin": "在您开始之前",
+    "quickStart": "快速开始",
+    "step1": "步骤 1 — 描述您的 Persona",
+    "step1Title": "选择一个预设标签",
+    "step2": "（可选）使用自定义文本进行完善",
+    "step2Heading": "步骤 2 — 定义您的任务",
+    "step3Heading": "步骤 3 — 设定基调",
+    "step4Heading": "步骤 4 — 添加规则",
+    "coreConcepts": "核心概念",
+    "theSixSections": "六大核心部分",
+    "sections": {
+      "role": "第 {{num}} 部分 — 角色与身份",
+      "mission": "第 {{num}} 部分 — 任务与目标",
+      "cognitive": "第 {{num}} 部分 — 认知循环",
+      "context": "第 {{num}} 部分 — 上下文与输入",
+      "boundaries": "第 {{num}} 部分 — 边界与规则",
+      "formatting": "第 {{num}} 部分 — 输出格式"
+    },
+    "cognitiveLoop": "认知循环",
+    "proTip": "专家提示",
+    "next": "下一步",
+    "nextPlatformGuides": "平台指南 — ChatGPT →"
+  },
+  "components": {
+    "callout": {
+      "note": "注意",
+      "tip": "提示",
+      "warning": "警告",
+      "important": "重要"
+    }
   },
   "sidebar": {
     "searchPlaceholder": "搜索文档...",

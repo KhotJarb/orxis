@@ -24,7 +24,37 @@
     "badge": "เริ่มต้นใช้งาน",
     "title": "บทนำ",
     "whatAreCIs": "Custom Instructions คืออะไร?",
-    "whyItMatters": "ทำไมถึงสำคัญ"
+    "whyItMatters": "ทำไมถึงสำคัญ",
+    "beforeYouBegin": "ก่อนที่คุณจะเริ่ม",
+    "quickStart": "เริ่มต้นอย่างรวดเร็ว",
+    "step1": "ขั้นตอนที่ 1 — อธิบาย Persona ของคุณ",
+    "step1Title": "เลือก preset chip",
+    "step2": "คุณสามารถปรับแต่งเพิ่มเติมด้วยข้อความของคุณเองได้",
+    "step2Heading": "ขั้นตอนที่ 2 — กำหนดงานของคุณ",
+    "step3Heading": "ขั้นตอนที่ 3 — กำหนดโทนและน้ำเสียง",
+    "step4Heading": "ขั้นตอนที่ 4 — เพิ่มกฎเกณฑ์",
+    "coreConcepts": "แนวคิดหลัก",
+    "theSixSections": "6 ส่วนสำคัญ",
+    "sections": {
+      "role": "ส่วนที่ {{num}} — บทบาทและตัวตน",
+      "mission": "ส่วนที่ {{num}} — ภารกิจและเป้าหมาย",
+      "cognitive": "ส่วนที่ {{num}} — กระบวนการคิด",
+      "context": "ส่วนที่ {{num}} — บริบทและอินพุต",
+      "boundaries": "ส่วนที่ {{num}} — ขอบเขตและกฎเกณฑ์",
+      "formatting": "ส่วนที่ {{num}} — รูปแบบผลลัพธ์"
+    },
+    "cognitiveLoop": "กระบวนการคิด",
+    "proTip": "เคล็ดลับระดับโปร",
+    "next": "ถัดไป",
+    "nextPlatformGuides": "คู่มือแพลตฟอร์ม — ChatGPT →"
+  },
+  "components": {
+    "callout": {
+      "note": "หมายเหตุ",
+      "tip": "เคล็ดลับ",
+      "warning": "คำเตือน",
+      "important": "สำคัญ"
+    }
   },
   "sidebar": {
     "searchPlaceholder": "ค้นหาเอกสาร...",
