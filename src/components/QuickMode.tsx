@@ -213,33 +213,47 @@ export default function QuickMode({ onGenerate }: QuickModeProps) {
               </p>
             </motion.div>
 
+            {/* Textarea with gradient border */}
             <motion.div
               variants={itemVariants}
-              className="relative rounded-2xl glass-border glass-bg bg-white/[0.02] shadow-[0_0_20px_rgba(0,240,255,0.05)] transition-all duration-300 focus-within:bg-white/[0.04] focus-within:shadow-[0_0_30px_rgba(0,240,255,0.1)] focus-within:border-[#00F0FF]/30"
+              className="relative rounded-2xl p-[1px] transition-all duration-500"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(0,240,255,0.25), rgba(138,43,226,0.25), rgba(0,240,255,0.15))",
+              }}
             >
-              <textarea
-                ref={textareaRef}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                onKeyDown={handleKeyDown}
-                placeholder="Describe the AI assistant you want…"
-                className="w-full bg-transparent text-white placeholder:text-white/30 p-5 min-h-[140px] resize-none outline-none text-lg leading-relaxed focus:ring-0 rounded-2xl"
-                rows={4}
-              />
-              
-              <div className="absolute bottom-4 right-4 flex items-center gap-3">
-                <span className="text-xs text-white/40">
-                  {message.length} chars
-                </span>
-                <button
-                  onClick={() => handleInitialSubmit()}
-                  disabled={!message.trim()}
-                  className="w-10 h-10 rounded-full glow-btn flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:before:hidden bg-gradient-to-tr from-[#8A2BE2] to-[#00F0FF]"
-                >
-                  <ArrowUp size={20} className="text-white" />
-                </button>
+              {/* Ambient glow behind the card */}
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-neon-cyan/10 via-neon-purple/8 to-neon-cyan/10 blur-xl opacity-60 pointer-events-none" />
+
+              <div className="relative rounded-2xl bg-[#0a0820] backdrop-blur-sm overflow-hidden">
+                {/* Subtle top highlight */}
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neon-cyan/30 to-transparent" />
+
+                <textarea
+                  ref={textareaRef}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  placeholder="Describe the AI assistant you want…"
+                  className="w-full bg-transparent text-white placeholder:text-white/35 p-5 min-h-[140px] resize-none outline-none text-lg leading-relaxed focus:ring-0 rounded-2xl"
+                  rows={4}
+                />
+
+                <div className="absolute bottom-4 right-4 flex items-center gap-3">
+                  <span className="text-xs text-white/40">
+                    {message.length} chars
+                  </span>
+                  <button
+                    onClick={() => handleInitialSubmit()}
+                    disabled={!message.trim()}
+                    className="w-10 h-10 rounded-full glow-btn flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:before:hidden bg-gradient-to-tr from-[#8A2BE2] to-[#00F0FF] cursor-pointer"
+                  >
+                    <ArrowUp size={20} className="text-white" />
+                  </button>
+                </div>
               </div>
             </motion.div>
+
 
             <motion.div variants={itemVariants} className="mt-4">
               <div className="flex items-center gap-2 text-sm text-white/50 mb-3 ml-1">
