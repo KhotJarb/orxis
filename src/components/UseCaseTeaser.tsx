@@ -3,44 +3,11 @@
 import { motion } from "framer-motion";
 import { Terminal, Video, Sparkles, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { useT } from "@/i18n";
 
 // ── Card data ──────────────────────────────────────────────────────────────
 
-const CARDS = [
-  {
-    Icon: Terminal,
-    title: "Software & Game Devs",
-    snippet:
-      "Maintain complex state architectures, strict syntax rules, and deep logic hierarchies — consistently.",
-    accentRgb: "6,182,212",
-    accentClass: "text-neon-cyan",
-    accentBorder: "hover:border-neon-cyan/30",
-    accentGlow: "hover:shadow-[0_8px_32px_rgba(6,182,212,0.12)]",
-    iconBg: "group-hover:bg-neon-cyan/[0.1] group-hover:border-neon-cyan/25 group-hover:text-neon-cyan",
-  },
-  {
-    Icon: Video,
-    title: "Content Creators",
-    snippet:
-      "Engineer psychological hooks, platform-specific pacing, and viral content strategy at expert level.",
-    accentRgb: "168,85,247",
-    accentClass: "text-neon-purple",
-    accentBorder: "hover:border-neon-purple/30",
-    accentGlow: "hover:shadow-[0_8px_32px_rgba(168,85,247,0.12)]",
-    iconBg: "group-hover:bg-neon-purple/[0.1] group-hover:border-neon-purple/25 group-hover:text-neon-purple",
-  },
-  {
-    Icon: Sparkles,
-    title: "Prompt Engineers",
-    snippet:
-      "Lock in aesthetic consistency, multi-layered visual styles, and precise character specifications.",
-    accentRgb: "251,191,36",
-    accentClass: "text-amber-400",
-    accentBorder: "hover:border-amber-400/30",
-    accentGlow: "hover:shadow-[0_8px_32px_rgba(251,191,36,0.10)]",
-    iconBg: "group-hover:bg-amber-400/[0.1] group-hover:border-amber-400/25 group-hover:text-amber-400",
-  },
-] as const;
+// CARDS array moved inside component
 
 // ── Animation variants ─────────────────────────────────────────────────────
 
@@ -62,6 +29,41 @@ const cardVariants = {
 // ── Component ──────────────────────────────────────────────────────────────
 
 export default function UseCaseTeaser() {
+  const t = useT("home");
+
+  const CARDS = [
+    {
+      Icon: Terminal,
+      title: t("useCaseTeaser.cards.devs.title"),
+      snippet: t("useCaseTeaser.cards.devs.snippet"),
+      accentRgb: "6,182,212",
+      accentClass: "text-neon-cyan",
+      accentBorder: "hover:border-neon-cyan/30",
+      accentGlow: "hover:shadow-[0_8px_32px_rgba(6,182,212,0.12)]",
+      iconBg: "group-hover:bg-neon-cyan/[0.1] group-hover:border-neon-cyan/25 group-hover:text-neon-cyan",
+    },
+    {
+      Icon: Video,
+      title: t("useCaseTeaser.cards.creators.title"),
+      snippet: t("useCaseTeaser.cards.creators.snippet"),
+      accentRgb: "168,85,247",
+      accentClass: "text-neon-purple",
+      accentBorder: "hover:border-neon-purple/30",
+      accentGlow: "hover:shadow-[0_8px_32px_rgba(168,85,247,0.12)]",
+      iconBg: "group-hover:bg-neon-purple/[0.1] group-hover:border-neon-purple/25 group-hover:text-neon-purple",
+    },
+    {
+      Icon: Sparkles,
+      title: t("useCaseTeaser.cards.promptEngineers.title"),
+      snippet: t("useCaseTeaser.cards.promptEngineers.snippet"),
+      accentRgb: "251,191,36",
+      accentClass: "text-amber-400",
+      accentBorder: "hover:border-amber-400/30",
+      accentGlow: "hover:shadow-[0_8px_32px_rgba(251,191,36,0.10)]",
+      iconBg: "group-hover:bg-amber-400/[0.1] group-hover:border-amber-400/25 group-hover:text-amber-400",
+    },
+  ];
+
   return (
     <section className="relative overflow-hidden py-24 sm:py-32">
       {/* Ambient glow */}
@@ -80,11 +82,11 @@ export default function UseCaseTeaser() {
           className="mb-14 text-center"
         >
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1] text-[var(--text-heading)] mb-4">
-            Endless{" "}
-            <span className="text-gradient">Possibilities.</span>
+            {t("useCaseTeaser.title")}{" "}
+            <span className="text-gradient">{t("useCaseTeaser.titleHighlight")}</span>
           </h2>
           <p className="mx-auto max-w-lg text-lg text-[var(--text-muted)] leading-relaxed">
-            A framework powerful enough for any complex workflow.
+            {t("useCaseTeaser.description")}
           </p>
         </motion.div>
 
@@ -127,7 +129,7 @@ export default function UseCaseTeaser() {
 
               {/* Hover arrow */}
               <div className={`mt-5 flex items-center gap-1 text-xs font-medium ${accentClass} opacity-0 transition-all duration-300 group-hover:opacity-70`}>
-                <span>Learn more</span>
+                <span>{t("useCaseTeaser.learnMore")}</span>
                 <ArrowUpRight className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </div>
             </motion.div>
@@ -147,7 +149,7 @@ export default function UseCaseTeaser() {
             <span className="absolute inset-0 rounded-full bg-neon-cyan/10 blur-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
             <span className="relative text-base font-semibold text-[var(--text-body)] transition-colors duration-300 group-hover:text-[var(--text-heading)]">
-              Explore All Use Cases
+              {t("useCaseTeaser.exploreAll")}
             </span>
 
             {/* Animated arrow */}

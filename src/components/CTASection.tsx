@@ -3,16 +3,21 @@
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Zap } from "lucide-react";
 import Link from "next/link";
+import { useT } from "@/i18n";
 
 const EASE = [0.25, 0.46, 0.45, 0.94] as const;
 
-const perks = [
-  "No account required",
-  "Fully client-side",
-  "Works with ChatGPT, Claude & Gemini",
-] as const;
+// perks array moved inside component
 
 export default function CTASection() {
+  const t = useT("home");
+
+  const perks = [
+    t("ctaSection.perks.noAccount"),
+    t("ctaSection.perks.clientSide"),
+    t("ctaSection.perks.worksWith"),
+  ];
+
   return (
     <section className="relative overflow-hidden py-28 sm:py-44">
 
@@ -47,7 +52,7 @@ export default function CTASection() {
         >
           <span className="mb-8 inline-flex items-center gap-2 rounded-full border border-neon-cyan/20 bg-neon-cyan/[0.06] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-neon-cyan-light">
             <Zap className="h-3 w-3" />
-            Free to use &middot; No sign-up &middot; Instant results
+            {t("ctaSection.badge")}
           </span>
         </motion.div>
 
@@ -59,9 +64,9 @@ export default function CTASection() {
           transition={{ duration: 0.65, delay: 0.08, ease: EASE }}
           className="mt-6 text-5xl sm:text-6xl md:text-[72px] font-bold tracking-tight leading-[1.05] text-[var(--text-heading)]"
         >
-          Stop Prompting.
+          {t("ctaSection.titleLine1")}
           <br />
-          <span className="text-gradient">Start Orchestrating.</span>
+          <span className="text-gradient">{t("ctaSection.titleLine2")}</span>
         </motion.h2>
 
         {/* Sub-headline */}
@@ -72,8 +77,7 @@ export default function CTASection() {
           transition={{ duration: 0.55, delay: 0.18, ease: EASE }}
           className="mx-auto mt-7 max-w-xl text-lg sm:text-xl text-[var(--text-muted)] leading-relaxed"
         >
-          Build a precise, structured instruction in minutes. Paste it into any AI model
-          and start getting more consistent, structured responses right away.
+          {t("ctaSection.description")}
         </motion.p>
 
         {/* CTA group */}
@@ -88,7 +92,7 @@ export default function CTASection() {
             href="/generate"
             className="glow-btn group relative inline-flex items-center gap-3 rounded-full px-9 py-4 text-[15px] font-semibold text-[var(--text-heading)] transition-all duration-300 hover:scale-[1.04]"
           >
-            Build My Instruction
+            {t("ctaSection.btnPrimary")}
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
 
@@ -96,7 +100,7 @@ export default function CTASection() {
             href="/docs"
             className="inline-flex items-center gap-1.5 rounded-full px-6 py-4 text-sm font-medium text-[var(--text-subtle)] hover:text-[var(--text-body)] transition-colors duration-300"
           >
-            Read the docs
+            {t("ctaSection.btnSecondary")}
             <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </motion.div>

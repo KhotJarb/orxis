@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Brain, UserCog, Zap, LayoutTemplate } from "lucide-react";
+import { useT } from "@/i18n";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
@@ -15,42 +16,7 @@ interface Feature {
   iconBg: string;
 }
 
-// ===== Data =====
-const features: Feature[] = [
-  {
-    title: "The Cognitive Loop",
-    subtitle: "Self-Reflection AI",
-    description:
-      "The engine doesn\u2019t just generate \u2014 it evaluates, critiques, and refines its own output to produce a more structured, well-considered result.",
-    icon: <Brain className="h-6 w-6" />,
-    iconBg: "bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20",
-  },
-  {
-    title: "Persona Elevation",
-    subtitle: "Expert-Level Identity",
-    description:
-      "Transform generic AI responses into expert-caliber output by crafting the perfect identity, expertise scope, and behavioral framework for your assistant.",
-    icon: <UserCog className="h-6 w-6" />,
-    iconBg: "bg-neon-purple/10 text-neon-purple border border-neon-purple/20",
-  },
-  {
-    title: "Zero-Cost Optimization",
-    subtitle: "Free Forever",
-    description:
-      "No API keys, no subscriptions, no hidden fees. Get professional-grade custom instructions completely free with our intelligent client-side engine.",
-    icon: <Zap className="h-6 w-6" />,
-    iconBg: "bg-amber-500/10 text-amber-400 border border-amber-500/20",
-  },
-  {
-    title: "Instant Format Perfection",
-    subtitle: "Output Architecture",
-    description:
-      "One-click format rules ensure every AI response follows your exact structure \u2014 bullet points, headers, code blocks, tables \u2014 you name it.",
-    icon: <LayoutTemplate className="h-6 w-6" />,
-    iconBg: "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20",
-  },
-];
-
+// Features array moved inside component
 // ===== Feature Card with mouse-tracking glow =====
 function FeatureCard({
   feature,
@@ -111,6 +77,39 @@ function FeatureCard({
 
 // ===== Section =====
 export default function Features() {
+  const t = useT("home");
+
+  const features: Feature[] = [
+    {
+      title: t("features.items.cognitiveLoop.title"),
+      subtitle: t("features.items.cognitiveLoop.subtitle"),
+      description: t("features.items.cognitiveLoop.description"),
+      icon: <Brain className="h-6 w-6" />,
+      iconBg: "bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20",
+    },
+    {
+      title: t("features.items.personaElevation.title"),
+      subtitle: t("features.items.personaElevation.subtitle"),
+      description: t("features.items.personaElevation.description"),
+      icon: <UserCog className="h-6 w-6" />,
+      iconBg: "bg-neon-purple/10 text-neon-purple border border-neon-purple/20",
+    },
+    {
+      title: t("features.items.zeroCost.title"),
+      subtitle: t("features.items.zeroCost.subtitle"),
+      description: t("features.items.zeroCost.description"),
+      icon: <Zap className="h-6 w-6" />,
+      iconBg: "bg-amber-500/10 text-amber-400 border border-amber-500/20",
+    },
+    {
+      title: t("features.items.instantFormat.title"),
+      subtitle: t("features.items.instantFormat.subtitle"),
+      description: t("features.items.instantFormat.description"),
+      icon: <LayoutTemplate className="h-6 w-6" />,
+      iconBg: "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20",
+    },
+  ];
+
   return (
     <section
       id="features"
@@ -128,11 +127,10 @@ export default function Features() {
         className="text-center mb-14 sm:mb-20 relative z-10"
       >
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--text-heading)] mb-4">
-          Built for <span className="text-gradient">Perfection</span>
+          {t("features.title")} <span className="text-gradient">{t("features.titleHighlight")}</span>
         </h2>
         <p className="max-w-xl mx-auto text-[var(--text-muted)] text-base sm:text-lg leading-relaxed">
-          Every feature is engineered to produce structured, consistent custom
-          instructions — no prompt engineering expertise required.
+          {t("features.description")}
         </p>
       </motion.div>
 

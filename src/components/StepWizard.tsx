@@ -27,6 +27,7 @@ import {
   getShortcutTemplates,
   type ShortcutTemplate,
 } from "@/data/domains";
+import { useT } from "@/i18n";
 
 // ===== Types =====
 interface StepConfig {
@@ -108,16 +109,9 @@ const DEFAULT_RULES_PRESETS = [
   "Use tables when possible",
 ];
 
-const LOADING_PHASES = [
-  "Analyzing your preferences…",
-  "Building your AI assistant…",
-  "Structuring the output…",
-  "Polishing the details…",
-  "Almost there…",
-];
 
 // ===== Build step configs dynamically based on domain =====
-function buildSteps(domainId: string | null): StepConfig[] {
+function buildSteps(domainId: string | null, t: any): StepConfig[] {
   const presets = domainId && domainId !== "custom"
     ? getDomainPresets(domainId)
     : getAllPresets();
@@ -125,66 +119,62 @@ function buildSteps(domainId: string | null): StepConfig[] {
   return [
     {
       id: "intent",
-      question: "What are you building this AI assistant for?",
-      subtitle: "Describe your goal or pick a category to get started",
+      question: t("wizard.steps.intent.question"),
+      subtitle: t("wizard.steps.intent.subtitle"),
       icon: <Compass className="h-5 w-5" />,
       type: "intent",
     },
     {
       id: "persona",
-      question: "What expert persona do you need?",
-      subtitle: "Define the AI's identity and area of expertise",
+      question: t("wizard.steps.persona.question"),
+      subtitle: t("wizard.steps.persona.subtitle"),
       icon: <User className="h-5 w-5" />,
       type: "presets",
       presets: presets.personas,
-      placeholder:
-        "e.g., A senior React developer with 10+ years of experience in building scalable web apps…",
+      placeholder: t("wizard.steps.persona.placeholder"),
       multiSelect: false,
     },
     {
       id: "task",
-      question: "What is the primary task or goal?",
-      subtitle: "Describe what you want the AI to help you accomplish",
+      question: t("wizard.steps.task.question"),
+      subtitle: t("wizard.steps.task.subtitle"),
       icon: <Target className="h-5 w-5" />,
       type: "presets",
       presets: presets.tasks,
-      placeholder:
-        "e.g., Review my TypeScript code for performance issues and suggest improvements…",
+      placeholder: t("wizard.steps.task.placeholder"),
       multiSelect: true,
     },
     {
       id: "context",
-      question: "Tell us about your work",
-      subtitle: "This helps create a more personalized assistant — skip if you prefer a general-purpose one",
+      question: t("wizard.steps.context.question"),
+      subtitle: t("wizard.steps.context.subtitle"),
       icon: <FileText className="h-5 w-5" />,
       type: "context",
     },
     {
       id: "tone",
-      question: "What tone of voice should the AI use?",
-      subtitle: "Set the communication style and personality",
+      question: t("wizard.steps.tone.question"),
+      subtitle: t("wizard.steps.tone.subtitle"),
       icon: <MessageSquare className="h-5 w-5" />,
       type: "presets",
       presets: DEFAULT_TONE_PRESETS,
-      placeholder:
-        "e.g., Be warm but direct, avoid unnecessary fluff, use analogies when explaining…",
+      placeholder: t("wizard.steps.tone.placeholder"),
       multiSelect: true,
     },
     {
       id: "rules",
-      question: "Any strict rules or output formats?",
-      subtitle: "Define constraints, formats, and non-negotiable boundaries",
+      question: t("wizard.steps.rules.question"),
+      subtitle: t("wizard.steps.rules.subtitle"),
       icon: <ShieldCheck className="h-5 w-5" />,
       type: "presets",
       presets: DEFAULT_RULES_PRESETS,
-      placeholder:
-        "e.g., Always validate inputs, never suggest deprecated APIs, include time complexity…",
+      placeholder: t("wizard.steps.rules.placeholder"),
       multiSelect: true,
     },
     {
       id: "shortcuts",
-      question: "Set up quick shortcuts",
-      subtitle: "Create reusable prompt templates with {{variables}} you fill in each time",
+      question: t("wizard.steps.shortcuts.question"),
+      subtitle: t("wizard.steps.shortcuts.subtitle"),
       icon: <Zap className="h-5 w-5" />,
       type: "shortcuts",
     },
@@ -349,6 +339,8 @@ const chipVariants = {
 
 // ===== Main Component =====
 export default function StepWizard({ onGenerate }: StepWizardProps) {
+  const t = useT("generate");
+  const tData = useT("data");
   const [currentStep, setCurrentStep] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -379,7 +371,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
   const [showAllPresets, setShowAllPresets] = useState(false);
 
   // Build steps dynamically based on domain
-  const steps = useMemo(() => buildSteps(intent.domain), [intent.domain]);
+  const steps = useMemo(() => buildSteps(intent.domain, t), [intent.domain, t]);
 
   const currentConfig = steps[currentStep];
   const isLastStep = currentStep === steps.length - 1;
@@ -421,11 +413,11 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
     setLoadingPhase(0);
     const interval = setInterval(() => {
       setLoadingPhase((prev) =>
-        prev < LOADING_PHASES.length - 1 ? prev + 1 : prev
+        prev < t.array("wizard.loading").length - 1 ? prev + 1 : prev
       );
     }, 800);
     return () => clearInterval(interval);
-  }, [isGenerating]);
+  }, [isGenerating, t]);
 
   // --- Initialize shortcuts when domain changes ---
   useEffect(() => {
@@ -542,7 +534,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
 
   const insertVariable = useCallback(
     (shortcutIndex: number) => {
-      const varName = prompt("Variable name (e.g., topic, count):");
+      const varName = prompt(t("wizard.ui.shortcuts.variablePrompt"));
       if (!varName?.trim()) return;
       setShortcuts((prev) => {
         const updated = [...prev];
@@ -679,7 +671,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
                 intent.domain === domain.id ? "text-neon-cyan-light" : "text-slate-400"
               }`}
             >
-              {domain.label}
+              {tData(`domains.${domain.id}.label`)}
             </span>
           </motion.button>
         ))}
@@ -738,7 +730,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
             <ChevronDown
               className={`h-3 w-3 transition-transform ${showAllPresets ? "rotate-180" : ""}`}
             />
-            {showAllPresets ? "Show fewer" : "Show all presets"}
+            {showAllPresets ? t("wizard.ui.showFewer") : t("wizard.ui.showAll")}
           </button>
         )}
 
@@ -766,7 +758,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
         {currentConfig.multiSelect && (
           <p className="mt-3 text-[11px] sm:text-xs text-slate-600 flex items-center gap-1.5">
             <span className="text-neon-cyan/60">✦</span>
-            You can select multiple options
+            {t("wizard.ui.multiSelect")}
           </p>
         )}
       </>
@@ -782,21 +774,21 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
           className="inline-flex items-center gap-1.5 text-xs text-neon-purple-light hover:text-neon-purple transition-colors cursor-pointer"
         >
           <Lightbulb className="h-3.5 w-3.5" />
-          Fill with example
+          {t("wizard.ui.fillExample")}
         </button>
       </div>
 
       <div className="space-y-4">
         <div>
           <label className="block text-xs font-medium text-slate-400 mb-2">
-            Describe what you do
+            {t("wizard.ui.context.whatYouDo.label")}
           </label>
           <textarea
             value={contextData.whatYouDo}
             onChange={(e) =>
               setContextData((prev) => ({ ...prev, whatYouDo: e.target.value }))
             }
-            placeholder="e.g., I run a tech review YouTube channel with 50K subscribers focused on budget-friendly gadgets…"
+            placeholder={t("wizard.ui.context.whatYouDo.placeholder")}
             rows={3}
             className="
               w-full rounded-xl bg-white/[0.03] border border-glass-border
@@ -810,14 +802,14 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
 
         <div>
           <label className="block text-xs font-medium text-slate-400 mb-2">
-            Who is your audience?
+            {t("wizard.ui.context.whoYouServe.label")}
           </label>
           <textarea
             value={contextData.whoYouServe}
             onChange={(e) =>
               setContextData((prev) => ({ ...prev, whoYouServe: e.target.value }))
             }
-            placeholder="e.g., Beginner developers aged 18-30 who want practical tutorials, not theory…"
+            placeholder={t("wizard.ui.context.whoYouServe.placeholder")}
             rows={3}
             className="
               w-full rounded-xl bg-white/[0.03] border border-glass-border
@@ -831,14 +823,14 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
 
         <div>
           <label className="block text-xs font-medium text-slate-400 mb-2">
-            Any key details the AI should know?
+            {t("wizard.ui.context.keyDetails.label")}
           </label>
           <textarea
             value={contextData.keyDetails}
             onChange={(e) =>
               setContextData((prev) => ({ ...prev, keyDetails: e.target.value }))
             }
-            placeholder="e.g., We use React and TypeScript, ship weekly updates, brand voice is casual but knowledgeable…"
+            placeholder={t("wizard.ui.context.keyDetails.placeholder")}
             rows={3}
             className="
               w-full rounded-xl bg-white/[0.03] border border-glass-border
@@ -867,7 +859,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
           className="inline-flex items-center gap-1.5 text-xs font-medium text-neon-purple-light hover:text-neon-purple transition-colors cursor-pointer"
         >
           <Sparkles className="h-3.5 w-3.5" />
-          Suggest for me
+          {t("wizard.ui.shortcuts.suggest")}
         </button>
         {shortcuts.length < 5 && (
           <button
@@ -875,7 +867,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
             className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-300 transition-colors cursor-pointer"
           >
             <Plus className="h-3.5 w-3.5" />
-            Add shortcut
+            {t("wizard.ui.shortcuts.add")}
           </button>
         )}
       </div>
@@ -902,7 +894,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
                 <input
                   value={shortcut.name}
                   onChange={(e) => updateShortcut(index, "name", e.target.value)}
-                  placeholder="Shortcut name"
+                  placeholder={t("wizard.ui.shortcuts.namePlaceholder")}
                   className="bg-transparent text-sm font-medium text-slate-200 placeholder-slate-600 focus:outline-none flex-1"
                 />
                 <button
@@ -915,7 +907,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
               <textarea
                 value={shortcut.template}
                 onChange={(e) => updateShortcut(index, "template", e.target.value)}
-                placeholder="e.g., Generate {{count}} ideas about {{topic}} for my {{audience}}"
+                placeholder={t("wizard.ui.shortcuts.templatePlaceholder")}
                 rows={2}
                 className="
                   w-full rounded-lg bg-white/[0.03] border border-glass-border
@@ -929,7 +921,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
                 className="mt-2 inline-flex items-center gap-1 text-[11px] text-slate-600 hover:text-neon-cyan-light transition-colors cursor-pointer"
               >
                 <Plus className="h-3 w-3" />
-                Add variable
+                {t("wizard.ui.shortcuts.insertVariable", { variable: "variable" })}
               </button>
             </motion.div>
           ))}
@@ -1085,7 +1077,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
                   transition={{ duration: 0.3 }}
                   className="relative z-10 text-white font-medium text-sm"
                 >
-                  {LOADING_PHASES[loadingPhase]}
+                  {t.array("wizard.loading")[loadingPhase]}
                 </motion.p>
               </AnimatePresence>
             </motion.div>

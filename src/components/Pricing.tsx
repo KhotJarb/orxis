@@ -12,6 +12,7 @@ import {
   Coffee,
   Sparkles,
 } from "lucide-react";
+import { useT } from "@/i18n";
 
 // ── Animation presets ──────────────────────────────────────────────────────
 
@@ -23,23 +24,6 @@ const fadeUp = (delay = 0) => ({
   viewport: { once: true },
   transition: { duration: 0.65, delay, ease: EASE },
 });
-
-// ── FAQ data ───────────────────────────────────────────────────────────────
-
-const FAQ = [
-  {
-    q: "Is the generator free to use?",
-    a: "Yes — the core generation engine is completely free for everyone to access and use, right now. No credit card, no signup, no strings attached.",
-  },
-  {
-    q: "Do I need to create an account?",
-    a: "Nope. Just open the generator, complete the four-step wizard, and copy your master instruction directly into ChatGPT, Claude, Gemini, or any AI of your choice. Zero friction.",
-  },
-  {
-    q: "Where does donation money go?",
-    a: "100% goes directly into covering server costs, LLM API usage, and funding the next wave of advanced features — smarter generation models, a full prompt gallery, and team collaboration tools.",
-  },
-];
 
 // ── FAQ Accordion item ─────────────────────────────────────────────────────
 
@@ -84,31 +68,38 @@ function AccordionItem({ q, a, index }: { q: string; a: string; index: number })
   );
 }
 
-// ── Free features ──────────────────────────────────────────────────────────
-
-const FREE_FEATURES = [
-  "Generate Master Instructions instantly",
-  "All six-section master framework",
-  "Platform guides for ChatGPT, Claude & Gemini",
-  "No account or login required",
-  "Copy-ready output, always",
-];
-
-// ── Supporter perks ────────────────────────────────────────────────────────
-
-const SUPPORTER_PERKS = [
-  { Icon: Star,  text: "Priority access to upcoming features" },
-  { Icon: Heart, text: "Keep the core tool free for everyone" },
-  { Icon: Zap,   text: "Direct influence on the product roadmap" },
-];
-
-const AMOUNTS = ["$5", "$10", "$25"];
-
 // ── Page component ─────────────────────────────────────────────────────────
 
 export default function Pricing() {
+  const t = useT("pages");
   const [selectedAmount, setSelectedAmount] = useState("$10");
   const [copied, setCopied] = useState(false);
+
+  const FAQ = [
+    {
+      q: t("pricing.faq.items.free.q"),
+      a: t("pricing.faq.items.free.a"),
+    },
+    {
+      q: t("pricing.faq.items.account.q"),
+      a: t("pricing.faq.items.account.a"),
+    },
+    {
+      q: t("pricing.faq.items.donation.q"),
+      a: t("pricing.faq.items.donation.a"),
+    },
+  ];
+
+  const FREE_FEATURES = t.array("pricing.freeCard.features");
+
+  const supporterPerksArr = t.array("pricing.supporterCard.perks");
+  const SUPPORTER_PERKS = [
+    { Icon: Star,  text: supporterPerksArr[0] },
+    { Icon: Heart, text: supporterPerksArr[1] },
+    { Icon: Zap,   text: supporterPerksArr[2] },
+  ];
+
+  const AMOUNTS = ["$5", "$10", "$25"];
 
   const handleDonate = () => {
     // Buy Me a Coffee doesn't support URL amount pre-filling, so we copy the
@@ -136,15 +127,14 @@ export default function Pricing() {
         <motion.div {...fadeUp(0)} className="mb-20 text-center">
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-neon-cyan/20 bg-neon-cyan/[0.06] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-neon-cyan">
             <Sparkles className="h-3.5 w-3.5" />
-            Pricing
+            {t("pricing.badge")}
           </div>
           <h1 className="mb-5 text-4xl font-bold tracking-tight leading-[1.1] text-white sm:text-5xl lg:text-6xl">
-            Advanced Framework.{" "}
-            <span className="text-gradient">Free Access.</span>
+            {t("pricing.title")}{" "}
+            <span className="text-gradient">{t("pricing.titleHighlight")}</span>
           </h1>
           <p className="mx-auto max-w-lg text-lg leading-relaxed text-slate-400">
-            Experience elite AI intelligence. Generate your master instructions
-            at no cost — right now, today.
+            {t("pricing.subtitle")}
           </p>
         </motion.div>
 
@@ -160,18 +150,18 @@ export default function Pricing() {
             {/* Badge */}
             <span className="mb-6 inline-flex w-fit items-center gap-1.5 rounded-full border border-neon-cyan/20 bg-neon-cyan/[0.07] px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-neon-cyan">
               <span className="h-1.5 w-1.5 rounded-full bg-neon-cyan animate-pulse" />
-              Current Offering
+              {t("pricing.freeCard.badge")}
             </span>
 
             {/* Price */}
             <div className="mb-2 flex items-end gap-1">
               <span className="text-5xl font-bold tracking-tight text-white">
-                $0
+                {t("pricing.freeCard.price")}
               </span>
-              <span className="mb-1.5 text-slate-500 text-sm">/ always</span>
+              <span className="mb-1.5 text-slate-500 text-sm">{t("pricing.freeCard.period")}</span>
             </div>
             <p className="mb-8 text-sm text-slate-500">
-              No credit card. No account. No expiry.
+              {t("pricing.freeCard.description")}
             </p>
 
             {/* Features */}
@@ -193,7 +183,7 @@ export default function Pricing() {
               whileTap={{ scale: 0.98 }}
               className="group flex items-center justify-center gap-2 rounded-xl border border-neon-cyan/20 bg-neon-cyan/[0.07] px-6 py-3.5 text-sm font-semibold text-neon-cyan transition-all duration-200 hover:bg-neon-cyan/[0.12] hover:shadow-[0_0_20px_rgba(6,182,212,0.15)] cursor-pointer"
             >
-              Start Generating
+              {t("pricing.freeCard.cta")}
               <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
             </motion.a>
           </motion.div>
@@ -217,13 +207,13 @@ export default function Pricing() {
               {/* Badge */}
               <span className="relative mb-6 inline-flex w-fit items-center gap-1.5 rounded-full border border-amber-400/30 bg-amber-400/[0.08] px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-amber-400">
                 <Coffee className="h-3 w-3" />
-                Support the Developer
+                {t("pricing.supporterCard.badge")}
               </span>
 
               {/* Price */}
               <div className="relative mb-2">
                 <p className="text-[13px] text-slate-500 mb-1 font-medium uppercase tracking-wider">
-                  Choose your amount
+                  {t("pricing.supporterCard.label")}
                 </p>
                 <div className="flex items-center gap-2">
                   {AMOUNTS.map((amt) => (
@@ -243,9 +233,7 @@ export default function Pricing() {
               </div>
 
               <p className="relative mb-8 text-sm leading-relaxed text-slate-400">
-                Love the tool? Help keep the servers running and fuel the next
-                wave of features — a Prompt Gallery, team workspaces, and
-                smarter generation models.
+                {t("pricing.supporterCard.description")}
               </p>
 
               {/* Perks */}
@@ -270,7 +258,7 @@ export default function Pricing() {
                 {/* Shimmer sweep */}
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
                 <Coffee className="relative h-4 w-4" />
-                <span className="relative">Support with {selectedAmount}</span>
+                <span className="relative">{t("pricing.supporterCard.cta", { amount: selectedAmount })}</span>
               </motion.button>
 
               {/* Clipboard toast */}
@@ -285,7 +273,7 @@ export default function Pricing() {
                       transition={{ duration: 0.2 }}
                       className="absolute inset-0 text-[11px] font-medium text-amber-400"
                     >
-                      {selectedAmount} copied — paste it into the amount field ✓
+                      {t("pricing.supporterCard.toastCopied", { amount: selectedAmount })}
                     </motion.p>
                   ) : (
                     <motion.p
@@ -296,7 +284,7 @@ export default function Pricing() {
                       transition={{ duration: 0.2 }}
                       className="absolute inset-0 text-[11px] text-slate-600"
                     >
-                      Processed securely via Buy Me a Coffee
+                      {t("pricing.supporterCard.toastDefault")}
                     </motion.p>
                   )}
                 </AnimatePresence>
@@ -309,10 +297,10 @@ export default function Pricing() {
         <motion.div {...fadeUp(0.1)} className="mx-auto max-w-2xl">
           <div className="mb-10 text-center">
             <h2 className="text-2xl font-bold text-white sm:text-3xl">
-              Common Questions
+              {t("pricing.faq.title")}
             </h2>
             <p className="mt-3 text-slate-500 text-sm">
-              Everything you need to know before getting started.
+              {t("pricing.faq.subtitle")}
             </p>
           </div>
 

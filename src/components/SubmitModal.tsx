@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Upload, CheckCircle, Loader2, ChevronDown } from "lucide-react";
+import { useT } from "@/i18n";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -26,19 +27,6 @@ const INITIAL_FORM: FormState = {
   prompt: "",
 };
 
-const CATEGORIES = [
-  { value: "software-dev",     label: "Software Dev"      },
-  { value: "content-strategy", label: "Content Strategy"  },
-  { value: "creative-design",  label: "Creative Design"   },
-  { value: "data-analytics",   label: "Data & Analytics"  },
-  { value: "marketing",        label: "Marketing"         },
-  { value: "education",        label: "Education"         },
-  { value: "business",         label: "Business"          },
-  { value: "research",         label: "Research"          },
-  { value: "writing",          label: "Writing & Editing" },
-  { value: "other",            label: "Other"             },
-];
-
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
 // ── Shared input styles ────────────────────────────────────────────────────
@@ -49,6 +37,8 @@ const inputCls =
 // ── Success overlay ────────────────────────────────────────────────────────
 
 function SuccessView() {
+  const t = useT("gallery");
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.92 }}
@@ -75,7 +65,7 @@ function SuccessView() {
         transition={{ delay: 0.25, duration: 0.4, ease: EASE }}
         className="mb-2 text-xl font-bold text-white"
       >
-        Your prompt is in the forge.
+        {t("submit.success.title")}
       </motion.h3>
 
       <motion.p
@@ -84,7 +74,7 @@ function SuccessView() {
         transition={{ delay: 0.35, duration: 0.4, ease: EASE }}
         className="max-w-xs text-[14px] leading-relaxed text-slate-400"
       >
-        Our team will review it for quality before it goes live. We'll be in touch.
+        {t("submit.success.description")}
       </motion.p>
 
       {/* Auto-close progress bar */}
@@ -107,7 +97,7 @@ function SuccessView() {
         transition={{ delay: 0.6 }}
         className="mt-2 text-[11px] text-slate-600"
       >
-        Closing automatically…
+        {t("submit.success.closing")}
       </motion.p>
     </motion.div>
   );
@@ -121,9 +111,23 @@ interface SubmitModalProps {
 }
 
 export default function SubmitModal({ open, onClose }: SubmitModalProps) {
+  const t = useT("gallery");
   const [form, setForm]     = useState<FormState>(INITIAL_FORM);
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const titleRef            = useRef<HTMLInputElement>(null);
+
+  const CATEGORIES = [
+    { value: "software-dev",     label: t("gallery.categories.software-dev")      },
+    { value: "content-strategy", label: t("gallery.categories.content-strategy")  },
+    { value: "creative-design",  label: t("gallery.categories.creative-design")   },
+    { value: "data-analytics",   label: t("gallery.categories.data-analytics")  },
+    { value: "marketing",        label: t("gallery.categories.marketing")         },
+    { value: "education",        label: t("gallery.categories.education")         },
+    { value: "business",         label: t("gallery.categories.business")          },
+    { value: "research",         label: t("gallery.categories.research")          },
+    { value: "writing",          label: t("gallery.categories.writing") },
+    { value: "other",            label: t("gallery.categories.other")             },
+  ];
 
   // Focus title on open
   useEffect(() => {
@@ -230,10 +234,10 @@ export default function SubmitModal({ open, onClose }: SubmitModalProps) {
                         </div>
                         <div>
                           <h2 className="text-[15px] font-semibold text-white">
-                            Share Your Framework
+                            {t("submit.modal.headerTitle")}
                           </h2>
                           <p className="text-[11.5px] text-slate-500">
-                            Contribute to the community vault
+                            {t("submit.modal.headerSubtitle")}
                           </p>
                         </div>
                       </div>
@@ -252,7 +256,7 @@ export default function SubmitModal({ open, onClose }: SubmitModalProps) {
                       {/* Title */}
                       <div className="flex flex-col gap-1.5">
                         <label className="text-[11.5px] font-semibold uppercase tracking-wider text-slate-500">
-                          Title <span className="text-neon-cyan/60">*</span>
+                          {t("submit.modal.fields.title.label")} <span className="text-neon-cyan/60">*</span>
                         </label>
                         <input
                           ref={titleRef}
@@ -260,7 +264,7 @@ export default function SubmitModal({ open, onClose }: SubmitModalProps) {
                           value={form.title}
                           onChange={update("title")}
                           disabled={isLoading}
-                          placeholder="Name your Master Instruction"
+                          placeholder={t("submit.modal.fields.title.placeholder")}
                           className={inputCls}
                           required
                         />
@@ -269,24 +273,24 @@ export default function SubmitModal({ open, onClose }: SubmitModalProps) {
                       {/* Description */}
                       <div className="flex flex-col gap-1.5">
                         <label className="text-[11.5px] font-semibold uppercase tracking-wider text-slate-500">
-                          Description <span className="text-neon-cyan/60">*</span>
+                          {t("submit.modal.fields.description.label")} <span className="text-neon-cyan/60">*</span>
                         </label>
                         <textarea
                           value={form.description}
                           onChange={update("description")}
                           disabled={isLoading}
-                          placeholder="A one-line summary shown on the gallery card…"
+                          placeholder={t("submit.modal.fields.description.placeholder")}
                           rows={2}
                           required
                           className={`${inputCls} resize-none text-[13px] leading-relaxed`}
                         />
-                        <p className="text-[11px] text-slate-600">This appears as the card&apos;s visible description in the gallery.</p>
+                        <p className="text-[11px] text-slate-600">{t("submit.modal.fields.description.hint")}</p>
                       </div>
 
                       {/* Category */}
                       <div className="flex flex-col gap-1.5">
                         <label className="text-[11.5px] font-semibold uppercase tracking-wider text-slate-500">
-                          Category
+                          {t("submit.modal.fields.category.label")}
                         </label>
                         <div className="relative">
                           <select
@@ -308,9 +312,9 @@ export default function SubmitModal({ open, onClose }: SubmitModalProps) {
                       {/* Author */}
                       <div className="flex flex-col gap-1.5">
                         <label className="text-[11.5px] font-semibold uppercase tracking-wider text-slate-500">
-                          Author / Handle{" "}
+                          {t("submit.modal.fields.author.label")}{" "}
                           <span className="normal-case font-normal tracking-normal text-slate-600">
-                            (optional)
+                            {t("submit.modal.fields.author.optional")}
                           </span>
                         </label>
                         <input
@@ -318,7 +322,7 @@ export default function SubmitModal({ open, onClose }: SubmitModalProps) {
                           value={form.author}
                           onChange={update("author")}
                           disabled={isLoading}
-                          placeholder="Your name or @x_handle"
+                          placeholder={t("submit.modal.fields.author.placeholder")}
                           className={inputCls}
                         />
                       </div>
@@ -326,30 +330,30 @@ export default function SubmitModal({ open, onClose }: SubmitModalProps) {
                       {/* Tags */}
                       <div className="flex flex-col gap-1.5">
                         <label className="text-[11.5px] font-semibold uppercase tracking-wider text-slate-500">
-                          Tags{" "}
-                          <span className="normal-case font-normal tracking-normal text-slate-600">(optional)</span>
+                          {t("submit.modal.fields.tags.label")}{" "}
+                          <span className="normal-case font-normal tracking-normal text-slate-600">{t("submit.modal.fields.tags.optional")}</span>
                         </label>
                         <input
                           type="text"
                           value={form.tags}
                           onChange={update("tags")}
                           disabled={isLoading}
-                          placeholder="e.g. SOLID, Testing, Python"
+                          placeholder={t("submit.modal.fields.tags.placeholder")}
                           className={inputCls}
                         />
-                        <p className="text-[11px] text-slate-600">Separate tags with commas.</p>
+                        <p className="text-[11px] text-slate-600">{t("submit.modal.fields.tags.hint")}</p>
                       </div>
 
                       {/* Prompt textarea */}
                       <div className="flex flex-col gap-1.5">
                         <label className="text-[11.5px] font-semibold uppercase tracking-wider text-slate-500">
-                          Full Master Instruction <span className="text-neon-cyan/60">*</span>
+                          {t("submit.modal.fields.prompt.label")} <span className="text-neon-cyan/60">*</span>
                         </label>
                         <textarea
                           value={form.prompt}
                           onChange={update("prompt")}
                           disabled={isLoading}
-                          placeholder={"# 1. Role & Identity\nPaste your full 6-section Master Instruction here…"}
+                          placeholder={t("submit.modal.fields.prompt.placeholder")}
                           rows={5}
                           required
                           className={`${inputCls} resize-none font-mono text-[12.5px] leading-relaxed`}
@@ -358,7 +362,7 @@ export default function SubmitModal({ open, onClose }: SubmitModalProps) {
 
                       {/* Disclaimer */}
                       <p className="text-[11.5px] leading-relaxed text-slate-600 italic">
-                        All submissions are reviewed by our team before publishing to ensure great quality. We may lightly edit for formatting.
+                        {t("submit.modal.disclaimer")}
                       </p>
 
                       {/* Submit */}
@@ -382,7 +386,7 @@ export default function SubmitModal({ open, onClose }: SubmitModalProps) {
                               className="flex items-center gap-2"
                             >
                               <Loader2 className="h-4 w-4 animate-spin" />
-                              Submitting…
+                              {t("submit.modal.submittingButton")}
                             </motion.span>
                           ) : (
                             <motion.span
@@ -393,7 +397,7 @@ export default function SubmitModal({ open, onClose }: SubmitModalProps) {
                               className="flex items-center gap-2"
                             >
                               <Upload className="h-4 w-4" />
-                              Submit for Review
+                              {t("submit.modal.submitButton")}
                             </motion.span>
                           )}
                         </AnimatePresence>

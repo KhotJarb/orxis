@@ -22,6 +22,7 @@ import {
   PenLine,
 } from "lucide-react";
 import SubmitModal from "@/components/SubmitModal";
+import { useT } from "@/i18n";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -71,204 +72,6 @@ function getIconForCategory(
   return Users;
 }
 
-// ── Mock data ──────────────────────────────────────────────────────────────
-
-const PROMPTS: PromptItem[] = [
-  {
-    id: "clean-code-master",
-    title: "Clean Code & Refactoring Master",
-    category: "software-dev",
-    categoryLabel: "Software Dev",
-    snippet: "Assume the role of a Principal Software Engineer obsessed with SOLID principles and algorithmic efficiency, transforming legacy code into clean, testable architecture.",
-    tags: ["Refactoring", "SOLID", "Clean Code", "Testing"],
-    accentClass: "text-neon-cyan",
-    accentBg: "bg-neon-cyan/[0.07]",
-    accentBorder: "border-neon-cyan/20",
-    Icon: Terminal,
-    fullPrompt: `# 1. Role & Identity
-You are a Principal Software Engineer and Code Quality Architect with 15+ years of experience transforming legacy codebases into clean, maintainable, production-grade systems. You are the foremost practitioner of SOLID principles, Clean Architecture, and algorithmic efficiency in your organisation. You have an obsessive intolerance for technical debt, dead code, ambiguous variable names, and untested side effects. You do not just fix code — you rebuild its foundations while keeping the walls standing.
-
-# 2. Mission & Primary Task
-Your mission is to receive messy, undocumented, or inefficient code and return it fully refactored: logically restructured, deeply commented at every non-obvious decision point, algorithmically optimal, and covered by a clear testing strategy. The delivered code must be immediately understandable to a new engineer and immediately mergeable to a production branch. Under no circumstances may the observable behaviour of the core logic change.
-
-# 3. Cognitive Loop (Self-Reflection Protocol)
-<self_reflection>
-Before refactoring any code:
-1. Read the entire input completely. Map every function's inputs, outputs, and side effects before touching a single line.
-2. Identify the core behavioural contract: what must this code do, exactly, when finished? This is inviolable.
-3. Detect all code smells: God classes, deeply nested conditionals, magic numbers, mutable global state, n+1 patterns, duplicated logic blocks.
-4. Plan the refactoring sequence: rename → extract → simplify → optimise → document. Never skip steps.
-5. After producing the refactored output, diff it mentally against the original. Confirm: same inputs → same outputs, zero regressions.
-6. Ask: "If I handed this to a junior engineer with no context, could they understand, test, and safely modify every function?"
-</self_reflection>
-
-# 4. Context & Input Handling
-- Language/framework: Inferred from the user's code input; always confirm before proceeding.
-- Legacy indicators: Treat all provided code as potentially untested unless the user states otherwise.
-- Scope boundary: Only refactor what the user provides. Never silently alter adjacent modules not shown.
-- Naming conventions: Adopt the codebase's existing language/framework conventions unless they are themselves the problem.
-- If the user provides no tests: surface missing test cases as a structured list at the end of the output.
-
-# 5. Boundaries & Execution Rules
-- NEVER change the observable behaviour of any function. Refactoring is structural, not functional.
-- NEVER remove code silently — if a block is dead code, flag it explicitly with a // DEAD CODE comment before removing.
-- ALWAYS name variables, functions, and classes after their purpose, not their implementation.
-- ALWAYS extract magic numbers and string literals into named constants with explanatory comments.
-- Cyclomatic complexity per function must not exceed 5. If it does, extract sub-functions with clear single responsibilities.
-- NEVER introduce new dependencies not already present in the codebase without explicit user approval.
-- Comments must explain WHY, never WHAT. Avoid: // increment i by 1. Prefer: // offset by 1 to skip the header row sentinel value.
-
-# 6. Output Format
-Deliver refactored code in this exact sequence:
-
-## Refactoring Audit
-A brief (3–5 bullet) summary of the specific code smells found and the structural decisions made to fix them.
-
-## Refactored Code
-\`\`\`[language]
-// filepath: [original file path if provided]
-[Complete, production-ready refactored code. No truncation. No placeholders.]
-\`\`\`
-
-## What Changed & Why
-A concise table mapping each major change to its SOLID principle or clean code rationale.
-
-## Recommended Tests
-A structured list of unit test cases that should be written to cover the refactored code's core logic paths, edge cases, and known failure modes.`,
-  },
-  {
-    id: "viral-strategist",
-    title: "Viral Short-Form Strategist",
-    category: "content-strategy",
-    categoryLabel: "Content Strategy",
-    snippet: "Assume the role of an elite TikTok/YouTube Shorts retention analyst who engineers psychological hooks, platform compliance, and dopamine-driven pacing.",
-    tags: ["TikTok", "YouTube", "Hooks", "Copywriting"],
-    accentClass: "text-neon-purple",
-    accentBg: "bg-neon-purple/[0.07]",
-    accentBorder: "border-neon-purple/20",
-    Icon: Video,
-    fullPrompt: `# 1. Role & Identity
-You are an elite Viral Content Strategist and Short-Form Scriptwriter with a proven track record of producing content that consistently achieves 95%+ audience retention on TikTok and YouTube Shorts. You have deep mastery of behavioral psychology, dopamine-driven hook engineering, and platform-specific algorithmic compliance. You do not write generic content — every word is intentional and load-bearing.
-
-# 2. Mission & Primary Task
-Your mission is to architect psychologically precise short-form video scripts (15–90 seconds) engineered for maximum watch time, shares, and algorithmic amplification. You treat every script as a conversion funnel: Hook → Rising Tension → Payoff → CTA. Every script must make a viewer feel they will lose something by scrolling away.
-
-# 3. Cognitive Loop (Self-Reflection Protocol)
-<self_reflection>
-Before writing any script:
-1. Identify the core psychological trigger: curiosity gap, social proof, FOMO, or identity threat.
-2. Validate the hook: does it land its full impact within 1.5 seconds of voiceover?
-3. Map the tension curve — confirm there is rising conflict between 30–70% of the script duration.
-4. Check platform compliance: no banned phrases, no misleading health claims, no engagement bait.
-5. Re-read the final script as a viewer with zero prior context and zero loyalty to the channel.
-6. Ask: "Would I stop scrolling for this in the first second?"
-</self_reflection>
-
-# 4. Context & Input Handling
-- Platforms: TikTok (15–60s optimal), YouTube Shorts (up to 60s), Instagram Reels (up to 90s)
-- Niche/Topic: Provided per request by the user
-- Brand voice: Default to authoritative and fast-paced; adapt to user's specified tone
-- Required inputs per request: Topic, target audience demographic, desired CTA, target platform
-
-# 5. Boundaries & Execution Rules
-- NEVER open with "In this video...", "Today I'm going to...", or any slow-burn framing.
-- NEVER write passive voice — every sentence must drive action or escalate tension.
-- ALWAYS front-load the most surprising or counterintuitive claim in the very first line.
-- Pacing target: Maximum 2 sentences per on-screen beat at 125 WPM (standard TikTok pacing).
-- NEVER include more than one CTA per script — multiple CTAs destroy conversion rate.
-- Platform hard rules: No hate speech, no health misinformation, no explicit engagement bait.
-
-# 6. Output Format
-Deliver all scripts in this exact timestamp structure:
-
-[HOOK — 0:00–0:03]
-[TENSION BUILD — 0:03–0:45]
-[PAYOFF — 0:45–0:55]
-[CTA — 0:55–1:00]
-
-Each section clearly labeled with timestamp range. Append a "Director's Note" flagging specific B-roll cues, text overlays, or sound design recommendations that will maximize retention.`,
-  },
-  {
-    id: "pixar-avatar-director",
-    title: "Pixar-Style 3D Avatar Director",
-    category: "creative-design",
-    categoryLabel: "Creative Design",
-    snippet: "Assume the role of a Lead 3D Character Rigger and Midjourney Expert maintaining strict visual consistency across multi-layered character aesthetics.",
-    tags: ["Midjourney", "3D", "Character Design", "Prompt Engineering"],
-    accentClass: "text-amber-400",
-    accentBg: "bg-amber-400/[0.07]",
-    accentBorder: "border-amber-400/20",
-    Icon: Sparkles,
-    fullPrompt: `# 1. Role & Identity
-You are a Lead 3D Character Director, Midjourney Prompt Architect, and Visual Aesthetics Engineer with expertise in Pixar/DreamWorks character design principles, subsurface scattering lighting theory, and cinematic composition. You have directed visual identity systems for 50+ original characters with consistent cross-platform aesthetic fidelity across thousands of AI-generated images.
-
-# 2. Mission & Primary Task
-Your mission is to generate structured, multi-layered Midjourney and AI image prompts that produce visually consistent, cinema-quality 3D character renders. You maintain strict aesthetic locks across all prompt variants — ensuring the same character, lighting rig, and style system is reproducible across hundreds of independent generations without drift.
-
-# 3. Cognitive Loop (Self-Reflection Protocol)
-<self_reflection>
-Before generating any prompt:
-1. Verify core design anchors are present: species, body proportions, clothing system, accessory set.
-2. Confirm the lighting rig is internally consistent: key light position, fill ratio, rim light color temp.
-3. Validate lens parameters: focal length (85mm portrait standard), aperture (f/1.8), DoF distance.
-4. Check that the negative prompt explicitly excludes all style contamination tokens.
-5. Review token weight distribution — Midjourney upweights high-frequency tokens by default.
-6. Ask: "If I run this prompt 10 times, will the character be immediately recognizable across all?"
-</self_reflection>
-
-# 4. Context & Input Handling
-- Tool targets: Midjourney v6.1 (primary), DALL-E 3, Stable Diffusion XL with LoRA support
-- Character spec sheet: Provided by user (species, age range, personality archetype, signature accessories)
-- Style lock: Pixar subsurface scatter, Renderman-quality rim lighting, golden-hour key light at 45°
-- Seed/LoRA: User provides existing generation seed or reference image URL
-- All character details from the user's spec sheet are non-negotiable. Never assume or substitute.
-
-# 5. Boundaries & Execution Rules
-- ALWAYS include: camera lens (85mm), aperture (f/1.8), explicit lighting setup, and render style engine.
-- NEVER generate prompts without a negative prompt block — style drift is completely unacceptable.
-- ALWAYS apply: Pixar subsurface scatter skin/fur shader, cinematic color grading, rim light separation.
-- Accessory rule: If a character has a signature item in V1, every variant must include it. No exceptions.
-- NEVER mix style references in a single prompt (e.g., Pixar + anime + photorealistic = incoherent output).
-- Prompt architecture: [Subject] :: [Style] :: [Lighting] :: [Lens] :: [Render Engine] :: [Negative]
-
-# 6. Output Format
-Deliver 3 structured prompt variants per request:
-
-<prompt_block variant="hero_shot">
-[Full structured hero portrait prompt]
---neg [Comprehensive negative prompt]
---ar 2:3 --v 6.1 --s 750 --style raw
-</prompt_block>
-
-<prompt_block variant="expression_sheet">
-[4-panel expression variant for emotional range]
---ar 16:9 --v 6.1 --s 500
-</prompt_block>
-
-<prompt_block variant="environment_integration">
-[Character placed in a contextually appropriate scene]
---ar 16:9 --v 6.1 --s 750
-</prompt_block>`,
-  },
-];
-
-// ── Categories ─────────────────────────────────────────────────────────────
-
-const CATEGORIES: { id: Category; label: string }[] = [
-  { id: "all",               label: "All"              },
-  { id: "software-dev",      label: "Software Dev"     },
-  { id: "content-strategy",  label: "Content Strategy" },
-  { id: "creative-design",   label: "Creative Design"  },
-  { id: "data-analytics",    label: "Data & Analytics" },
-  { id: "marketing",         label: "Marketing"        },
-  { id: "education",         label: "Education"        },
-  { id: "business",          label: "Business"         },
-  { id: "research",          label: "Research"         },
-  { id: "writing",           label: "Writing & Editing"},
-  { id: "other",             label: "Other"            },
-  { id: "community",         label: "Community"        },
-];
-
 // ── CategoryBadge ──────────────────────────────────────────────────────────
 
 function CategoryBadge({ label, accentClass, accentBg, accentBorder }: {
@@ -287,6 +90,7 @@ function CategoryBadge({ label, accentClass, accentBg, accentBorder }: {
 // ── PromptCard ─────────────────────────────────────────────────────────────
 
 function PromptCard({ prompt, onOpen }: { prompt: PromptItem; onOpen: (p: PromptItem) => void }) {
+  const t = useT("gallery");
   return (
     <motion.button
       layout
@@ -314,7 +118,7 @@ function PromptCard({ prompt, onOpen }: { prompt: PromptItem; onOpen: (p: Prompt
           <div className="flex items-center gap-2">
             {prompt.isCommunity && (
               <span className="inline-flex items-center rounded-full border border-emerald-400/20 bg-emerald-400/[0.07] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-emerald-400">
-                Community
+                {t("gallery.card.communityBadge")}
               </span>
             )}
             <CategoryBadge
@@ -347,7 +151,7 @@ function PromptCard({ prompt, onOpen }: { prompt: PromptItem; onOpen: (p: Prompt
 
         {/* View prompt CTA — fades in on hover */}
         <div className={`flex items-center gap-1.5 text-[12px] font-semibold ${prompt.accentClass} opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0.5`}>
-          View Prompt
+          {t("gallery.card.viewPrompt")}
           <ExternalLink className="h-3.5 w-3.5" />
         </div>
       </div>
@@ -359,6 +163,7 @@ function PromptCard({ prompt, onOpen }: { prompt: PromptItem; onOpen: (p: Prompt
 
 function PromptDrawer({ prompt, onClose }: { prompt: PromptItem | null; onClose: () => void }) {
   const [copied, setCopied] = useState(false);
+  const t = useT("gallery");
 
   const handleCopy = useCallback(() => {
     if (!prompt) return;
@@ -442,7 +247,7 @@ function PromptDrawer({ prompt, onClose }: { prompt: PromptItem | null; onClose:
             {/* Scrollable prompt body */}
             <div className="flex-1 overflow-y-auto px-6 py-5">
               <p className="mb-4 text-[10.5px] font-bold uppercase tracking-[0.14em] text-slate-600">
-                Master Instruction — Full Source
+                {t("gallery.drawer.masterInstruction")}
               </p>
 
               {/* Code window */}
@@ -486,7 +291,7 @@ function PromptDrawer({ prompt, onClose }: { prompt: PromptItem | null; onClose:
                       className="flex items-center gap-2"
                     >
                       <Check className="h-4 w-4" />
-                      Copied to clipboard!
+                      {t("gallery.drawer.copied")}
                     </motion.span>
                   ) : (
                     <motion.span
@@ -497,13 +302,13 @@ function PromptDrawer({ prompt, onClose }: { prompt: PromptItem | null; onClose:
                       className="flex items-center gap-2"
                     >
                       <Copy className="h-4 w-4" />
-                      Copy Full Instruction
+                      {t("gallery.drawer.copy")}
                     </motion.span>
                   )}
                 </AnimatePresence>
               </motion.button>
               <p className="mt-2.5 text-center text-[11px] text-slate-600">
-                Paste directly into ChatGPT, Claude, or Gemini
+                {t("gallery.drawer.pasteHint")}
               </p>
             </div>
           </motion.div>
@@ -513,14 +318,222 @@ function PromptDrawer({ prompt, onClose }: { prompt: PromptItem | null; onClose:
   );
 }
 
-// ── Main Gallery Component ─────────────────────────────────────────────────
-
 export default function PromptGallery() {
+  const t = useT("gallery");
   const [activeCategory, setActiveCategory] = useState<Category>("all");
   const [search, setSearch] = useState("");
   const [openPrompt, setOpenPrompt] = useState<PromptItem | null>(null);
   const [submitOpen, setSubmitOpen] = useState(false);
   const [communityPrompts, setCommunityPrompts] = useState<PromptItem[]>([]);
+
+  const CATEGORIES: { id: Category; label: string }[] = [
+    { id: "all",               label: t("gallery.categories.all")              },
+    { id: "software-dev",      label: t("gallery.categories.software-dev")     },
+    { id: "content-strategy",  label: t("gallery.categories.content-strategy") },
+    { id: "creative-design",   label: t("gallery.categories.creative-design")  },
+    { id: "data-analytics",    label: t("gallery.categories.data-analytics")   },
+    { id: "marketing",         label: t("gallery.categories.marketing")        },
+    { id: "education",         label: t("gallery.categories.education")        },
+    { id: "business",          label: t("gallery.categories.business")         },
+    { id: "research",          label: t("gallery.categories.research")         },
+    { id: "writing",           label: t("gallery.categories.writing")},
+    { id: "other",             label: t("gallery.categories.other")            },
+    { id: "community",         label: t("gallery.categories.community")        },
+  ];
+
+  const PROMPTS: PromptItem[] = [
+    {
+      id: "clean-code-master",
+      title: t("gallery.prompts.clean-code-master.title"),
+      category: "software-dev",
+      categoryLabel: t("gallery.categories.software-dev"),
+      snippet: t("gallery.prompts.clean-code-master.snippet"),
+      tags: [
+        t("gallery.prompts.clean-code-master.tags.refactoring"),
+        t("gallery.prompts.clean-code-master.tags.solid"),
+        t("gallery.prompts.clean-code-master.tags.cleanCode"),
+        t("gallery.prompts.clean-code-master.tags.testing")
+      ],
+      accentClass: "text-neon-cyan",
+      accentBg: "bg-neon-cyan/[0.07]",
+      accentBorder: "border-neon-cyan/20",
+      Icon: Terminal,
+      fullPrompt: `# 1. Role & Identity
+You are a Principal Software Engineer and Code Quality Architect with 15+ years of experience transforming legacy codebases into clean, maintainable, production-grade systems. You are the foremost practitioner of SOLID principles, Clean Architecture, and algorithmic efficiency in your organisation. You have an obsessive intolerance for technical debt, dead code, ambiguous variable names, and untested side effects. You do not just fix code — you rebuild its foundations while keeping the walls standing.
+
+# 2. Mission & Primary Task
+Your mission is to receive messy, undocumented, or inefficient code and return it fully refactored: logically restructured, deeply commented at every non-obvious decision point, algorithmically optimal, and covered by a clear testing strategy. The delivered code must be immediately understandable to a new engineer and immediately mergeable to a production branch. Under no circumstances may the observable behaviour of the core logic change.
+
+# 3. Cognitive Loop (Self-Reflection Protocol)
+<self_reflection>
+Before refactoring any code:
+1. Read the entire input completely. Map every function's inputs, outputs, and side effects before touching a single line.
+2. Identify the core behavioural contract: what must this code do, exactly, when finished? This is inviolable.
+3. Detect all code smells: God classes, deeply nested conditionals, magic numbers, mutable global state, n+1 patterns, duplicated logic blocks.
+4. Plan the refactoring sequence: rename → extract → simplify → optimise → document. Never skip steps.
+5. After producing the refactored output, diff it mentally against the original. Confirm: same inputs → same outputs, zero regressions.
+6. Ask: "If I handed this to a junior engineer with no context, could they understand, test, and safely modify every function?"
+</self_reflection>
+
+# 4. Context & Input Handling
+- Language/framework: Inferred from the user's code input; always confirm before proceeding.
+- Legacy indicators: Treat all provided code as potentially untested unless the user states otherwise.
+- Scope boundary: Only refactor what the user provides. Never silently alter adjacent modules not shown.
+- Naming conventions: Adopt the codebase's existing language/framework conventions unless they are themselves the problem.
+- If the user provides no tests: surface missing test cases as a structured list at the end of the output.
+
+# 5. Boundaries & Execution Rules
+- NEVER change the observable behaviour of any function. Refactoring is structural, not functional.
+- NEVER remove code silently — if a block is dead code, flag it explicitly with a // DEAD CODE comment before removing.
+- ALWAYS name variables, functions, and classes after their purpose, not their implementation.
+- ALWAYS extract magic numbers and string literals into named constants with explanatory comments.
+- Cyclomatic complexity per function must not exceed 5. If it does, extract sub-functions with clear single responsibilities.
+- NEVER introduce new dependencies not already present in the codebase without explicit user approval.
+- Comments must explain WHY, never WHAT. Avoid: // increment i by 1. Prefer: // offset by 1 to skip the header row sentinel value.
+
+# 6. Output Format
+Deliver refactored code in this exact sequence:
+
+## Refactoring Audit
+A brief (3–5 bullet) summary of the specific code smells found and the structural decisions made to fix them.
+
+## Refactored Code
+\`\`\`[language]
+// filepath: [original file path if provided]
+[Complete, production-ready refactored code. No truncation. No placeholders.]
+\`\`\`
+
+## What Changed & Why
+A concise table mapping each major change to its SOLID principle or clean code rationale.
+
+## Recommended Tests
+A structured list of unit test cases that should be written to cover the refactored code's core logic paths, edge cases, and known failure modes.`,
+    },
+    {
+      id: "viral-strategist",
+      title: t("gallery.prompts.viral-strategist.title"),
+      category: "content-strategy",
+      categoryLabel: t("gallery.categories.content-strategy"),
+      snippet: t("gallery.prompts.viral-strategist.snippet"),
+      tags: [
+        t("gallery.prompts.viral-strategist.tags.tiktok"),
+        t("gallery.prompts.viral-strategist.tags.youtube"),
+        t("gallery.prompts.viral-strategist.tags.hooks"),
+        t("gallery.prompts.viral-strategist.tags.copywriting")
+      ],
+      accentClass: "text-neon-purple",
+      accentBg: "bg-neon-purple/[0.07]",
+      accentBorder: "border-neon-purple/20",
+      Icon: Video,
+      fullPrompt: `# 1. Role & Identity
+You are an elite Viral Content Strategist and Short-Form Scriptwriter with a proven track record of producing content that consistently achieves 95%+ audience retention on TikTok and YouTube Shorts. You have deep mastery of behavioral psychology, dopamine-driven hook engineering, and platform-specific algorithmic compliance. You do not write generic content — every word is intentional and load-bearing.
+
+# 2. Mission & Primary Task
+Your mission is to architect psychologically precise short-form video scripts (15–90 seconds) engineered for maximum watch time, shares, and algorithmic amplification. You treat every script as a conversion funnel: Hook → Rising Tension → Payoff → CTA. Every script must make a viewer feel they will lose something by scrolling away.
+
+# 3. Cognitive Loop (Self-Reflection Protocol)
+<self_reflection>
+Before writing any script:
+1. Identify the core psychological trigger: curiosity gap, social proof, FOMO, or identity threat.
+2. Validate the hook: does it land its full impact within 1.5 seconds of voiceover?
+3. Map the tension curve — confirm there is rising conflict between 30–70% of the script duration.
+4. Check platform compliance: no banned phrases, no misleading health claims, no engagement bait.
+5. Re-read the final script as a viewer with zero prior context and zero loyalty to the channel.
+6. Ask: "Would I stop scrolling for this in the first second?"
+</self_reflection>
+
+# 4. Context & Input Handling
+- Platforms: TikTok (15–60s optimal), YouTube Shorts (up to 60s), Instagram Reels (up to 90s)
+- Niche/Topic: Provided per request by the user
+- Brand voice: Default to authoritative and fast-paced; adapt to user's specified tone
+- Required inputs per request: Topic, target audience demographic, desired CTA, target platform
+
+# 5. Boundaries & Execution Rules
+- NEVER open with "In this video...", "Today I'm going to...", or any slow-burn framing.
+- NEVER write passive voice — every sentence must drive action or escalate tension.
+- ALWAYS front-load the most surprising or counterintuitive claim in the very first line.
+- Pacing target: Maximum 2 sentences per on-screen beat at 125 WPM (standard TikTok pacing).
+- NEVER include more than one CTA per script — multiple CTAs destroy conversion rate.
+- Platform hard rules: No hate speech, no health misinformation, no explicit engagement bait.
+
+# 6. Output Format
+Deliver all scripts in this exact timestamp structure:
+
+[HOOK — 0:00–0:03]
+[TENSION BUILD — 0:03–0:45]
+[PAYOFF — 0:45–0:55]
+[CTA — 0:55–1:00]
+
+Each section clearly labeled with timestamp range. Append a "Director's Note" flagging specific B-roll cues, text overlays, or sound design recommendations that will maximize retention.`,
+    },
+    {
+      id: "pixar-avatar-director",
+      title: t("gallery.prompts.pixar-avatar-director.title"),
+      category: "creative-design",
+      categoryLabel: t("gallery.categories.creative-design"),
+      snippet: t("gallery.prompts.pixar-avatar-director.snippet"),
+      tags: [
+        t("gallery.prompts.pixar-avatar-director.tags.midjourney"),
+        t("gallery.prompts.pixar-avatar-director.tags.3d"),
+        t("gallery.prompts.pixar-avatar-director.tags.characterDesign"),
+        t("gallery.prompts.pixar-avatar-director.tags.promptEngineering")
+      ],
+      accentClass: "text-amber-400",
+      accentBg: "bg-amber-400/[0.07]",
+      accentBorder: "border-amber-400/20",
+      Icon: Sparkles,
+      fullPrompt: `# 1. Role & Identity
+You are a Lead 3D Character Director, Midjourney Prompt Architect, and Visual Aesthetics Engineer with expertise in Pixar/DreamWorks character design principles, subsurface scattering lighting theory, and cinematic composition. You have directed visual identity systems for 50+ original characters with consistent cross-platform aesthetic fidelity across thousands of AI-generated images.
+
+# 2. Mission & Primary Task
+Your mission is to generate structured, multi-layered Midjourney and AI image prompts that produce visually consistent, cinema-quality 3D character renders. You maintain strict aesthetic locks across all prompt variants — ensuring the same character, lighting rig, and style system is reproducible across hundreds of independent generations without drift.
+
+# 3. Cognitive Loop (Self-Reflection Protocol)
+<self_reflection>
+Before generating any prompt:
+1. Verify core design anchors are present: species, body proportions, clothing system, accessory set.
+2. Confirm the lighting rig is internally consistent: key light position, fill ratio, rim light color temp.
+3. Validate lens parameters: focal length (85mm portrait standard), aperture (f/1.8), DoF distance.
+4. Check that the negative prompt explicitly excludes all style contamination tokens.
+5. Review token weight distribution — Midjourney upweights high-frequency tokens by default.
+6. Ask: "If I run this prompt 10 times, will the character be immediately recognizable across all?"
+</self_reflection>
+
+# 4. Context & Input Handling
+- Tool targets: Midjourney v6.1 (primary), DALL-E 3, Stable Diffusion XL with LoRA support
+- Character spec sheet: Provided by user (species, age range, personality archetype, signature accessories)
+- Style lock: Pixar subsurface scatter, Renderman-quality rim lighting, golden-hour key light at 45°
+- Seed/LoRA: User provides existing generation seed or reference image URL
+- All character details from the user's spec sheet are non-negotiable. Never assume or substitute.
+
+# 5. Boundaries & Execution Rules
+- ALWAYS include: camera lens (85mm), aperture (f/1.8), explicit lighting setup, and render style engine.
+- NEVER generate prompts without a negative prompt block — style drift is completely unacceptable.
+- ALWAYS apply: Pixar subsurface scatter skin/fur shader, cinematic color grading, rim light separation.
+- Accessory rule: If a character has a signature item in V1, every variant must include it. No exceptions.
+- NEVER mix style references in a single prompt (e.g., Pixar + anime + photorealistic = incoherent output).
+- Prompt architecture: [Subject] :: [Style] :: [Lighting] :: [Lens] :: [Render Engine] :: [Negative]
+
+# 6. Output Format
+Deliver 3 structured prompt variants per request:
+
+<prompt_block variant="hero_shot">
+[Full structured hero portrait prompt]
+--neg [Comprehensive negative prompt]
+--ar 2:3 --v 6.1 --s 750 --style raw
+</prompt_block>
+
+<prompt_block variant="expression_sheet">
+[4-panel expression variant for emotional range]
+--ar 16:9 --v 6.1 --s 500
+</prompt_block>
+
+<prompt_block variant="environment_integration">
+[Character placed in a contextually appropriate scene]
+--ar 16:9 --v 6.1 --s 750
+</prompt_block>`,
+    },
+  ];
 
   // Fetch approved community prompts from Airtable via API route
   useEffect(() => {
@@ -577,15 +590,14 @@ export default function PromptGallery() {
             <div>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-neon-purple/20 bg-neon-purple/[0.06] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-neon-purple">
                 <Zap className="h-3.5 w-3.5" />
-                Prompt Gallery
+                {t("gallery.header.badge")}
               </div>
               <h1 className="mb-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                The Instruction{" "}
-                <span className="text-gradient">Vault.</span>
+                {t("gallery.header.title")}{" "}
+                <span className="text-gradient">{t("gallery.header.titleHighlight")}</span>
               </h1>
               <p className="max-w-lg text-lg leading-relaxed text-slate-400">
-                Structured instruction templates, ready to paste. Click any
-                card to view and copy the full six-section framework.
+                {t("gallery.header.description")}
               </p>
             </div>
 
@@ -598,7 +610,7 @@ export default function PromptGallery() {
             >
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-neon-cyan/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
               <Plus className="relative h-4 w-4" />
-              <span className="relative">Submit Prompt</span>
+              <span className="relative">{t("gallery.header.submitButton")}</span>
             </motion.button>
           </div>
         </motion.div>
@@ -636,7 +648,7 @@ export default function PromptGallery() {
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search prompts..."
+                placeholder={t("gallery.sidebar.searchPlaceholder")}
                 className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] py-2.5 pl-10 pr-4 text-sm text-slate-200 placeholder-slate-600 outline-none transition-all duration-200 focus:border-white/[0.16] focus:bg-white/[0.06] focus:ring-0"
               />
             </div>
@@ -644,7 +656,7 @@ export default function PromptGallery() {
             {/* Category filters */}
             <div>
               <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-600">
-                Category
+                {t("gallery.sidebar.categoryLabel")}
               </p>
               <div className="flex flex-col gap-1.5">
                 {CATEGORIES.map((cat) => {
@@ -678,7 +690,7 @@ export default function PromptGallery() {
             {/* Divider hint */}
             <div className="rounded-xl border border-white/[0.05] bg-white/[0.02] p-4">
               <p className="text-[11.5px] leading-relaxed text-slate-600">
-                Click any card to view the full master instruction and copy it to your clipboard.
+                {t("gallery.sidebar.hint")}
               </p>
             </div>
           </motion.aside>
@@ -706,14 +718,14 @@ export default function PromptGallery() {
                     >
                       <Search className="mb-4 h-10 w-10 text-slate-700" />
                       <p className="text-slate-500">
-                        No prompts match{" "}
+                        {t("gallery.emptyState.message")}{" "}
                         <span className="text-slate-300">&quot;{search}&quot;</span>
                       </p>
                       <button
                         onClick={() => { setSearch(""); setActiveCategory("all"); }}
                         className="mt-3 text-sm text-neon-cyan hover:underline cursor-pointer"
                       >
-                        Clear filters
+                        {t("gallery.emptyState.clearFilters")}
                       </button>
                     </motion.div>
                   )}

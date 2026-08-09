@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Shield, Layers, Cpu, Zap } from "lucide-react";
+import { useT } from "@/i18n";
 
 // ── Constants ─────────────────────────────────────────────────────────────
 
@@ -134,46 +135,47 @@ function OrchestrationGraph() {
   );
 }
 
-// ── Principle Cards ───────────────────────────────────────────────────────
 
-const PRINCIPLES = [
-  {
-    Icon: Shield,
-    title: "Strict Boundaries",
-    body: "AI is only as reliable as the constraints it operates within. Each instruction set defines hard limits: verified facts first, no conflation of metrics and opinion, structured fallback behavior when inputs are ambiguous.",
-    accent:       "text-neon-cyan",
-    accentBg:     "bg-neon-cyan/[0.07]",
-    accentBorder: "border-neon-cyan/20",
-    topLine:      "via-neon-cyan/30",
-  },
-  {
-    Icon: Layers,
-    title: "Multi-Channel Adaptability",
-    body: "The same core framework pivots cleanly from backend architecture planning to short-form content strategy. Role isolation and context scoping keep each deployment focused without bleed-over.",
-    accent:       "text-neon-purple",
-    accentBg:     "bg-neon-purple/[0.07]",
-    accentBorder: "border-neon-purple/20",
-    topLine:      "via-neon-purple/30",
-  },
-  {
-    Icon: Cpu,
-    title: "Pure Functionality",
-    body: "No decorative framing. Just a structured cognitive loop that requires the model to reason through context before generating output — reducing the surface area for drift and generic hedging.",
-    accent:       "text-emerald-400",
-    accentBg:     "bg-emerald-400/[0.07]",
-    accentBorder: "border-emerald-400/20",
-    topLine:      "via-emerald-400/30",
-  },
-];
 
 // ── Main Component ────────────────────────────────────────────────────────
 
 export default function About() {
+  const t = useT("pages");
   const storyRef     = useRef<HTMLDivElement>(null);
   const principlesRef = useRef<HTMLDivElement>(null);
 
   const storyInView      = useInView(storyRef,      { once: true, margin: "-80px" });
   const principlesInView = useInView(principlesRef, { once: true, margin: "-80px" });
+
+  const PRINCIPLES = [
+    {
+      Icon: Shield,
+      title: t("about.principles.items.boundaries.title"),
+      body: t("about.principles.items.boundaries.body"),
+      accent:       "text-neon-cyan",
+      accentBg:     "bg-neon-cyan/[0.07]",
+      accentBorder: "border-neon-cyan/20",
+      topLine:      "via-neon-cyan/30",
+    },
+    {
+      Icon: Layers,
+      title: t("about.principles.items.adaptability.title"),
+      body: t("about.principles.items.adaptability.body"),
+      accent:       "text-neon-purple",
+      accentBg:     "bg-neon-purple/[0.07]",
+      accentBorder: "border-neon-purple/20",
+      topLine:      "via-neon-purple/30",
+    },
+    {
+      Icon: Cpu,
+      title: t("about.principles.items.functionality.title"),
+      body: t("about.principles.items.functionality.body"),
+      accent:       "text-emerald-400",
+      accentBg:     "bg-emerald-400/[0.07]",
+      accentBorder: "border-emerald-400/20",
+      topLine:      "via-emerald-400/30",
+    },
+  ];
 
   return (
     <div className="relative min-h-screen overflow-x-hidden">
@@ -203,7 +205,7 @@ export default function About() {
               className="mb-7 inline-flex items-center gap-2 rounded-full border border-neon-cyan/20 bg-neon-cyan/[0.06] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-neon-cyan"
             >
               <Zap className="h-3.5 w-3.5" />
-              Our Philosophy
+              {t("about.badge")}
             </motion.div>
 
             {/* H1 */}
@@ -214,12 +216,12 @@ export default function About() {
               }}
               className="mb-7 text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-[72px] lg:leading-[1.07]"
             >
-              We Don&apos;t Just Prompt.{" "}
+              {t("about.title")}{" "}
               <span
                 className="block bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(90deg, #06b6d4 0%, #ffffff 48%, #8b5cf6 100%)" }}
               >
-                We Orchestrate.
+                {t("about.titleHighlight")}
               </span>
             </motion.h1>
 
@@ -231,8 +233,7 @@ export default function About() {
               }}
               className="mx-auto max-w-2xl text-lg leading-relaxed text-slate-400"
             >
-              Built to bridge the gap between raw AI potential and professional,
-              multi-channel workflow execution.
+              {t("about.subtitle")}
             </motion.p>
           </motion.div>
         </section>
@@ -251,34 +252,23 @@ export default function About() {
               transition={{ duration: 0.85, ease: EASE }}
             >
               <p className="mb-4 text-[10.5px] font-bold uppercase tracking-[0.17em] text-neon-cyan/60">
-                The Origin
+                {t("about.origin.label")}
               </p>
               <blockquote className="mb-7 border-l-2 border-neon-cyan/25 pl-5">
                 <p className="text-2xl font-semibold leading-snug text-white sm:text-3xl">
-                  &ldquo;It started with a need for control.&rdquo;
+                  {t("about.origin.quote")}
                 </p>
               </blockquote>
               <div className="space-y-4 text-[15px] leading-[1.8] text-slate-400">
+                <p>{t("about.origin.p1")}</p>
                 <p>
-                  Whether managing multiple short-form content channels, defining strict logic
-                  boundaries for software development, or crafting precise visual prompts —
-                  generic AI outputs were too variable, too easily derailed, and too surface-level
-                  for professional use.
+                  {t("about.origin.p2").split(/(<\d+>[^<]+<\/\d+>)/).map((part, i) => {
+                    const m = part.match(/<\d+>([^<]+)<\/\d+>/);
+                    if (m) return <em key={i} className="text-slate-300 not-italic">{m[1]}</em>;
+                    return part;
+                  })}
                 </p>
-                <p>
-                  We built this framework to turn a general-purpose model into a focused,
-                  rule-bound engine. One that separates <em className="text-slate-300 not-italic">role</em> from{" "}
-                  <em className="text-slate-300 not-italic">mission</em>,{" "}
-                  <em className="text-slate-300 not-italic">context</em> from{" "}
-                  <em className="text-slate-300 not-italic">output</em>, and{" "}
-                  <em className="text-slate-300 not-italic">opinion</em> from{" "}
-                  <em className="text-slate-300 not-italic">fact</em> — at the prompt layer,
-                  before any conversation begins.
-                </p>
-                <p>
-                  The result is an instruction architecture that doesn&apos;t just guide AI —
-                  it constrains it with purpose.
-                </p>
+                <p>{t("about.origin.p3")}</p>
               </div>
             </motion.div>
 
@@ -293,7 +283,7 @@ export default function About() {
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neon-cyan/25 to-transparent" />
                 <OrchestrationGraph />
                 <p className="absolute bottom-4 left-0 right-0 text-center text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-700">
-                  Instruction Orchestration Graph
+                  {t("about.graphCaption")}
                 </p>
               </div>
             </motion.div>
@@ -314,10 +304,10 @@ export default function About() {
             className="mb-14 text-center"
           >
             <p className="mb-3 text-[10.5px] font-bold uppercase tracking-[0.17em] text-slate-600">
-              Core Principles
+              {t("about.principles.label")}
             </p>
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              What guides every decision.
+              {t("about.principles.title")}
             </h2>
           </motion.div>
 

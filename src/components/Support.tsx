@@ -12,48 +12,21 @@ import {
   Globe,
   Wallet,
 } from "lucide-react";
+import { useT } from "@/i18n";
 
 // ── Constants ─────────────────────────────────────────────────────────────
 
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
-// ── FAQ Data ──────────────────────────────────────────────────────────────
-
-const FAQ_ITEMS = [
-  {
-    id: "01",
-    Icon: Brain,
-    question: "Will the AI follow these instructions perfectly every time?",
-    answer:
-      "Not unconditionally. This framework significantly improves AI adherence and consistency, but Large Language Models inherently have variation in their outputs. You may still need to review responses occasionally and guide the model back on track, especially on longer sessions or edge-case inputs.",
-  },
-  {
-    id: "02",
-    Icon: Shield,
-    question: "Is my input data saved or used for training?",
-    answer:
-      "No. The core generation process runs locally in your browser or through a stateless API call. We do not store your raw inputs or generated instructions. The only exception is if you explicitly choose to submit a prompt to the Community Gallery — that action requires your deliberate consent.",
-  },
-  {
-    id: "03",
-    Icon: Globe,
-    question: "Can I use the generated instructions for non-English prompts?",
-    answer:
-      "Yes. The structural logic of the framework applies across languages. For best results, specify your target language in the Role & Identity section (Section 1), and the model will generally maintain that language throughout the session.",
-  },
-  {
-    id: "04",
-    Icon: Wallet,
-    question: "Do I need to pay to use the tool?",
-    answer:
-      "The core generation features are currently free to use. The project runs on community support and voluntary donations to cover operational costs. There is no paywall for the generator at this time.",
-  },
-] as const;
-
 // ── Accordion Item ────────────────────────────────────────────────────────
 
 interface AccordionItemProps {
-  item: (typeof FAQ_ITEMS)[number];
+  item: {
+    id: string;
+    Icon: any;
+    question: string;
+    answer: string;
+  };
   isOpen: boolean;
   onToggle: () => void;
   index: number;
@@ -143,7 +116,35 @@ function AccordionItem({ item, isOpen, onToggle, index, inView }: AccordionItemP
 // ── Main Component ────────────────────────────────────────────────────────
 
 export default function Support() {
+  const t = useT("pages");
   const [openId, setOpenId] = useState<string | null>("01");
+
+  const FAQ_ITEMS = [
+    {
+      id: "01",
+      Icon: Brain,
+      question: t("support.faq.items.q1.q"),
+      answer: t("support.faq.items.q1.a"),
+    },
+    {
+      id: "02",
+      Icon: Shield,
+      question: t("support.faq.items.q2.q"),
+      answer: t("support.faq.items.q2.a"),
+    },
+    {
+      id: "03",
+      Icon: Globe,
+      question: t("support.faq.items.q3.q"),
+      answer: t("support.faq.items.q3.a"),
+    },
+    {
+      id: "04",
+      Icon: Wallet,
+      question: t("support.faq.items.q4.q"),
+      answer: t("support.faq.items.q4.a"),
+    },
+  ];
 
   const heroRef     = useRef<HTMLDivElement>(null);
   const faqRef      = useRef<HTMLDivElement>(null);
@@ -180,7 +181,7 @@ export default function Support() {
               className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-slate-500"
             >
               <HelpCircle className="h-3.5 w-3.5" />
-              Support
+              {t("support.badge")}
             </motion.div>
 
             <motion.h1
@@ -190,7 +191,7 @@ export default function Support() {
               }}
               className="mb-4 text-4xl font-bold tracking-tight text-white sm:text-5xl"
             >
-              Questions &amp; Feedback.
+              {t("support.title")}
             </motion.h1>
 
             <motion.p
@@ -200,8 +201,7 @@ export default function Support() {
               }}
               className="max-w-xl text-[15.5px] leading-relaxed text-slate-400"
             >
-              Find answers to common questions about the generator, or share
-              your suggestions to help us improve the tool.
+              {t("support.subtitle")}
             </motion.p>
           </motion.div>
         </section>
@@ -214,7 +214,7 @@ export default function Support() {
             transition={{ duration: 0.5, ease: EASE }}
             className="mb-5 text-[10.5px] font-bold uppercase tracking-[0.16em] text-slate-600"
           >
-            Frequently Asked Questions
+            {t("support.faq.label")}
           </motion.p>
 
           <div className="flex flex-col gap-3">
@@ -250,13 +250,10 @@ export default function Support() {
 
               <div className="flex-1 min-w-0">
                 <h2 className="mb-2 text-[17px] font-semibold text-white">
-                  Have a Suggestion?
+                  {t("support.feedback.title")}
                 </h2>
                 <p className="mb-6 text-[13.5px] leading-[1.8] text-slate-500">
-                  We are constantly refining the generator based on real-world use
-                  cases. While we don&apos;t have the capacity to respond to every
-                  message individually, we read all feedback carefully to inform
-                  future updates.
+                  {t("support.feedback.description")}
                 </p>
 
                 <motion.a
@@ -267,7 +264,7 @@ export default function Support() {
                   whileTap={{ scale: 0.97 }}
                   className="group inline-flex items-center gap-2 rounded-xl border border-neon-purple/25 bg-neon-purple/[0.08] px-5 py-2.5 text-sm font-semibold text-neon-purple transition-all duration-300 hover:border-neon-purple/40 hover:bg-neon-purple/[0.14] hover:shadow-[0_0_18px_rgba(139,92,246,0.18)]"
                 >
-                  Share Feedback
+                  {t("support.feedback.cta")}
                   <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </motion.a>
               </div>

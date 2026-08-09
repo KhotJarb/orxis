@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Dna, Lock, Globe, Layers } from "lucide-react";
+import { useT } from "@/i18n";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
@@ -52,15 +53,19 @@ const aiModels = [
   },
 ];
 
-const pillars = [
-  { label: "Persona", desc: "Who the AI is", textColor: "text-neon-cyan" },
-  { label: "Task", desc: "What it does", textColor: "text-neon-purple" },
-  { label: "Tone", desc: "How it speaks", textColor: "text-amber-400" },
-  { label: "Rules", desc: "What it follows", textColor: "text-emerald-400" },
-];
+// Pillars are now defined inside the component
 
 // ===== Component =====
 export default function BentoGrid() {
+  const t = useT("home");
+
+  const pillars = [
+    { label: t("bento.card4.pillars.persona.label"), desc: t("bento.card4.pillars.persona.desc"), textColor: "text-neon-cyan" },
+    { label: t("bento.card4.pillars.task.label"), desc: t("bento.card4.pillars.task.desc"), textColor: "text-neon-purple" },
+    { label: t("bento.card4.pillars.tone.label"), desc: t("bento.card4.pillars.tone.desc"), textColor: "text-amber-400" },
+    { label: t("bento.card4.pillars.rules.label"), desc: t("bento.card4.pillars.rules.desc"), textColor: "text-emerald-400" },
+  ];
+
   return (
     <section className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background */}
@@ -76,15 +81,14 @@ export default function BentoGrid() {
       >
         <div className="inline-flex items-center gap-2 rounded-full border border-glass-border bg-glass-bg px-4 py-2 text-xs sm:text-sm font-medium text-neon-cyan-light mb-6">
           <Dna className="h-3.5 w-3.5" />
-          Understanding the Core
+          {t("bento.badge")}
         </div>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--text-heading)] mb-4">
-          What is a{" "}
-          <span className="text-gradient">Custom Instruction</span>?
+          {t("bento.title")}{" "}
+          <span className="text-gradient">{t("bento.titleHighlight")}</span>{t("bento.titleQuestionMark")}
         </h2>
         <p className="max-w-2xl mx-auto text-[var(--text-muted)] text-base sm:text-lg leading-relaxed">
-          The most powerful and underused feature in AI today. Here&apos;s
-          everything you need to know, in one place.
+          {t("bento.description")}
         </p>
       </motion.div>
 
@@ -111,46 +115,35 @@ export default function BentoGrid() {
               </div>
               <div>
                 <h3 className="text-lg sm:text-xl font-bold text-[var(--text-heading)]">
-                  The DNA of Your AI
+                  {t("bento.card1.title")}
                 </h3>
                 <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-neon-cyan-light">
-                  Core Definition
+                  {t("bento.card1.subtitle")}
                 </p>
               </div>
             </div>
 
             <p className="text-[var(--text-body)] leading-relaxed mb-4">
-              A Custom Instruction is a{" "}
+              {t("bento.card1.p1").split("<1>")[0]}
               <span className="text-[var(--text-heading)] font-semibold">
-                persistent set of directives
-              </span>{" "}
-              you give to an AI assistant that shapes its behavior, personality,
-              and output format for{" "}
-              <span className="text-neon-cyan-light">
-                every single conversation
+                {t("bento.card1.p1").split("<1>")[1]?.split("</1>")[0]}
               </span>
-              . Think of it as programming the AI&apos;s identity layer.
+              {t("bento.card1.p1").split("</1>")[1]?.split("<2>")[0]}
+              <span className="text-neon-cyan-light">
+                {t("bento.card1.p1").split("<2>")[1]?.split("</2>")[0]}
+              </span>
+              {t("bento.card1.p1").split("</2>")[1]}
             </p>
             <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-4">
-              It tells the model exactly who to be, how to think, and what rules
-              to follow — before you even ask your first question. Unlike regular
-              prompts that apply to a single message, Custom Instructions persist
-              across all interactions, creating a consistently tailored
-              experience that feels like working with a specialist, not a
-              generalist.
+              {t("bento.card1.p2")}
             </p>
             <p className="text-sm text-[var(--text-muted)] leading-relaxed">
-              When crafted properly, a Custom Instruction can transform a
-              generic chatbot into a senior engineer who writes production-ready
-              code, a writing coach who mirrors your exact voice and style, or a
-              strategic advisor who reasons consistently within your defined
-              framework.
+              {t("bento.card1.p3")}
             </p>
 
             <div className="flex items-center gap-2 text-[11px] sm:text-xs text-[var(--text-subtle)] border-t border-glass-border pt-4 mt-5">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-neon-cyan shrink-0" />
-              Also known as: System Prompts, Meta Prompts, AI Personas,
-              Behavioral Directives
+              {t("bento.card1.footer")}
             </div>
           </div>
         </motion.div>
@@ -168,27 +161,22 @@ export default function BentoGrid() {
               <Lock className="h-5 w-5" />
             </div>
             <h3 className="text-lg font-bold text-[var(--text-heading)] mb-1">
-              The Secret Sauce
+              {t("bento.card2.title")}
             </h3>
             <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-neon-purple-light mb-4">
-              Constraints &amp; Rules
+              {t("bento.card2.subtitle")}
             </p>
 
             <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-4">
-              The real power lies in constraints. By defining what the AI should{" "}
-              <span className="text-[var(--text-heading)] font-medium">NOT</span> do, you
-              paradoxically make it better:
+              {t("bento.card2.p1").split("<1>")[0]}
+              <span className="text-[var(--text-heading)] font-medium">
+                {t("bento.card2.p1").split("<1>")[1]?.split("</1>")[0]}
+              </span>
+              {t("bento.card2.p1").split("</1>")[1]}
             </p>
 
             <ul className="space-y-2.5">
-              {[
-                "Eliminate fluff and filler phrases",
-                "Enforce specific output formats",
-                "Set domain-specific boundaries",
-                "Control response length & detail",
-                "Discourage hallucinated citations",
-                "Lock in consistent terminology",
-              ].map((item) => (
+              {t.array("bento.card2.list").map((item: string) => (
                 <li
                   key={item}
                   className="flex items-center gap-2.5 text-xs sm:text-sm text-[var(--text-muted)]"
@@ -212,16 +200,14 @@ export default function BentoGrid() {
               <Globe className="h-5 w-5" />
             </div>
             <h3 className="text-lg font-bold text-[var(--text-heading)] mb-1">
-              Universal Compatibility
+              {t("bento.card3.title")}
             </h3>
             <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-4">
-              Works Everywhere
+              {t("bento.card3.subtitle")}
             </p>
 
             <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-4">
-              Our generated instructions are model-agnostic. Paste them into any
-              AI assistant&apos;s system prompt or custom instructions field and
-              get immediate results.
+              {t("bento.card3.p1")}
             </p>
 
             <div className="flex flex-wrap gap-2">
@@ -252,18 +238,16 @@ export default function BentoGrid() {
               </div>
               <div>
                 <h3 className="text-lg sm:text-xl font-bold text-[var(--text-heading)]">
-                  The Anatomy
+                  {t("bento.card4.title")}
                 </h3>
                 <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-amber-400">
-                  The Four Pillars
+                  {t("bento.card4.subtitle")}
                 </p>
               </div>
             </div>
 
             <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-5">
-              Every master custom instruction is built on four foundational
-              pillars. Our generator crafts each one for you through an
-              interactive wizard — no prompt engineering expertise required.
+              {t("bento.card4.p1")}
             </p>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -283,9 +267,7 @@ export default function BentoGrid() {
             </div>
 
             <p className="text-xs text-[var(--text-subtle)] mt-4 leading-relaxed">
-              Each pillar is independent but interconnected. A strong Persona
-              without clear Rules still produces inconsistent output. Our engine
-              ensures all four work in harmony.
+              {t("bento.card4.footer")}
             </p>
           </div>
         </motion.div>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, X } from "lucide-react";
+import { useT } from "@/i18n";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
@@ -170,6 +171,7 @@ function AfterContent() {
 
 // ===== Main Component =====
 export default function BeforeAfter() {
+  const t = useT("home");
   const [showAfter, setShowAfter] = useState(false);
 
   return (
@@ -187,13 +189,13 @@ export default function BeforeAfter() {
       >
         <div className="inline-flex items-center gap-2 rounded-full border border-glass-border bg-glass-bg px-4 py-2 text-xs sm:text-sm font-medium text-neon-purple-light mb-6">
           <Sparkles className="h-3.5 w-3.5" />
-          See the Difference
+          {t("beforeAfter.badge")}
         </div>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--text-heading)] mb-4">
-          The <span className="text-gradient">Impact</span> is Massive
+          {t("beforeAfter.title")} <span className="text-gradient">{t("beforeAfter.titleHighlight")}</span> {t("beforeAfter.titleEnd")}
         </h2>
         <p className="max-w-xl mx-auto text-[var(--text-muted)] text-base sm:text-lg leading-relaxed">
-          Same question, same AI model, dramatically different results.
+          {t("beforeAfter.description")}
         </p>
       </motion.div>
 
@@ -217,7 +219,7 @@ export default function BeforeAfter() {
           >
             <span className="flex items-center gap-2">
               <X className="h-3.5 w-3.5 text-red-400" />
-              Without CI
+              {t("beforeAfter.toggle.without")}
             </span>
           </button>
 
@@ -247,7 +249,7 @@ export default function BeforeAfter() {
           >
             <span className="flex items-center gap-2">
               <Sparkles className="h-3.5 w-3.5 text-neon-cyan" />
-              With Master Prompt
+              {t("beforeAfter.toggle.with")}
             </span>
           </button>
         </motion.div>
@@ -260,9 +262,9 @@ export default function BeforeAfter() {
           transition={{ duration: 0.5, delay: 0.1, ease: EASE_SMOOTH }}
           className="mb-4 px-5 py-3 rounded-xl bg-[var(--glass-bg)] border border-glass-border text-sm"
         >
-          <span className="text-[var(--text-subtle)]">Prompt: </span>
+          <span className="text-[var(--text-subtle)]">{t("beforeAfter.promptLabel")}</span>
           <span className="text-[var(--text-body)] font-medium">
-            &quot;Explain React hooks to me&quot;
+            {t("beforeAfter.promptText")}
           </span>
         </motion.div>
 
@@ -293,7 +295,7 @@ export default function BeforeAfter() {
                     <div className="h-3 w-3 rounded-full bg-slate-700/50" />
                   </div>
                   <span className="text-[11px] text-red-400/50 font-mono ml-2">
-                    generic-response.txt
+                    {t("beforeAfter.before.fileName")}
                   </span>
                 </div>
 
@@ -305,8 +307,7 @@ export default function BeforeAfter() {
                 {/* Footer */}
                 <div className="px-5 py-3 border-t border-glass-border bg-white/[0.01] flex items-center gap-2 text-[11px] text-red-400/40">
                   <X className="h-3 w-3" />
-                  Generic • Unstructured • No actionable takeaways • Wall of
-                  text
+                  {t("beforeAfter.before.footer")}
                 </div>
               </motion.div>
             ) : (
@@ -330,7 +331,7 @@ export default function BeforeAfter() {
                     <div className="h-3 w-3 rounded-full bg-[#28c840]" />
                   </div>
                   <span className="text-[11px] text-neon-cyan/50 font-mono ml-2">
-                    master-response.md
+                    {t("beforeAfter.after.fileName")}
                   </span>
                 </div>
 
@@ -342,8 +343,7 @@ export default function BeforeAfter() {
                 {/* Footer */}
                 <div className="relative px-5 py-3 border-t border-glass-border bg-white/[0.01] flex items-center gap-2 text-[11px] text-neon-cyan/40">
                   <Sparkles className="h-3 w-3" />
-                  Structured • Expert-Level • Actionable • Tables & Warnings
-                  Included
+                  {t("beforeAfter.after.footer")}
                 </div>
               </motion.div>
             )}
@@ -359,10 +359,10 @@ export default function BeforeAfter() {
           className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6"
         >
           {[
-            { stat: "10×", label: "More Structured" },
-            { stat: "95%", label: "Less Filler" },
-            { stat: "100%", label: "Actionable" },
-            { stat: "∞", label: "Reusable" },
+            { stat: t("beforeAfter.stats.structured.stat"), label: t("beforeAfter.stats.structured.label") },
+            { stat: t("beforeAfter.stats.filler.stat"), label: t("beforeAfter.stats.filler.label") },
+            { stat: t("beforeAfter.stats.actionable.stat"), label: t("beforeAfter.stats.actionable.label") },
+            { stat: t("beforeAfter.stats.reusable.stat"), label: t("beforeAfter.stats.reusable.label") },
           ].map((item) => (
             <div
               key={item.label}

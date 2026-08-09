@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Zap } from "lucide-react";
 import dynamic from "next/dynamic";
+import { useT } from "@/i18n";
 
 const HeroScene = dynamic(() => import("./HeroScene"), {
   ssr: false,
@@ -41,6 +42,8 @@ const itemVariants = {
 };
 
 export default function HeroSection() {
+  const t = useT("home");
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background gradient overlay */}
@@ -66,7 +69,7 @@ export default function HeroSection() {
           <motion.div variants={itemVariants}>
             <span className="badge-shimmer inline-flex items-center gap-2 rounded-full border border-glass-border bg-glass-bg px-4 py-2 text-xs sm:text-sm font-medium text-neon-cyan-light">
               <Zap className="h-3.5 w-3.5" />
-              AI-Powered Instruction Engine
+              {t("hero.badge")}
             </span>
           </motion.div>
 
@@ -75,9 +78,9 @@ export default function HeroSection() {
             variants={itemVariants}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]"
           >
-            <span className="text-white">Shape the</span>
+            <span className="text-white">{t("hero.titleLine1")}</span>
             <br />
-            <span className="text-gradient">Perfect AI Mind</span>
+            <span className="text-gradient">{t("hero.titleLine2")}</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -85,9 +88,7 @@ export default function HeroSection() {
             variants={itemVariants}
             className="max-w-2xl text-base sm:text-lg md:text-xl text-slate-400 leading-relaxed"
           >
-            Craft precise, powerful custom instructions for any AI model.
-            Our intelligent generator helps you build the perfect system prompt
-            to unlock AI&apos;s full potential.
+            {t("hero.description")}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -102,7 +103,7 @@ export default function HeroSection() {
               whileTap={{ scale: 0.98 }}
               className="glow-btn group inline-flex items-center gap-2.5 rounded-full px-8 py-3.5 sm:px-10 sm:py-4 text-base sm:text-lg font-semibold text-[var(--text-heading)] cursor-pointer transition-all duration-300"
             >
-              Start Generating
+              {t("hero.ctaPrimary")}
               <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
             </motion.a>
 
@@ -113,7 +114,7 @@ export default function HeroSection() {
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 rounded-full border border-glass-border bg-glass-bg px-8 py-3.5 sm:px-10 sm:py-4 text-base sm:text-lg font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-300 cursor-pointer"
             >
-              See How It Works
+              {t("hero.ctaSecondary")}
             </motion.a>
           </motion.div>
 

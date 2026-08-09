@@ -9,6 +9,7 @@ import {
   ChevronRight,
   ChevronDown,
 } from "lucide-react";
+import { useT } from "@/i18n";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
@@ -21,37 +22,37 @@ interface Step {
   iconBg: string;
 }
 
-const steps: Step[] = [
-  {
-    number: "01",
-    title: "Input Your Vision",
-    subtitle: "The Extraction",
-    description:
-      "Answer four intuitive questions about your ideal AI persona, task, tone, and rules. No prompt engineering knowledge required \u2014 just your intent.",
-    icon: <Lightbulb className="h-6 w-6" />,
-    iconBg: "bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20",
-  },
-  {
-    number: "02",
-    title: "AI Architect Processes It",
-    subtitle: "The Forge",
-    description:
-      "Our meta-prompting engine analyzes your preferences, applies cognitive loops, and architects a comprehensive system prompt with zero manual effort.",
-    icon: <Cpu className="h-6 w-6" />,
-    iconBg: "bg-neon-purple/10 text-neon-purple border border-neon-purple/20",
-  },
-  {
-    number: "03",
-    title: "Get Your Masterpiece",
-    subtitle: "The Output",
-    description:
-      "Receive a precision-crafted custom instruction ready to paste into any AI assistant. Tweak it further with one-click refinements in our Output Studio.",
-    icon: <Crown className="h-6 w-6" />,
-    iconBg: "bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20",
-  },
-];
+// Steps array moved inside component
 
 export default function HowItWorks() {
+  const t = useT("home");
+
+  const steps: Step[] = [
+    {
+      number: "01",
+      title: t("howItWorks.steps.step1.title"),
+      subtitle: t("howItWorks.steps.step1.subtitle"),
+      description: t("howItWorks.steps.step1.description"),
+      icon: <Lightbulb className="h-6 w-6" />,
+      iconBg: "bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20",
+    },
+    {
+      number: "02",
+      title: t("howItWorks.steps.step2.title"),
+      subtitle: t("howItWorks.steps.step2.subtitle"),
+      description: t("howItWorks.steps.step2.description"),
+      icon: <Cpu className="h-6 w-6" />,
+      iconBg: "bg-neon-purple/10 text-neon-purple border border-neon-purple/20",
+    },
+    {
+      number: "03",
+      title: t("howItWorks.steps.step3.title"),
+      subtitle: t("howItWorks.steps.step3.subtitle"),
+      description: t("howItWorks.steps.step3.description"),
+      icon: <Crown className="h-6 w-6" />,
+      iconBg: "bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20",
+    },
+  ];
   return (
     <section
       id="how-it-works"
@@ -77,13 +78,13 @@ export default function HowItWorks() {
         className="text-center mb-14 sm:mb-20 relative z-10"
       >
         <div className="inline-flex items-center gap-2 rounded-full border border-glass-border bg-glass-bg px-4 py-2 text-xs sm:text-sm font-medium text-neon-cyan-light mb-6">
-          The Pipeline
+          {t("howItWorks.badge")}
         </div>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--text-heading)] mb-4">
-          How It <span className="text-gradient">Works</span>
+          {t("howItWorks.title")} <span className="text-gradient">{t("howItWorks.titleHighlight")}</span>
         </h2>
         <p className="max-w-xl mx-auto text-[var(--text-muted)] text-base sm:text-lg leading-relaxed">
-          Three steps. Zero complexity. One masterpiece.
+          {t("howItWorks.description")}
         </p>
       </motion.div>
 
