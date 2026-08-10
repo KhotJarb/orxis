@@ -5,7 +5,7 @@
 <p><strong>Orchestrate AI with Precision and Purpose.</strong></p>
 
 <p>
-  Orxis is a structured AI instruction generator for developers, writers, and professionals who need clear, consistent control over how AI models behave. Answer four questions, and Orxis builds a complete six-section system prompt — covering role definition, mission, a cognitive loop, context, boundaries, and output formatting — ready to paste into ChatGPT, Claude, Gemini, or any other LLM. No account required.
+  Orxis is a structured AI instruction generator for developers, writers, and professionals who need clear, consistent control over how AI models behave. Choose between two modes: a guided step-by-step or Quick Mode — a conversational AI that builds your complete system prompt in one shot. The output covers role definition, mission, a cognitive loop, context, boundaries, output formatting, and quick shortcuts — ready to paste into ChatGPT, Claude, Gemini, or any other LLM. Available in 7 languages. No account required.
 </p>
 
 <br />
@@ -28,19 +28,20 @@
 
 > **[→ orxis.vercel.app](https://orxis.vercel.app)**
 
-1. Click **Get Started** on the landing page
-2. Answer four guided questions about your persona, task, tone, and rules
-3. Orxis generates a complete, structured Custom Instruction
-4. Copy it and paste it directly into ChatGPT, Claude, Gemini, or any other AI assistant
+Orxis offers two modes — choose whichever fits your workflow:
 
-That's the entire workflow. No account, no subscription, nothing to install.
+- **Step-by-Step** — Walk through focused prompts about your persona, task, tone, and rules. Orxis assembles your Custom Instruction section by section.
+- **Quick Mode** — Describe what you need in plain language. The AI asks any clarifying questions it needs, then generates your complete instruction in one shot.
+
+Copy the result and paste it directly into ChatGPT, Claude, Gemini, or any other AI assistant. No account, no subscription, nothing to install.
 
 ---
 
 ## ✦ Features
 
-- **AI-Powered Instruction Generation** — Your wizard selections are processed by Google Gemini server-side, producing a structured, expert-level six-section Custom Instruction tailored to your inputs.
-- **Six-Section Instruction Architecture** — Role & Identity, Mission, Cognitive Loop, Context & Input, Boundaries & Execution Rules, and Output Formatting. Each section is independently guided by your choices and produces a paste-ready system prompt.
+- **AI-Powered Instruction Generation** — Both Step-by-Step and Quick Mode use Google Gemini to produce a structured, expert-level Custom Instruction precisely tailored to your context and goals.
+- **Seven-Section Instruction Architecture** — Role & Identity, Mission, Cognitive Loop, Context & Input, Boundaries & Execution Rules, Output Formatting, and Quick Shortcuts. Each section is guided by your inputs and produces a paste-ready system prompt.
+- **Multilingual Support** — The full interface, generated names, descriptions, conversation starters, knowledge suggestions, and quick shortcuts are all produced in the user's chosen language. Seven languages supported: English, Thai, Chinese, Japanese, Spanish, Korean, and Indonesian.
 - **Multi-Model Integration Guides** — Documentation for ChatGPT, Claude, and Gemini covering recommended injection methods and platform-specific behaviours for structured prompting.
 - **Prompt Gallery** — Browse community-contributed instruction templates at `/gallery`. Submit your own to share with other users.
 - **Output Studio** — After generating, refine your instruction with one-click tweaks: condense it, elevate the formality, or expand the formatting rules — all AI-assisted.
@@ -120,18 +121,26 @@ npm run start
 src/
 ├── app/                    # Next.js App Router — pages and route layouts
 │   ├── api/                # Server-side API routes
-│   │   ├── generate/       # AI instruction generation
-│   │   ├── tweak/          # AI instruction refinement
+│   │   ├── generate/       # Step-by-Step AI instruction generation
+│   │   ├── quick-generate/ # Quick Mode conversational AI generation
 │   │   ├── gallery/        # Fetch community prompts
 │   │   └── submit/         # Submit community prompts
 │   ├── (legal)/            # Privacy Policy, Terms of Service, License
+│   ├── about/              # About page
 │   ├── changelog/          # Release history
 │   ├── docs/               # Documentation (client-rendered)
 │   ├── gallery/            # Prompt Gallery
-│   ├── generate/           # Core instruction generator wizard
+│   ├── generate/           # Core instruction generator (Step-by-Step + Quick Mode)
+│   ├── pricing/            # Pricing page
+│   ├── settings/           # User settings
+│   ├── support/            # Support page
+│   ├── use-cases/          # Use Cases showcase
 │   └── layout.tsx          # Root layout — global metadata
 ├── components/             # Shared UI components
 │   └── docs/               # Documentation sub-components and per-model guides
+├── data/                   # Static data files (domains, presets)
+├── i18n/                   # Internationalisation — LanguageProvider, useT hook
+│   └── locales/            # Locale JSON files for all 7 supported languages
 └── globals.css             # Design token system — CSS custom properties
 ```
 
