@@ -4,7 +4,7 @@ import { GoogleGenAI } from "@google/genai";
 // ┌──────────────────────────────────────────────────────────────────────────┐
 // │ Configuration Constants                                                  │
 // └──────────────────────────────────────────────────────────────────────────┘
-const MODEL_NAME = process.env.LLM_MODEL ?? "gemini-2.5-flash";
+const MODEL_NAME = process.env.LLM_MODEL ?? "gemini-3.5-flash-lite";
 const TEMPERATURE = parseFloat(process.env.LLM_TEMPERATURE ?? "0.2");
 const MAX_TOKENS = parseInt(process.env.LLM_MAX_TOKENS ?? "4096", 10);
 const API_KEY = process.env.GEMINI_API_KEY ?? "";
@@ -237,23 +237,49 @@ async function tryGemini(
     if (!parsed) throw new Error("Could not extract valid JSON from response");
     return parsed;
   } catch (err: unknown) {
+    const raw = err instanceof Error ? err.message : JSON.stringify(err);
+
     // Check if this is a 429 rate-limit error
     const is429 =
       (err instanceof Error && err.message.includes("429")) ||
-      (typeof err === "object" && err !== null && "status" in err && (err as { status: number }).status === 429);
+      (typeof err === "object" && err !== null && "status" in err &&
+        (err as { status: number }).status === 429);
 
-    if (is429 && attempt === 0) {
-      // Extract retryDelay from the error body (e.g. "7s" or "7.72s")
-      const raw = err instanceof Error ? err.message : JSON.stringify(err);
-      const delayMatch = raw.match(/"retryDelay"\s*:\s*"?([\d.]+)s"?/);
-      const delaySec = delayMatch ? parseFloat(delayMatch[1]) : 8;
-      const delayMs = Math.min(Math.ceil(delaySec * 1000) + 500, 15000); // cap at 15s
+    if (is429) {
+      // Distinguish daily quota exhaustion from per-minute rate limits
+      // Daily quota IDs contain "PerDay" — retrying won't help, go to fallback immediately
+      const isDailyQuota = raw.includes("PerDay") || raw.includes("per_day") ||
+        raw.includes("RequestsPerDay");
 
-      console.warn(
-        `[/api/quick-generate] 429 quota hit — retrying in ${delayMs}ms (attempt ${attempt + 1})`
-      );
-      await new Promise((r) => setTimeout(r, delayMs));
-      return tryGemini(userMessage, attempt + 1);
+      if (isDailyQuota) {
+        console.warn(
+          "[/api/quick-generate] Daily quota exhausted — skipping retry, using local fallback"
+        );
+        return null; // Immediately fall through to local fallback
+      }
+
+      // Per-minute rate limit: retry once, but only if delay is short enough
+      // (Vercel hobby functions timeout at ~10s, pro at 60s)
+      if (attempt === 0) {
+        const delayMatch = raw.match(/"retryDelay"\s*:\s*"?([\d.]+)s"?/);
+        const delaySec = delayMatch ? parseFloat(delayMatch[1]) : 5;
+
+        if (delaySec <= 8) {
+          // Safe to retry within serverless timeout budget
+          const delayMs = Math.ceil(delaySec * 1000) + 300;
+          console.warn(
+            `[/api/quick-generate] 429 rate-limit — retrying in ${delayMs}ms`
+          );
+          await new Promise((r) => setTimeout(r, delayMs));
+          return tryGemini(userMessage, attempt + 1);
+        }
+
+        // Delay too long for serverless — go straight to fallback
+        console.warn(
+          `[/api/quick-generate] 429 rate-limit with ${delaySec}s delay — too long, using local fallback`
+        );
+        return null;
+      }
     }
 
     // Any other error (or second attempt failure) → log and return null → local fallback

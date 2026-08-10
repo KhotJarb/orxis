@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenAI } from "@google/genai";
 
 // ── Configuration ─────────────────────────────────────────────────────────────
-const MODEL_NAME = process.env.LLM_MODEL ?? "gemini-2.5-flash";
+const MODEL_NAME = process.env.LLM_MODEL ?? "gemini-3.5-flash-lite";
 const TEMPERATURE = parseFloat(process.env.LLM_TEMPERATURE ?? "0.2");
 const MAX_TOKENS = parseInt(process.env.LLM_MAX_TOKENS ?? "2048", 10);
 const API_KEY = process.env.GEMINI_API_KEY ?? "";
