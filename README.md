@@ -44,7 +44,7 @@ Copy the result and paste it directly into ChatGPT, Claude, Gemini, or any other
 - **Multilingual Support** — The full interface, generated names, descriptions, conversation starters, knowledge suggestions, and quick shortcuts are all produced in the user's chosen language. Seven languages supported: English, Thai, Chinese, Japanese, Spanish, Korean, and Indonesian.
 - **Multi-Model Integration Guides** — Documentation for ChatGPT, Claude, and Gemini covering recommended injection methods and platform-specific behaviours for structured prompting.
 - **Prompt Gallery** — Browse community-contributed instruction templates at `/gallery`. Submit your own to share with other users.
-- **Output Studio** — After generating, refine your instruction with one-click tweaks: condense it, elevate the formality, or expand the formatting rules — all AI-assisted.
+- **Output Studio** — Once your Custom Instruction is ready, Output Studio presents it formatted for each supported platform. Switch between Gems, GPTs, Projects, and Raw views — copy any individual field or the entire result in one click, with platform-specific guidance on exactly where to paste it.
 - **Progressive Web App** — Installable directly from the browser on desktop and mobile.
 - **Premium Dark UI** — Glassmorphism surfaces, a cohesive neon accent palette, and smooth micro-animations throughout.
 
@@ -109,7 +109,7 @@ npm run start
 ## 🏗 Architecture
 
 - **Instruction generation** — Your inputs from either Step-by-Step or Quick Mode are processed server-side to produce a complete seven-section Custom Instruction tailored to your context. Both modes share the same structured output format, ensuring consistent results regardless of which path you take.
-- **Output Studio** — After generating, you can refine your instruction at any time. Adjust the tone, tighten the structure, or expand specific sections without losing your original work or starting over.
+- **Output Studio** — Presents your generated instruction formatted for each supported platform (Gems, GPTs, Projects, Raw). Copy individual fields or the full result in one click, with step-by-step guidance on where to paste it in each AI platform.
 - **Content pages** (documentation, changelog, legal) are statically prerendered at build time and served from the CDN edge — no runtime compute required.
 - **Community Gallery** — Submissions are handled independently from the instruction generation flow, ensuring Gallery availability is never affected by generator load.
 
