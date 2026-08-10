@@ -19,7 +19,7 @@ Rule 4: Generate 3-4 practical "conversationStarters" — example prompts a user
 Rule 5: Generate 2-4 "knowledgeSuggestions" — types of files/documents the user could upload to enhance this assistant. Frame as optional suggestions.
 Rule 6: If shortcuts are provided, polish and improve them. If none are provided, generate 2-3 useful ones based on the persona and task.
 Rule 7: The "instructions" field MUST ALWAYS be written in ENGLISH — regardless of the language the user types in. This is critical for token efficiency when deployed to ChatGPT, Claude, or Gemini. EXCEPTION: Section 7 (Quick Shortcuts) MUST match the language of the user's input, because users need to read shortcut descriptions to use them.
-Rule 8: The "name" field MUST match the user's input language. The "description" field MUST match the user's input language. The "conversationStarters" MUST match the user's input language. The "knowledgeSuggestions" should be in English.
+Rule 8: The "name" field MUST match the user's input language. The "description" field MUST match the user's input language. The "conversationStarters" MUST match the user's input language. The "knowledgeSuggestions" MUST match the user's input language.
 
 [RAW INPUT]
 Intent: {user_input_intent}

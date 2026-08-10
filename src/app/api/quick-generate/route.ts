@@ -48,7 +48,7 @@ You MUST respond with ONLY valid JSON matching ONE of these two schemas. No mark
 - The "name" field MUST match the user's input language.
 - The "description" field MUST match the user's input language.
 - The "conversationStarters" MUST match the user's input language.
-- The "knowledgeSuggestions" should be in English.
+- The "knowledgeSuggestions" MUST match the user's input language.
 - If asking clarifying questions, ask them in the SAME language the user used.
 
 ### Schema A — Questions Needed:
