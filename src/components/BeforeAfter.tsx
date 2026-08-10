@@ -3,83 +3,76 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, X } from "lucide-react";
-import { useT } from "@/i18n";
+import { useT, useLanguage } from "@/i18n";
 
 const EASE_SMOOTH: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
 // ===== Response Content =====
 
-function BeforeContent() {
+type TFunc = (key: string) => string;
+type TArrayFunc = (key: string) => string[];
+
+function BeforeContent({ t, tArray }: { t: TFunc; tArray: TArrayFunc }) {
   return (
     <div className="text-sm text-[var(--text-subtle)] leading-relaxed space-y-3 font-sans">
-      <p>Sure! Here&apos;s some information about React hooks.</p>
-      <p>
-        React hooks are functions that let you &quot;hook into&quot; React state
-        and lifecycle features from function components. They were introduced in
-        React 16.8.
-      </p>
-      <p>
-        The most commonly used hooks are useState and useEffect. useState lets
-        you add state to a component, and useEffect lets you perform side
-        effects like data fetching.
-      </p>
-      <p>
-        There are also some other hooks like useContext, useReducer, and useRef
-        that you might find useful depending on your use case.
-      </p>
-      <p>Hope this helps! Let me know if you have any questions.</p>
+      <p>{t("beforeAfter.before.p1")}</p>
+      <p>{t("beforeAfter.before.p2")}</p>
+      <p>{t("beforeAfter.before.p3")}</p>
+      <p>{t("beforeAfter.before.p4")}</p>
+      <p>{t("beforeAfter.before.p5")}</p>
     </div>
   );
 }
 
-function AfterContent() {
+function AfterContent({ t }: { t: TFunc }) {
+  // Table row data — hook names stay English (technical identifiers)
+  const hookRows: [string, string, string][] = [
+    ["useState",   t("beforeAfter.after.hook0purpose"),   t("beforeAfter.after.hook0useCase")],
+    ["useEffect",  t("beforeAfter.after.hook1purpose"),   t("beforeAfter.after.hook1useCase")],
+    ["useRef",     t("beforeAfter.after.hook2purpose"),   t("beforeAfter.after.hook2useCase")],
+    ["useMemo",    t("beforeAfter.after.hook3purpose"),   t("beforeAfter.after.hook3useCase")],
+    ["useCallback",t("beforeAfter.after.hook4purpose"),   t("beforeAfter.after.hook4useCase")],
+  ];
+
+  const bps: { title: string; desc: string }[] = [
+    { title: t("beforeAfter.after.bp0title"), desc: t("beforeAfter.after.bp0desc") },
+    { title: t("beforeAfter.after.bp1title"), desc: t("beforeAfter.after.bp1desc") },
+    { title: t("beforeAfter.after.bp2title"), desc: t("beforeAfter.after.bp2desc") },
+  ];
+
   return (
     <div className="space-y-5">
       {/* Title */}
       <h4 className="text-base sm:text-lg font-bold text-neon-cyan">
-        React Hooks — Complete Reference
+        {t("beforeAfter.after.title")}
       </h4>
 
       {/* Table */}
       <div>
         <h5 className="text-xs sm:text-sm font-semibold text-[var(--text-heading)] mb-2.5">
-          Core Hooks at a Glance
+          {t("beforeAfter.after.tableTitle")}
         </h5>
         <div className="rounded-lg border border-glass-border overflow-hidden text-xs">
           <table className="w-full">
             <thead className="bg-[var(--glass-bg)]">
               <tr>
                 <th className="px-3 py-2 text-left text-[var(--text-muted)] font-medium">
-                  Hook
+                  {t("beforeAfter.after.tableHeaders.hook")}
                 </th>
                 <th className="px-3 py-2 text-left text-slate-400 font-medium">
-                  Purpose
+                  {t("beforeAfter.after.tableHeaders.purpose")}
                 </th>
                 <th className="px-3 py-2 text-left text-slate-400 font-medium hidden sm:table-cell">
-                  Use Case
+                  {t("beforeAfter.after.tableHeaders.useCase")}
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-glass-border">
-              {[
-                ["useState", "Reactive local state", "Form inputs, toggles"],
-                ["useEffect", "Side effects & lifecycle", "API calls, subs"],
-                ["useRef", "Mutable references", "DOM access, timers"],
-                ["useMemo", "Memoized computations", "Derived data, filtering"],
-                [
-                  "useCallback",
-                  "Stable function refs",
-                  "Event handlers, deps",
-                ],
-              ].map(([hook, purpose, useCase]) => (
+              {hookRows.map(([hook, purpose, useCase]) => (
                 <tr key={hook} className="hover:bg-white/[0.02]">
-                  <td className="px-3 py-2 text-neon-cyan font-mono">
-                    {hook}
-                  </td>
+                  <td className="px-3 py-2 text-neon-cyan font-mono">{hook}</td>
                   <td className="px-3 py-2 text-[var(--text-body)]">{purpose}</td>
-                  <td className="px-3 py-2 text-[var(--text-muted)] hidden sm:table-cell">
-                    {useCase}
-                  </td>
+                  <td className="px-3 py-2 text-[var(--text-muted)] hidden sm:table-cell">{useCase}</td>
                 </tr>
               ))}
             </tbody>
@@ -90,88 +83,59 @@ function AfterContent() {
       {/* Best Practices */}
       <div>
         <h5 className="text-xs sm:text-sm font-semibold text-[var(--text-heading)] mb-2">
-          Best Practices
+          {t("beforeAfter.after.bestPracticesTitle")}
         </h5>
         <ol className="space-y-1.5 text-xs sm:text-sm text-[var(--text-body)]">
-          <li>
-            <span className="text-neon-purple font-semibold">1.</span>{" "}
-            <span className="text-[var(--text-heading)] font-medium">
-              Follow the Rules of Hooks
-            </span>{" "}
-            — Call at the top level only; never inside loops or conditions
-          </li>
-          <li>
-            <span className="text-neon-purple font-semibold">2.</span>{" "}
-            <span className="text-[var(--text-heading)] font-medium">
-              Extract Custom Hooks
-            </span>{" "}
-            — Reuse logic via{" "}
-            <code className="text-neon-cyan bg-neon-cyan/10 px-1 py-0.5 rounded text-[11px]">
-              use*
-            </code>{" "}
-            naming convention
-          </li>
-          <li>
-            <span className="text-neon-purple font-semibold">3.</span>{" "}
-            <span className="text-[var(--text-heading)] font-medium">
-              Specify Dependencies
-            </span>{" "}
-            — Always declare exact dependency arrays to prevent stale closures
-          </li>
+          {bps.map((bp, i) => (
+            <li key={i}>
+              <span className="text-neon-purple font-semibold">{i + 1}.</span>{" "}
+              <span className="text-[var(--text-heading)] font-medium">{bp.title}</span>{" "}
+              — {bp.desc}
+            </li>
+          ))}
         </ol>
       </div>
 
       {/* Warning box */}
       <div className="rounded-xl bg-amber-500/[0.06] border border-amber-500/15 px-4 py-3">
         <p className="text-xs sm:text-sm text-amber-300 font-medium mb-1.5">
-          ⚠️ Common Pitfalls
+          ⚠️ {t("beforeAfter.after.pitfallsTitle")}
         </p>
         <ul className="space-y-1 text-[11px] sm:text-xs text-[var(--text-muted)]">
           <li>
-            • Missing cleanup in{" "}
-            <code className="text-amber-400 bg-amber-500/10 px-1 rounded">
-              useEffect
-            </code>{" "}
-            →{" "}
-            <span className="text-red-400 font-medium">
-              memory leaks on unmount
-            </span>
+            • {t("beforeAfter.after.pitfall1")}{" "}
+            <code className="text-amber-400 bg-amber-500/10 px-1 rounded">useEffect</code>{" "}
+            → <span className="text-red-400 font-medium">{t("beforeAfter.after.pitfall1consequence")}</span>
           </li>
           <li>
-            • Object/array deps without memoization →{" "}
-            <span className="text-red-400 font-medium">
-              infinite re-renders
-            </span>
+            • {t("beforeAfter.after.pitfall2")}{" "}
+            → <span className="text-red-400 font-medium">{t("beforeAfter.after.pitfall2consequence")}</span>
           </li>
           <li>
-            • Reading stale state inside async closures → use{" "}
-            <code className="text-amber-400 bg-amber-500/10 px-1 rounded">
-              useRef
-            </code>{" "}
-            as escape hatch
+            • {t("beforeAfter.after.pitfall3prefix")}{" "}
+            <code className="text-amber-400 bg-amber-500/10 px-1 rounded">useRef</code>{" "}
+            {t("beforeAfter.after.pitfall3suffix")}
           </li>
         </ul>
       </div>
 
       {/* Next step box */}
       <div className="rounded-xl bg-neon-cyan/[0.05] border border-neon-cyan/15 px-4 py-3 text-xs sm:text-sm">
-        <span className="text-neon-cyan font-semibold">Next Step: </span>
+        <span className="text-neon-cyan font-semibold">{t("beforeAfter.after.nextStepLabel")}{" "}</span>
         <span className="text-[var(--text-body)]">
-          Build a custom{" "}
-          <code className="text-neon-cyan bg-neon-cyan/10 px-1 py-0.5 rounded text-[11px]">
-            useFetch
-          </code>{" "}
-          hook to centralize your API layer with caching, error handling, and
-          automatic retries.
+          {t("beforeAfter.after.nextStep")}
         </span>
       </div>
     </div>
   );
 }
 
+
 // ===== Main Component =====
 export default function BeforeAfter() {
   const t = useT("home");
+  const { tArray: tArrayRaw } = useLanguage();
+  const tArray = (key: string) => tArrayRaw("home", key);
   const [showAfter, setShowAfter] = useState(false);
 
   return (
@@ -301,7 +265,7 @@ export default function BeforeAfter() {
 
                 {/* Content */}
                 <div className="p-5 sm:p-6">
-                  <BeforeContent />
+                  <BeforeContent t={t} tArray={tArray} />
                 </div>
 
                 {/* Footer */}
@@ -337,7 +301,7 @@ export default function BeforeAfter() {
 
                 {/* Content */}
                 <div className="relative p-5 sm:p-6">
-                  <AfterContent />
+                  <AfterContent t={t} />
                 </div>
 
                 {/* Footer */}

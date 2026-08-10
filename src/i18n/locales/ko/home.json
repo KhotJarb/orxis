@@ -44,10 +44,22 @@
       "subtitle": "4개의 기둥",
       "p1": "모든 뛰어난 사용자 지정 인스트럭션은 4가지 기본 기둥 위에 구축됩니다. 당사의 생성기는 대화형 마법사를 통해 프롬프트 엔지니어링 전문 지식 없이도 각 기둥을 만들어냅니다.",
       "pillars": {
-        "persona": { "label": "페르소나", "desc": "AI의 정체성" },
-        "task": { "label": "작업", "desc": "AI가 하는 일" },
-        "tone": { "label": "어조", "desc": "말하는 방식" },
-        "rules": { "label": "규칙", "desc": "따르는 지침" }
+        "persona": {
+          "label": "페르소나",
+          "desc": "AI의 정체성"
+        },
+        "task": {
+          "label": "작업",
+          "desc": "AI가 하는 일"
+        },
+        "tone": {
+          "label": "어조",
+          "desc": "말하는 방식"
+        },
+        "rules": {
+          "label": "규칙",
+          "desc": "따르는 지침"
+        }
       },
       "footer": "각 기둥은 독립적이지만 서로 연결되어 있습니다. 규칙이 명확하지 않은 강력한 페르소나는 여전히 일관성 없는 출력을 생성합니다. 당사의 엔진은 이 4가지가 모두 조화롭게 작동하도록 보장합니다."
     }
@@ -116,11 +128,49 @@
     "promptText": "\"React Hooks에 대해 설명해 줘\"",
     "before": {
       "fileName": "generic-response.txt",
-      "footer": "일반적 • 비구조화 • 실행 가능한 내용 없음 • 텍스트 덩어리"
+      "footer": "일반적 • 비구조화 • 실행 가능한 내용 없음 • 텍스트 덩어리",
+      "p1": "물론입니다! React hooks에 대한 몇 가지 정보를 알려드립니다.",
+      "p2": "React hooks는 함수형 컴포넌트에서 React의 상태와 생명주기 기능에 '연결(hook)'할 수 있게 해주는 함수들입니다. React 16.8에서 도입되었습니다.",
+      "p3": "가장 자주 사용되는 hooks는 useState와 useEffect입니다. useState를 통해 컴포넌트에 상태를 추가할 수 있고, useEffect를 통해 데이터 가져오기와 같은 사이드 이펙트를 수행할 수 있습니다.",
+      "p4": "또한 사용 사례에 따라 유용하게 쓰일 수 있는 useContext, useReducer, useRef와 같은 다른 hooks도 있습니다.",
+      "p5": "도움이 되셨기를 바랍니다! 궁금한 점이 있으시면 언제든지 알려주십시오."
     },
     "after": {
       "fileName": "master-response.md",
-      "footer": "구조화됨 • 전문가 수준 • 실행 가능 • 표 및 경고 포함"
+      "footer": "구조화됨 • 전문가 수준 • 실행 가능 • 표 및 경고 포함",
+      "title": "React Hooks — 완벽 레퍼런스",
+      "tableTitle": "핵심 Hooks 한눈에 보기",
+      "tableHeaders": {
+        "hook": "Hook",
+        "purpose": "목적",
+        "useCase": "사용 사례"
+      },
+      "hook0purpose": "반응형 로컬 상태",
+      "hook0useCase": "폼 입력, 토글",
+      "hook1purpose": "사이드 이펙트 및 생명주기",
+      "hook1useCase": "API 호출, 구독",
+      "hook2purpose": "변경 가능한 참조",
+      "hook2useCase": "DOM 접근, 타이머",
+      "hook3purpose": "메모이제이션된 계산",
+      "hook3useCase": "파생 데이터, 필터링",
+      "hook4purpose": "안정적인 함수 참조",
+      "hook4useCase": "이벤트 핸들러, 의존성",
+      "bestPracticesTitle": "모범 사례",
+      "bp0title": "Hooks의 규칙 준수",
+      "bp0desc": "항상 최상위 수준에서만 호출하십시오. 반복문이나 조건문 내부에서는 절대 호출하지 마십시오",
+      "bp1title": "커스텀 Hooks 추출",
+      "bp1desc": "use* 명명 규칙을 통해 로직을 재사용하십시오",
+      "bp2title": "의존성 명시",
+      "bp2desc": "오래된 클로저(stale closures)를 방지하기 위해 항상 정확한 의존성 배열을 선언하십시오",
+      "pitfallsTitle": "흔한 실수",
+      "pitfall1": "에서의 클린업 누락",
+      "pitfall1consequence": "언마운트 시 메모리 누수 발생",
+      "pitfall2": "메모이제이션 없는 객체/배열 의존성",
+      "pitfall2consequence": "무한 리렌더링 발생",
+      "pitfall3prefix": "비동기 클로저 내에서 오래된 상태 읽기 →",
+      "pitfall3suffix": "를 해결책으로 사용하십시오",
+      "nextStepLabel": "다음 단계:",
+      "nextStep": "캐싱, 에러 처리 및 자동 재시도 기능과 함께 API 계층을 중앙화하기 위해 커스텀 useFetch hook을 구축해보십시오."
     },
     "stats": {
       "structured": {

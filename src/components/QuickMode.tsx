@@ -107,7 +107,12 @@ export default function QuickMode({ onGenerate }: QuickModeProps) {
         signal: AbortSignal.timeout(45000),
       });
 
-      if (!res.ok) throw new Error(`API error: ${res.status}`);
+      if (!res.ok) {
+        // Non-200 means Gemini hard-failed at the HTTP level (e.g. 5xx from Vercel)
+        // The API route itself handles 429 internally and returns 200 with a fallback,
+        // so any non-200 here is a true infrastructure error — fall through to client fallback
+        throw new Error(`HTTP ${res.status}`);
+      }
       const data = await res.json();
 
       const elapsed = Date.now() - startTime;
@@ -117,12 +122,15 @@ export default function QuickMode({ onGenerate }: QuickModeProps) {
       }
 
       if (data.phase === "questions") {
-        setQuestions(data.questions);
+        setQuestions(data.questions || []);
         setHint(data.hint || "");
-        setAnswers(new Array(data.questions.length).fill(""));
+        setAnswers(new Array((data.questions || []).length).fill(""));
         setState("questions");
-      } else {
+      } else if (data.result) {
         onGenerate(data.result);
+      } else {
+        // Unexpected shape — use client fallback
+        onGenerate(fallbackGenerate(trimmed));
       }
     } catch {
       // Fallback

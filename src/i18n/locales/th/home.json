@@ -44,10 +44,22 @@
       "subtitle": "สี่เสาหลัก",
       "p1": "Custom Instruction ระดับมาสเตอร์ทุกอันถูกสร้างขึ้นจากสี่เสาหลัก เครื่องมือของเราจะสร้างแต่ละส่วนให้คุณผ่านวิซาร์ดแบบอินเทอร์แอกทีฟ — ไม่จำเป็นต้องมีความเชี่ยวชาญด้าน Prompt Engineering",
       "pillars": {
-        "persona": { "label": "บุคลิก", "desc": "AI คือใคร" },
-        "task": { "label": "งาน", "desc": "สิ่งที่ต้องทำ" },
-        "tone": { "label": "น้ำเสียง", "desc": "วิธีสื่อสาร" },
-        "rules": { "label": "กฎ", "desc": "สิ่งที่ต้องทำตาม" }
+        "persona": {
+          "label": "บุคลิก",
+          "desc": "AI คือใคร"
+        },
+        "task": {
+          "label": "งาน",
+          "desc": "สิ่งที่ต้องทำ"
+        },
+        "tone": {
+          "label": "น้ำเสียง",
+          "desc": "วิธีสื่อสาร"
+        },
+        "rules": {
+          "label": "กฎ",
+          "desc": "สิ่งที่ต้องทำตาม"
+        }
       },
       "footer": "แต่ละเสาหลักมีความเป็นอิสระแต่เชื่อมโยงกัน บุคลิกที่แข็งแกร่งแต่ปราศจากกฎที่ชัดเจนยังคงให้ผลลัพธ์ที่ไม่สม่ำเสมอ เอนจิ้นของเราช่วยให้แน่ใจว่าทั้งสี่ส่วนทำงานร่วมกันอย่างกลมกลืน"
     }
@@ -116,11 +128,49 @@
     "promptText": "\"อธิบาย React hooks ให้ฉันฟัง\"",
     "before": {
       "fileName": "generic-response.txt",
-      "footer": "ทั่วไป • ไม่มีโครงสร้าง • นำไปใช้จริงไม่ได้ • ข้อความยาวติดกัน"
+      "footer": "ทั่วไป • ไม่มีโครงสร้าง • นำไปใช้จริงไม่ได้ • ข้อความยาวติดกัน",
+      "p1": "ได้เลย! นี่คือข้อมูลบางส่วนเกี่ยวกับ React hooks",
+      "p2": "React hooks เป็นฟังก์ชันที่ให้คุณ 'เกี่ยว' (hook) state และ lifecycle ของ React จาก function components โดยเปิดตัวใน React 16.8",
+      "p3": "hooks ที่ใช้บ่อยที่สุดคือ useState และ useEffect โดย useState ช่วยให้คุณเพิ่ม state ใน component และ useEffect ช่วยให้คุณจัดการ side effects เช่น การดึงข้อมูล",
+      "p4": "นอกจากนี้ยังมี hooks อื่นๆ เช่น useContext, useReducer และ useRef ที่คุณอาจพบว่ามีประโยชน์ขึ้นอยู่กับรูปแบบการใช้งานของคุณ",
+      "p5": "หวังว่านี่จะช่วยได้นะ! บอกได้เลยถ้าคุณมีคำถามเพิ่มเติม"
     },
     "after": {
       "fileName": "master-response.md",
-      "footer": "มีโครงสร้าง • ระดับผู้เชี่ยวชาญ • นำไปใช้จริงได้ • มีตาราง & คำเตือน"
+      "footer": "มีโครงสร้าง • ระดับผู้เชี่ยวชาญ • นำไปใช้จริงได้ • มีตาราง & คำเตือน",
+      "title": "React Hooks — ข้อมูลอ้างอิงฉบับสมบูรณ์",
+      "tableTitle": "ภาพรวม Core Hooks",
+      "tableHeaders": {
+        "hook": "Hook",
+        "purpose": "จุดประสงค์",
+        "useCase": "กรณีใช้งาน"
+      },
+      "hook0purpose": "State ท้องถิ่นแบบ Reactive",
+      "hook0useCase": "ฟอร์มรับค่า, สวิตช์สลับ",
+      "hook1purpose": "Side effects & lifecycle",
+      "hook1useCase": "เรียก API, subscriptions",
+      "hook2purpose": "References ที่แก้ไขได้",
+      "hook2useCase": "เข้าถึง DOM, ตัวจับเวลา",
+      "hook3purpose": "การคำนวณแบบ Memoized",
+      "hook3useCase": "ข้อมูลที่สืบทอด, การกรอง",
+      "hook4purpose": "References ฟังก์ชันที่เสถียร",
+      "hook4useCase": "Event handlers, deps",
+      "bestPracticesTitle": "แนวทางปฏิบัติที่ดีที่สุด (Best Practices)",
+      "bp0title": "ปฏิบัติตามกฎของ Hooks",
+      "bp0desc": "เรียกใช้ที่ระดับบนสุดเท่านั้น; ห้ามเรียกใช้ภายในลูปหรือเงื่อนไข",
+      "bp1title": "แยก Custom Hooks ออกมา",
+      "bp1desc": "นำลอจิกกลับมาใช้ใหม่ผ่านธรรมเนียมการตั้งชื่อ use*",
+      "bp2title": "ระบุ Dependencies ให้ชัดเจน",
+      "bp2desc": "ประกาศอาร์เรย์ของ dependency ให้ครบถ้วนเสมอเพื่อป้องกันปัญหา stale closures",
+      "pitfallsTitle": "ข้อผิดพลาดที่พบบ่อย",
+      "pitfall1": "ลืมทำ cleanup ใน",
+      "pitfall1consequence": "หน่วยความจำรั่วไหล (memory leaks) เมื่อ unmount",
+      "pitfall2": "ใช้ Object/array ใน deps โดยไม่มีการ memoization",
+      "pitfall2consequence": "การเรนเดอร์ใหม่ไม่สิ้นสุด (infinite re-renders)",
+      "pitfall3prefix": "การอ่าน state เก่าภายใน async closures → ใช้",
+      "pitfall3suffix": "เป็นทางออก",
+      "nextStepLabel": "ขั้นตอนถัดไป:",
+      "nextStep": "สร้าง custom hook useFetch เพื่อรวมศูนย์ API layer ของคุณ พร้อมรองรับแคช การจัดการข้อผิดพลาด และการลองใหม่แบบอัตโนมัติ"
     },
     "stats": {
       "structured": {

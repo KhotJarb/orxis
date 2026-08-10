@@ -44,10 +44,22 @@
       "subtitle": "Empat Pilar",
       "p1": "Setiap instruksi kustom utama dibangun di atas empat pilar dasar. Generator kami membuat masing-masing untukmu melalui panduan interaktif — tidak diperlukan keahlian prompt engineering.",
       "pillars": {
-        "persona": { "label": "Persona", "desc": "Siapa AI itu" },
-        "task": { "label": "Tugas", "desc": "Apa yang dilakukannya" },
-        "tone": { "label": "Nada", "desc": "Bagaimana ia berbicara" },
-        "rules": { "label": "Aturan", "desc": "Apa yang diikutinya" }
+        "persona": {
+          "label": "Persona",
+          "desc": "Siapa AI itu"
+        },
+        "task": {
+          "label": "Tugas",
+          "desc": "Apa yang dilakukannya"
+        },
+        "tone": {
+          "label": "Nada",
+          "desc": "Bagaimana ia berbicara"
+        },
+        "rules": {
+          "label": "Aturan",
+          "desc": "Apa yang diikutinya"
+        }
       },
       "footer": "Setiap pilar independen tetapi saling terhubung. Persona yang kuat tanpa Aturan yang jelas masih menghasilkan keluaran yang tidak konsisten. Mesin kami memastikan keempatnya bekerja selaras."
     }
@@ -116,11 +128,49 @@
     "promptText": "\"Jelaskan React hooks kepadaku\"",
     "before": {
       "fileName": "respons-generik.txt",
-      "footer": "Generik • Tidak terstruktur • Tidak ada poin yang bisa ditindaklanjuti • Tembok teks"
+      "footer": "Generik • Tidak terstruktur • Tidak ada poin yang bisa ditindaklanjuti • Tembok teks",
+      "p1": "Tentu! Berikut ini beberapa informasi tentang React hooks.",
+      "p2": "React hooks adalah fungsi yang memungkinkan kamu 'mengkaitkan' state dan fitur lifecycle React dari function components. Fitur ini diperkenalkan di React 16.8.",
+      "p3": "Hooks yang paling sering digunakan adalah useState dan useEffect. useState memungkinkan kamu menambahkan state ke komponen, dan useEffect memungkinkan kamu melakukan side effects seperti mengambil data.",
+      "p4": "Ada juga beberapa hooks lain seperti useContext, useReducer, dan useRef yang mungkin berguna tergantung pada kasus penggunaanmu.",
+      "p5": "Semoga ini membantu! Beritahu saya jika kamu memiliki pertanyaan."
     },
     "after": {
       "fileName": "respons-utama.md",
-      "footer": "Terstruktur • Tingkat Ahli • Dapat Ditindaklanjuti • Termasuk Tabel & Peringatan"
+      "footer": "Terstruktur • Tingkat Ahli • Dapat Ditindaklanjuti • Termasuk Tabel & Peringatan",
+      "title": "React Hooks — Referensi Lengkap",
+      "tableTitle": "Sekilas tentang Core Hooks",
+      "tableHeaders": {
+        "hook": "Hook",
+        "purpose": "Tujuan",
+        "useCase": "Kasus Penggunaan"
+      },
+      "hook0purpose": "State lokal yang reaktif",
+      "hook0useCase": "Input form, tombol toggle",
+      "hook1purpose": "Side effects & lifecycle",
+      "hook1useCase": "Panggilan API, subscriptions",
+      "hook2purpose": "Referensi yang dapat diubah",
+      "hook2useCase": "Akses DOM, timer",
+      "hook3purpose": "Perhitungan yang di-memoized",
+      "hook3useCase": "Data turunan, penyaringan",
+      "hook4purpose": "Referensi fungsi yang stabil",
+      "hook4useCase": "Event handlers, dependensi",
+      "bestPracticesTitle": "Praktik Terbaik",
+      "bp0title": "Ikuti Aturan Hooks",
+      "bp0desc": "Hanya panggil di level teratas; jangan pernah di dalam loop atau kondisi",
+      "bp1title": "Ekstrak Custom Hooks",
+      "bp1desc": "Gunakan kembali logika melalui konvensi penamaan use*",
+      "bp2title": "Tentukan Dependensi",
+      "bp2desc": "Selalu deklarasikan array dependensi yang tepat untuk mencegah stale closures",
+      "pitfallsTitle": "Jebakan Umum",
+      "pitfall1": "Lupa melakukan cleanup di",
+      "pitfall1consequence": "kebocoran memori (memory leaks) saat unmount",
+      "pitfall2": "Dependensi objek/array tanpa memoization",
+      "pitfall2consequence": "re-render tanpa henti (infinite re-renders)",
+      "pitfall3prefix": "Membaca state yang kadaluarsa di dalam async closures → gunakan",
+      "pitfall3suffix": "sebagai jalan keluar",
+      "nextStepLabel": "Langkah Selanjutnya:",
+      "nextStep": "Bangun custom hook useFetch untuk memusatkan API layer kamu dengan caching, penanganan error, dan percobaan ulang otomatis."
     },
     "stats": {
       "structured": {

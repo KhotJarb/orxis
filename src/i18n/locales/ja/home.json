@@ -44,10 +44,22 @@
       "subtitle": "4つの柱",
       "p1": "すべての優れたカスタムインストラクションは、4つの基本的な柱の上に構築されています。当社のジェネレーターは、プロンプトエンジニアリングの専門知識を必要とせず、インタラクティブなウィザードを通じて各柱を作成します。",
       "pillars": {
-        "persona": { "label": "ペルソナ", "desc": "AIが誰であるか" },
-        "task": { "label": "タスク", "desc": "何をするか" },
-        "tone": { "label": "トーン", "desc": "どのように話すか" },
-        "rules": { "label": "ルール", "desc": "何に従うか" }
+        "persona": {
+          "label": "ペルソナ",
+          "desc": "AIが誰であるか"
+        },
+        "task": {
+          "label": "タスク",
+          "desc": "何をするか"
+        },
+        "tone": {
+          "label": "トーン",
+          "desc": "どのように話すか"
+        },
+        "rules": {
+          "label": "ルール",
+          "desc": "何に従うか"
+        }
       },
       "footer": "各柱は独立していますが、相互に結びついています。明確なルールがない強力なペルソナは、依然として一貫性のない出力を生み出します。私たちのエンジンは、4つすべてが調和して機能することを保証します。"
     }
@@ -116,11 +128,49 @@
     "promptText": "「React Hooksについて説明して」",
     "before": {
       "fileName": "generic-response.txt",
-      "footer": "一般的 • 構造化されていない • 実行可能な要素がない • テキストの壁"
+      "footer": "一般的 • 構造化されていない • 実行可能な要素がない • テキストの壁",
+      "p1": "もちろんです！React hooksに関する情報をご紹介します。",
+      "p2": "React hooksは、関数コンポーネントからReactの状態やライフサイクル機能に「接続（hook）」できるようにする関数です。React 16.8で導入されました。",
+      "p3": "最もよく使われるhooksは useState と useEffect です。useState を使うとコンポーネントに状態を追加でき、useEffect を使うとデータ取得などの副作用を実行できます。",
+      "p4": "他にも useContext、useReducer、useRef などのhooksがあり、ユースケースに応じて便利に使えるかもしれません。",
+      "p5": "お役に立てれば幸いです！何か質問があればお知らせください。"
     },
     "after": {
       "fileName": "master-response.md",
-      "footer": "構造化されている • 専門家レベル • 実行可能 • テーブルと警告が含まれている"
+      "footer": "構造化されている • 専門家レベル • 実行可能 • テーブルと警告が含まれている",
+      "title": "React Hooks — 完全リファレンス",
+      "tableTitle": "コアHooksの一覧",
+      "tableHeaders": {
+        "hook": "Hook",
+        "purpose": "目的",
+        "useCase": "ユースケース"
+      },
+      "hook0purpose": "リアクティブなローカル状態",
+      "hook0useCase": "フォーム入力、トグル",
+      "hook1purpose": "副作用とライフサイクル",
+      "hook1useCase": "API呼び出し、サブスクリプション",
+      "hook2purpose": "変更可能な参照",
+      "hook2useCase": "DOMアクセス、タイマー",
+      "hook3purpose": "メモ化された計算",
+      "hook3useCase": "派生データ、フィルタリング",
+      "hook4purpose": "安定した関数参照",
+      "hook4useCase": "イベントハンドラー、依存配列",
+      "bestPracticesTitle": "ベストプラクティス",
+      "bp0title": "Hooksのルールに従う",
+      "bp0desc": "トップレベルでのみ呼び出します。ループや条件分岐の中では決して呼び出さないでください",
+      "bp1title": "カスタムHooksの抽出",
+      "bp1desc": "use* という命名規則を用いてロジックを再利用します",
+      "bp2title": "依存配列を明記する",
+      "bp2desc": "古いクロージャー（stale closures）を防ぐため、常に正確な依存配列を宣言します",
+      "pitfallsTitle": "よくある落とし穴",
+      "pitfall1": "クリーンアップのし忘れ",
+      "pitfall1consequence": "アンマウント時のメモリリーク",
+      "pitfall2": "メモ化されていないオブジェクト/配列の依存",
+      "pitfall2consequence": "無限の再レンダリング",
+      "pitfall3prefix": "非同期クロージャー内で古い状態を読み取る →",
+      "pitfall3suffix": "を回避策として使用します",
+      "nextStepLabel": "次のステップ：",
+      "nextStep": "キャッシュ、エラーハンドリング、自動再試行を備えた API 層を一元管理するため、カスタムの useFetch hook を構築しましょう。"
     },
     "stats": {
       "structured": {

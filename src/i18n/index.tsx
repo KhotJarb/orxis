@@ -167,7 +167,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       const nsData = translationCache[locale]?.[namespace];
       if (nsData) {
         const value = resolve(nsData, key);
-        if (value) return interpolate(value, vars);
+        if (value !== undefined) return interpolate(value, vars);
       }
 
       // Fallback to English
@@ -175,7 +175,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         const enData = translationCache["en"]?.[namespace];
         if (enData) {
           const value = resolve(enData, key);
-          if (value) return interpolate(value, vars);
+          if (value !== undefined) return interpolate(value, vars);
         }
       }
 

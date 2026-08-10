@@ -44,10 +44,22 @@
       "subtitle": "The Four Pillars",
       "p1": "Every master custom instruction is built on four foundational pillars. Our generator crafts each one for you through an interactive wizard — no prompt engineering expertise required.",
       "pillars": {
-        "persona": { "label": "Persona", "desc": "Who the AI is" },
-        "task": { "label": "Task", "desc": "What it does" },
-        "tone": { "label": "Tone", "desc": "How it speaks" },
-        "rules": { "label": "Rules", "desc": "What it follows" }
+        "persona": {
+          "label": "Persona",
+          "desc": "Who the AI is"
+        },
+        "task": {
+          "label": "Task",
+          "desc": "What it does"
+        },
+        "tone": {
+          "label": "Tone",
+          "desc": "How it speaks"
+        },
+        "rules": {
+          "label": "Rules",
+          "desc": "What it follows"
+        }
       },
       "footer": "Each pillar is independent but interconnected. A strong Persona without clear Rules still produces inconsistent output. Our engine ensures all four work in harmony."
     }
@@ -113,14 +125,52 @@
       "with": "With Master Prompt"
     },
     "promptLabel": "Prompt: ",
-    "promptText": "\"Explain React hooks to me\"",
+    "promptText": "“Explain React hooks to me”",
     "before": {
       "fileName": "generic-response.txt",
-      "footer": "Generic • Unstructured • No actionable takeaways • Wall of text"
+      "footer": "Generic • Unstructured • No actionable takeaways • Wall of text",
+      "p1": "Sure! Here’s some information about React hooks.",
+      "p2": "React hooks are functions that let you “hook into” React state and lifecycle features from function components. They were introduced in React 16.8.",
+      "p3": "The most commonly used hooks are useState and useEffect. useState lets you add state to a component, and useEffect lets you perform side effects like data fetching.",
+      "p4": "There are also some other hooks like useContext, useReducer, and useRef that you might find useful depending on your use case.",
+      "p5": "Hope this helps! Let me know if you have any questions."
     },
     "after": {
       "fileName": "master-response.md",
-      "footer": "Structured • Expert-Level • Actionable • Tables & Warnings Included"
+      "footer": "Structured • Expert-Level • Actionable • Tables & Warnings Included",
+      "title": "React Hooks — Complete Reference",
+      "tableTitle": "Core Hooks at a Glance",
+      "tableHeaders": {
+        "hook": "Hook",
+        "purpose": "Purpose",
+        "useCase": "Use Case"
+      },
+      "hook0purpose": "Reactive local state",
+      "hook0useCase": "Form inputs, toggles",
+      "hook1purpose": "Side effects & lifecycle",
+      "hook1useCase": "API calls, subs",
+      "hook2purpose": "Mutable references",
+      "hook2useCase": "DOM access, timers",
+      "hook3purpose": "Memoized computations",
+      "hook3useCase": "Derived data, filtering",
+      "hook4purpose": "Stable function refs",
+      "hook4useCase": "Event handlers, deps",
+      "bestPracticesTitle": "Best Practices",
+      "bp0title": "Follow the Rules of Hooks",
+      "bp0desc": "Call at the top level only; never inside loops or conditions",
+      "bp1title": "Extract Custom Hooks",
+      "bp1desc": "Reuse logic via use* naming convention",
+      "bp2title": "Specify Dependencies",
+      "bp2desc": "Always declare exact dependency arrays to prevent stale closures",
+      "pitfallsTitle": "Common Pitfalls",
+      "pitfall1": "Missing cleanup in",
+      "pitfall1consequence": "memory leaks on unmount",
+      "pitfall2": "Object/array deps without memoization",
+      "pitfall2consequence": "infinite re-renders",
+      "pitfall3prefix": "Reading stale state inside async closures → use",
+      "pitfall3suffix": "as escape hatch",
+      "nextStepLabel": "Next Step:",
+      "nextStep": "Build a custom useFetch hook to centralize your API layer with caching, error handling, and automatic retries."
     },
     "stats": {
       "structured": {

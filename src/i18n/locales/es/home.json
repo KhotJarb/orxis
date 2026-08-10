@@ -44,10 +44,22 @@
       "subtitle": "Los Cuatro Pilares",
       "p1": "Cada instrucción personalizada maestra está construida sobre cuatro pilares fundamentales. Nuestro generador elabora cada uno para ti a través de un asistente interactivo — no se requiere experiencia en ingeniería de prompts.",
       "pillars": {
-        "persona": { "label": "Persona", "desc": "Quién es la IA" },
-        "task": { "label": "Tarea", "desc": "Qué hace" },
-        "tone": { "label": "Tono", "desc": "Cómo habla" },
-        "rules": { "label": "Reglas", "desc": "Qué sigue" }
+        "persona": {
+          "label": "Persona",
+          "desc": "Quién es la IA"
+        },
+        "task": {
+          "label": "Tarea",
+          "desc": "Qué hace"
+        },
+        "tone": {
+          "label": "Tono",
+          "desc": "Cómo habla"
+        },
+        "rules": {
+          "label": "Reglas",
+          "desc": "Qué sigue"
+        }
       },
       "footer": "Cada pilar es independiente pero interconectado. Una Persona fuerte sin Reglas claras aún produce resultados inconsistentes. Nuestro motor asegura que los cuatro trabajen en armonía."
     }
@@ -116,11 +128,49 @@
     "promptText": "\"Explícame los hooks de React\"",
     "before": {
       "fileName": "respuesta-generica.txt",
-      "footer": "Genérico • No estructurado • Sin puntos accionables • Muro de texto"
+      "footer": "Genérico • No estructurado • Sin puntos accionables • Muro de texto",
+      "p1": "¡Claro! Aquí tienes un poco de información sobre los React hooks.",
+      "p2": "Los React hooks son funciones que te permiten 'engancharte' al estado y a las características del ciclo de vida de React desde los componentes funcionales. Se introdujeron en React 16.8.",
+      "p3": "Los hooks más utilizados son useState y useEffect. useState te permite añadir estado a un componente, y useEffect te permite realizar efectos secundarios como la obtención de datos.",
+      "p4": "También hay otros hooks como useContext, useReducer y useRef que podrías encontrar útiles dependiendo de tu caso de uso.",
+      "p5": "¡Espero que esto te sirva! Avísame si tienes alguna pregunta."
     },
     "after": {
       "fileName": "respuesta-maestra.md",
-      "footer": "Estructurado • Nivel Experto • Accionable • Tablas y Advertencias Incluidas"
+      "footer": "Estructurado • Nivel Experto • Accionable • Tablas y Advertencias Incluidas",
+      "title": "React Hooks — Referencia Completa",
+      "tableTitle": "Core Hooks de un vistazo",
+      "tableHeaders": {
+        "hook": "Hook",
+        "purpose": "Propósito",
+        "useCase": "Caso de Uso"
+      },
+      "hook0purpose": "Estado local reactivo",
+      "hook0useCase": "Entradas de formulario, toggles",
+      "hook1purpose": "Efectos secundarios y ciclo de vida",
+      "hook1useCase": "Llamadas a API, suscripciones",
+      "hook2purpose": "Referencias mutables",
+      "hook2useCase": "Acceso al DOM, temporizadores",
+      "hook3purpose": "Cálculos memorizados",
+      "hook3useCase": "Datos derivados, filtrado",
+      "hook4purpose": "Referencias de función estables",
+      "hook4useCase": "Manejadores de eventos, dependencias",
+      "bestPracticesTitle": "Mejores Prácticas",
+      "bp0title": "Sigue las reglas de los Hooks",
+      "bp0desc": "Llama solo en el nivel superior; nunca dentro de bucles o condiciones",
+      "bp1title": "Extrae Custom Hooks",
+      "bp1desc": "Reutiliza la lógica mediante la convención de nombres use*",
+      "bp2title": "Especifica las dependencias",
+      "bp2desc": "Declara siempre arreglos de dependencias exactos para prevenir closures obsoletos (stale closures)",
+      "pitfallsTitle": "Errores Comunes",
+      "pitfall1": "Falta de limpieza (cleanup) en",
+      "pitfall1consequence": "fugas de memoria al desmontar",
+      "pitfall2": "Dependencias de objetos/arreglos sin memorización",
+      "pitfall2consequence": "re-renderizados infinitos",
+      "pitfall3prefix": "Leer estados obsoletos dentro de closures asíncronos → usa",
+      "pitfall3suffix": "como vía de escape",
+      "nextStepLabel": "Siguiente Paso:",
+      "nextStep": "Crea un hook personalizado useFetch para centralizar tu capa de API con caché, manejo de errores y reintentos automáticos."
     },
     "stats": {
       "structured": {

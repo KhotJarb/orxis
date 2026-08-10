@@ -44,10 +44,22 @@
       "subtitle": "四大支柱",
       "p1": "每一个大师级的自定义指令都建立在四大基本支柱之上。我们的生成器通过交互式向导为您打造每一个支柱 — 无需 Prompt 工程专业知识。",
       "pillars": {
-        "persona": { "label": "角色", "desc": "AI 是谁" },
-        "task": { "label": "任务", "desc": "它做什么" },
-        "tone": { "label": "语气", "desc": "它如何说话" },
-        "rules": { "label": "规则", "desc": "它遵循什么" }
+        "persona": {
+          "label": "角色",
+          "desc": "AI 是谁"
+        },
+        "task": {
+          "label": "任务",
+          "desc": "它做什么"
+        },
+        "tone": {
+          "label": "语气",
+          "desc": "它如何说话"
+        },
+        "rules": {
+          "label": "规则",
+          "desc": "它遵循什么"
+        }
       },
       "footer": "每个支柱都是独立的但相互关联。没有明确规则的强大角色仍然会产生不一致的输出。我们的引擎确保这四者和谐运作。"
     }
@@ -116,11 +128,49 @@
     "promptText": "\"向我解释 React hooks\"",
     "before": {
       "fileName": "generic-response.txt",
-      "footer": "通用 • 无结构 • 无可行性建议 • 长篇大论"
+      "footer": "通用 • 无结构 • 无可行性建议 • 长篇大论",
+      "p1": "好的！这里有一些关于 React hooks 的信息。",
+      "p2": "React hooks 是一些特殊的函数，让你能在函数组件中“钩入” React 的状态和生命周期特性。它们是在 React 16.8 中引入的。",
+      "p3": "最常用的 hooks 是 useState 和 useEffect。useState 允许你向组件添加状态，而 useEffect 则让你执行副作用操作，比如获取数据。",
+      "p4": "另外还有一些其他 hooks，例如 useContext、useReducer 和 useRef，根据你的使用场景，你可能会发现它们很有用。",
+      "p5": "希望这对你有帮助！如果你有任何问题，请随时告诉我。"
     },
     "after": {
       "fileName": "master-response.md",
-      "footer": "结构化 • 专家级 • 可操作 • 包含表格和警告"
+      "footer": "结构化 • 专家级 • 可操作 • 包含表格和警告",
+      "title": "React Hooks — 完整参考指南",
+      "tableTitle": "核心 Hooks 一览",
+      "tableHeaders": {
+        "hook": "Hook",
+        "purpose": "用途",
+        "useCase": "使用场景"
+      },
+      "hook0purpose": "响应式局部状态",
+      "hook0useCase": "表单输入、开关切换",
+      "hook1purpose": "副作用与生命周期",
+      "hook1useCase": "API 调用、订阅",
+      "hook2purpose": "可变引用",
+      "hook2useCase": "DOM 访问、定时器",
+      "hook3purpose": "记忆化计算",
+      "hook3useCase": "派生数据、过滤",
+      "hook4purpose": "稳定的函数引用",
+      "hook4useCase": "事件处理器、依赖",
+      "bestPracticesTitle": "最佳实践",
+      "bp0title": "遵循 Hooks 规则",
+      "bp0desc": "只在最顶层调用；绝对不要在循环或条件语句中调用",
+      "bp1title": "提取自定义 Hooks",
+      "bp1desc": "通过 use* 命名约定复用逻辑",
+      "bp2title": "明确依赖项",
+      "bp2desc": "始终声明精确的依赖项数组，以防止闭包陷阱 (stale closures)",
+      "pitfallsTitle": "常见陷阱",
+      "pitfall1": "忘记在中清理",
+      "pitfall1consequence": "卸载时导致内存泄漏",
+      "pitfall2": "对象/数组作为依赖项且未记忆化",
+      "pitfall2consequence": "导致无限重新渲染",
+      "pitfall3prefix": "在异步闭包中读取过期状态 → 使用",
+      "pitfall3suffix": "作为后备手段",
+      "nextStepLabel": "下一步：",
+      "nextStep": "构建一个自定义的 useFetch hook，将你的 API 层集中管理，并支持缓存、错误处理和自动重试。"
     },
     "stats": {
       "structured": {
