@@ -167,11 +167,24 @@ function extractJSON(raw: string): Record<string, unknown> | null {
 // │ Route Handler                                                            │
 // └──────────────────────────────────────────────────────────────────────────┘
 export async function POST(req: NextRequest) {
-  const body: QuickGenerateBody = await req.json();
-  
+  // Outer safety net — ensures NO unhandled rejection ever escapes this handler
+  try {
+    const body: QuickGenerateBody = await req.json();
+    return await handleRequest(body);
+  } catch (err) {
+    console.error("[/api/quick-generate] Unhandled top-level error:", err);
+    // Last-resort: return a minimal fallback rather than a 500
+    return NextResponse.json({
+      phase: "result",
+      result: buildLocalFallback("AI assistant"),
+    });
+  }
+}
+
+async function handleRequest(body: QuickGenerateBody): Promise<NextResponse> {
   // Build the user message for the AI
   let userMessage = body.message;
-  
+
   // If this is phase 2 (answers to questions), include the context
   if (body.questions && body.answers) {
     userMessage += "\n\nClarifying questions and answers:\n";
@@ -181,41 +194,74 @@ export async function POST(req: NextRequest) {
         userMessage += `Q: ${q}\nA: ${answer}\n`;
       }
     });
-    // In phase 2, ALWAYS generate (never ask more questions)
     userMessage += "\nNow generate the complete AI assistant profile. Do NOT ask more questions.";
   }
-  
-  // Try Gemini
+
+  // Try Gemini (with one automatic 429 retry)
   if (API_KEY) {
-    try {
-      const ai = new GoogleGenAI({ apiKey: API_KEY });
-      const response = await ai.models.generateContent({
-        model: MODEL_NAME,
-        contents: userMessage,
-        config: {
-          systemInstruction: SYSTEM_PROMPT,
-          temperature: TEMPERATURE,
-          maxOutputTokens: MAX_TOKENS,
-          topP: 0.9,
-          topK: 40,
-        },
-      });
-      
-      const text = response.text;
-      if (!text?.trim()) throw new Error("Empty response");
-      
-      const parsed = extractJSON(text);
-      if (!parsed) throw new Error("Could not extract valid JSON from response");
-      return NextResponse.json(parsed);
-    } catch (err) {
-      console.error("[/api/quick-generate] Error:", err);
-    }
+    const result = await tryGemini(userMessage);
+    if (result !== null) return NextResponse.json(result);
   }
-  
+
   // Local fallback — always generate directly (no questions)
   const fallback = buildLocalFallback(body.message);
   return NextResponse.json({ phase: "result", result: fallback });
 }
+
+/**
+ * Calls the Gemini API. Returns parsed JSON on success, null on any failure.
+ * Automatically retries once on 429 after the suggested delay.
+ */
+async function tryGemini(
+  userMessage: string,
+  attempt = 0
+): Promise<Record<string, unknown> | null> {
+  try {
+    const ai = new GoogleGenAI({ apiKey: API_KEY });
+    const response = await ai.models.generateContent({
+      model: MODEL_NAME,
+      contents: userMessage,
+      config: {
+        systemInstruction: SYSTEM_PROMPT,
+        temperature: TEMPERATURE,
+        maxOutputTokens: MAX_TOKENS,
+        topP: 0.9,
+        topK: 40,
+      },
+    });
+
+    const text = response.text;
+    if (!text?.trim()) throw new Error("Empty response");
+
+    const parsed = extractJSON(text);
+    if (!parsed) throw new Error("Could not extract valid JSON from response");
+    return parsed;
+  } catch (err: unknown) {
+    // Check if this is a 429 rate-limit error
+    const is429 =
+      (err instanceof Error && err.message.includes("429")) ||
+      (typeof err === "object" && err !== null && "status" in err && (err as { status: number }).status === 429);
+
+    if (is429 && attempt === 0) {
+      // Extract retryDelay from the error body (e.g. "7s" or "7.72s")
+      const raw = err instanceof Error ? err.message : JSON.stringify(err);
+      const delayMatch = raw.match(/"retryDelay"\s*:\s*"?([\d.]+)s"?/);
+      const delaySec = delayMatch ? parseFloat(delayMatch[1]) : 8;
+      const delayMs = Math.min(Math.ceil(delaySec * 1000) + 500, 15000); // cap at 15s
+
+      console.warn(
+        `[/api/quick-generate] 429 quota hit — retrying in ${delayMs}ms (attempt ${attempt + 1})`
+      );
+      await new Promise((r) => setTimeout(r, delayMs));
+      return tryGemini(userMessage, attempt + 1);
+    }
+
+    // Any other error (or second attempt failure) → log and return null → local fallback
+    console.error("[/api/quick-generate] Error:", err);
+    return null;
+  }
+}
+
 
 // ┌──────────────────────────────────────────────────────────────────────────┐
 // │ Helper Functions                                                         │
