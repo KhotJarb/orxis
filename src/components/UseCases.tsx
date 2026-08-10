@@ -14,7 +14,7 @@ import {
   Clock,
   TrendingUp,
 } from "lucide-react";
-import { useT } from "@/i18n";
+import { useT, useLanguage } from "@/i18n";
 
 // ── Data ───────────────────────────────────────────────────────────────────
 // ── Token renderer ─────────────────────────────────────────────────────────
@@ -30,18 +30,20 @@ function PreviewLine({ token, text, accentClass }: { token: string; text: string
 
 export default function UseCases() {
   const t = useT("pages");
+  const { locale } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const directionRef   = useRef(0);
   const tabRefs        = useRef<(HTMLButtonElement | null)[]>([]);
   const [pillStyle, setPillStyle] = useState<{ left: number; width: number }>({ left: 0, width: 0 });
 
   // Measure the active tab button and move the pill to its exact position
+  // Re-runs when activeIndex OR locale changes (locale changes tab label widths)
   useEffect(() => {
     const el = tabRefs.current[activeIndex];
     if (el) {
       setPillStyle({ left: el.offsetLeft, width: el.offsetWidth });
     }
-  }, [activeIndex]);
+  }, [activeIndex, locale]);
 
   // Re-measure on first paint (handles SSR / initial render)
   useEffect(() => {

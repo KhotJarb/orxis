@@ -147,14 +147,15 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
-  // Change locale
+  // Change locale — load first, then swap atomically to prevent flash of raw keys
   const setLocale = useCallback((newLocale: Locale) => {
-    setLocaleState(newLocale);
     localStorage.setItem(STORAGE_KEY, newLocale);
 
-    // Load translations for new locale
-    setIsLoaded(false);
+    // Preload ALL namespaces for the new locale before committing the switch.
+    // This ensures the translation cache is warm before any component re-renders
+    // with the new locale, eliminating the flash of raw key paths.
     preloadLocale(newLocale).then(() => {
+      setLocaleState(newLocale);   // ← swap locale AFTER cache is ready
       setIsLoaded(true);
       setRenderKey((k) => k + 1);
     });
