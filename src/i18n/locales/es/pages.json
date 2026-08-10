@@ -267,7 +267,6 @@
             "items": [
               "Se añadió el Quick Mode — una interfaz conversacional de un solo prompt para generar perfiles completos de un AI assistant al instante. El sistema te hará preguntas de seguimiento inteligentes si necesita más contexto y luego producirá la instrucción completa de 7 secciones.",
               "Introducimos los Quick Shortcuts (Section 7) — cada instrucción generada incluye ahora plantillas de prompt listas para usar con placeholders {{variable}}. Solo copia cualquier atajo, reemplaza las variables con tus propios valores y pégalo como mensaje.",
-              "Las instrucciones generadas por IA siempre se producen en inglés (Section 1–6) sin importar el idioma de la interfaz, optimizando la eficiencia de los token cuando se utilizan en ChatGPT, Claude o Gemini. La Section 7 (Quick Shortcuts) se mantiene en el idioma del usuario para que sea fácil de leer.",
               "Los iniciadores de conversación (Conversation starters) ahora se muestran en todas las pestañas de plataforma en el Output Studio, no solo en la primera.",
               "El botón Generate en la pantalla de Quick Mode ahora tiene un estilo interactivo y animado que coincide con el modo Step-by-Step."
             ]
@@ -295,8 +294,8 @@
             "labelKey": "Platform",
             "label": "Plataforma",
             "items": [
-              "Migramos la generación por IA del backend externo a Next.js API routes, haciendo que la arquitectura sea completamente nativa de Vercel sin dependencias de servicios externos.",
-              "Resolvimos un problema donde la tubería de generación de IA estaba utilizando un modelo incorrecto en entornos de producción."
+              "Se mejoró la fiabilidad y los tiempos de respuesta de la generación.",
+              "Se corrigió un problema que podía causar fallos en la generación bajo ciertas condiciones."
             ]
           },
           {

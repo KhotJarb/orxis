@@ -267,7 +267,6 @@
             "items": [
               "新增 Quick Mode — 一种对话式的单提示词界面，可瞬间生成完整的 AI assistant 配置文件。如果需要更多上下文，系统会智能追问，然后生成完整的 7 节指令。",
               "引入 Quick Shortcuts (Section 7) — 每次生成的指令现在都包含带有 {{variable}} 占位符的即用型提示词模板。只需复制任意 shortcut，将变量替换为您自己的值，然后直接发送即可。",
-              "无论使用何种界面语言，AI 生成的指令 (Section 1–6) 始终为英语，以优化在 ChatGPT、Claude 或 Gemini 中使用时的 token 效率。Section 7 (Quick Shortcuts) 则保留用户的语言，方便阅读。",
               "现在 Output Studio 的所有平台选项卡中都会显示对话开场白，不再仅限于第一个选项卡。",
               "Quick Mode 界面的 Generate 按钮现在具备了与 Step-by-Step 模式一致的动态交互设计。"
             ]
@@ -295,8 +294,8 @@
             "labelKey": "Platform",
             "label": "平台",
             "items": [
-              "将 AI 生成从外部后端迁移至 Next.js API routes，使架构完全基于 Vercel，去除了对外部服务的依赖。",
-              "修复了在生产环境中 AI 生成管线使用错误模型的问题。"
+              "提高了生成的可靠性和响应速度。",
+              "修复了在某些条件下可能导致生成失败的问题。"
             ]
           },
           {

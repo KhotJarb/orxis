@@ -267,7 +267,6 @@
             "items": [
               "Menambahkan Quick Mode — antarmuka percakapan prompt tunggal untuk menghasilkan profil AI assistant lengkap secara instan. Sistem akan mengajukan pertanyaan lanjutan yang cerdas jika membutuhkan lebih banyak konteks, lalu menghasilkan instruksi penuh 7 bagian.",
               "Memperkenalkan Quick Shortcuts (Section 7) — setiap instruksi yang dihasilkan kini dilengkapi dengan templat prompt siap pakai dengan placeholder {{variable}}. Anda cukup menyalin pintasan apa pun, mengganti variabel dengan nilai Anda sendiri, lalu menempelkannya sebagai pesan.",
-              "Instruksi yang dihasilkan oleh AI kini selalu disajikan dalam bahasa Inggris (Section 1–6) terlepas dari bahasa antarmuka, guna mengoptimalkan efisiensi token saat diterapkan ke ChatGPT, Claude, atau Gemini. Section 7 (Quick Shortcuts) tetap dalam bahasa pengguna agar lebih mudah dibaca.",
               "Pemantik percakapan (Conversation starters) kini ditampilkan di seluruh tab platform di Output Studio, tidak hanya di tab pertama.",
               "Tombol Generate di layar Quick Mode kini dilengkapi dengan gaya interaktif animasi yang selaras dengan mode Step-by-Step."
             ]
@@ -295,8 +294,8 @@
             "labelKey": "Platform",
             "label": "Platform",
             "items": [
-              "Memigrasikan pembuatan AI dari backend eksternal ke Next.js API routes, membuat arsitektur sepenuhnya bersifat Vercel-native tanpa ketergantungan layanan eksternal.",
-              "Menyelesaikan masalah di mana proses pembuatan AI menggunakan model yang salah di lingkungan produksi."
+              "Peningkatan keandalan dan waktu respons pembuatan instruksi.",
+              "Memperbaiki masalah yang dapat menyebabkan kegagalan pembuatan dalam kondisi tertentu."
             ]
           },
           {
