@@ -2,6 +2,18 @@
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
 
+// ── Static English imports ────────────────────────────────────────────────────
+// Pre-bundle all English translations so the fallback is always available
+// synchronously — t() will NEVER return raw translation keys, worst case English.
+import en_common   from "./locales/en/common.json";
+import en_home     from "./locales/en/home.json";
+import en_generate from "./locales/en/generate.json";
+import en_docs     from "./locales/en/docs.json";
+import en_gallery  from "./locales/en/gallery.json";
+import en_legal    from "./locales/en/legal.json";
+import en_pages    from "./locales/en/pages.json";
+import en_data     from "./locales/en/data.json";
+
 // ── Supported Languages ──────────────────────────────────────────────────────
 
 export const LANGUAGES = {
@@ -87,7 +99,20 @@ function interpolate(text: string, vars?: Record<string, string | number>): stri
 
 // ── Dynamic loader ───────────────────────────────────────────────────────────
 
-const translationCache: LoadedTranslations = {};
+// Pre-populate English cache synchronously at module load time.
+// This guarantees the English fallback is always ready before any component renders.
+const translationCache: LoadedTranslations = {
+  en: {
+    common:   en_common   as unknown as TranslationMap,
+    home:     en_home     as unknown as TranslationMap,
+    generate: en_generate as unknown as TranslationMap,
+    docs:     en_docs     as unknown as TranslationMap,
+    gallery:  en_gallery  as unknown as TranslationMap,
+    legal:    en_legal    as unknown as TranslationMap,
+    pages:    en_pages    as unknown as TranslationMap,
+    data:     en_data     as unknown as TranslationMap,
+  },
+};
 
 async function loadNamespace(locale: Locale, ns: Namespace): Promise<TranslationMap> {
   // Check cache first
@@ -131,20 +156,25 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [, setRenderKey] = useState(0); // Force re-render after translations load
 
-  // Read saved locale from localStorage on mount
+  // Read saved locale from localStorage on mount — atomic: set locale AFTER cache is ready
   useEffect(() => {
     if (typeof window === "undefined") return;
 
     const saved = localStorage.getItem(STORAGE_KEY) as Locale | null;
     const initial = saved && saved in LANGUAGES ? saved : DEFAULT_LOCALE;
 
-    setLocaleState(initial);
-
-    // Preload translations
-    preloadLocale(initial).then(() => {
+    if (initial === DEFAULT_LOCALE) {
+      // English cache is already populated synchronously — just mark as loaded
       setIsLoaded(true);
-      setRenderKey((k) => k + 1);
-    });
+    } else {
+      // Non-English: preload all namespaces, then swap locale atomically
+      // (same pattern as setLocale — prevents flash of English before swap)
+      preloadLocale(initial).then(() => {
+        setLocaleState(initial);
+        setIsLoaded(true);
+        setRenderKey((k) => k + 1);
+      });
+    }
   }, []);
 
   // Change locale — load first, then swap atomically to prevent flash of raw keys

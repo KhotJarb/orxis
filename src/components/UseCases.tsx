@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Terminal,
@@ -36,17 +36,16 @@ export default function UseCases() {
   const tabRefs        = useRef<(HTMLButtonElement | null)[]>([]);
   const [pillStyle, setPillStyle] = useState<{ left: number; width: number }>({ left: 0, width: 0 });
 
-  // Measure the active tab button and move the pill to its exact position
-  // Re-runs when activeIndex OR locale changes (locale changes tab label widths)
-  useEffect(() => {
+  // Measure the active tab button BEFORE paint so Framer Motion's spring
+  // always starts with the correct target. useLayoutEffect fires synchronously
+  // after DOM mutation — prevents the "wrong direction" animation on tab switch.
+  useLayoutEffect(() => {
     const el = tabRefs.current[activeIndex];
-    if (el) {
-      setPillStyle({ left: el.offsetLeft, width: el.offsetWidth });
-    }
+    if (el) setPillStyle({ left: el.offsetLeft, width: el.offsetWidth });
   }, [activeIndex, locale]);
 
   // Re-measure on first paint (handles SSR / initial render)
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = tabRefs.current[0];
     if (el) setPillStyle({ left: el.offsetLeft, width: el.offsetWidth });
   }, []);
