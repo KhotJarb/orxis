@@ -3,8 +3,8 @@ import { GoogleGenAI } from "@google/genai";
 
 // ── Configuration ─────────────────────────────────────────────────────────────
 const MODEL_NAME = process.env.LLM_MODEL ?? "gemini-3.5-flash-lite";
-const TEMPERATURE = parseFloat(process.env.LLM_TEMPERATURE ?? "0.2");
-const MAX_TOKENS = parseInt(process.env.LLM_MAX_TOKENS ?? "4096", 10);
+const TEMPERATURE = parseFloat(process.env.LLM_TEMPERATURE ?? "0.4");
+const MAX_TOKENS = parseInt(process.env.LLM_MAX_TOKENS ?? "8192", 10);
 const API_KEY = process.env.GEMINI_API_KEY ?? "";
 
 // ── God-Tier Meta-Prompt Template ─────────────────────────────────────────────
@@ -249,8 +249,7 @@ export async function POST(req: NextRequest) {
           systemInstruction: systemPrompt,
           temperature: TEMPERATURE,
           maxOutputTokens: MAX_TOKENS,
-          topP: 0.9,
-          topK: 40,
+          topP: 0.95,
         },
       });
 
