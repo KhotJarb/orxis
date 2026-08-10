@@ -108,10 +108,10 @@ npm run start
 
 ## 🏗 Architecture
 
-- **Instruction generation** is handled by a server-side API that sends your wizard selections to Google Gemini and returns a complete six-section Custom Instruction. A local fallback generates a baseline instruction if the AI service is temporarily unavailable.
-- **Output Studio tweaks** use a dedicated AI call to precisely modify an existing instruction while preserving its overall structure.
+- **Instruction generation** — Your inputs from either Step-by-Step or Quick Mode are processed server-side to produce a complete seven-section Custom Instruction tailored to your context. Both modes share the same structured output format, ensuring consistent results regardless of which path you take.
+- **Output Studio** — After generating, you can refine your instruction at any time. Adjust the tone, tighten the structure, or expand specific sections without losing your original work or starting over.
 - **Content pages** (documentation, changelog, legal) are statically prerendered at build time and served from the CDN edge — no runtime compute required.
-- **Community Gallery submissions** use an isolated serverless route, fully separate from the generation pipeline.
+- **Community Gallery** — Submissions are handled independently from the instruction generation flow, ensuring Gallery availability is never affected by generator load.
 
 ---
 
