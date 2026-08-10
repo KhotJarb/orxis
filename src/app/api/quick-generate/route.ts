@@ -100,6 +100,70 @@ You MUST respond with ONLY valid JSON matching ONE of these two schemas. No mark
 `;
 
 // ┌──────────────────────────────────────────────────────────────────────────┐
+// │ Robust JSON Extractor                                                    │
+// └──────────────────────────────────────────────────────────────────────────┘
+/**
+ * Extracts and parses JSON from an LLM response that may contain:
+ * - Markdown code fences (```json ... ```)
+ * - Extra prose before/after the JSON object
+ * - Unescaped control characters inside string values
+ */
+function extractJSON(raw: string): Record<string, unknown> | null {
+  // Step 1: Strip outermost markdown fences
+  let text = raw.trim();
+  text = text.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim();
+
+  // Step 2: Find the first '{' and the matching closing '}' by depth scanning
+  const start = text.indexOf("{");
+  if (start === -1) return null;
+
+  let depth = 0;
+  let inString = false;
+  let escape = false;
+  let end = -1;
+
+  for (let i = start; i < text.length; i++) {
+    const ch = text[i];
+    if (escape) { escape = false; continue; }
+    if (ch === "\\") { escape = true; continue; }
+    if (ch === '"') { inString = !inString; continue; }
+    if (inString) continue;
+    if (ch === "{") depth++;
+    else if (ch === "}") {
+      depth--;
+      if (depth === 0) { end = i; break; }
+    }
+  }
+
+  if (end === -1) return null;
+  const candidate = text.slice(start, end + 1);
+
+  // Step 3: Try direct parse first
+  try {
+    return JSON.parse(candidate) as Record<string, unknown>;
+  } catch {
+    // Step 4: Sanitize unescaped control characters inside JSON strings
+    // (Gemini sometimes emits literal \n or \t inside JSON string values)
+    const sanitized = candidate.replace(
+      /"((?:[^"\\]|\\.)*)"/g,
+      (_match, inner: string) => {
+        const fixed = inner
+          .replace(/\r\n/g, "\\n")   // Windows line endings
+          .replace(/\r/g, "\\n")     // CR
+          .replace(/\n/g, "\\n")     // bare LF inside a JSON string
+          .replace(/\t/g, "\\t");    // bare tab
+        return `"${fixed}"`;
+      }
+    );
+    try {
+      return JSON.parse(sanitized) as Record<string, unknown>;
+    } catch {
+      return null;
+    }
+  }
+}
+
+// ┌──────────────────────────────────────────────────────────────────────────┐
 // │ Route Handler                                                            │
 // └──────────────────────────────────────────────────────────────────────────┘
 export async function POST(req: NextRequest) {
@@ -140,12 +204,8 @@ export async function POST(req: NextRequest) {
       const text = response.text;
       if (!text?.trim()) throw new Error("Empty response");
       
-      // Parse JSON (strip code fences if present)
-      let cleaned = text.trim();
-      cleaned = cleaned.replace(/^\s*```(?:json)?\n?/, "");
-      cleaned = cleaned.replace(/\n?```\s*$/, "");
-      
-      const parsed = JSON.parse(cleaned);
+      const parsed = extractJSON(text);
+      if (!parsed) throw new Error("Could not extract valid JSON from response");
       return NextResponse.json(parsed);
     } catch (err) {
       console.error("[/api/quick-generate] Error:", err);
