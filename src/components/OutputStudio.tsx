@@ -138,7 +138,7 @@ export default function OutputStudio({
       .join("\n");
 
     handleCopy(fullText, "all");
-  }, [result, handleCopy]);
+  }, [result, activeInstructions, handleCopy]);
 
   // ---- Copy button helper ----
   const CopyButton = ({
