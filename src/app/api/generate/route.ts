@@ -279,12 +279,57 @@ export async function POST(req: NextRequest) {
         };
         return NextResponse.json(fallbackObj);
       }
-    } catch (err) {
+    } catch (err: unknown) {
+      // Check for retryable errors
+      const is503 =
+        (err instanceof Error && err.message.includes("503")) ||
+        (typeof err === "object" && err !== null && "status" in err &&
+          (err as { status: number }).status === 503);
+
+      if (is503) {
+        // Retry once after a short delay
+        console.warn("[/api/generate] 503 model overloaded — retrying in 3s");
+        await new Promise((r) => setTimeout(r, 3000));
+        try {
+          const ai = new GoogleGenAI({ apiKey: API_KEY });
+          const systemPrompt = SYSTEM_PROMPT_TEMPLATE
+            .replaceAll("{user_input_intent}", intentStr)
+            .replaceAll("{user_input_persona}", personaStr)
+            .replaceAll("{user_input_task}", taskStr)
+            .replaceAll("{user_input_context}", contextStr)
+            .replaceAll("{user_input_tone}", toneStr)
+            .replaceAll("{user_input_rules}", rulesStr)
+            .replaceAll("{user_input_shortcuts}", shortcutsStr);
+
+          const retryResponse = await ai.models.generateContent({
+            model: MODEL_NAME,
+            contents: "Generate the complete AI Assistant profile as JSON now.",
+            config: {
+              systemInstruction: systemPrompt,
+              temperature: TEMPERATURE,
+              maxOutputTokens: MAX_TOKENS,
+              topP: 0.95,
+            },
+          });
+
+          const retryText = retryResponse.text;
+          if (retryText?.trim()) {
+            let cleanedText = retryText.trim();
+            cleanedText = cleanedText.replace(/^\s*```(?:json)?\n?/, "");
+            cleanedText = cleanedText.replace(/\n?```\s*$/, "");
+            const parsed: GenerateResult = JSON.parse(cleanedText);
+            return NextResponse.json(parsed);
+          }
+        } catch (retryErr) {
+          console.error("[/api/generate] Retry also failed:", retryErr);
+        }
+      }
+
       console.error("[/api/generate] Gemini error — falling back:", err);
     }
   }
 
   // ── Local fallback ────────────────────────────────────────────────────
   const fallback = buildLocalFallback(body);
-  return NextResponse.json(fallback);
+  return NextResponse.json({ ...fallback, fallback: true });
 }

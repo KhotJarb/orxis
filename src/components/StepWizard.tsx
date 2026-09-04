@@ -69,6 +69,7 @@ export interface GenerateResult {
   knowledgeSuggestions: string[];
   conversationStarters: string[];
   shortcuts: ShortcutData[];
+  fallback?: boolean;
 }
 
 interface StepWizardProps {
@@ -591,6 +592,7 @@ export default function StepWizard({ onGenerate }: StepWizardProps) {
         knowledgeSuggestions: data.knowledgeSuggestions || [],
         conversationStarters: data.conversationStarters || [],
         shortcuts: data.shortcuts || [],
+        fallback: data.fallback || false,
       };
     } catch {
       // Backend unavailable — build locally

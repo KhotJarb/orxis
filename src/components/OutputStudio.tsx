@@ -437,6 +437,22 @@ export default function OutputStudio({
         )}
       </AnimatePresence>
 
+      {/* ---- Fallback Warning ---- */}
+      {result.fallback && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-6 flex items-center gap-3 rounded-xl border border-amber-500/20 bg-amber-500/10 px-5 py-3 text-sm text-amber-300"
+        >
+          <AlertCircle className="h-4 w-4 shrink-0 text-amber-400" />
+          <div>
+            <span className="font-medium">{t("output.fallback.title")}</span>
+            {" — "}
+            {t("output.fallback.message")}
+          </div>
+        </motion.div>
+      )}
+
       {/* ---- Profile Card ---- */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

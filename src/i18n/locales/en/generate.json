@@ -145,7 +145,11 @@
       "badge": "Compact mode — optimized for platforms with character limits",
       "error": "Failed to generate Lite version. Please try again."
     },
-    "startOver": "Start Over"
+    "startOver": "Start Over",
+    "fallback": {
+      "title": "Limited result",
+      "message": "Our AI engine is temporarily busy. This is a basic template — please try again in a moment for a full AI-generated instruction."
+    }
   },
   "platformGuide": {
     "title": "How to set this up",

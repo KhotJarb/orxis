@@ -145,7 +145,11 @@
       "badge": "Mode ringkas — dioptimalkan untuk platform dengan batas karakter",
       "error": "Gagal membuat versi Ringkas. Silakan coba lagi."
     },
-    "startOver": "Mulai Ulang"
+    "startOver": "Mulai Ulang",
+    "fallback": {
+      "title": "Hasil terbatas",
+      "message": "Mesin AI kami sedang sibuk sementara. Ini adalah template dasar — silakan coba lagi sebentar untuk mendapatkan instruksi yang sepenuhnya dibuat oleh AI."
+    }
   },
   "platformGuide": {
     "title": "Cara mengatur ini",

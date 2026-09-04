@@ -145,7 +145,11 @@
       "badge": "精简模式 — 针对有字符限制的平台进行优化",
       "error": "生成精简版本失败，请重试。"
     },
-    "startOver": "重新开始"
+    "startOver": "重新开始",
+    "fallback": {
+      "title": "受限结果",
+      "message": "AI引擎暂时繁忙。这是一个基础模板 — 请稍后重试以获取完整的AI生成指令。"
+    }
   },
   "platformGuide": {
     "title": "如何进行设置",

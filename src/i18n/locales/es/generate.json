@@ -145,7 +145,11 @@
       "badge": "Modo compacto — optimizado para plataformas con límite de caracteres",
       "error": "No se pudo generar la versión Lite. Inténtalo de nuevo."
     },
-    "startOver": "Empezar de Nuevo"
+    "startOver": "Empezar de Nuevo",
+    "fallback": {
+      "title": "Resultado limitado",
+      "message": "Nuestro motor de IA está temporalmente ocupado. Esta es una plantilla básica — inténtalo de nuevo en un momento para obtener una instrucción generada por IA completa."
+    }
   },
   "platformGuide": {
     "title": "Cómo configurar esto",

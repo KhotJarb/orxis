@@ -206,7 +206,7 @@ async function handleRequest(body: QuickGenerateBody): Promise<NextResponse> {
 
   // Local fallback — always generate directly (no questions)
   const fallback = buildLocalFallback(body.message);
-  return NextResponse.json({ phase: "result", result: fallback });
+  return NextResponse.json({ phase: "result", result: fallback, fallback: true });
 }
 
 /**
@@ -245,6 +245,12 @@ async function tryGemini(
       (typeof err === "object" && err !== null && "status" in err &&
         (err as { status: number }).status === 429);
 
+    // Check if this is a 503 service unavailable (model overloaded)
+    const is503 =
+      (err instanceof Error && err.message.includes("503")) ||
+      (typeof err === "object" && err !== null && "status" in err &&
+        (err as { status: number }).status === 503);
+
     if (is429) {
       // Distinguish daily quota exhaustion from per-minute rate limits
       // Daily quota IDs contain "PerDay" — retrying won't help, go to fallback immediately
@@ -280,6 +286,16 @@ async function tryGemini(
         );
         return null;
       }
+    }
+
+    // 503 model overloaded: retry once after a short delay
+    if (is503 && attempt === 0) {
+      const delaySec = 3;
+      console.warn(
+        `[/api/quick-generate] 503 model overloaded — retrying in ${delaySec}s`
+      );
+      await new Promise((r) => setTimeout(r, delaySec * 1000));
+      return tryGemini(userMessage, attempt + 1);
     }
 
     // Any other error (or second attempt failure) → log and return null → local fallback

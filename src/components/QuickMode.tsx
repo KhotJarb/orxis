@@ -127,7 +127,7 @@ export default function QuickMode({ onGenerate }: QuickModeProps) {
         setAnswers(new Array((data.questions || []).length).fill(""));
         setState("questions");
       } else if (data.result) {
-        onGenerate(data.result);
+        onGenerate({ ...data.result, fallback: data.fallback || false });
       } else {
         // Unexpected shape — use client fallback
         onGenerate(fallbackGenerate(trimmed));
