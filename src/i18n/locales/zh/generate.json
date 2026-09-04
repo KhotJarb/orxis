@@ -137,6 +137,14 @@
         "note": "✓ 这些快捷方式已包含在您的指令中 — 您的助手将自动理解它们。"
       }
     },
+    "lite": {
+      "full": "完整",
+      "label": "精简",
+      "generating": "正在精简…",
+      "charCount": "{{count}} / {{limit}} 字符",
+      "badge": "精简模式 — 针对有字符限制的平台进行优化",
+      "error": "生成精简版本失败，请重试。"
+    },
     "startOver": "重新开始"
   },
   "platformGuide": {

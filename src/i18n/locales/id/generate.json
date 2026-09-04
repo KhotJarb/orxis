@@ -137,6 +137,14 @@
         "note": "✓ Pintasan ini sudah disertakan dalam instruksimu — asistenmu akan memahaminya secara otomatis."
       }
     },
+    "lite": {
+      "full": "Penuh",
+      "label": "Ringkas",
+      "generating": "Meringkas…",
+      "charCount": "{{count}} / {{limit}} karakter",
+      "badge": "Mode ringkas — dioptimalkan untuk platform dengan batas karakter",
+      "error": "Gagal membuat versi Ringkas. Silakan coba lagi."
+    },
     "startOver": "Mulai Ulang"
   },
   "platformGuide": {

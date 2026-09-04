@@ -14,6 +14,9 @@ import {
   MessageCircle,
   Upload,
   Zap,
+  Minimize2,
+  Maximize2,
+  Loader2,
 } from "lucide-react";
 import PlatformGuide from "./PlatformGuide";
 import type { GenerateResult } from "./StepWizard";
@@ -48,10 +51,56 @@ export default function OutputStudio({
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  // ---- Lite mode state ----
+  const CHAR_LIMIT = 1000;
+  const [liteMode, setLiteMode] = useState(false);
+  const [liteInstructions, setLiteInstructions] = useState<string | null>(null);
+  const [liteLoading, setLiteLoading] = useState(false);
+  const [liteError, setLiteError] = useState<string | null>(null);
+
+  // The instructions to display — full or lite
+  const activeInstructions =
+    liteMode && liteInstructions ? liteInstructions : result.instructions;
+
+  const handleDistill = useCallback(async () => {
+    // Already cached — just toggle
+    if (liteInstructions) {
+      setLiteMode(true);
+      return;
+    }
+
+    setLiteMode(true);
+    setLiteLoading(true);
+    setLiteError(null);
+
+    try {
+      const res = await fetch("/api/distill", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          instructions: result.instructions,
+          charLimit: CHAR_LIMIT,
+        }),
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      const data = await res.json();
+      if (!data.instructions) throw new Error("Empty response");
+
+      setLiteInstructions(data.instructions);
+    } catch {
+      setLiteError(t("output.lite.error"));
+      setLiteMode(false);
+    } finally {
+      setLiteLoading(false);
+    }
+  }, [result.instructions, liteInstructions, t]);
+
   // Computed metadata
-  const wordCount = result.instructions.split(/\s+/).filter(Boolean).length;
-  const lineCount = result.instructions.split("\n").length;
-  const sectionCount = (result.instructions.match(/^#+ /gm) || []).length;
+  const wordCount = activeInstructions.split(/\s+/).filter(Boolean).length;
+  const lineCount = activeInstructions.split("\n").length;
+  const sectionCount = (activeInstructions.match(/^#+ /gm) || []).length;
 
   const handleCopy = useCallback(
     async (text: string, fieldId: string) => {
@@ -73,7 +122,7 @@ export default function OutputStudio({
       `Description: ${result.description}`,
       "",
       "--- Instructions ---",
-      result.instructions,
+      activeInstructions,
       "",
       result.knowledgeSuggestions.length > 0
         ? `--- Knowledge Suggestions ---\n${result.knowledgeSuggestions.map((s) => `• ${s}`).join("\n")}`
@@ -165,7 +214,7 @@ export default function OutputStudio({
             />
             <FieldBlock
               label={t("output.fields.instructions")}
-              value={result.instructions}
+              value={activeInstructions}
               fieldId="gems-inst"
               mono
             />
@@ -230,7 +279,7 @@ export default function OutputStudio({
             />
             <FieldBlock
               label={t("output.fields.instructions")}
-              value={result.instructions}
+              value={activeInstructions}
               fieldId="gpts-inst"
               mono
             />
@@ -278,7 +327,7 @@ export default function OutputStudio({
             />
             <FieldBlock
               label={t("output.fields.projectInstructions")}
-              value={result.instructions}
+              value={activeInstructions}
               fieldId="proj-inst"
               mono
             />
@@ -325,7 +374,7 @@ export default function OutputStudio({
                 ai-assistant.md
               </span>
               <CopyButton
-                text={result.instructions}
+                text={activeInstructions}
                 fieldId="raw"
                 size="sm"
               />
@@ -333,7 +382,7 @@ export default function OutputStudio({
             {/* Content */}
             <div className="p-5 sm:p-6 overflow-y-auto max-h-[500px]">
               <pre className="text-sm sm:text-[15px] text-slate-300 whitespace-pre-wrap font-mono leading-relaxed">
-                {result.instructions}
+                {activeInstructions}
               </pre>
             </div>
             {/* Metadata bar */}
@@ -413,6 +462,95 @@ export default function OutputStudio({
             fieldId="profile"
           />
         </div>
+      </motion.div>
+
+      {/* ---- Full / Lite Toggle ---- */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.15, ease: EASE_SMOOTH }}
+        className="mb-6"
+      >
+        <div className="flex items-center justify-between rounded-xl bg-white/[0.02] border border-glass-border px-4 py-3">
+          <div className="flex items-center gap-3">
+            <div className="flex gap-1 p-0.5 rounded-lg bg-white/[0.03] border border-glass-border">
+              <button
+                onClick={() => setLiteMode(false)}
+                className={`
+                  flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium
+                  transition-all duration-200 cursor-pointer
+                  ${!liteMode
+                    ? "bg-neon-purple/15 text-neon-purple-light border border-neon-purple/30"
+                    : "text-slate-500 hover:text-slate-300"
+                  }
+                `}
+              >
+                <Maximize2 className="h-3 w-3" />
+                {t("output.lite.full")}
+              </button>
+              <button
+                onClick={handleDistill}
+                disabled={liteLoading}
+                className={`
+                  flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium
+                  transition-all duration-200 cursor-pointer
+                  ${liteMode
+                    ? "bg-neon-cyan/15 text-neon-cyan-light border border-neon-cyan/30"
+                    : "text-slate-500 hover:text-slate-300"
+                  }
+                  ${liteLoading ? "opacity-60 cursor-wait" : ""}
+                `}
+              >
+                {liteLoading ? (
+                  <Loader2 className="h-3 w-3 animate-spin" />
+                ) : (
+                  <Minimize2 className="h-3 w-3" />
+                )}
+                {liteLoading ? t("output.lite.generating") : t("output.lite.label")}
+              </button>
+            </div>
+
+            {/* Character count badge (Lite mode only) */}
+            {liteMode && liteInstructions && (
+              <span
+                className={`text-[11px] font-mono px-2 py-0.5 rounded-md border ${
+                  liteInstructions.length <= CHAR_LIMIT * 0.9
+                    ? "text-emerald-400 border-emerald-500/20 bg-emerald-500/10"
+                    : liteInstructions.length <= CHAR_LIMIT
+                    ? "text-amber-400 border-amber-500/20 bg-amber-500/10"
+                    : "text-red-400 border-red-500/20 bg-red-500/10"
+                }`}
+              >
+                {t("output.lite.charCount", {
+                  count: liteInstructions.length,
+                  limit: CHAR_LIMIT,
+                })}
+              </span>
+            )}
+          </div>
+
+          {/* Badge text */}
+          {liteMode && !liteLoading && (
+            <span className="text-[11px] text-slate-500 hidden sm:inline">
+              {t("output.lite.badge")}
+            </span>
+          )}
+        </div>
+
+        {/* Lite error */}
+        <AnimatePresence>
+          {liteError && (
+            <motion.div
+              initial={{ opacity: 0, y: -5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              className="mt-2 flex items-center gap-2 rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-2 text-xs text-red-300"
+            >
+              <AlertCircle className="h-3.5 w-3.5 shrink-0" />
+              {liteError}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
 
       {/* ---- Platform Tabs ---- */}

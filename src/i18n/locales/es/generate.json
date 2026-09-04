@@ -137,6 +137,14 @@
         "note": "✓ Estos atajos ya están incluidos en tus instrucciones — tu asistente los entenderá automáticamente."
       }
     },
+    "lite": {
+      "full": "Completa",
+      "label": "Lite",
+      "generating": "Condensando…",
+      "charCount": "{{count}} / {{limit}} caracteres",
+      "badge": "Modo compacto — optimizado para plataformas con límite de caracteres",
+      "error": "No se pudo generar la versión Lite. Inténtalo de nuevo."
+    },
     "startOver": "Empezar de Nuevo"
   },
   "platformGuide": {
