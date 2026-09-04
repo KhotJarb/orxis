@@ -5,6 +5,7 @@ import { GoogleGenAI } from "@google/genai";
 // │ Configuration Constants                                                  │
 // └──────────────────────────────────────────────────────────────────────────┘
 const MODEL_NAME = process.env.LLM_MODEL ?? "gemini-3.5-flash-lite";
+const FALLBACK_MODEL = process.env.LLM_FALLBACK_MODEL ?? "gemini-2.0-flash-lite";
 const TEMPERATURE = parseFloat(process.env.LLM_TEMPERATURE ?? "0.4");
 const MAX_TOKENS = parseInt(process.env.LLM_MAX_TOKENS ?? "8192", 10);
 const API_KEY = process.env.GEMINI_API_KEY ?? "";
@@ -215,12 +216,14 @@ async function handleRequest(body: QuickGenerateBody): Promise<NextResponse> {
  */
 async function tryGemini(
   userMessage: string,
-  attempt = 0
+  attempt = 0,
+  modelOverride?: string
 ): Promise<Record<string, unknown> | null> {
+  const modelToUse = modelOverride ?? MODEL_NAME;
   try {
     const ai = new GoogleGenAI({ apiKey: API_KEY });
     const response = await ai.models.generateContent({
-      model: MODEL_NAME,
+      model: modelToUse,
       contents: userMessage,
       config: {
         systemInstruction: SYSTEM_PROMPT,
@@ -288,14 +291,12 @@ async function tryGemini(
       }
     }
 
-    // 503 model overloaded: retry once after a short delay
-    if (is503 && attempt === 0) {
-      const delaySec = 3;
+    // 503 model overloaded: try fallback model if we haven't already
+    if (is503 && attempt === 0 && modelToUse !== FALLBACK_MODEL) {
       console.warn(
-        `[/api/quick-generate] 503 model overloaded — retrying in ${delaySec}s`
+        `[/api/quick-generate] 503 on ${modelToUse} — switching to fallback model: ${FALLBACK_MODEL}`
       );
-      await new Promise((r) => setTimeout(r, delaySec * 1000));
-      return tryGemini(userMessage, attempt + 1);
+      return tryGemini(userMessage, 1, FALLBACK_MODEL);
     }
 
     // Any other error (or second attempt failure) → log and return null → local fallback
