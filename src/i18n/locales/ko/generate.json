@@ -141,6 +141,7 @@
       "full": "전체",
       "label": "라이트",
       "generating": "압축 중…",
+      "generatingHint": "최대 효과를 위해 지침을 압축하고 있습니다",
       "charCount": "{{count}} / {{limit}} 자",
       "badge": "컴팩트 모드 — 글자 수 제한이 있는 플랫폼에 최적화",
       "error": "라이트 버전 생성에 실패했습니다. 다시 시도해 주세요."

@@ -141,6 +141,7 @@
       "full": "Penuh",
       "label": "Ringkas",
       "generating": "Meringkas…",
+      "generatingHint": "Memadatkan instruksi Anda untuk dampak maksimal",
       "charCount": "{{count}} / {{limit}} karakter",
       "badge": "Mode ringkas — dioptimalkan untuk platform dengan batas karakter",
       "error": "Gagal membuat versi Ringkas. Silakan coba lagi."

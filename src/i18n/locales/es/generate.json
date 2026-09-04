@@ -141,6 +141,7 @@
       "full": "Completa",
       "label": "Lite",
       "generating": "Condensando…",
+      "generatingHint": "Comprimiendo tus instrucciones para máximo impacto",
       "charCount": "{{count}} / {{limit}} caracteres",
       "badge": "Modo compacto — optimizado para plataformas con límite de caracteres",
       "error": "No se pudo generar la versión Lite. Inténtalo de nuevo."

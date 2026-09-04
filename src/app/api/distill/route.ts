@@ -42,9 +42,11 @@ RULES:
 5. Use imperative voice: "You are X. Do Y. Never Z."
 6. Merge related rules into dense compound sentences.
 7. Drop all filler: no "Please ensure", no "It is important", no "Remember to".
-8. Do NOT pad to reach the character limit — use only as many characters as \
-   needed for high-quality instructions. Shorter is fine if all essential \
-   information is captured.
+8. USE the character budget generously — aim to use 80-100% of the limit. \
+   More detail means better real-world performance. Include nuanced behavioral \
+   guidance, specific constraints, and rich context within each section. \
+   Do not leave large unused budget; every extra well-written sentence \
+   improves how the instruction performs across different LLM platforms.
 9. No Markdown formatting inside sections — no headers (#), no bold (**), \
    no bullet lists. Plain text within each [Label] block.\
 `;

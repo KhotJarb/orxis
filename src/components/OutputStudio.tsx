@@ -575,7 +575,36 @@ export default function OutputStudio({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2, ease: EASE_SMOOTH }}
         data-tour-step="tabs"
+        className="relative"
       >
+        {/* Distillation Loading Overlay */}
+        <AnimatePresence>
+          {liteLoading && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="absolute inset-0 z-20 flex flex-col items-center justify-center rounded-2xl bg-[#030014]/80 backdrop-blur-sm border border-neon-cyan/20"
+            >
+              <div className="flex flex-col items-center gap-4 py-16">
+                <div className="relative">
+                  <div className="h-12 w-12 rounded-full border-2 border-neon-cyan/20" />
+                  <div className="absolute inset-0 h-12 w-12 rounded-full border-2 border-transparent border-t-neon-cyan animate-spin" />
+                </div>
+                <div className="text-center">
+                  <p className="text-sm font-medium text-neon-cyan-light">
+                    {t("output.lite.generating")}
+                  </p>
+                  <p className="text-xs text-slate-500 mt-1">
+                    {t("output.lite.generatingHint")}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <div className="flex gap-1 mb-6 p-1 rounded-xl bg-white/[0.03] border border-glass-border">
           {PLATFORM_TABS.map((tab) => (
             <button

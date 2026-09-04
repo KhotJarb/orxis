@@ -141,6 +141,7 @@
       "full": "Full",
       "label": "Lite",
       "generating": "Distilling…",
+      "generatingHint": "Compressing your instructions for maximum impact",
       "charCount": "{{count}} / {{limit}} chars",
       "badge": "Compact mode — optimized for platforms with character limits",
       "error": "Failed to generate Lite version. Please try again."
