@@ -3,7 +3,6 @@ import { GoogleGenAI } from "@google/genai";
 
 // ── Configuration ─────────────────────────────────────────────────────────────
 const MODEL_NAME = process.env.LLM_MODEL ?? "gemini-3.5-flash-lite";
-const FALLBACK_MODEL = process.env.LLM_FALLBACK_MODEL ?? "gemini-2.5-flash-lite";
 const TEMPERATURE = parseFloat(process.env.LLM_TEMPERATURE ?? "0.3");
 const MAX_TOKENS = parseInt(process.env.LLM_MAX_TOKENS ?? "2048", 10);
 const API_KEY = process.env.GEMINI_API_KEY ?? "";
@@ -140,11 +139,12 @@ export async function POST(req: NextRequest) {
           (err as { status: number }).status === 503);
 
       if (is503) {
-        console.warn(`[/api/distill] 503 on ${MODEL_NAME} — switching to fallback model: ${FALLBACK_MODEL}`);
+        console.warn("[/api/distill] 503 model overloaded — retrying in 3s");
+        await new Promise((r) => setTimeout(r, 3000));
         try {
           const ai = new GoogleGenAI({ apiKey: API_KEY });
-          const fallbackResponse = await ai.models.generateContent({
-            model: FALLBACK_MODEL,
+          const retryResponse = await ai.models.generateContent({
+            model: MODEL_NAME,
             contents: userPrompt,
             config: {
               systemInstruction: DISTILL_SYSTEM_INSTRUCTION,
@@ -154,21 +154,21 @@ export async function POST(req: NextRequest) {
             },
           });
 
-          const fbText = fallbackResponse.text?.trim();
-          if (fbText) {
-            let fbResult = fbText;
-            if (fbResult.length > charLimit) {
-              const lastPeriod = fbResult.slice(0, charLimit).lastIndexOf(".");
+          const retryText = retryResponse.text?.trim();
+          if (retryText) {
+            let retryResult = retryText;
+            if (retryResult.length > charLimit) {
+              const lastPeriod = retryResult.slice(0, charLimit).lastIndexOf(".");
               if (lastPeriod > charLimit * 0.5) {
-                fbResult = fbResult.slice(0, lastPeriod + 1);
+                retryResult = retryResult.slice(0, lastPeriod + 1);
               } else {
-                fbResult = fbResult.slice(0, charLimit - 1) + "…";
+                retryResult = retryResult.slice(0, charLimit - 1) + "…";
               }
             }
-            return NextResponse.json({ instructions: fbResult });
+            return NextResponse.json({ instructions: retryResult });
           }
         } catch (retryErr) {
-          console.error("[/api/distill] Fallback model also failed:", retryErr);
+          console.error("[/api/distill] Retry also failed:", retryErr);
         }
       }
 

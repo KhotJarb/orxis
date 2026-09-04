@@ -3,7 +3,6 @@ import { GoogleGenAI } from "@google/genai";
 
 // ── Configuration ─────────────────────────────────────────────────────────────
 const MODEL_NAME = process.env.LLM_MODEL ?? "gemini-3.5-flash-lite";
-const FALLBACK_MODEL = process.env.LLM_FALLBACK_MODEL ?? "gemini-2.5-flash-lite";
 const TEMPERATURE = parseFloat(process.env.LLM_TEMPERATURE ?? "0.4");
 const MAX_TOKENS = parseInt(process.env.LLM_MAX_TOKENS ?? "8192", 10);
 const API_KEY = process.env.GEMINI_API_KEY ?? "";
@@ -288,8 +287,9 @@ export async function POST(req: NextRequest) {
           (err as { status: number }).status === 503);
 
       if (is503) {
-        // Try fallback model instead of retrying the same overloaded one
-        console.warn(`[/api/generate] 503 on ${MODEL_NAME} — switching to fallback model: ${FALLBACK_MODEL}`);
+        // Retry once after a short delay
+        console.warn("[/api/generate] 503 model overloaded — retrying in 3s");
+        await new Promise((r) => setTimeout(r, 3000));
         try {
           const ai = new GoogleGenAI({ apiKey: API_KEY });
           const systemPrompt = SYSTEM_PROMPT_TEMPLATE
@@ -302,7 +302,7 @@ export async function POST(req: NextRequest) {
             .replaceAll("{user_input_shortcuts}", shortcutsStr);
 
           const retryResponse = await ai.models.generateContent({
-            model: FALLBACK_MODEL,
+            model: MODEL_NAME,
             contents: "Generate the complete AI Assistant profile as JSON now.",
             config: {
               systemInstruction: systemPrompt,
@@ -321,7 +321,7 @@ export async function POST(req: NextRequest) {
             return NextResponse.json(parsed);
           }
         } catch (retryErr) {
-          console.error("[/api/generate] Fallback model also failed:", retryErr);
+          console.error("[/api/generate] Retry also failed:", retryErr);
         }
       }
 
